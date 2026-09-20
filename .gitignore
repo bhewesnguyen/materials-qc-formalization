@@ -1,0 +1,7 @@
+.lake/
+evidence/latest/
+evidence/selftest-latest/
+__pycache__/
+*.pyc
+.venv/
+

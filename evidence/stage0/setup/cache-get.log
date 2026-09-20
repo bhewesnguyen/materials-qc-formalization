@@ -1,0 +1,16 @@
+✔ [1/5] Built Cache.Cli (391ms)
+✔ [2/5] Built Cache.Lean (403ms)
+✔ [8/42] Built Cache.Cli:c.o (138ms)
+✔ [9/42] Built Cache.Lean:c.o (147ms)
+✔ [10/42] Built Cache.Env (432ms)
+✔ [11/42] Built Cache.Env:c.o (121ms)
+✔ [12/42] Built Cache.Infra (452ms)
+✔ [13/42] Built Cache.Infra:c.o (211ms)
+✔ [14/42] Built Cache.IO (1.5s)
+✖ [15/42] Building Cache.Hashing (373ms)
+trace: .> LEAN_PATH=/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/build/lib/lean /workspace/scratch/0a42b15a2c38/stage0/lean-4.34.0-linux/bin/lean /workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/mathlib/Cache/Hashing.lean -o /workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/mathlib/.lake/build/lib/lean/Cache/Hashing.olean -i /workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/mathlib/.lake/build/lib/lean/Cache/Hashing.ilean -c /workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/mathlib/.lake/build/ir/Cache/Hashing.c --setup /workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/mathlib/.lake/build/ir/Cache/Hashing.setup.json --json
+error: Cache/Hashing.lean:7:0: leantar not found in Lean sysroot. This toolchain may predate nightly-2026-03-09.
+✔ [41/42] Built Cache.IO:c.o (1.4s)
+Some required targets logged failures:
+- Cache.Hashing
+error: build failed

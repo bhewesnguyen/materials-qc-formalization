@@ -1,0 +1,135 @@
+✖ [2171/2173] Building FormalScience.Stage0 (2.6s)
+trace: .> LEAN_PATH=/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/build/lib/lean /workspace/scratch/0a42b15a2c38/stage0/lean-4.34.0-linux/bin/lean /workspace/scratch/0a42b15a2c38/stage0/formal-science/FormalScience/Stage0.lean -o /workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/build/lib/lean/FormalScience/Stage0.olean -i /workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/build/lib/lean/FormalScience/Stage0.ilean -c /workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/build/ir/FormalScience/Stage0.c --setup /workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/build/ir/FormalScience/Stage0.setup.json --json
+error: FormalScience/Stage0.lean:20:45: Unknown identifier `ℂ`
+warning: FormalScience/Stage0.lean:23:4: declaration uses `sorry`
+warning: FormalScience/Stage0.lean:27:4: declaration uses `sorry`
+error: FormalScience/Stage0.lean:32:46: Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: FormalScience/Stage0.lean:35:2: No goals to be solved
+warning: FormalScience/Stage0.lean:34:13: declaration uses `sorry`
+warning: FormalScience/Stage0.lean:34:29: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [basisProjector, Matrix.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: FormalScience/Stage0.lean:34:52: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [basisProjector, Matrix.diagonal_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: FormalScience/Stage0.lean:43:2: unsolved goals
+case right
+i : Fin 2
+⊢ sorry () = 1
+warning: FormalScience/Stage0.lean:43:10: declaration uses `sorry`
+warning: FormalScience/Stage0.lean:43:10: This simp argument is unused:
+  basisProjector
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: FormalScience/Stage0.lean:47:47: Unknown identifier `ℂ`
+error: FormalScience/Stage0.lean:47:68: Unknown identifier `ℂ`
+error: FormalScience/Stage0.lean:59:2: unsolved goals
+case right
+populationOne : ℝ
+h0 : 0 ≤ populationOne
+h1 : populationOne ≤ 1
+⊢ sorry () = 1
+warning: FormalScience/Stage0.lean:59:10: declaration uses `sorry`
+warning: FormalScience/Stage0.lean:59:10: This simp argument is unused:
+  diagonalState
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.trace, Fin.sum_univ_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: FormalScience/Stage0.lean:59:25: This simp argument is unused:
+  Matrix.trace
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [diagonalState, Fin.sum_univ_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: FormalScience/Stage0.lean:59:39: This simp argument is unused:
+  Fin.sum_univ_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [diagonalState, Matrix.trace]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: FormalScience/Stage0.lean:64:44: declaration uses `sorry`
+warning: FormalScience/Stage0.lean:64:59: declaration uses `sorry`
+warning: FormalScience/Stage0.lean:62:8: declaration uses `sorry`
+warning: FormalScience/Stage0.lean:69:44: declaration uses `sorry`
+warning: FormalScience/Stage0.lean:69:59: declaration uses `sorry`
+warning: FormalScience/Stage0.lean:67:8: declaration uses `sorry`
+error: FormalScience/Stage0.lean:72:76: unsolved goals
+h : basisProjector 0 = basisProjector 1
+h00 : True
+⊢ False
+warning: FormalScience/Stage0.lean:75:12: declaration uses `sorry`
+error: FormalScience/Stage0.lean:83:33: Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: FormalScience/Stage0.lean:83:52: Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: FormalScience/Stage0.lean:83:68: Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: FormalScience/Stage0.lean:87:43: Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: FormalScience/Stage0.lean:87:62: Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: FormalScience/Stage0.lean:101:54: Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: FormalScience/Stage0.lean:102:49: Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: FormalScience/Stage0.lean:104:6: Unknown identifier `krausMap_trace`
+error: FormalScience/Stage0.lean:103:52: unsolved goals
+α : Type u_1
+β : Type u_2
+κ : Type u_3
+inst✝⁴ : Fintype α
+inst✝³ : Fintype β
+inst✝² : Fintype κ
+inst✝¹ : DecidableEq α
+inst✝ : DecidableEq β
+K : κ → Matrix β α sorry
+hK : ∑ j, sorry * K j = 1
+X : Matrix α α sorry
+⊢ sorry = sorry
+error: FormalScience/Stage0.lean:110:20: failed to synthesize instance of type class
+  OfNat QubitMatrix 1
+numerals are polymorphic in Lean, but the numeral `1` cannot be used in a context where the expected type is
+  QubitMatrix
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+error: FormalScience/Stage0.lean:110:51: unsolved goals
+⊢ sorry () = 1
+error: FormalScience/Stage0.lean:115:32: failed to synthesize instance of type class
+  OfNat QubitMatrix 1
+numerals are polymorphic in Lean, but the numeral `1` cannot be used in a context where the expected type is
+  QubitMatrix
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+error: FormalScience/Stage0.lean:115:59: unsolved goals
+X : QubitMatrix
+⊢ sorry () = X
+warning: FormalScience/Stage0.lean:116:8: declaration uses `sorry`
+Some required targets logged failures:
+- FormalScience.Stage0
+error: build failed

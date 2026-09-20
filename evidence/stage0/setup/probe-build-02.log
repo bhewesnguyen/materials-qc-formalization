@@ -1,0 +1,29 @@
+✖ [2186/2188] Building FormalScience.Stage0 (2.4s)
+trace: .> LEAN_PATH=/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/build/lib/lean /workspace/scratch/0a42b15a2c38/stage0/lean-4.34.0-linux/bin/lean /workspace/scratch/0a42b15a2c38/stage0/formal-science/FormalScience/Stage0.lean -o /workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/build/lib/lean/FormalScience/Stage0.olean -i /workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/build/lib/lean/FormalScience/Stage0.ilean -c /workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/build/ir/FormalScience/Stage0.c --setup /workspace/scratch/0a42b15a2c38/stage0/formal-science/.lake/build/ir/FormalScience/Stage0.setup.json --json
+error: FormalScience/Stage0.lean:35:16: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+error: FormalScience/Stage0.lean:42:4: Tactic `split_ifs` failed: no if-then-else conditions to split
+
+case left
+i j : Fin 2
+⊢ 0 j ≤ (fun j => if j = i then 1 else 0) j
+error: FormalScience/Stage0.lean:57:12: Unknown constant `Complex.ofReal_nonneg`
+error: FormalScience/Stage0.lean:58:12: Unknown constant `Complex.ofReal_nonneg`
+warning: FormalScience/Stage0.lean:87:0: automatically included section variable(s) unused in theorem `FormalScience.Stage0.krausMap_trace`:
+  [DecidableEq α]
+  [DecidableEq β]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq α] [DecidableEq β] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: FormalScience/Stage0.lean:110:7: Variable name `j` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _j
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Some required targets logged failures:
+- FormalScience.Stage0
+error: build failed

@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "lean_version": "4.34.0",
+  "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+  "release_modules": [
+    "FormalScience.Stage0"
+  ],
+  "exports": [
+    "FormalScience.Stage0.QubitMatrix",
+    "FormalScience.Stage0.IsDensity",
+    "FormalScience.Stage0.basisProjector",
+    "FormalScience.Stage0.basisProjector_eq_single",
+    "FormalScience.Stage0.basisProjector_isDensity",
+    "FormalScience.Stage0.diagonalState",
+    "FormalScience.Stage0.diagonalState_isDensity",
+    "FormalScience.Stage0.diagonalState_zero",
+    "FormalScience.Stage0.diagonalState_one",
+    "FormalScience.Stage0.basisProjector_zero_ne_one",
+    "FormalScience.Stage0.krausMap",
+    "FormalScience.Stage0.krausMap_trace",
+    "FormalScience.Stage0.krausMap_trace_preserving",
+    "FormalScience.Stage0.identityKraus_complete",
+    "FormalScience.Stage0.identityKraus_apply"
+  ],
+  "contract_file": "Audit/Contracts.lean",
+  "contract_exports": [
+    "FormalScience.Stage0.basisProjector_eq_single",
+    "FormalScience.Stage0.basisProjector_isDensity",
+    "FormalScience.Stage0.diagonalState_isDensity",
+    "FormalScience.Stage0.diagonalState_zero",
+    "FormalScience.Stage0.diagonalState_one",
+    "FormalScience.Stage0.basisProjector_zero_ne_one",
+    "FormalScience.Stage0.krausMap_trace",
+    "FormalScience.Stage0.krausMap_trace_preserving",
+    "FormalScience.Stage0.identityKraus_complete",
+    "FormalScience.Stage0.identityKraus_apply"
+  ]
+}
