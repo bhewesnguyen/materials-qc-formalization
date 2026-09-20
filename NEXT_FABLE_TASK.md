@@ -1,5 +1,11 @@
 # Fable implementation turn 1: finite dissipator algebra
 
+> Status (20 September 2026): implemented in
+> `FormalScience/OpenSystems/Dissipator.lean` and handed off in
+> `docs/DISSIPATOR_HANDOFF.md`. The assignment text below is preserved as
+> written for the auditor to compare against. Do not start a further
+> milestone until the audit selects one.
+
 The project now has a Stage 0 source baseline. Read README.md, AGENTS.md,
 DECISIONS.md, and the accompanying Stage 0 audit report before changing code.
 

@@ -4,7 +4,7 @@ These rules govern implementation in the proposed `formal-science` project. Foll
 
 ## Work boundary
 
-- One mathematical milestone is active at a time. Stage 0 is complete in this snapshot. The active next assignment is the finite dissipator algebra in NEXT_FABLE_TASK.md.
+- One mathematical milestone is active at a time. Stage 0 is complete and audited. The finite dissipator algebra assignment in NEXT_FABLE_TASK.md is implemented in this snapshot and its handoff is docs/DISSIPATOR_HANDOFF.md; it awaits its independent audit. No further milestone is active until that audit selects one.
 - Start with the accepted informal theorem contract. Record definitions, quantifiers, assumptions, source, and intended use before implementing a substantial proof.
 - Search pinned Mathlib and selected downstream source before introducing a definition or proving a named theorem from scratch.
 - Do not silently weaken a conclusion, specialize a universal parameter, change a convention, or add an assumption that packages the desired conclusion. Propose contract changes explicitly in DECISIONS.md.

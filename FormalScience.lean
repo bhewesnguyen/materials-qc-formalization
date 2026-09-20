@@ -1,1 +1,2 @@
 import FormalScience.Stage0
+import FormalScience.OpenSystems.Dissipator

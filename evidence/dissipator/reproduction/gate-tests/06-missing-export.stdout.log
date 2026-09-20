@@ -1,0 +1,1 @@
+{"caption":"","data":"Unknown constant `GateFixture.absent`","endPos":{"column":32,"line":2},"fileName":"/home/jett/Documents/GitHub/materials-qc-formalization/evidence/dissipator/reproduction/gate-tests/fixtures/missing_export.lean","isSilent":false,"keepFullRange":false,"kind":"lean.unknownIdentifier._namedError","pos":{"column":14,"line":2},"severity":"error"}

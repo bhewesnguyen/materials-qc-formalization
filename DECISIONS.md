@@ -65,3 +65,77 @@ trace and Hermiticity laws, with only the matrix-unit facts they require. This
 is a bounded implementation checkpoint between the initial API probe and the
 stationary-state release. It does not authorize the dynamics or OR branches.
 
+## D007: dissipator representation (finite dissipator milestone)
+
+`FormalScience/OpenSystems/Dissipator.lean` defines
+
+```text
+dissipator V X := V * X * Vᴴ - (1 / 2 : ℂ) • (Vᴴ * V * X + X * Vᴴ * V)
+```
+
+as a plain definition carrying the exact contract formula, so an auditor
+reads the formula directly and the consumer contracts can restate it without
+the project name. The definition is `noncomputable` only because complex
+division has no executable implementation; this attribute is irrelevant to
+the proofs and does not appear in the axiom reports.
+
+Linearity is delivered both ways: `dissipator_add` and `dissipator_smul` as
+direct lemmas, and `dissipatorLinearMap V : Matrix n n ℂ →ₗ[ℂ] Matrix n n ℂ`
+whose underlying function is `dissipator V` itself (`dissipatorLinearMap_apply`
+is `rfl`). The bundled form is what the planned weighted generator
+`a • D[E_10] + b • D[E_01]` will consume; the lemmas keep the plain
+definition usable on its own.
+
+The definition is stated for an arbitrary finite index type `n` with
+`[Fintype n]`, not only for `QubitMatrix`. The proofs are identical, this
+matches the generality already chosen for `krausMap` in Stage 0, and the
+planned Markov bridge needs exactly this form. The assignment said "initially
+on the qubit basis"; the qubit case is covered by the `E_10` and `E_01`
+specializations below, so this is a strict generalization and not a weakening.
+Nothing in the definition or the three laws assumes `V` Hermitian, unitary,
+or normalized, and nothing assumes `X` is a density.
+
+Basis jumps are named by direction to match D003: `jumpZeroToOne` is
+`E_10 = Matrix.single 1 0 1 = |1><0|` (rate `a`, population `0 -> 1`) and
+`jumpOneToZero` is `E_01 = Matrix.single 0 1 1 = |0><1|` (rate `b`).
+
+Beyond the minimum required results, the module includes: the closed forms
+`dissipator_jumpZeroToOne_eq` and `dissipator_jumpOneToZero_eq` in terms of
+`basisProjector`, which the stationary-state milestone will consume directly;
+`jumpZeroToOne_not_isHermitian` and `jumpOneToZero_not_isHermitian`, which
+witness that the general laws are used outside the Hermitian case; the
+convention witnesses `D[E_10](E_00) = E_11 - E_00` and
+`D[E_01](E_11) = E_00 - E_11`, which pin the sign and direction conventions;
+and two small general lemmas, `isHermitian_anticommutator` and
+`isSelfAdjoint_half`, kept public because later generators reuse them.
+
+Mathlib at the pin was searched before adding lemmas. Reused directly:
+`Matrix.trace_mul_cycle`, `Matrix.trace_mul_comm`, `Matrix.trace_sub`,
+`Matrix.trace_add`, `Matrix.trace_smul`, `Matrix.isHermitian_mul_mul_conjTranspose`,
+`Matrix.isHermitian_conjTranspose_mul_self`, `Matrix.IsHermitian.sub`,
+`Matrix.IsHermitian.smul`, `Matrix.conjTranspose_single`,
+`Matrix.single_mul_single_same`, `Matrix.single_mul_mul_single`,
+`Matrix.smul_single`, `Matrix.mul_smul`, `Matrix.smul_mul`, `star_div₀`,
+`star_ofNat`. No Mathlib lemma stating Hermiticity of an anticommutator was
+found at the pin, so `isHermitian_anticommutator` is proved locally in four
+rewrites. No QICLean or other downstream source was imported or copied.
+
+## D008: evidence and packaging conventions after Stage 0
+
+The project now lives at the repository root. `evidence/stage0/` is
+preserved unchanged. Each later milestone records fresh evidence under a
+tracked `evidence/<milestone>/` tree, here `evidence/dissipator/`, with
+`setup/` (toolchain and cache logs), `reproduction/` (the baseline rerun
+before any source change), `verification/` and `gate-tests/` (the final
+runs), `gate-controls/` (deliberately failing runs that show the gate covers
+the new module), and `environment.json`. The scripts' default output
+directories `evidence/latest/` and `evidence/selftest-latest/` remain
+ignored by Git and are for iteration only.
+
+`SOURCE_MANIFEST.json` covers every Git-tracked file except itself, so its
+scope is reproducible with `git ls-files`. Toolchains, `.lake/`, and the
+local Python environment are excluded by construction. The research plan is
+duplicated as `docs/PORTFOLIO_ROADMAP.md` with a provenance note; the
+original planning documents and the Stage 0 archive are kept at the root as
+received.
+

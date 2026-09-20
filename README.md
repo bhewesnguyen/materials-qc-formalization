@@ -1,12 +1,16 @@
-# Formal Science: Stage 0 baseline
+# Formal Science: Stage 0 baseline and finite dissipator algebra
 
-This is the small source baseline for the finite-dimensional open-systems
-program. It contains a density-state representation probe and a general finite
-Kraus trace calculation. The accompanying Stage 0 report records the build and
-audit evidence for this delivered snapshot.
+This is the small source base for the finite-dimensional open-systems
+program. It contains the audited Stage 0 density-state representation probe
+and general finite Kraus trace calculation, plus the first bounded milestone
+built on it: the finite dissipator algebra in
+`FormalScience/OpenSystems/Dissipator.lean`. The Stage 0 report records the
+build and audit evidence for the baseline; `docs/DISSIPATOR_HANDOFF.md` is
+the completed handoff for the dissipator milestone, which awaits its
+independent audit.
 
-It does not yet prove complete positivity, a Lindblad stationary state, a
-semigroup, or convergence. No mathematical novelty is claimed for these probes.
+It does not prove complete positivity, a Lindblad stationary state, a
+semigroup, or convergence. No mathematical novelty is claimed.
 
 ## Exact dependency base
 
@@ -31,30 +35,37 @@ python3 scripts/test_verify.py
 ```
 
 The first Lake command materializes the pinned dependencies and retrieves the
-targeted Mathlib cache. Do not run `lake update` unless deliberately changing
-the lockfile. A fresh local reproduction is required before Fable extends the
-baseline.
+targeted Mathlib cache. The dissipator module imports only modules already in
+that cached closure, so the command list is unchanged. Do not run
+`lake update` unless deliberately changing the lockfile. A fresh local
+reproduction is required before a milestone extends the source.
 
 The scripts also accept `--lake /absolute/path/to/lake` for an isolated
-toolchain. Its sibling `lean` must match the pin. The delivered evidence was
-produced in a Linux x86_64 container, not on your physical Ubuntu workstation.
+toolchain and `--output-dir` to record a run in a tracked evidence directory.
+The Stage 0 evidence was produced in a Linux x86_64 container; the dissipator
+evidence in `evidence/dissipator/` was produced on the Ubuntu 24.04
+workstation recorded in `evidence/dissipator/environment.json`.
 
 ## Source map
 
 | File | Role |
 | --- | --- |
 | `FormalScience/Stage0.lean` | Definitions and ten probe theorems |
-| `FormalScience.lean` | Umbrella import covering the release module |
-| `Audit/Contracts.lean` | Independent consumer signatures |
+| `FormalScience/OpenSystems/Dissipator.lean` | Dissipator definition, linearity, trace, Hermiticity, basis-jump specializations |
+| `FormalScience.lean` | Umbrella import covering both release modules |
+| `Audit/Contracts.lean` | Independent consumer signatures for all 33 theorem contracts |
 | `exports.json` | Required modules, public declarations, and version pins |
 | `scripts/verify.py` | Build, contract, and transitive-axiom gate |
 | `scripts/test_verify.py` | Deliberate failing cases for that gate |
-| `DECISIONS.md` | Representation and dependency decisions |
-| `NEXT_FABLE_TASK.md` | Bounded next implementation assignment |
-| `AUDIT_HANDOFF_TEMPLATE.md` | Template for the next review |
-| `docs/STAGE0_AUDIT.md` | Completed audit and release boundaries |
-| `evidence/stage0/` | Preserved evidence for this delivered baseline |
-| `SOURCE_MANIFEST.json` | Hashes for the delivered project files |
+| `DECISIONS.md` | Representation, dependency, and packaging decisions |
+| `NEXT_FABLE_TASK.md` | The dissipator assignment, now implemented and awaiting audit |
+| `AUDIT_HANDOFF_TEMPLATE.md` | Template for each review |
+| `docs/STAGE0_AUDIT.md` | Completed Stage 0 audit and release boundaries |
+| `docs/DISSIPATOR_HANDOFF.md` | Completed handoff for the dissipator milestone |
+| `docs/PORTFOLIO_ROADMAP.md` | The broader 39-area research plan, context only |
+| `evidence/stage0/` | Preserved evidence for the audited baseline |
+| `evidence/dissipator/` | Fresh setup, reproduction, verification, gate-test, and control evidence |
+| `SOURCE_MANIFEST.json` | SHA-256 of every tracked project file except itself |
 
 ## Mathematical surface
 
@@ -72,11 +83,23 @@ The two distinct basis densities witness nonvacuity. A singleton identity
 Kraus family witnesses that completeness is satisfiable. These examples do not
 replace the universally quantified theorems.
 
+`dissipator V X` is `V * X * Vᴴ - (1 / 2 : ℂ) • (Vᴴ * V * X + X * Vᴴ * V)`
+for square complex matrices over any finite index type. It is additive and
+complex-homogeneous in `X` (also packaged as `dissipatorLinearMap V`), its
+trace is zero for every `V` and every `X`, and it maps Hermitian `X` to
+Hermitian output for every `V`. The jump matrix carries no hypothesis. The
+basis jumps `jumpZeroToOne = E_10` and `jumpOneToZero = E_01` consume these
+laws, come with their adjoint and matrix-unit product identities and closed
+forms, and are proved not Hermitian. The dissipator is a generator component;
+no positivity or complete positivity claim is made about it.
+
 ## Next step
 
-Read AGENTS.md and NEXT_FABLE_TASK.md. Reproduce this baseline, then implement
-only the finite dissipator algebra milestone specified there. Return the
-changed source and fresh evidence for the next independent audit.
+The dissipator milestone is implemented and its handoff is
+`docs/DISSIPATOR_HANDOFF.md`. The next turn is an independent audit of that
+handoff. No further milestone is active until the audit selects one; the
+stationary-state system, dynamics, complete positivity, and the other
+branches remain out of scope.
 
 Public theorem scope and proof trust are separate from source provenance,
 upstream acceptance, and novelty. The scripts are ordinary reproducibility and
