@@ -137,14 +137,19 @@ scope is reproducible with `git ls-files`. Toolchains, `.lake/`, and the
 local Python environment are excluded by construction.
 
 The implementation and audit loop uses one key per milestone. The key (for
-example `dissipator`) names `evidence/<key>/`, `deliverables/<key>/v<k>/`,
+example `stationary`) names `evidence/<key>/v<k>/`, `deliverables/<key>/v<k>/`,
 `audits/<key>/v<k>/`, and the tag `<key>-milestone-v<k>`, where `k` is the
 round number and increments only if an audit sends the milestone back.
-`deliverables/` holds what the implementer sends (the completed handoff
-template as `HANDOFF.md` and a `POINTER.json` naming the tag, diff base,
-and evidence); `audits/` holds what the auditor returns, stored as received
-with original file names; `TURNS.md` indexes every round in order, since
-per-milestone directories do not show chronology on their own.
+Evidence is versioned by round (audit finding F2) so that a later round
+cannot overwrite the evidence an earlier handoff cites; the two paths that
+predate this rule, `evidence/stage0/` and `evidence/dissipator/`, are frozen
+as delivered and are not renamed. `deliverables/` holds what the implementer
+sends (the completed handoff template as `HANDOFF.md`, a `POINTER.json`
+naming the tag, diff base, and evidence, and after packaging a
+`RECEIPT.json` with the archive digest and commit); `audits/` holds what the
+auditor returns, stored as received with original file names; `TURNS.md`
+indexes every round in order, since per-milestone directories do not show
+chronology on their own.
 
 Each document has one tracked location. The Stage 0 audit lives only at
 `audits/stage0/v1/`; the redundant root copy and the `docs/` copy were
@@ -154,9 +159,44 @@ the original 39-item inventory is `docs/planning/MISSING_PROOFS_INVENTORY.md`.
 
 Archives are derived artifacts: `git archive` of the tag, written into the
 `deliverables/<key>/v<k>/` directory, which `.gitignore` excludes through
-`*.zip`. Because the manifest covers exactly the tracked files, it matches
-the archive by construction and no archive ever nests earlier archives. The
-Stage 0 handoff archive, whose extracted content is commit `cd7e6c6`, is
-kept on disk under `audits/stage0/v1/` but is not tracked for the same
-reason. The implementer commits and tags; the user pushes.
+`*.zip`, so no archive ever nests earlier archives. Audit finding F1
+corrected the packaging sequence and its wording. The manifest is generated
+after the intended files are staged and their staged bytes are confirmed to
+equal the working-tree bytes; it hashes those final bytes and excludes
+itself; it is then staged, the commit is made, the tag is created, the
+archive is produced from the tag, and the completed archive is verified
+path by path against the manifest for byte count and SHA-256. Agreement is
+a checked result of that verification, not an assumption from matching
+filenames. The archive digest and `git rev-parse <tag>^{commit}` are
+recorded afterwards in a `RECEIPT.json` committed after the tag, never
+inside the archive they describe. The Stage 0 and dissipator return
+archives are kept on disk under `audits/` but are not tracked. The
+implementer commits and tags; the user pushes. Accepted tags are never
+moved.
+
+## D009: corrections carried forward from the dissipator audit
+
+The dissipator audit (`audits/dissipator/v1/`) accepted
+`dissipator-milestone-v1` at commit `be2ad90` with no proof revision and
+four low-severity findings. F1 and F2 are closed above. The remaining two
+are documentation errata; the historical handoff
+`deliverables/dissipator/v1/HANDOFF.md` is preserved unchanged and these
+corrections are recorded here.
+
+F3, non-unitarity citation. The v1 handoff wrote that the jumps are not
+unitary because `E_10ᴴ E_10 = E_00 ≠ 1`, "visible from
+`jumpZeroToOne_conjTranspose_mul_self` and `basisProjector_zero_ne_one`".
+The cited Stage 0 theorem proves `E_00 ≠ E_11`, not `E_00 ≠ I`. The
+conclusion stands for a different reason: entry `(1,1)` of `E_00` is `0`
+while entry `(1,1)` of `I` is `1` (and symmetrically entry `(0,0)` of
+`E_11` against `I`). No exported theorem states non-unitarity and none is
+required; the dissipator laws never assume it.
+
+F4, dependency licenses. The v1 handoff said all nine pinned packages are
+Apache 2.0. At the pinned revisions, eight package roots carry Apache 2.0
+(mathlib, plausible, LeanSearchClient, importGraph, proofwidgets, aesop,
+Qq, batteries) and `Cli` at `e92c9f15` carries an MIT license. The
+auditor's per-package inventory with license file hashes is at
+`audits/dissipator/v1/evidence/dependency_license_inventory.json`. Future
+provenance summaries use this inventory. No dependency changes.
 

@@ -9,4 +9,5 @@ this file. The handoff layout and sequence are specified in AGENTS.md.
 | Round | Milestone | Version | Tag | Implementer handoff | Auditor report | Date | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 0 | stage0 | v1 | none; delivered as an archive before this repository existed, content imported as commit `cd7e6c6` | built by the auditor; see `audits/stage0/v1/` | `audits/stage0/v1/Formal_Science_Stage0_Audit.md` | 2026-09-20 | Accepted. Hand to implementation for the finite dissipator algebra. |
-| 1 | dissipator | v1 | `dissipator-milestone-v1` | `deliverables/dissipator/v1/HANDOFF.md` | `audits/dissipator/v1/` (pending) | 2026-09-20 | Pending independent audit. |
+| 1 | dissipator | v1 | `dissipator-milestone-v1` at commit `be2ad90088b3c407d2aa18aafe3a2e806db35011` | `deliverables/dissipator/v1/HANDOFF.md` | `audits/dissipator/v1/Formal_Science_Dissipator_Audit_v1.md` | 2026-09-20 | Accepted. No proof revision. Four low-severity process findings F1 to F4, closed in the round 2 housekeeping commit (D008 and D009). Next milestone: stationary. |
+| 2 | stationary | v1 | `stationary-milestone-v1` | `deliverables/stationary/v1/HANDOFF.md` | `audits/stationary/v1/` (pending) | 2026-09-20 | Pending independent audit. |

@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "milestone": "dissipator",
+  "round": "v1",
+  "audit_date": "2026-09-20",
+  "verdict": "accepted",
+  "mathematical_proof_revision_required": false,
+  "tag": "dissipator-milestone-v1",
+  "submitted_commit": "be2ad90088b3c407d2aa18aafe3a2e806db35011",
+  "archive": {
+    "archive_sha256": "4efe92452daa010f454d1290fcda0b6dc35d0cd016d9ecfe213a5ce6da0bfb44",
+    "archive_git_comment": "be2ad90088b3c407d2aa18aafe3a2e806db35011",
+    "manifest_entries": 346,
+    "regular_files_in_archive": 347,
+    "source_manifest_verified": true,
+    "loose_handoff_matches_archive": true,
+    "loose_pointer_matches_archive": true
+  },
+  "fresh_verification": {
+    "status": "passed",
+    "release_modules": [
+      "FormalScience.OpenSystems.Dissipator",
+      "FormalScience.Stage0"
+    ],
+    "exports": 42,
+    "theorem_contracts": 33,
+    "dependency_pins": 9,
+    "commands": 26,
+    "all_verification_commands_exit_zero": true,
+    "gate_cases": 15,
+    "missing_module_rejected": true,
+    "missing_module_reason": "Release module coverage mismatch: unlisted=['FormalScience.OpenSystems.Dissipator'], missing=[]",
+    "source_hash_map_matches_submission": true,
+    "axiom_map_matches_submission": true,
+    "axiom_union": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "finished_at": "2026-09-20T22:06:49.330732+00:00"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "low",
+      "topic": "Correct manifest, commit, tag, archive sequence and verification wording"
+    },
+    {
+      "id": "F2",
+      "severity": "low",
+      "topic": "Use immutable versioned evidence paths for new rounds"
+    },
+    {
+      "id": "F3",
+      "severity": "low",
+      "topic": "Correct explanatory non-unitarity citation"
+    },
+    {
+      "id": "F4",
+      "severity": "low",
+      "topic": "Correct pinned Cli license from Apache-2.0 to MIT"
+    }
+  ],
+  "next_milestone": "stationary",
+  "next_round": "v1",
+  "next_task": "NEXT_FABLE_TASK.md",
+  "no_remote_publication_actions": true,
+  "boundaries": [
+    "Official cached third-party dependency artifacts used; no full Mathlib source rebuild.",
+    "Archive SHA and commit comment checked; remote tag/history not independently authenticated.",
+    "Stationary and dynamics theorems are not proved by this audit."
+  ]
+}

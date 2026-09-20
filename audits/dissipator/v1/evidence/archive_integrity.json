@@ -1,0 +1,9 @@
+{
+  "archive_sha256": "4efe92452daa010f454d1290fcda0b6dc35d0cd016d9ecfe213a5ce6da0bfb44",
+  "archive_git_comment": "be2ad90088b3c407d2aa18aafe3a2e806db35011",
+  "manifest_entries": 346,
+  "regular_files_in_archive": 347,
+  "source_manifest_verified": true,
+  "loose_handoff_matches_archive": true,
+  "loose_pointer_matches_archive": true
+}
