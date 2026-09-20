@@ -1,3 +1,9 @@
+> Provenance note (added 20 September 2026): verbatim copy of the original
+> gap inventory supplied as `updated list (1).md`, prepared 2026-09-19 before
+> the research plan. Context only. Several of its "missing" statuses were
+> corrected by `docs/PORTFOLIO_ROADMAP.md` (for example Hall's theorem is in
+> Mathlib); consult that plan, not this list, for current status.
+
 # Missing Lean/Mathlib proofs: materials science + quantum algorithms + quantum information theory + operations research
 
 Inventory for Jake — what is missing from Mathlib (and, where noted, from Lean

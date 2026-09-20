@@ -8,7 +8,8 @@ implementation agent. Every claim below is backed by a file under
 
 - Stage and accepted contract IDs: implementation turn 1, "finite dissipator
   algebra", as specified in NEXT_FABLE_TASK.md and section "Fable's next
-  implementation turn" of docs/STAGE0_AUDIT.md (decision D006). The four
+  implementation turn" of audits/stage0/v1/Formal_Science_Stage0_Audit.md
+  (decision D006). The four
   required results are: (1) additivity and complex homogeneity in `X`, or a
   bundled complex-linear map; (2) `trace(D[V](X)) = 0` for every `V`, `X`;
   (3) `X` Hermitian implies `D[V](X)` Hermitian, for every `V`; (4) the
@@ -268,9 +269,11 @@ matrix multiplication (`mul_add`, `add_mul`, `Matrix.mul_smul`,
   statement of the definition and laws (D007); (b) accept that both direct
   lemmas and the bundled linear map are exported; (c) accept the eight
   additional declarations beyond the minimum, or ask for their removal from
-  the export list; (d) accept D008's evidence and manifest conventions,
-  including that `SOURCE_MANIFEST.json` now covers every tracked file except
-  itself and that `docs/PORTFOLIO_ROADMAP.md` duplicates the research plan.
+  the export list; (d) accept D008's evidence, manifest, and handoff
+  conventions: `SOURCE_MANIFEST.json` covers every tracked file except
+  itself, `docs/PORTFOLIO_ROADMAP.md` duplicates the research plan, this
+  document lives at `deliverables/dissipator/v1/HANDOFF.md`, your report is
+  expected under `audits/dissipator/v1/`, and `TURNS.md` indexes rounds.
   No validation-script change is proposed; the scripts are unchanged.
 - Suggested reviewer focus: confirm `Matrix.single 1 0 1` is the intended
   `E_10 = |1><0|` under the row-then-column reading and matches D003's rate

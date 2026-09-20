@@ -5,9 +5,9 @@ program. It contains the audited Stage 0 density-state representation probe
 and general finite Kraus trace calculation, plus the first bounded milestone
 built on it: the finite dissipator algebra in
 `FormalScience/OpenSystems/Dissipator.lean`. The Stage 0 report records the
-build and audit evidence for the baseline; `docs/DISSIPATOR_HANDOFF.md` is
-the completed handoff for the dissipator milestone, which awaits its
-independent audit.
+build and audit evidence for the baseline; `deliverables/dissipator/v1/HANDOFF.md`
+is the completed handoff for the dissipator milestone, which awaits its
+independent audit. `TURNS.md` indexes every implementation and audit round.
 
 It does not prove complete positivity, a Lindblad stationary state, a
 semigroup, or convergence. No mathematical novelty is claimed.
@@ -60,9 +60,13 @@ workstation recorded in `evidence/dissipator/environment.json`.
 | `DECISIONS.md` | Representation, dependency, and packaging decisions |
 | `NEXT_FABLE_TASK.md` | The dissipator assignment, now implemented and awaiting audit |
 | `AUDIT_HANDOFF_TEMPLATE.md` | Template for each review |
-| `docs/STAGE0_AUDIT.md` | Completed Stage 0 audit and release boundaries |
-| `docs/DISSIPATOR_HANDOFF.md` | Completed handoff for the dissipator milestone |
+| `TURNS.md` | Index of implementation and audit rounds, with tags and decisions |
+| `deliverables/<milestone>/v<k>/` | What the implementer sends: `HANDOFF.md`, `POINTER.json`, and the untracked archive |
+| `audits/<milestone>/v<k>/` | What the auditor returns, stored as received |
+| `audits/stage0/v1/Formal_Science_Stage0_Audit.md` | Completed Stage 0 audit and release boundaries |
+| `deliverables/dissipator/v1/HANDOFF.md` | Completed handoff for the dissipator milestone |
 | `docs/PORTFOLIO_ROADMAP.md` | The broader 39-area research plan, context only |
+| `docs/planning/` | The research plan PDF and the original 39-item gap inventory, context only |
 | `evidence/stage0/` | Preserved evidence for the audited baseline |
 | `evidence/dissipator/` | Fresh setup, reproduction, verification, gate-test, and control evidence |
 | `SOURCE_MANIFEST.json` | SHA-256 of every tracked project file except itself |
@@ -96,8 +100,8 @@ no positivity or complete positivity claim is made about it.
 ## Next step
 
 The dissipator milestone is implemented and its handoff is
-`docs/DISSIPATOR_HANDOFF.md`. The next turn is an independent audit of that
-handoff. No further milestone is active until the audit selects one; the
+`deliverables/dissipator/v1/HANDOFF.md`. The next turn is an independent
+audit of that handoff, to be stored under `audits/dissipator/v1/`. No further milestone is active until the audit selects one; the
 stationary-state system, dynamics, complete positivity, and the other
 branches remain out of scope.
 

@@ -134,8 +134,29 @@ ignored by Git and are for iteration only.
 
 `SOURCE_MANIFEST.json` covers every Git-tracked file except itself, so its
 scope is reproducible with `git ls-files`. Toolchains, `.lake/`, and the
-local Python environment are excluded by construction. The research plan is
-duplicated as `docs/PORTFOLIO_ROADMAP.md` with a provenance note; the
-original planning documents and the Stage 0 archive are kept at the root as
-received.
+local Python environment are excluded by construction.
+
+The implementation and audit loop uses one key per milestone. The key (for
+example `dissipator`) names `evidence/<key>/`, `deliverables/<key>/v<k>/`,
+`audits/<key>/v<k>/`, and the tag `<key>-milestone-v<k>`, where `k` is the
+round number and increments only if an audit sends the milestone back.
+`deliverables/` holds what the implementer sends (the completed handoff
+template as `HANDOFF.md` and a `POINTER.json` naming the tag, diff base,
+and evidence); `audits/` holds what the auditor returns, stored as received
+with original file names; `TURNS.md` indexes every round in order, since
+per-milestone directories do not show chronology on their own.
+
+Each document has one tracked location. The Stage 0 audit lives only at
+`audits/stage0/v1/`; the redundant root copy and the `docs/` copy were
+removed. The research plan lives as `docs/PORTFOLIO_ROADMAP.md` (Markdown,
+with a provenance note) and `docs/planning/Lean_Formalization_Research_Plan.pdf`;
+the original 39-item inventory is `docs/planning/MISSING_PROOFS_INVENTORY.md`.
+
+Archives are derived artifacts: `git archive` of the tag, written into the
+`deliverables/<key>/v<k>/` directory, which `.gitignore` excludes through
+`*.zip`. Because the manifest covers exactly the tracked files, it matches
+the archive by construction and no archive ever nests earlier archives. The
+Stage 0 handoff archive, whose extracted content is commit `cd7e6c6`, is
+kept on disk under `audits/stage0/v1/` but is not tracked for the same
+reason. The implementer commits and tags; the user pushes.
 

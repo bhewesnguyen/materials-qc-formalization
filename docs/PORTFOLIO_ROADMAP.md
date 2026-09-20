@@ -1,10 +1,11 @@
 > Provenance note (added 20 September 2026 when this file was placed in the
 > project): the text below is a verbatim copy of the 39-area research plan,
-> Version 1.0, supplied as `Lean_Formalization_Research_Plan(1).md`. It is
+> Version 1.0, supplied as `Lean_Formalization_Research_Plan(1).md`; its PDF
+> companion is `docs/planning/Lean_Formalization_Research_Plan.pdf`. It is
 > broader context only. Its Stage 0 kickoff instructions (FABLE_START,
 > ROADMAP, THEOREM_CONTRACTS) are superseded by the completed Stage 0 audit
-> in `docs/STAGE0_AUDIT.md` and by the bounded assignment in
-> `NEXT_FABLE_TASK.md`. One milestone is active at a time.
+> in `audits/stage0/v1/Formal_Science_Stage0_Audit.md` and by the bounded
+> assignment in `NEXT_FABLE_TASK.md`. One milestone is active at a time.
 
 # Lean Formalization Research Plan
 

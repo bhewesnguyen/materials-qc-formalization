@@ -4,7 +4,7 @@ These rules govern implementation in the proposed `formal-science` project. Foll
 
 ## Work boundary
 
-- One mathematical milestone is active at a time. Stage 0 is complete and audited. The finite dissipator algebra assignment in NEXT_FABLE_TASK.md is implemented in this snapshot and its handoff is docs/DISSIPATOR_HANDOFF.md; it awaits its independent audit. No further milestone is active until that audit selects one.
+- One mathematical milestone is active at a time. Stage 0 is complete and audited (audits/stage0/v1/). The finite dissipator algebra assignment in NEXT_FABLE_TASK.md is implemented in this snapshot and its handoff is deliverables/dissipator/v1/HANDOFF.md; it awaits its independent audit. No further milestone is active until that audit selects one. TURNS.md indexes every round.
 - Start with the accepted informal theorem contract. Record definitions, quantifiers, assumptions, source, and intended use before implementing a substantial proof.
 - Search pinned Mathlib and selected downstream source before introducing a definition or proving a named theorem from scratch.
 - Do not silently weaken a conclusion, specialize a universal parameter, change a convention, or add an assumption that packages the desired conclusion. Propose contract changes explicitly in DECISIONS.md.
@@ -47,6 +47,8 @@ These rules govern implementation in the proposed `formal-science` project. Foll
 - Prefer one lemma or a short dependency-connected group per task.
 - If two focused sessions add new prerequisite layers without closing the probe, write a blocker with exact goals and options. Do not expand to unrelated topics.
 - At each stage boundary, fill AUDIT_HANDOFF_TEMPLATE.md and stop for the already-planned mathematical audit unless the user has explicitly authorized continuing stages.
+- Handoff layout. The milestone key (for example `dissipator`) joins `evidence/<key>/`, `deliverables/<key>/v<k>/`, `audits/<key>/v<k>/`, and the tag `<key>-milestone-v<k>`, where `k` is the round number and increments if an audit sends the milestone back. The completed template lives only at `deliverables/<key>/v<k>/HANDOFF.md`, next to a `POINTER.json`. Reports from the auditor are stored as received under `audits/<key>/v<k>/`. `TURNS.md` records one row per round. Archives are derived from the tag with `git archive` and are never tracked; `SOURCE_MANIFEST.json` covers every tracked file except itself and therefore matches the archive by construction.
+- Handoff sequence. Commit, tag, regenerate `SOURCE_MANIFEST.json` before the commit, create the archive from the tag into the ignored `deliverables/<key>/v<k>/` location, verify the archive against the manifest, and stop. The implementer commits; the user pushes. When the audit returns, store it under `audits/`, copy any accepted next assignment into `NEXT_FABLE_TASK.md`, and add the `TURNS.md` row.
 - Report failures candidly. Never invent successful builds, exact theorem names, timing benchmarks, or accepted upstream status.
 - Keep public claims proportional to evidence. The user must understand and own prospective Mathlib contributions and comply with current AI-disclosure policies.
 

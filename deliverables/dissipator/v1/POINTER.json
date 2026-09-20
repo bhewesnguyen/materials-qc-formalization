@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "milestone": "dissipator",
+  "version": "v1",
+  "tag": "dissipator-milestone-v1",
+  "commit_under_review": "git rev-parse dissipator-milestone-v1 (the commit contains this file, so its hash is not recorded here)",
+  "diff_base_commit": "cd7e6c60d08c5f33dd7a9c83253116f7de2ed610",
+  "handoff": "deliverables/dissipator/v1/HANDOFF.md",
+  "assignment": "NEXT_FABLE_TASK.md",
+  "release_modules": [
+    "FormalScience.Stage0",
+    "FormalScience.OpenSystems.Dissipator"
+  ],
+  "exports_count": 42,
+  "contract_exports_count": 33,
+  "evidence": {
+    "setup": "evidence/dissipator/setup/",
+    "baseline_reproduction": "evidence/dissipator/reproduction/",
+    "verification": "evidence/dissipator/verification/verification.json",
+    "gate_tests": "evidence/dissipator/gate-tests/gate_tests.json",
+    "gate_controls": "evidence/dissipator/gate-controls/missing-module/verification.json",
+    "environment": "evidence/dissipator/environment.json"
+  },
+  "lean_version": "4.34.0",
+  "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "source_sha256": {
+    "lean-toolchain": "8733782dc070a99b312039cda424f601b80f3be6f6f512627da5ba25adc27632",
+    "lakefile.toml": "7ce638070ed8dd0a0d64280ecbdd5a9ac0fcfa26ae2b190e321aac3ff12003fe",
+    "lake-manifest.json": "bf782855f3900257333229a005a4158c054550761a2fcaaba57348b3ab9db3a7",
+    "exports.json": "4e668b999760eed3ab01b5cbb41cba273180996c06ebf54218794ea367842547",
+    "FormalScience.lean": "3bd6beee423f1b590d16cf25e5e83589413a22565fe50505333217f77fb1445d",
+    "Audit/Contracts.lean": "664584326bb64639f376aca05ec98af99440b7db44b1fd6aba27e32ade7bacc0",
+    "scripts/verify.py": "9a6d01e56f55913084038636cb5fbedaf7dd4a40638304e61488cc7619fad757",
+    "scripts/test_verify.py": "44dddfe2bcd28c016eda7e6d33e6331975de521a01a27387988601954df2d596",
+    "FormalScience/Stage0.lean": "b8022c56e22bd3d9f0fc965a769015d8484520dc3a0915e2c3d5e8b97dc101f5",
+    "FormalScience/OpenSystems/Dissipator.lean": "abaec0a4a01fe746599ffbc3117ed7dd6ce1d42c88861fced777684e26577ada"
+  },
+  "archive": {
+    "command": "git archive --format=zip --prefix=formal-science/ -o deliverables/dissipator/v1/Formal_Science_Dissipator_Handoff.zip dissipator-milestone-v1",
+    "tracked": false,
+    "integrity": "Every file in the archive except SOURCE_MANIFEST.json is listed in SOURCE_MANIFEST.json with its SHA-256 and byte length."
+  }
+}

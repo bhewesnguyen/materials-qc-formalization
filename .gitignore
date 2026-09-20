@@ -4,4 +4,5 @@ evidence/selftest-latest/
 __pycache__/
 *.pyc
 .venv/
+*.zip
 

@@ -2,7 +2,7 @@
 
 > Status (20 September 2026): implemented in
 > `FormalScience/OpenSystems/Dissipator.lean` and handed off in
-> `docs/DISSIPATOR_HANDOFF.md`. The assignment text below is preserved as
+> `deliverables/dissipator/v1/HANDOFF.md`. The assignment text below is preserved as
 > written for the auditor to compare against. Do not start a further
 > milestone until the audit selects one.
 

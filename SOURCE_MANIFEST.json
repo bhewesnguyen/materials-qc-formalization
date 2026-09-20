@@ -2,15 +2,15 @@
   "schema_version": 1,
   "snapshot": "formal-science-dissipator-2026-09-20",
   "hash_algorithm": "sha256",
-  "scope": "Every Git-tracked file in the repository except this manifest, as listed by `git ls-files` at the tagged commit. Toolchains, .lake/ dependency caches, ignored evidence/latest directories, and the local Python environment are excluded by construction.",
+  "scope": "Every Git-tracked file in the repository except this manifest, as listed by `git ls-files` at the tagged commit. Toolchains, .lake/ dependency caches, ignored evidence/latest directories, archives (*.zip), and the local Python environment are excluded by construction.",
   "files": {
     ".gitignore": {
-      "sha256": "3b02822a8a36ea82fc13d128ba0043e38748319fdd75e39d5a60bbe1567282b5",
-      "bytes": 77
+      "sha256": "7d885592f24cef38d6ca86562f4abae01dd0fc87005d9a26f7f8f1e1ae493467",
+      "bytes": 83
     },
     "AGENTS.md": {
-      "sha256": "f726126dbc542c1ead2135a7a4598a0cfe495da20d596e613f2c2abc29261db3",
-      "bytes": 5324
+      "sha256": "cbbf78a01e41249b94a3ff608676acd31cf95c0d7264a1a7204d11fd647d184c",
+      "bytes": 6451
     },
     "AUDIT_HANDOFF_TEMPLATE.md": {
       "sha256": "e9392cc7ea75db3ce6766a65a41ed624954ebde0a0e248171ab485fc37a405cb",
@@ -21,8 +21,8 @@
       "bytes": 7512
     },
     "DECISIONS.md": {
-      "sha256": "d2371853577252b00f0d1bd6f50779793d70d82b887a3d1443302d7799ccaf4c",
-      "bytes": 7471
+      "sha256": "21a046d37ff532ed402d0c9d7a937111e5c8cf9d9fc68523863b86d1db7cce66",
+      "bytes": 8832
     },
     "FormalScience.lean": {
       "sha256": "3bd6beee423f1b590d16cf25e5e83589413a22565fe50505333217f77fb1445d",
@@ -36,45 +36,45 @@
       "sha256": "b8022c56e22bd3d9f0fc965a769015d8484520dc3a0915e2c3d5e8b97dc101f5",
       "bytes": 4671
     },
-    "Formal_Science_Stage0_Audit.md": {
+    "NEXT_FABLE_TASK.md": {
+      "sha256": "13b0c8c6df73532f3c3b3a041b1c3b782e749ac23d7af80468c14b1d7e423105",
+      "bytes": 3003
+    },
+    "README.md": {
+      "sha256": "470f00b75dc76a32ef83098c5a3cb978f0f6def397727c962cdd838a6a828faa",
+      "bytes": 6188
+    },
+    "TURNS.md": {
+      "sha256": "1ad00595ab4cce59fc5af26577c92e06907281bf58bcf917aca299c683f35fa7",
+      "bytes": 1002
+    },
+    "audits/stage0/v1/Formal_Science_Stage0_Audit.md": {
       "sha256": "fd5d52db7a014aa20649edce95d3eb3c0684e13aae0ca75f2d495e1e2d92e267",
       "bytes": 15928
     },
-    "Formal_Science_Stage0_Audit.pdf": {
+    "audits/stage0/v1/Formal_Science_Stage0_Audit.pdf": {
       "sha256": "60425e0aa6d18710086ad1752850649b5048bc042c0840603f3ecfc38a4a45a1",
       "bytes": 106302
     },
-    "Formal_Science_Stage0_Handoff.zip": {
-      "sha256": "25d3ee94e37866841bf34ab115feaa521064bd4134b7df71693a6d81652d7b27",
-      "bytes": 92313
+    "deliverables/dissipator/v1/HANDOFF.md": {
+      "sha256": "013be5dd352b0a38fe41bb941ea14c0c74ebbb940f317b8c452db7aedb427bcb",
+      "bytes": 21003
     },
-    "Lean_Formalization_Research_Plan(1).md": {
-      "sha256": "95de505a3e54cebe6800f0b2ed85e29e7be0aa3dd5ca348c84e9e9a50b3065a9",
-      "bytes": 53658
+    "deliverables/dissipator/v1/POINTER.json": {
+      "sha256": "257ba200fe2ee5173c70043349208cbbd5a68693d2bd63cac1fee5c8200429e4",
+      "bytes": 2478
     },
-    "Lean_Formalization_Research_Plan-1.pdf": {
+    "docs/PORTFOLIO_ROADMAP.md": {
+      "sha256": "127f279f9dfa8e5b705f0654eb95d2fdd8f341025492680a5fb665d20731ff5d",
+      "bytes": 54257
+    },
+    "docs/planning/Lean_Formalization_Research_Plan.pdf": {
       "sha256": "9ff40598bedd4df314c3d3cab0de5b51eab5e0d76ac27782b5b4261a3ece7641",
       "bytes": 161831
     },
-    "NEXT_FABLE_TASK.md": {
-      "sha256": "d1fc7db45b11413ab8196bea2989eaea4954d1893c36a45c7fa734b77f6034ce",
-      "bytes": 2992
-    },
-    "README.md": {
-      "sha256": "1d1a70a2c463578dc88a30e2bb76f130c1fef0e24e7b483aab13c44449a192a0",
-      "bytes": 5645
-    },
-    "docs/DISSIPATOR_HANDOFF.md": {
-      "sha256": "4d7172c28e8bce65738bf76156056392042cf84ab4fb220ea260043a8989d26d",
-      "bytes": 20837
-    },
-    "docs/PORTFOLIO_ROADMAP.md": {
-      "sha256": "6b6086249db0b7bf8c2236068812e177fbea0c23e3ad45a57a976e4c868ffba3",
-      "bytes": 54153
-    },
-    "docs/STAGE0_AUDIT.md": {
-      "sha256": "fd5d52db7a014aa20649edce95d3eb3c0684e13aae0ca75f2d495e1e2d92e267",
-      "bytes": 15928
+    "docs/planning/MISSING_PROOFS_INVENTORY.md": {
+      "sha256": "a24f46d9ae0b1934b914c78b8f5b2b8efcd2169ed973ee6ec2d4cae734b96bd3",
+      "bytes": 11690
     },
     "evidence/dissipator/environment.json": {
       "sha256": "11926636d0be134aa8b1edd6bb67ff66c330f68161fa5e6e3f564f946bab9a33",
@@ -1387,10 +1387,6 @@
     "scripts/verify.py": {
       "sha256": "9a6d01e56f55913084038636cb5fbedaf7dd4a40638304e61488cc7619fad757",
       "bytes": 20332
-    },
-    "updated list (1).md": {
-      "sha256": "42bc43262acdedbb1fa292a3bb7e121075353067842d4a02b6bc503aa8095120",
-      "bytes": 11313
     }
   }
 }
