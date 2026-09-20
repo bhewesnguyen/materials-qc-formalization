@@ -200,3 +200,66 @@ auditor's per-package inventory with license file hashes is at
 `audits/dissipator/v1/evidence/dependency_license_inventory.json`. Future
 provenance summaries use this inventory. No dependency changes.
 
+## D010: two-state stationary pilot (stationary milestone, round v1)
+
+`FormalScience/OpenSystems/TwoStateStationary.lean` implements the active
+assignment. Contract-to-Lean mapping:
+
+| Contract | Lean declaration |
+| --- | --- |
+| `L[a,b]` | `generator a b : QubitMatrix →ₗ[ℂ] QubitMatrix`, built as `(a : ℂ) • dissipatorLinearMap jumpZeroToOne + (b : ℂ) • dissipatorLinearMap jumpOneToZero`; the weighted formula is `generator_apply` (proof `rfl`) |
+| four entry equations | `generator_apply_zero_zero`, `generator_apply_one_one`, `generator_apply_zero_one`, `generator_apply_one_zero` |
+| trace, Hermiticity | `generator_trace`, `generator_isHermitian` |
+| `rhoStar(a,b)` | `rhoStar a b := diagonalState (a / (a + b))`; `rhoStar_eq_diagonal` gives `diag(b/(a+b), a/(a+b))` under `a + b ≠ 0` |
+| stationarity | `generator_rhoStar` under `a + b ≠ 0` |
+| algebraic uniqueness | `generator_eq_zero_iff_of_trace_eq_one` under `a + b ≠ 0` and `trace X = 1`, for every complex `X` |
+| density validity | `rhoStar_isDensity` under `0 ≤ a`, `0 ≤ b`, `0 < a + b` |
+| density iff | `isDensity_generator_eq_zero_iff`, stated under only `a + b ≠ 0` (see below) |
+| unique existence | `existsUnique_stationary_density` under the physical hypotheses |
+| `a = 0`, `b > 0` | `rhoStar_zero_left` (no hypothesis), `isDensity_generator_zero_left_eq_zero_iff` |
+| `a > 0`, `b = 0` | `rhoStar_zero_right` (needs `a ≠ 0`), `isDensity_generator_zero_right_eq_zero_iff` |
+| `a = b = 0` | `generator_zero_zero`, `generator_zero_zero_of_isDensity`, `not_existsUnique_stationary_density_zero_zero` |
+| `a = b = r > 0` | `rhoStar_same` (needs `r ≠ 0`), `isDensity_generator_same_eq_zero_iff` |
+
+Design choices. The generator is the bundled linear map the contract offered
+as its first option; linearity is therefore inherited and no separate
+`generator_add` or `generator_smul` is exported. The entry equations are
+derived from the accepted closed forms `dissipator_jumpZeroToOne_eq` and
+`dissipator_jumpOneToZero_eq` by evaluating diagonal products entrywise.
+Uniqueness is proved for an arbitrary complex matrix: the two off-diagonal
+equations force the coherences to vanish because the real scalar
+`(a + b) / 2` is nonzero, and the balance equation with trace one fixes both
+populations by `linear_combination`; the unknown matrix is never assumed
+diagonal, Hermitian, or positive.
+
+Hypothesis placement. The contract lists the density iff under the
+physical hypotheses; it is exported under only `a + b ≠ 0`, which is
+strictly stronger and is what the unique-existence theorem consumes with
+`hab.ne'`. Nonnegative rates appear exactly where they are needed: the
+density validity of the candidate and the unique-existence endpoint. The
+candidate identities `rhoStar_zero_left` and `rhoStar_same` carry the
+minimal hypotheses their arithmetic needs (`none` and `r ≠ 0`); the
+uniqueness specializations carry the physical `0 < b`, `0 < a`, `0 < r`.
+`generator_zero_zero_of_isDensity` restates the contract line "every
+density is stationary" literally; its density hypothesis is unused by
+design and the general `generator_zero_zero` is the stronger statement.
+
+Two small public helpers are exported because later milestones will reuse
+them: `isSelfAdjoint_ofReal` (real casts are self-adjoint in `ℂ`) and
+`qubitMatrix_ext` (four-entry extensionality on `Fin 2`). One arithmetic
+lemma, `one_sub_div_add`, is `private`. Mathlib supplied
+`Matrix.trace_fin_two`, `Matrix.diagonal_mul`, `Matrix.mul_diagonal`,
+`Matrix.diagonal_apply_eq`, `Complex.conj_ofReal`, `Complex.star_def`,
+`div_le_one₀`, `div_nonneg`, `eq_div_iff`, `div_ne_zero`, `zero_div`,
+`div_self`, and the tactics `field_simp`, `linear_combination`, `linarith`,
+`push_cast`, `ring`. No downstream source was consulted or copied.
+
+Specification warning, recorded as requested and not formalized. For
+signed real rates, `a + b = 0` does not imply `a = b = 0`: with `a = 1`,
+`b = -1` the entry equation gives `L(X)_00 = -X_00 - X_11 = -trace X`, so no
+trace-one matrix is stationary and `rhoStar 1 (-1) = diagonalState 0` is
+not stationary. Every theorem that needs `a + b ≠ 0` states it; the
+both-zero conclusions are stated for `a = b = 0` exactly. Lean division is
+total, so `rhoStar a b` has a value at `a + b = 0`, and no theorem claims
+anything about it there.
+

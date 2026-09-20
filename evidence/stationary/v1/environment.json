@@ -1,0 +1,37 @@
+{
+  "milestone": "stationary",
+  "round": "v1",
+  "recorded_at": "2026-09-20T22:38:57.875694+00:00",
+  "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "python": "3.12.3",
+  "os_release": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+  "lean_version_output": "Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "lake_version_output": "Lake version 5.0.0-src+293d5d0 (Lean version 4.34.0)",
+  "lean_release": "v4.34.0",
+  "lean_commit": "293d5d0c0c3f3dded4688b3ccd6a33939ac5102b",
+  "toolchain_source": "https://releases.lean-lang.org/lean4/v4.34.0/lean-4.34.0-linux.tar.zst",
+  "toolchain_archive_sha256_measured_by_auditor": "caaa98356098c85dc0fcbbd28e1ec66f39eb6551829972b752ff20e1286b646b",
+  "toolchain_note": "Same installed toolchain as the dissipator round (elan install recorded in evidence/dissipator/setup/). The archive checksum above is the auditor's independent measurement recorded in audits/dissipator/v1/evidence/setup/toolchain-checksum.json, not a workstation measurement.",
+  "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+  "cache_scope": "Same targeted Mathlib cache as the dissipator round (README command, 2170 files); the stationary module adds no modules outside that closure. Not a full source rebuild of Mathlib.",
+  "user_workstation_tested": true,
+  "git_diff_base_commit": "be2ad90088b3c407d2aa18aafe3a2e806db35011",
+  "git_housekeeping_commit": "26cd50698d171ed939310cd0289ce91257996282",
+  "verification_status": "passed",
+  "verification_commands": 27,
+  "all_verification_commands_exit_zero": true,
+  "exports_audited": 72,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "gate_tests_status": "passed",
+  "gate_test_case_count": 15,
+  "gate_control_missing_module": {
+    "status": "failed",
+    "error": "Release module coverage mismatch: unlisted=['FormalScience.OpenSystems.TwoStateStationary'], missing=[]",
+    "input_fixture": "omitted-module.json"
+  }
+}

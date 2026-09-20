@@ -1,5 +1,11 @@
 # Active assignment: two-state stationary pilot
 
+> Status (20 September 2026): implemented in
+> `FormalScience/OpenSystems/TwoStateStationary.lean` and handed off in
+> `deliverables/stationary/v1/HANDOFF.md`. The assignment text below is
+> preserved as received from the dissipator audit for the auditor to compare
+> against. Do not start a further milestone until the audit selects one.
+
 Milestone key: `stationary`. First implementation round: `v1`.
 
 This assignment follows the accepted finite dissipator milestone at submitted

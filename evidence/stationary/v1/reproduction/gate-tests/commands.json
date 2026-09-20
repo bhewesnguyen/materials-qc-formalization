@@ -1,0 +1,163 @@
+[
+  {
+    "label": "allowed-control",
+    "argv": [
+      "/home/jett/.elan/bin/lake",
+      "env",
+      "lean",
+      "--json",
+      "/home/jett/Documents/GitHub/materials-qc-formalization/evidence/stationary/v1/reproduction/gate-tests/fixtures/allowed_control.lean"
+    ],
+    "cwd": "/home/jett/Documents/GitHub/materials-qc-formalization",
+    "started_at": "2026-09-20T22:30:11.708577+00:00",
+    "duration_seconds": 0.666,
+    "exit_code": 0,
+    "stdout_file": "01-allowed-control.stdout.log",
+    "stderr_file": "01-allowed-control.stderr.log",
+    "stdout": "{\"caption\":\"\",\"data\":\"'GateFixture.allowed' does not depend on any axioms\",\"endPos\":{\"column\":6,\"line\":2},\"fileName\":\"/home/jett/Documents/GitHub/materials-qc-formalization/evidence/stationary/v1/reproduction/gate-tests/fixtures/allowed_control.lean\",\"isSilent\":false,\"keepFullRange\":false,\"kind\":\"[anonymous]\",\"pos\":{\"column\":0,\"line\":2},\"severity\":\"information\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "allowed-propext",
+    "argv": [
+      "/home/jett/.elan/bin/lake",
+      "env",
+      "lean",
+      "--json",
+      "/home/jett/Documents/GitHub/materials-qc-formalization/evidence/stationary/v1/reproduction/gate-tests/fixtures/allowed_propext.lean"
+    ],
+    "cwd": "/home/jett/Documents/GitHub/materials-qc-formalization",
+    "started_at": "2026-09-20T22:30:12.374699+00:00",
+    "duration_seconds": 0.657,
+    "exit_code": 0,
+    "stdout_file": "02-allowed-propext.stdout.log",
+    "stderr_file": "02-allowed-propext.stderr.log",
+    "stdout": "{\"caption\":\"\",\"data\":\"'GateFixture.ext' depends on axioms: [propext]\",\"endPos\":{\"column\":6,\"line\":2},\"fileName\":\"/home/jett/Documents/GitHub/materials-qc-formalization/evidence/stationary/v1/reproduction/gate-tests/fixtures/allowed_propext.lean\",\"isSilent\":false,\"keepFullRange\":false,\"kind\":\"[anonymous]\",\"pos\":{\"column\":0,\"line\":2},\"severity\":\"information\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "direct-axiom",
+    "argv": [
+      "/home/jett/.elan/bin/lake",
+      "env",
+      "lean",
+      "--json",
+      "/home/jett/Documents/GitHub/materials-qc-formalization/evidence/stationary/v1/reproduction/gate-tests/fixtures/direct_axiom.lean"
+    ],
+    "cwd": "/home/jett/Documents/GitHub/materials-qc-formalization",
+    "started_at": "2026-09-20T22:30:13.031629+00:00",
+    "duration_seconds": 0.647,
+    "exit_code": 0,
+    "stdout_file": "03-direct-axiom.stdout.log",
+    "stderr_file": "03-direct-axiom.stderr.log",
+    "stdout": "{\"caption\":\"\",\"data\":\"'GateFixture.direct' depends on axioms: [GateFixture.bad]\",\"endPos\":{\"column\":6,\"line\":3},\"fileName\":\"/home/jett/Documents/GitHub/materials-qc-formalization/evidence/stationary/v1/reproduction/gate-tests/fixtures/direct_axiom.lean\",\"isSilent\":false,\"keepFullRange\":false,\"kind\":\"[anonymous]\",\"pos\":{\"column\":0,\"line\":3},\"severity\":\"information\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "transitive-axiom",
+    "argv": [
+      "/home/jett/.elan/bin/lake",
+      "env",
+      "lean",
+      "--json",
+      "/home/jett/Documents/GitHub/materials-qc-formalization/evidence/stationary/v1/reproduction/gate-tests/fixtures/transitive_axiom.lean"
+    ],
+    "cwd": "/home/jett/Documents/GitHub/materials-qc-formalization",
+    "started_at": "2026-09-20T22:30:13.679098+00:00",
+    "duration_seconds": 0.614,
+    "exit_code": 0,
+    "stdout_file": "04-transitive-axiom.stdout.log",
+    "stderr_file": "04-transitive-axiom.stderr.log",
+    "stdout": "{\"caption\":\"\",\"data\":\"'GateFixture.indirect' depends on axioms: [GateFixture.hidden]\",\"endPos\":{\"column\":6,\"line\":4},\"fileName\":\"/home/jett/Documents/GitHub/materials-qc-formalization/evidence/stationary/v1/reproduction/gate-tests/fixtures/transitive_axiom.lean\",\"isSilent\":false,\"keepFullRange\":false,\"kind\":\"[anonymous]\",\"pos\":{\"column\":0,\"line\":4},\"severity\":\"information\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "sorry-proof",
+    "argv": [
+      "/home/jett/.elan/bin/lake",
+      "env",
+      "lean",
+      "--json",
+      "/home/jett/Documents/GitHub/materials-qc-formalization/evidence/stationary/v1/reproduction/gate-tests/fixtures/sorry_proof.lean"
+    ],
+    "cwd": "/home/jett/Documents/GitHub/materials-qc-formalization",
+    "started_at": "2026-09-20T22:30:14.293558+00:00",
+    "duration_seconds": 0.651,
+    "exit_code": 0,
+    "stdout_file": "05-sorry-proof.stdout.log",
+    "stderr_file": "05-sorry-proof.stderr.log",
+    "stdout": "{\"caption\":\"\",\"data\":\"declaration uses `sorry`\",\"endPos\":{\"column\":30,\"line\":1},\"fileName\":\"/home/jett/Documents/GitHub/materials-qc-formalization/evidence/stationary/v1/reproduction/gate-tests/fixtures/sorry_proof.lean\",\"isSilent\":false,\"keepFullRange\":false,\"kind\":\"hasSorry\",\"pos\":{\"column\":8,\"line\":1},\"severity\":\"warning\"}\n{\"caption\":\"\",\"data\":\"'GateFixture.unfinished' depends on axioms: [sorryAx]\",\"endPos\":{\"column\":6,\"line\":2},\"fileName\":\"/home/jett/Documents/GitHub/materials-qc-formalization/evidence/stationary/v1/reproduction/gate-tests/fixtures/sorry_proof.lean\",\"isSilent\":false,\"keepFullRange\":false,\"kind\":\"[anonymous]\",\"pos\":{\"column\":0,\"line\":2},\"severity\":\"information\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "missing-export",
+    "argv": [
+      "/home/jett/.elan/bin/lake",
+      "env",
+      "lean",
+      "--json",
+      "/home/jett/Documents/GitHub/materials-qc-formalization/evidence/stationary/v1/reproduction/gate-tests/fixtures/missing_export.lean"
+    ],
+    "cwd": "/home/jett/Documents/GitHub/materials-qc-formalization",
+    "started_at": "2026-09-20T22:30:14.944480+00:00",
+    "duration_seconds": 0.662,
+    "exit_code": 1,
+    "stdout_file": "06-missing-export.stdout.log",
+    "stderr_file": "06-missing-export.stderr.log",
+    "stdout": "{\"caption\":\"\",\"data\":\"Unknown constant `GateFixture.absent`\",\"endPos\":{\"column\":32,\"line\":2},\"fileName\":\"/home/jett/Documents/GitHub/materials-qc-formalization/evidence/stationary/v1/reproduction/gate-tests/fixtures/missing_export.lean\",\"isSilent\":false,\"keepFullRange\":false,\"kind\":\"lean.unknownIdentifier._namedError\",\"pos\":{\"column\":14,\"line\":2},\"severity\":\"error\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "false-premise-axiom-control",
+    "argv": [
+      "/home/jett/.elan/bin/lake",
+      "env",
+      "lean",
+      "--json",
+      "/home/jett/Documents/GitHub/materials-qc-formalization/evidence/stationary/v1/reproduction/gate-tests/fixtures/false_premise_axiom_control.lean"
+    ],
+    "cwd": "/home/jett/Documents/GitHub/materials-qc-formalization",
+    "started_at": "2026-09-20T22:30:15.606967+00:00",
+    "duration_seconds": 0.662,
+    "exit_code": 0,
+    "stdout_file": "07-false-premise-axiom-control.stdout.log",
+    "stderr_file": "07-false-premise-axiom-control.stderr.log",
+    "stdout": "{\"caption\":\"\",\"data\":\"'GateFixture.vacuous' does not depend on any axioms\",\"endPos\":{\"column\":6,\"line\":2},\"fileName\":\"/home/jett/Documents/GitHub/materials-qc-formalization/evidence/stationary/v1/reproduction/gate-tests/fixtures/false_premise_axiom_control.lean\",\"isSilent\":false,\"keepFullRange\":false,\"kind\":\"[anonymous]\",\"pos\":{\"column\":0,\"line\":2},\"severity\":\"information\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "signature-control",
+    "argv": [
+      "/home/jett/.elan/bin/lake",
+      "env",
+      "lean",
+      "/home/jett/Documents/GitHub/materials-qc-formalization/evidence/stationary/v1/reproduction/gate-tests/fixtures/contract_baseline.lean"
+    ],
+    "cwd": "/home/jett/Documents/GitHub/materials-qc-formalization",
+    "started_at": "2026-09-20T22:30:16.269828+00:00",
+    "duration_seconds": 0.638,
+    "exit_code": 0,
+    "stdout_file": "08-signature-control.stdout.log",
+    "stderr_file": "08-signature-control.stderr.log",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "signature-false-premise",
+    "argv": [
+      "/home/jett/.elan/bin/lake",
+      "env",
+      "lean",
+      "--json",
+      "/home/jett/Documents/GitHub/materials-qc-formalization/evidence/stationary/v1/reproduction/gate-tests/fixtures/contract_false_premise.lean"
+    ],
+    "cwd": "/home/jett/Documents/GitHub/materials-qc-formalization",
+    "started_at": "2026-09-20T22:30:16.908608+00:00",
+    "duration_seconds": 0.651,
+    "exit_code": 1,
+    "stdout_file": "09-signature-false-premise.stdout.log",
+    "stderr_file": "09-signature-false-premise.stderr.log",
+    "stdout": "{\"caption\":\"\",\"data\":\"Type mismatch\\n  GateFixture.target\\nhas type\\n  False \u2192 True\\nbut is expected to have type\\n  True\",\"endPos\":{\"column\":36,\"line\":2},\"fileName\":\"/home/jett/Documents/GitHub/materials-qc-formalization/evidence/stationary/v1/reproduction/gate-tests/fixtures/contract_false_premise.lean\",\"isSilent\":false,\"keepFullRange\":false,\"kind\":\"[anonymous]\",\"pos\":{\"column\":18,\"line\":2},\"severity\":\"error\"}\n",
+    "stderr": ""
+  }
+]

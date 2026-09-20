@@ -1,16 +1,15 @@
-# Formal Science: Stage 0 baseline and finite dissipator algebra
+# Formal Science: finite open systems, one audited milestone at a time
 
 This is the small source base for the finite-dimensional open-systems
-program. It contains the audited Stage 0 density-state representation probe
-and general finite Kraus trace calculation, plus the first bounded milestone
-built on it: the finite dissipator algebra in
-`FormalScience/OpenSystems/Dissipator.lean`. The Stage 0 report records the
-build and audit evidence for the baseline; `deliverables/dissipator/v1/HANDOFF.md`
-is the completed handoff for the dissipator milestone, which awaits its
-independent audit. `TURNS.md` indexes every implementation and audit round.
+program. It contains the accepted Stage 0 density-state representation probe
+and finite Kraus trace calculation, the accepted finite dissipator algebra
+(`FormalScience/OpenSystems/Dissipator.lean`), and the two-state stationary
+pilot (`FormalScience/OpenSystems/TwoStateStationary.lean`), whose handoff
+`deliverables/stationary/v1/HANDOFF.md` awaits its independent audit.
+`TURNS.md` indexes every implementation and audit round.
 
-It does not prove complete positivity, a Lindblad stationary state, a
-semigroup, or convergence. No mathematical novelty is claimed.
+It does not prove complete positivity, a semigroup, time evolution, or
+convergence. No mathematical novelty is claimed.
 
 ## Exact dependency base
 
@@ -35,16 +34,18 @@ python3 scripts/test_verify.py
 ```
 
 The first Lake command materializes the pinned dependencies and retrieves the
-targeted Mathlib cache. The dissipator module imports only modules already in
-that cached closure, so the command list is unchanged. Do not run
+targeted Mathlib cache. Both open-systems modules import only modules already
+in that cached closure, so the command list is unchanged. Do not run
 `lake update` unless deliberately changing the lockfile. A fresh local
 reproduction is required before a milestone extends the source.
 
 The scripts also accept `--lake /absolute/path/to/lake` for an isolated
 toolchain and `--output-dir` to record a run in a tracked evidence directory.
 The Stage 0 evidence was produced in a Linux x86_64 container; the dissipator
-evidence in `evidence/dissipator/` was produced on the Ubuntu 24.04
-workstation recorded in `evidence/dissipator/environment.json`.
+and stationary evidence (`evidence/dissipator/`, `evidence/stationary/v1/`)
+was produced on the Ubuntu 24.04 workstation recorded in each tree's
+`environment.json`. Evidence for new rounds is versioned as
+`evidence/<milestone>/v<k>/`.
 
 ## Source map
 
@@ -52,23 +53,27 @@ workstation recorded in `evidence/dissipator/environment.json`.
 | --- | --- |
 | `FormalScience/Stage0.lean` | Definitions and ten probe theorems |
 | `FormalScience/OpenSystems/Dissipator.lean` | Dissipator definition, linearity, trace, Hermiticity, basis-jump specializations |
-| `FormalScience.lean` | Umbrella import covering both release modules |
-| `Audit/Contracts.lean` | Independent consumer signatures for all 33 theorem contracts |
+| `FormalScience/OpenSystems/TwoStateStationary.lean` | Weighted two-jump generator, entry equations, stationary candidate, uniqueness, boundary cases |
+| `FormalScience.lean` | Umbrella import covering all three release modules |
+| `Audit/Contracts.lean` | Independent consumer signatures for all 61 theorem contracts |
 | `exports.json` | Required modules, public declarations, and version pins |
 | `scripts/verify.py` | Build, contract, and transitive-axiom gate |
 | `scripts/test_verify.py` | Deliberate failing cases for that gate |
 | `DECISIONS.md` | Representation, dependency, and packaging decisions |
-| `NEXT_FABLE_TASK.md` | The dissipator assignment, now implemented and awaiting audit |
+| `NEXT_FABLE_TASK.md` | The active assignment (stationary pilot), now implemented and awaiting audit |
 | `AUDIT_HANDOFF_TEMPLATE.md` | Template for each review |
 | `TURNS.md` | Index of implementation and audit rounds, with tags and decisions |
-| `deliverables/<milestone>/v<k>/` | What the implementer sends: `HANDOFF.md`, `POINTER.json`, and the untracked archive |
+| `deliverables/<milestone>/v<k>/` | What the implementer sends: `HANDOFF.md`, `POINTER.json`, post-packaging `RECEIPT.json`, and the untracked archive |
 | `audits/<milestone>/v<k>/` | What the auditor returns, stored as received |
-| `audits/stage0/v1/Formal_Science_Stage0_Audit.md` | Completed Stage 0 audit and release boundaries |
-| `deliverables/dissipator/v1/HANDOFF.md` | Completed handoff for the dissipator milestone |
+| `audits/stage0/v1/Formal_Science_Stage0_Audit.md` | Accepted Stage 0 audit and release boundaries |
+| `audits/dissipator/v1/Formal_Science_Dissipator_Audit_v1.md` | Accepted dissipator audit, with findings F1 to F4 |
+| `deliverables/dissipator/v1/HANDOFF.md` | Historical handoff for the accepted dissipator milestone |
+| `deliverables/stationary/v1/HANDOFF.md` | Completed handoff for the stationary pilot |
 | `docs/PORTFOLIO_ROADMAP.md` | The broader 39-area research plan, context only |
 | `docs/planning/` | The research plan PDF and the original 39-item gap inventory, context only |
 | `evidence/stage0/` | Preserved evidence for the audited baseline |
-| `evidence/dissipator/` | Fresh setup, reproduction, verification, gate-test, and control evidence |
+| `evidence/dissipator/` | Preserved evidence for the accepted dissipator milestone |
+| `evidence/stationary/v1/` | Fresh reproduction, verification, gate-test, and control evidence for this round |
 | `SOURCE_MANIFEST.json` | SHA-256 of every tracked project file except itself |
 
 ## Mathematical surface
@@ -97,11 +102,26 @@ laws, come with their adjoint and matrix-unit product identities and closed
 forms, and are proved not Hermitian. The dissipator is a generator component;
 no positivity or complete positivity claim is made about it.
 
+`generator a b` is the weighted two-jump generator
+`(a : ℂ) • D[E_10] + (b : ℂ) • D[E_01]` with zero Hamiltonian, as a
+complex-linear map on `QubitMatrix`. For arbitrary real rates and arbitrary
+complex `X` its four entries are `-a X_00 + b X_11`, `a X_00 - b X_11`, and
+`-(a+b)/2` times each coherence; its trace is zero and it preserves
+Hermiticity. `rhoStar a b = diagonalState (a / (a + b))`. Under only
+`a + b ≠ 0` it equals `diag(b/(a+b), a/(a+b))`, is stationary, and is the
+unique stationary matrix among all complex matrices of trace one. Under
+`0 ≤ a`, `0 ≤ b`, `0 < a + b` it is a density and is the unique stationary
+density. The one-zero-rate cases give the basis projectors, both zero rates
+give a zero generator with no unique stationary density, and equal positive
+rates give the maximally mixed state. No dynamics, convergence, or channel
+claim is made.
+
 ## Next step
 
-The dissipator milestone is implemented and its handoff is
-`deliverables/dissipator/v1/HANDOFF.md`. The next turn is an independent
-audit of that handoff, to be stored under `audits/dissipator/v1/`. No further milestone is active until the audit selects one; the
+The stationary pilot is implemented and its handoff is
+`deliverables/stationary/v1/HANDOFF.md`. The next turn is an independent
+audit of that handoff, to be stored under `audits/stationary/v1/`. No
+further milestone is active until the audit selects one. No further milestone is active until the audit selects one; the
 stationary-state system, dynamics, complete positivity, and the other
 branches remain out of scope.
 

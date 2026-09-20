@@ -155,4 +155,101 @@ example :
       basisProjector 0 - basisProjector 1 :=
   FormalScience.OpenSystems.dissipator_jumpOneToZero_basisProjector_one
 
+/-!
+## Two-state stationary pilot
+
+`Lw a b X` below is the weighted generator written out with matrix units and
+the dissipator formula, so the entry, trace, Hermiticity, and stationarity
+contracts do not depend on the project name `generator`. The candidate
+`rhoStar a b` is written as the explicit diagonal `diag(1 - a/(a+b), a/(a+b))`
+and `IsDensity` as Mathlib positive semidefiniteness plus trace one. Rate
+hypotheses appear exactly where the theorems require them.
+-/
+
+/-- The weighted generator spelled out: `a` weights `D[E_10]`, `b` weights `D[E_01]`. -/
+local notation "Lw" => fun (a b : ℝ) (X : QubitMatrix) =>
+  ((a : ℂ) • (E₁₀ * X * E₁₀ᴴ - (1 / 2 : ℂ) • (E₁₀ᴴ * E₁₀ * X + X * E₁₀ᴴ * E₁₀)) +
+    (b : ℂ) • (E₀₁ * X * E₀₁ᴴ - (1 / 2 : ℂ) • (E₀₁ᴴ * E₀₁ * X + X * E₀₁ᴴ * E₀₁)) : QubitMatrix)
+
+/-- The candidate `diag(1 - a/(a+b), a/(a+b))` spelled out. -/
+local notation "Rho" => fun (a b : ℝ) =>
+  (Matrix.diagonal ![((1 - a / (a + b) : ℝ) : ℂ), ((a / (a + b) : ℝ) : ℂ)] : QubitMatrix)
+
+example (r : ℝ) : star (r : ℂ) = r := FormalScience.OpenSystems.isSelfAdjoint_ofReal r
+
+example {A B : QubitMatrix} (h00 : A 0 0 = B 0 0) (h01 : A 0 1 = B 0 1) (h10 : A 1 0 = B 1 0)
+    (h11 : A 1 1 = B 1 1) : A = B :=
+  FormalScience.OpenSystems.qubitMatrix_ext h00 h01 h10 h11
+
+example (a b : ℝ) (X : QubitMatrix) : FormalScience.OpenSystems.generator a b X = Lw a b X :=
+  FormalScience.OpenSystems.generator_apply a b X
+
+example (a b : ℝ) (X : QubitMatrix) : Lw a b X 0 0 = -(a : ℂ) * X 0 0 + (b : ℂ) * X 1 1 :=
+  FormalScience.OpenSystems.generator_apply_zero_zero a b X
+example (a b : ℝ) (X : QubitMatrix) : Lw a b X 1 1 = (a : ℂ) * X 0 0 - (b : ℂ) * X 1 1 :=
+  FormalScience.OpenSystems.generator_apply_one_one a b X
+example (a b : ℝ) (X : QubitMatrix) : Lw a b X 0 1 = -(((a + b : ℝ) : ℂ) / 2) * X 0 1 :=
+  FormalScience.OpenSystems.generator_apply_zero_one a b X
+example (a b : ℝ) (X : QubitMatrix) : Lw a b X 1 0 = -(((a + b : ℝ) : ℂ) / 2) * X 1 0 :=
+  FormalScience.OpenSystems.generator_apply_one_zero a b X
+
+example (a b : ℝ) (X : QubitMatrix) : Matrix.trace (Lw a b X) = 0 :=
+  FormalScience.OpenSystems.generator_trace a b X
+example (a b : ℝ) {X : QubitMatrix} (hX : Xᴴ = X) : (Lw a b X)ᴴ = Lw a b X :=
+  FormalScience.OpenSystems.generator_isHermitian a b hX
+
+example (a b : ℝ) (h : a + b ≠ 0) :
+    Rho a b = Matrix.diagonal ![((b / (a + b) : ℝ) : ℂ), ((a / (a + b) : ℝ) : ℂ)] :=
+  FormalScience.OpenSystems.rhoStar_eq_diagonal a b h
+example (a b : ℝ) (h : a + b ≠ 0) : Rho a b 0 0 = ((b / (a + b) : ℝ) : ℂ) :=
+  FormalScience.OpenSystems.rhoStar_apply_zero_zero a b h
+example (a b : ℝ) : Rho a b 1 1 = ((a / (a + b) : ℝ) : ℂ) :=
+  FormalScience.OpenSystems.rhoStar_apply_one_one a b
+example (a b : ℝ) : Rho a b 0 1 = 0 := FormalScience.OpenSystems.rhoStar_apply_zero_one a b
+example (a b : ℝ) : Rho a b 1 0 = 0 := FormalScience.OpenSystems.rhoStar_apply_one_zero a b
+
+example (a b : ℝ) (h : a + b ≠ 0) : Lw a b (Rho a b) = 0 :=
+  FormalScience.OpenSystems.generator_rhoStar a b h
+
+/- Algebraic uniqueness applied to an arbitrary trace-one complex matrix: no
+Hermiticity, positivity, or diagonal shape is assumed of `X`. -/
+example (a b : ℝ) (h : a + b ≠ 0) (X : QubitMatrix) (hX : Matrix.trace X = 1) :
+    Lw a b X = 0 ↔ X = Rho a b :=
+  FormalScience.OpenSystems.generator_eq_zero_iff_of_trace_eq_one a b h X hX
+
+example (a b : ℝ) (ha : 0 ≤ a) (hb : 0 ≤ b) (hab : 0 < a + b) :
+    (Rho a b).PosSemidef ∧ Matrix.trace (Rho a b) = 1 :=
+  FormalScience.OpenSystems.rhoStar_isDensity a b ha hb hab
+
+example (a b : ℝ) (h : a + b ≠ 0) {ρ : QubitMatrix} (hρ : ρ.PosSemidef ∧ Matrix.trace ρ = 1) :
+    Lw a b ρ = 0 ↔ ρ = Rho a b :=
+  FormalScience.OpenSystems.isDensity_generator_eq_zero_iff a b h hρ
+
+example (a b : ℝ) (ha : 0 ≤ a) (hb : 0 ≤ b) (hab : 0 < a + b) :
+    ∃! ρ : QubitMatrix, (ρ.PosSemidef ∧ Matrix.trace ρ = 1) ∧ Lw a b ρ = 0 :=
+  FormalScience.OpenSystems.existsUnique_stationary_density a b ha hb hab
+
+example (b : ℝ) : Rho 0 b = basisProjector 0 := FormalScience.OpenSystems.rhoStar_zero_left b
+example (b : ℝ) (hb : 0 < b) {ρ : QubitMatrix} (hρ : ρ.PosSemidef ∧ Matrix.trace ρ = 1) :
+    Lw 0 b ρ = 0 ↔ ρ = basisProjector 0 :=
+  FormalScience.OpenSystems.isDensity_generator_zero_left_eq_zero_iff b hb hρ
+
+example (a : ℝ) (ha : a ≠ 0) : Rho a 0 = basisProjector 1 :=
+  FormalScience.OpenSystems.rhoStar_zero_right a ha
+example (a : ℝ) (ha : 0 < a) {ρ : QubitMatrix} (hρ : ρ.PosSemidef ∧ Matrix.trace ρ = 1) :
+    Lw a 0 ρ = 0 ↔ ρ = basisProjector 1 :=
+  FormalScience.OpenSystems.isDensity_generator_zero_right_eq_zero_iff a ha hρ
+
+example (X : QubitMatrix) : Lw 0 0 X = 0 := FormalScience.OpenSystems.generator_zero_zero X
+example {ρ : QubitMatrix} (hρ : ρ.PosSemidef ∧ Matrix.trace ρ = 1) : Lw 0 0 ρ = 0 :=
+  FormalScience.OpenSystems.generator_zero_zero_of_isDensity hρ
+example : ¬ ∃! ρ : QubitMatrix, (ρ.PosSemidef ∧ Matrix.trace ρ = 1) ∧ Lw 0 0 ρ = 0 :=
+  FormalScience.OpenSystems.not_existsUnique_stationary_density_zero_zero
+
+example (r : ℝ) (hr : r ≠ 0) : Rho r r = diagonalState (1 / 2) :=
+  FormalScience.OpenSystems.rhoStar_same r hr
+example (r : ℝ) (hr : 0 < r) {ρ : QubitMatrix} (hρ : ρ.PosSemidef ∧ Matrix.trace ρ = 1) :
+    Lw r r ρ = 0 ↔ ρ = diagonalState (1 / 2) :=
+  FormalScience.OpenSystems.isDensity_generator_same_eq_zero_iff r hr hρ
+
 end JumpContracts

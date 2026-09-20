@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "milestone": "stationary",
+  "version": "v1",
+  "tag": "stationary-milestone-v1",
+  "commit_under_review": "git rev-parse stationary-milestone-v1^{commit}; also recorded in RECEIPT.json, committed after the tag",
+  "diff_base_commit": "be2ad90088b3c407d2aa18aafe3a2e806db35011",
+  "housekeeping_commit": "26cd50698d171ed939310cd0289ce91257996282",
+  "handoff": "deliverables/stationary/v1/HANDOFF.md",
+  "assignment": "NEXT_FABLE_TASK.md",
+  "release_modules": [
+    "FormalScience.Stage0",
+    "FormalScience.OpenSystems.Dissipator",
+    "FormalScience.OpenSystems.TwoStateStationary"
+  ],
+  "exports_count": 72,
+  "contract_exports_count": 61,
+  "evidence": {
+    "baseline_reproduction": "evidence/stationary/v1/reproduction/",
+    "verification": "evidence/stationary/v1/verification/verification.json",
+    "gate_tests": "evidence/stationary/v1/gate-tests/gate_tests.json",
+    "gate_controls": "evidence/stationary/v1/gate-controls/missing-module/",
+    "environment": "evidence/stationary/v1/environment.json"
+  },
+  "lean_version": "4.34.0",
+  "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "source_sha256": {
+    "lean-toolchain": "8733782dc070a99b312039cda424f601b80f3be6f6f512627da5ba25adc27632",
+    "lakefile.toml": "7ce638070ed8dd0a0d64280ecbdd5a9ac0fcfa26ae2b190e321aac3ff12003fe",
+    "lake-manifest.json": "bf782855f3900257333229a005a4158c054550761a2fcaaba57348b3ab9db3a7",
+    "exports.json": "9dc6d4ab4675483dbb5456d96cfe5410c4ca696b80052cf592452ad04fd52a37",
+    "FormalScience.lean": "b449c56cc9ba8eb837c3b51902d5e513be7a6ea6f4d92f92f42622df26b4d06a",
+    "Audit/Contracts.lean": "3d6dcd2bda1e71c20768f5d7c97f2419d3c9da4130689ed085f0d29ffe1b8aa6",
+    "scripts/verify.py": "9a6d01e56f55913084038636cb5fbedaf7dd4a40638304e61488cc7619fad757",
+    "scripts/test_verify.py": "44dddfe2bcd28c016eda7e6d33e6331975de521a01a27387988601954df2d596",
+    "FormalScience/Stage0.lean": "b8022c56e22bd3d9f0fc965a769015d8484520dc3a0915e2c3d5e8b97dc101f5",
+    "FormalScience/OpenSystems/Dissipator.lean": "abaec0a4a01fe746599ffbc3117ed7dd6ce1d42c88861fced777684e26577ada",
+    "FormalScience/OpenSystems/TwoStateStationary.lean": "f5af6d980671d19a8388168441319d2e03a89c93b5cba61d32474690a1e0155e"
+  },
+  "archive": {
+    "command": "git archive --format=zip --prefix=formal-science/ -o deliverables/stationary/v1/Formal_Science_Stationary_Handoff.zip stationary-milestone-v1",
+    "tracked": false,
+    "integrity": "Every file in the archive except SOURCE_MANIFEST.json is listed in SOURCE_MANIFEST.json with its SHA-256 and byte length; verified after packaging and recorded in RECEIPT.json."
+  }
+}
