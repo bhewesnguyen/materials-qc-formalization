@@ -1,0 +1,1 @@
+{"caption":"","data":"'GateFixture.allowed' does not depend on any axioms","endPos":{"column":6,"line":2},"fileName":"/workspace/scratch/0a42b15a2c38/audit_stationary/evidence/gate-tests/fixtures/allowed_control.lean","isSilent":false,"keepFullRange":false,"kind":"[anonymous]","pos":{"column":0,"line":2},"severity":"information"}

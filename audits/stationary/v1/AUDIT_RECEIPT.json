@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "milestone": "stationary",
+  "round": "v1",
+  "audit_date": "2026-09-20",
+  "decision": "accepted",
+  "proof_revision_required": false,
+  "reviewed_commit": "a5347ca77a2b5e6678f514decb0ab4eee7b62943",
+  "reviewed_tag": "stationary-milestone-v1",
+  "declared_diff_base": "be2ad90088b3c407d2aa18aafe3a2e806db35011",
+  "declared_housekeeping_commit": "26cd50698d171ed939310cd0289ce91257996282",
+  "declared_receipt_commit_prefix": "d7c53a6",
+  "remote_history_authenticated": false,
+  "input_archive": {
+    "sha256": "3d53dafea6d2963c15deca0ac5ae2ad20ef62bc650a70d25d9fb4d0941c7fce6",
+    "bytes": 778742,
+    "zip_comment": "a5347ca77a2b5e6678f514decb0ab4eee7b62943",
+    "manifest_entries": 709,
+    "actual_files": 710,
+    "all_manifest_files_match": true,
+    "detached_handoff_and_pointer_match": true,
+    "receipt_is_external_to_tagged_archive": true,
+    "nested_archives": []
+  },
+  "independent_verification": {
+    "status": "passed",
+    "release_modules": [
+      "FormalScience.OpenSystems.Dissipator",
+      "FormalScience.OpenSystems.TwoStateStationary",
+      "FormalScience.Stage0"
+    ],
+    "exports": 72,
+    "theorem_contracts": 61,
+    "dependencies": 9,
+    "commands": 27,
+    "all_verification_commands_exit_zero": true,
+    "gate_cases": 15,
+    "missing_module_rejected": true,
+    "missing_module_reason": "Release module coverage mismatch: unlisted=['FormalScience.OpenSystems.TwoStateStationary'], missing=[]",
+    "source_hash_map_matches_submission": true,
+    "axiom_map_matches_submission": true,
+    "axiom_union": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "finished_at": "2026-09-20T22:50:42.734185+00:00"
+  },
+  "prior_findings": {
+    "F1": "closed",
+    "F2": "closed",
+    "F3": "closed",
+    "F4": "closed"
+  },
+  "findings": [
+    {
+      "id": "S1",
+      "severity": "low",
+      "blocking": false,
+      "remedy": "Restore the exact prior issued assignment supplied at audits/dissipator/v1/NEXT_FABLE_TASK.md; preserve new issued assignments before copying to the mutable root slot."
+    },
+    {
+      "id": "S2",
+      "severity": "low",
+      "blocking": false,
+      "remedy": "Record corrected stationary log names; repair README and forward TURNS evidence path wording."
+    },
+    {
+      "id": "S3",
+      "severity": "low",
+      "blocking": false,
+      "remedy": "Qualify coherence docstrings and zero-total-rate narrative; retain all mathematical statements."
+    }
+  ],
+  "next_milestone": {
+    "key": "evolution",
+    "round": "v1",
+    "module": "FormalScience/OpenSystems/TwoStateEvolution.lean",
+    "issued_task": "audits/stationary/v1/NEXT_FABLE_TASK.md",
+    "scope": "Explicit complex-linear flow, semigroup, matrix-valued derivative, fixed points, and signed zero-total-rate branch. No positivity, complete positivity, or convergence claim."
+  },
+  "portfolio": {
+    "inventory_areas": 39,
+    "identified_mathlib_reuse_targets": 1,
+    "candidate_bearing_rows": 28,
+    "unresolved_or_partial_only_rows": 10,
+    "remaining_assess_reuse_extend_areas": 38,
+    "accepted_local_milestones": 3,
+    "broad_inventory_areas_closed_by_pilot": 0,
+    "new_global_search": false
+  }
+}

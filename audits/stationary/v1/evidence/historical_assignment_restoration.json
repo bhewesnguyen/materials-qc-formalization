@@ -1,0 +1,11 @@
+{
+  "status": "verified",
+  "original_payload_count": 143,
+  "present_payloads_verified": 142,
+  "missing_original_path": "NEXT_FABLE_TASK.md",
+  "restored_path": "audits/dissipator/v1/NEXT_FABLE_TASK.md",
+  "bytes": 9319,
+  "sha256": "8c49d97f9380833fa7e53aea388308208a670911eca4b7d40c540663b15d9fe0",
+  "path_mapping": "Remove leading audits/dissipator/v1/ from original manifest keys that have it; keep other keys; resolve under the archived audits/dissipator/v1 directory.",
+  "historical_manifest_unchanged": true
+}

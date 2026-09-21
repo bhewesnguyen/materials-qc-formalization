@@ -1,0 +1,1 @@
+{"caption":"","data":"'GateFixture.direct' depends on axioms: [GateFixture.bad]","endPos":{"column":6,"line":3},"fileName":"/workspace/scratch/0a42b15a2c38/audit_stationary/evidence/gate-tests/fixtures/direct_axiom.lean","isSilent":false,"keepFullRange":false,"kind":"[anonymous]","pos":{"column":0,"line":3},"severity":"information"}

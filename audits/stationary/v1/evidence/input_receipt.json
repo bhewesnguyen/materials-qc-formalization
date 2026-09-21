@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "milestone": "stationary",
+  "version": "v1",
+  "tag": "stationary-milestone-v1",
+  "commit_under_review": "a5347ca77a2b5e6678f514decb0ab4eee7b62943",
+  "diff_base_commit": "be2ad90088b3c407d2aa18aafe3a2e806db35011",
+  "archive": {
+    "file": "deliverables/stationary/v1/Formal_Science_Stationary_Handoff.zip",
+    "tracked": false,
+    "sha256": "3d53dafea6d2963c15deca0ac5ae2ad20ef62bc650a70d25d9fb4d0941c7fce6",
+    "bytes": 778742,
+    "created_by": "git archive --format=zip --prefix=formal-science/ stationary-milestone-v1",
+    "verification": "Extracted and compared path by path against the archived SOURCE_MANIFEST.json: 709 files besides the manifest, all SHA-256 and byte counts matching, no extra or missing paths, no nested archives."
+  },
+  "recorded_at": "2026-09-20T22:44:00.308496+00:00",
+  "note": "Recorded in a commit made after the tag, so the tagged tree never contains its own archive digest or commit hash."
+}

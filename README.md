@@ -1,12 +1,14 @@
 # Formal Science: finite open systems, one audited milestone at a time
 
 This is the small source base for the finite-dimensional open-systems
-program. It contains the accepted Stage 0 density-state representation probe
-and finite Kraus trace calculation, the accepted finite dissipator algebra
-(`FormalScience/OpenSystems/Dissipator.lean`), and the two-state stationary
-pilot (`FormalScience/OpenSystems/TwoStateStationary.lean`), whose handoff
-`deliverables/stationary/v1/HANDOFF.md` awaits its independent audit.
-`TURNS.md` indexes every implementation and audit round.
+program. Three milestones are accepted: the Stage 0 density-state
+representation probe and finite Kraus trace calculation, the finite
+dissipator algebra (`FormalScience/OpenSystems/Dissipator.lean`), and the
+two-state stationary pilot (`FormalScience/OpenSystems/TwoStateStationary.lean`).
+The active assignment is the explicit two-state evolution in
+`NEXT_FABLE_TASK.md`. `TURNS.md` indexes every implementation and audit
+round, and `audits/stationary/v1/PORTFOLIO_STATUS.md` is the auditor's
+ledger of the 39-area portfolio against the accepted local work.
 
 It does not prove complete positivity, a semigroup, time evolution, or
 convergence. No mathematical novelty is claimed.
@@ -67,13 +69,14 @@ was produced on the Ubuntu 24.04 workstation recorded in each tree's
 | `audits/<milestone>/v<k>/` | What the auditor returns, stored as received |
 | `audits/stage0/v1/Formal_Science_Stage0_Audit.md` | Accepted Stage 0 audit and release boundaries |
 | `audits/dissipator/v1/Formal_Science_Dissipator_Audit_v1.md` | Accepted dissipator audit, with findings F1 to F4 |
+| `audits/stationary/v1/Formal_Science_Stationary_Audit_v1.md` | Accepted stationary audit, with findings S1 to S3 and the portfolio ledger |
 | `deliverables/dissipator/v1/HANDOFF.md` | Historical handoff for the accepted dissipator milestone |
-| `deliverables/stationary/v1/HANDOFF.md` | Completed handoff for the stationary pilot |
+| `deliverables/stationary/v1/HANDOFF.md` | Historical handoff for the accepted stationary pilot |
 | `docs/PORTFOLIO_ROADMAP.md` | The broader 39-area research plan, context only |
 | `docs/planning/` | The research plan PDF and the original 39-item gap inventory, context only |
 | `evidence/stage0/` | Preserved evidence for the audited baseline |
 | `evidence/dissipator/` | Preserved evidence for the accepted dissipator milestone |
-| `evidence/stationary/v1/` | Fresh reproduction, verification, gate-test, and control evidence for this round |
+| `evidence/stationary/v1/` | Preserved evidence for the accepted stationary pilot |
 | `SOURCE_MANIFEST.json` | SHA-256 of every tracked project file except itself |
 
 ## Mathematical surface
@@ -118,12 +121,10 @@ claim is made.
 
 ## Next step
 
-The stationary pilot is implemented and its handoff is
-`deliverables/stationary/v1/HANDOFF.md`. The next turn is an independent
-audit of that handoff, to be stored under `audits/stationary/v1/`. No
-further milestone is active until the audit selects one. No further milestone is active until the audit selects one; the
-stationary-state system, dynamics, complete positivity, and the other
-branches remain out of scope.
+The active assignment is the explicit two-state evolution specified in
+`NEXT_FABLE_TASK.md`, issued with the stationary audit. Positivity,
+complete positivity, convergence, generic GKSL, and the other branches
+remain out of scope for it.
 
 Public theorem scope and proof trust are separate from source provenance,
 upstream acceptance, and novelty. The scripts are ordinary reproducibility and

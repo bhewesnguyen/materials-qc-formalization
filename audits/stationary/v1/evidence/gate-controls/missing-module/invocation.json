@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "python3",
+    "scripts/verify.py",
+    "--lake",
+    "/workspace/scratch/0a42b15a2c38/audit_dissipator/runtime/lean-4.34.0-linux/bin/lake",
+    "--manifest",
+    "/workspace/scratch/0a42b15a2c38/audit_stationary/evidence/gate-controls/missing-module/omitted-module.json",
+    "--output-dir",
+    "/workspace/scratch/0a42b15a2c38/audit_stationary/evidence/gate-controls/missing-module"
+  ],
+  "cwd": "/workspace/scratch/0a42b15a2c38/audit_stationary/reproduction/formal-science",
+  "exit_code": 1,
+  "stdout": "Stage 0 verification: failed\n/workspace/scratch/0a42b15a2c38/audit_stationary/evidence/gate-controls/missing-module/verification.json\n",
+  "stderr": "Release module coverage mismatch: unlisted=['FormalScience.OpenSystems.TwoStateStationary'], missing=[]\n"
+}

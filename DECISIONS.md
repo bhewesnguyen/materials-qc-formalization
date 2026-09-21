@@ -260,6 +260,56 @@ signed real rates, `a + b = 0` does not imply `a = b = 0`: with `a = 1`,
 trace-one matrix is stationary and `rhoStar 1 (-1) = diagonalState 0` is
 not stationary. Every theorem that needs `a + b ≠ 0` states it; the
 both-zero conclusions are stated for `a = b = 0` exactly. Lean division is
-total, so `rhoStar a b` has a value at `a + b = 0`, and no theorem claims
-anything about it there.
+total, so `rhoStar a b` has a value at `a + b = 0`; which theorems apply
+there is stated precisely in D011, S3.
+
+## D011: corrections carried forward from the stationary audit
+
+The stationary audit (`audits/stationary/v1/`) accepted
+`stationary-milestone-v1` at commit `a5347ca` with no proof revision and
+three low-severity findings. The historical handoff
+`deliverables/stationary/v1/HANDOFF.md` and its evidence are preserved
+unchanged; the corrections are recorded here and applied to live documents.
+
+S1, archived assignment. The dissipator return's manifest listed the issued
+stationary assignment (`NEXT_FABLE_TASK.md`, 9319 bytes, SHA-256
+`8c49d97f...d9fe0`) among its 143 payloads, but round 2 stored only the
+other 142 under `audits/dissipator/v1/`, on the reasoning that the root copy
+was identical at the time. The root copy later received a status note, so
+the exact issued bytes lived only in Git history. The auditor supplied the
+exact restoration; it is now at `audits/dissipator/v1/NEXT_FABLE_TASK.md`,
+matches both the historical manifest and `git show 26cd506:NEXT_FABLE_TASK.md`,
+and the old manifest is unchanged. Rule going forward, recorded in
+AGENTS.md: the return manifest defines the payload set to store, including
+the issued assignment; the root `NEXT_FABLE_TASK.md` is the only mutable
+copy.
+
+S2, record pointers. The stationary handoff cites the signature and axiom
+logs as `27-export-signatures.stdout.log` and `28-axiom-audit.stdout.log`;
+the run has 27 commands, so the correct files are
+`evidence/stationary/v1/verification/26-export-signatures.stdout.log` and
+`evidence/stationary/v1/verification/27-axiom-audit.stdout.log`. The README
+"Next step" paragraph carried a duplicated sentence and a stale clause
+about the stationary system; `TURNS.md` described evidence paths as
+`evidence/<key>/` and claimed commit hashes could not be recorded although
+the table already held historical hashes. All three live texts are
+corrected in the round 3 housekeeping commit.
+
+S3, wording. Two docstrings in `TwoStateStationary.lean` said the coherence
+"decays at half the total rate". The theorems state that the `(0,1)` and
+`(1,0)` entries of `L(X)` are `-(a+b)/2` times the corresponding entries of
+`X`, for arbitrary real rates; decay is the physical reading for
+nonnegative rates and there is no time evolution in that module. The
+docstrings are changed to the algebraic statement in a comment-only edit
+made after the untouched baseline was reproduced (`evidence/evolution/v1/reproduction/`),
+so the module's source hash changes from `f5af6d98...` while the accepted
+tag is untouched. Likewise, the D010 sentence "no theorem claims anything
+about it there" (about `rhoStar a b` at `a + b = 0`) was too broad: the
+four entry identities, `rhoStar_apply_one_one`, the off-diagonal lemmas,
+`rhoStar_zero_left`, and the explicit both-zero results do apply at
+`a + b = 0`; what does not apply is the stationary uniqueness theorem,
+which requires `a + b ≠ 0` and does not cover nonzero signed cancellation.
+For the record: generator Hermiticity preservation assumes a Hermitian
+input, whereas the entry and trace identities hold for arbitrary complex
+matrices.
 

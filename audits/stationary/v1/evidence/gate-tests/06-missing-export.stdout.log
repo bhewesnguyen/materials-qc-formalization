@@ -1,0 +1,1 @@
+{"caption":"","data":"Unknown constant `GateFixture.absent`","endPos":{"column":32,"line":2},"fileName":"/workspace/scratch/0a42b15a2c38/audit_stationary/evidence/gate-tests/fixtures/missing_export.lean","isSilent":false,"keepFullRange":false,"kind":"lean.unknownIdentifier._namedError","pos":{"column":14,"line":2},"severity":"error"}

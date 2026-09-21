@@ -1,0 +1,1 @@
+{"caption":"","data":"'GateFixture.ext' depends on axioms: [propext]","endPos":{"column":6,"line":2},"fileName":"/workspace/scratch/0a42b15a2c38/audit_stationary/evidence/gate-tests/fixtures/allowed_propext.lean","isSilent":false,"keepFullRange":false,"kind":"[anonymous]","pos":{"column":0,"line":2},"severity":"information"}

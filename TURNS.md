@@ -1,13 +1,17 @@
 # Turn index
 
 One row per implementation or audit round, oldest first. The milestone key
-joins `evidence/<key>/`, `deliverables/<key>/v<k>/`, `audits/<key>/v<k>/`,
-and the tag `<key>-milestone-v<k>`. Commit hashes are obtained with
-`git rev-parse <tag>`; they are not written here because the commit contains
-this file. The handoff layout and sequence are specified in AGENTS.md.
+joins `evidence/<key>/v<k>/`, `deliverables/<key>/v<k>/`, `audits/<key>/v<k>/`,
+and the tag `<key>-milestone-v<k>`; the two pre-versioning evidence paths
+`evidence/stage0/` and `evidence/dissipator/` are frozen exceptions. A tagged
+commit is `git rev-parse <tag>^{commit}`. Historical hashes are recorded in
+the table; the hash of the round currently being packaged is added by its
+post-tag receipt commit. The handoff layout and sequence are specified in
+AGENTS.md.
 
 | Round | Milestone | Version | Tag | Implementer handoff | Auditor report | Date | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 0 | stage0 | v1 | none; delivered as an archive before this repository existed, content imported as commit `cd7e6c6` | built by the auditor; see `audits/stage0/v1/` | `audits/stage0/v1/Formal_Science_Stage0_Audit.md` | 2026-09-20 | Accepted. Hand to implementation for the finite dissipator algebra. |
 | 1 | dissipator | v1 | `dissipator-milestone-v1` at commit `be2ad90088b3c407d2aa18aafe3a2e806db35011` | `deliverables/dissipator/v1/HANDOFF.md` | `audits/dissipator/v1/Formal_Science_Dissipator_Audit_v1.md` | 2026-09-20 | Accepted. No proof revision. Four low-severity process findings F1 to F4, closed in the round 2 housekeeping commit (D008 and D009). Next milestone: stationary. |
-| 2 | stationary | v1 | `stationary-milestone-v1` at commit `a5347ca77a2b5e6678f514decb0ab4eee7b62943` (recorded post-tag in `deliverables/stationary/v1/RECEIPT.json`) | `deliverables/stationary/v1/HANDOFF.md` | `audits/stationary/v1/` (pending) | 2026-09-20 | Pending independent audit. |
+| 2 | stationary | v1 | `stationary-milestone-v1` at commit `a5347ca77a2b5e6678f514decb0ab4eee7b62943` (receipt `deliverables/stationary/v1/RECEIPT.json`) | `deliverables/stationary/v1/HANDOFF.md` | `audits/stationary/v1/Formal_Science_Stationary_Audit_v1.md` | 2026-09-20 | Accepted. No proof revision. Three low-severity record and wording findings S1 to S3, closed in the round 3 housekeeping commit (D011). Next milestone: evolution. |
+| 3 | evolution | v1 | `evolution-milestone-v1` | `deliverables/evolution/v1/HANDOFF.md` | `audits/evolution/v1/` (pending) | 2026-09-20 | Pending independent audit. |

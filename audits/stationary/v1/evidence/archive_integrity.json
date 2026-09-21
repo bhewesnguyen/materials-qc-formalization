@@ -1,0 +1,11 @@
+{
+  "sha256": "3d53dafea6d2963c15deca0ac5ae2ad20ef62bc650a70d25d9fb4d0941c7fce6",
+  "bytes": 778742,
+  "zip_comment": "a5347ca77a2b5e6678f514decb0ab4eee7b62943",
+  "manifest_entries": 709,
+  "actual_files": 710,
+  "all_manifest_files_match": true,
+  "detached_handoff_and_pointer_match": true,
+  "receipt_is_external_to_tagged_archive": true,
+  "nested_archives": []
+}

@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "release_modules": [
+    "FormalScience.OpenSystems.Dissipator",
+    "FormalScience.OpenSystems.TwoStateStationary",
+    "FormalScience.Stage0"
+  ],
+  "exports": 72,
+  "theorem_contracts": 61,
+  "dependencies": 9,
+  "commands": 27,
+  "all_verification_commands_exit_zero": true,
+  "gate_cases": 15,
+  "missing_module_rejected": true,
+  "missing_module_reason": "Release module coverage mismatch: unlisted=['FormalScience.OpenSystems.TwoStateStationary'], missing=[]",
+  "source_hash_map_matches_submission": true,
+  "axiom_map_matches_submission": true,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "finished_at": "2026-09-20T22:50:42.734185+00:00"
+}
