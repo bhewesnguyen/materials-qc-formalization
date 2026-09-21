@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "milestone": "release-readiness",
+  "version": "v1",
+  "kind": "Stage 5 release-readiness candidate; documentation, provenance, consumer reproduction, and packaging; no new mathematical API",
+  "tag": "release-readiness-milestone-v1",
+  "commit_under_review": "git rev-parse release-readiness-milestone-v1^{commit}; also recorded in RECEIPT.json, committed after the tag",
+  "diff_base_commit": "4795b8b6dc6ec7a831b9158affe3ee199f60e01e",
+  "diff_base_tag": "markov-milestone-v1",
+  "markov_receipt_commit": "c42eccd171a02ff605768803c1acd5a7c3120fb7",
+  "housekeeping_commit": "933024e414e252234ed96defa4640096564cee3d",
+  "handoff": "deliverables/release-readiness/v1/HANDOFF.md",
+  "assignment": "NEXT_FABLE_TASK.md",
+  "issued_assignment_frozen_copy": "audits/markov/v1/NEXT_FABLE_TASK.md",
+  "package_version": "0.0.1",
+  "release_modules": [
+    "FormalScience.Stage0",
+    "FormalScience.OpenSystems.Dissipator",
+    "FormalScience.OpenSystems.TwoStateStationary",
+    "FormalScience.OpenSystems.TwoStateEvolution",
+    "FormalScience.Quantum.FiniteKraus",
+    "FormalScience.OpenSystems.TwoStateKraus",
+    "FormalScience.OpenSystems.TwoStateConvergence",
+    "FormalScience.OpenSystems.FiniteMarkovBridge"
+  ],
+  "exports_count": 216,
+  "contract_exports_count": 193,
+  "definitions_or_abbreviations": 23,
+  "mathematical_surface_frozen_byte_for_byte": true,
+  "added_files": [
+    "LICENSE",
+    "NOTICE",
+    "CITATION.cff",
+    "CHANGELOG.md",
+    "docs/API_GUIDE.md",
+    "docs/RELEASE_READINESS.md",
+    "docs/PROVENANCE_AND_LICENSES.md",
+    "examples/Usage.lean"
+  ],
+  "project_license": {
+    "kind": "Apache-2.0",
+    "decision": "D021, owner decision of 2026-09-21",
+    "license_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  "evidence": {
+    "baseline_reproduction": "evidence/release-readiness/v1/reproduction/",
+    "verification": "evidence/release-readiness/v1/verification/verification.json",
+    "gate_tests": "evidence/release-readiness/v1/gate-tests/gate_tests.json",
+    "gate_controls": [
+      "evidence/release-readiness/v1/gate-controls/missing-module/",
+      "evidence/release-readiness/v1/gate-controls/unmentioned-contract-export/"
+    ],
+    "usage_examples": "evidence/release-readiness/v1/usage/usage-compile.json",
+    "provenance": "evidence/release-readiness/v1/provenance/dependency_license_check.json",
+    "freeze_check": "evidence/release-readiness/v1/freeze/freeze_check.json",
+    "inventory_linkage": "evidence/release-readiness/v1/inventory/inventory_linkage.json",
+    "environment": "evidence/release-readiness/v1/environment.json",
+    "archive_consumer_post_tag": "evidence/release-readiness/v1/archive-consumer/ (committed after the tag with RECEIPT.json; also delivered in the companion evidence archive)"
+  },
+  "lean_version": "4.34.0",
+  "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+  "cache_modules_added_this_round": [],
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "source_sha256": {
+    "lean-toolchain": "8733782dc070a99b312039cda424f601b80f3be6f6f512627da5ba25adc27632",
+    "lakefile.toml": "7ce638070ed8dd0a0d64280ecbdd5a9ac0fcfa26ae2b190e321aac3ff12003fe",
+    "lake-manifest.json": "bf782855f3900257333229a005a4158c054550761a2fcaaba57348b3ab9db3a7",
+    "exports.json": "ecd3faefdc5b4198b4791f070714b3b4b7278ee24bd569391f072ab19f99affa",
+    "FormalScience.lean": "53441ed9d9f12701777a888c5c1e51fd1178dd1a2b18225130a44f41910abf04",
+    "Audit/Contracts.lean": "19fc9cb7652f434ef794e75a5dd9b0f695317f019e7e7405e273d4379fd25f66",
+    "scripts/verify.py": "9a6d01e56f55913084038636cb5fbedaf7dd4a40638304e61488cc7619fad757",
+    "scripts/test_verify.py": "44dddfe2bcd28c016eda7e6d33e6331975de521a01a27387988601954df2d596",
+    "FormalScience/Stage0.lean": "b8022c56e22bd3d9f0fc965a769015d8484520dc3a0915e2c3d5e8b97dc101f5",
+    "FormalScience/OpenSystems/Dissipator.lean": "abaec0a4a01fe746599ffbc3117ed7dd6ce1d42c88861fced777684e26577ada",
+    "FormalScience/OpenSystems/TwoStateStationary.lean": "745efb74d87359f6cacae50625e316e473f7dd27a595a9689fab083baff855e1",
+    "FormalScience/OpenSystems/TwoStateEvolution.lean": "541772ee2f865c567bede484e2a5e25562531da1294e5fdcb7abc0c4cd069e37",
+    "FormalScience/Quantum/FiniteKraus.lean": "1fe2ec3bb001f4503a29a91dd1cc1fa907effa74f8128817c53a4c1551b0e5e5",
+    "FormalScience/OpenSystems/TwoStateKraus.lean": "f21f85bb6595cf64407734bd7795b3fe01b962a6cab7bacab1d98b4433a79f87",
+    "FormalScience/OpenSystems/TwoStateConvergence.lean": "0d8634368db3fe805b4d15f97584e2ced30f1c79f0f35994929149b41d611e89",
+    "FormalScience/OpenSystems/FiniteMarkovBridge.lean": "18842b875a294fdbab6963b5bf201d6b12935d96cf902bc7484747fd5ca768f9",
+    "examples/Usage.lean": "dbb30a99c81368b0861ecf1ade6e47cdcfc5af09c394a5202ad9d00b22827909"
+  },
+  "archives": {
+    "source": {
+      "command": "git archive --format=zip --prefix=formal-science/ -o deliverables/release-readiness/v1/Formal_Science_Release_Readiness_Handoff.zip release-readiness-milestone-v1",
+      "tracked": false,
+      "integrity": "Every file in the archive except SOURCE_MANIFEST.json is listed in SOURCE_MANIFEST.json with its SHA-256 and byte length; verified after packaging and recorded in RECEIPT.json."
+    },
+    "companion_consumer_evidence": {
+      "file": "deliverables/release-readiness/v1/Formal_Science_Release_Readiness_Consumer_Evidence.zip",
+      "tracked": false,
+      "contents": "evidence/release-readiness/v1/archive-consumer/**, deliverables/release-readiness/v1/RECEIPT.json, and its own manifest deliverables/release-readiness/v1/CONSUMER_EVIDENCE_MANIFEST.json (repository-relative paths; the manifest excludes itself)",
+      "digest_recorded": "externally, in deliverables/release-readiness/v1/COMPANION_RECEIPT.json committed afterwards and in the delivery message; never inside the companion archive"
+    }
+  }
+}

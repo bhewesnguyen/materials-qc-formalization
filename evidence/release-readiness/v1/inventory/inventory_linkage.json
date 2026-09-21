@@ -1,0 +1,28 @@
+{
+  "recorded_at": "2026-09-21T17:34:28.622872+00:00",
+  "reused_inventory": "evidence/markov/v1/inventory/declaration_inventory.json",
+  "reused_inventory_sha256": "8d406488ff1922ec1c848dd7145373d184a4fe632f3bea1e447e4f568ef60b08",
+  "inventory_summary": {
+    "public_declarations": 216,
+    "public_theorems": 193,
+    "definitions_or_abbreviations": 23,
+    "private_helpers": 7,
+    "unlisted_public_declarations": [],
+    "missing_theorem_consumers": [],
+    "exports_not_found_in_source": []
+  },
+  "inventory_contracts_sha256": "19fc9cb7652f434ef794e75a5dd9b0f695317f019e7e7405e273d4379fd25f66",
+  "contracts_sha256_now": "19fc9cb7652f434ef794e75a5dd9b0f695317f019e7e7405e273d4379fd25f66",
+  "release_module_sha256_now": {
+    "FormalScience.lean": "53441ed9d9f12701777a888c5c1e51fd1178dd1a2b18225130a44f41910abf04",
+    "FormalScience/Stage0.lean": "b8022c56e22bd3d9f0fc965a769015d8484520dc3a0915e2c3d5e8b97dc101f5",
+    "FormalScience/OpenSystems/Dissipator.lean": "abaec0a4a01fe746599ffbc3117ed7dd6ce1d42c88861fced777684e26577ada",
+    "FormalScience/OpenSystems/TwoStateStationary.lean": "745efb74d87359f6cacae50625e316e473f7dd27a595a9689fab083baff855e1",
+    "FormalScience/OpenSystems/TwoStateEvolution.lean": "541772ee2f865c567bede484e2a5e25562531da1294e5fdcb7abc0c4cd069e37",
+    "FormalScience/Quantum/FiniteKraus.lean": "1fe2ec3bb001f4503a29a91dd1cc1fa907effa74f8128817c53a4c1551b0e5e5",
+    "FormalScience/OpenSystems/TwoStateKraus.lean": "f21f85bb6595cf64407734bd7795b3fe01b962a6cab7bacab1d98b4433a79f87",
+    "FormalScience/OpenSystems/TwoStateConvergence.lean": "0d8634368db3fe805b4d15f97584e2ced30f1c79f0f35994929149b41d611e89",
+    "FormalScience/OpenSystems/FiniteMarkovBridge.lean": "18842b875a294fdbab6963b5bf201d6b12935d96cf902bc7484747fd5ca768f9"
+  },
+  "valid_because": "The inventory was computed on the Markov snapshot; every release module, the contract file, and exports.json are byte-identical to that snapshot (freeze_check.json), so the inventory applies unchanged: 216 public declarations, 193 theorems each with a consumer, 23 definitions, 7 private helpers. The verifier does not discover a declaration omitted from both export lists; this linkage is the human-review record, not a gate."
+}

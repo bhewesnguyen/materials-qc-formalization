@@ -1,5 +1,10 @@
 # Active assignment: Stage 5 release-readiness candidate
 
+> Status (21 September 2026): prepared and handed off in
+> `deliverables/release-readiness/v1/HANDOFF.md`. The assignment text below
+> is preserved as issued (frozen copy: `audits/markov/v1/NEXT_FABLE_TASK.md`).
+> Do not start a further milestone until the audit selects one.
+
 Milestone key: `release-readiness`. First round: `v1`.
 
 This assignment follows acceptance of the finite Markov bridge at commit

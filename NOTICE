@@ -1,0 +1,24 @@
+formal-science
+Copyright 2026 Jett Sturges
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not
+use the material in this repository except in compliance with the License.
+The full license text is in the file LICENSE. The License applies to the
+project's own material: the Lean release modules under FormalScience/, the
+umbrella FormalScience.lean, Audit/Contracts.lean, examples/, scripts/,
+exports.json, and the decisions, handoffs, evidence, and planning documents
+authored in this repository. It does not relicense third-party material.
+
+Third-party dependencies are not included in this repository. They are
+obtained at pinned revisions recorded in lake-manifest.json and keep their
+own licenses: eight packages under the Apache License 2.0 and one (Cli) under
+the MIT License, as inventoried in docs/PROVENANCE_AND_LICENSES.md.
+
+Authorship disclosure. The Lean source, scripts, and documentation were
+produced by AI agents, an implementation agent and an independent audit
+agent, operating under the owner's direction with the owner's review of
+process rather than of mathematics. Two short proof fragments adapt
+in-project reference probes written by the audit agent; their provenance is
+recorded in DECISIONS.md (D014, D016). No human semantic review of the proofs
+has taken place as of the release-readiness candidate. See
+docs/RELEASE_READINESS.md.

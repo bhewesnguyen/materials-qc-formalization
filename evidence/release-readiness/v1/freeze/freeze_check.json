@@ -1,0 +1,123 @@
+{
+  "recorded_at": "2026-09-21T17:34:28.622872+00:00",
+  "accepted_tag": "markov-milestone-v1",
+  "accepted_commit": "4795b8b6dc6ec7a831b9158affe3ee199f60e01e",
+  "method": "git show <tag>:<path> compared byte for byte with the working-tree file for every file hashed by scripts/verify.py (toolchain, lakefile, lock file, exports, umbrella, contracts, both scripts, eight release modules).",
+  "all_identical": true,
+  "files": [
+    {
+      "path": "lean-toolchain",
+      "sha256_at_markov_tag": "8733782dc070a99b312039cda424f601b80f3be6f6f512627da5ba25adc27632",
+      "sha256_now": "8733782dc070a99b312039cda424f601b80f3be6f6f512627da5ba25adc27632",
+      "bytes": 25,
+      "identical": true
+    },
+    {
+      "path": "lakefile.toml",
+      "sha256_at_markov_tag": "7ce638070ed8dd0a0d64280ecbdd5a9ac0fcfa26ae2b190e321aac3ff12003fe",
+      "sha256_now": "7ce638070ed8dd0a0d64280ecbdd5a9ac0fcfa26ae2b190e321aac3ff12003fe",
+      "bytes": 290,
+      "identical": true
+    },
+    {
+      "path": "lake-manifest.json",
+      "sha256_at_markov_tag": "bf782855f3900257333229a005a4158c054550761a2fcaaba57348b3ab9db3a7",
+      "sha256_now": "bf782855f3900257333229a005a4158c054550761a2fcaaba57348b3ab9db3a7",
+      "bytes": 3169,
+      "identical": true
+    },
+    {
+      "path": "exports.json",
+      "sha256_at_markov_tag": "ecd3faefdc5b4198b4791f070714b3b4b7278ee24bd569391f072ab19f99affa",
+      "sha256_now": "ecd3faefdc5b4198b4791f070714b3b4b7278ee24bd569391f072ab19f99affa",
+      "bytes": 24566,
+      "identical": true
+    },
+    {
+      "path": "FormalScience.lean",
+      "sha256_at_markov_tag": "53441ed9d9f12701777a888c5c1e51fd1178dd1a2b18225130a44f41910abf04",
+      "sha256_now": "53441ed9d9f12701777a888c5c1e51fd1178dd1a2b18225130a44f41910abf04",
+      "bytes": 368,
+      "identical": true
+    },
+    {
+      "path": "Audit/Contracts.lean",
+      "sha256_at_markov_tag": "19fc9cb7652f434ef794e75a5dd9b0f695317f019e7e7405e273d4379fd25f66",
+      "sha256_now": "19fc9cb7652f434ef794e75a5dd9b0f695317f019e7e7405e273d4379fd25f66",
+      "bytes": 45732,
+      "identical": true
+    },
+    {
+      "path": "scripts/verify.py",
+      "sha256_at_markov_tag": "9a6d01e56f55913084038636cb5fbedaf7dd4a40638304e61488cc7619fad757",
+      "sha256_now": "9a6d01e56f55913084038636cb5fbedaf7dd4a40638304e61488cc7619fad757",
+      "bytes": 20332,
+      "identical": true
+    },
+    {
+      "path": "scripts/test_verify.py",
+      "sha256_at_markov_tag": "44dddfe2bcd28c016eda7e6d33e6331975de521a01a27387988601954df2d596",
+      "sha256_now": "44dddfe2bcd28c016eda7e6d33e6331975de521a01a27387988601954df2d596",
+      "bytes": 6795,
+      "identical": true
+    },
+    {
+      "path": "FormalScience/Stage0.lean",
+      "sha256_at_markov_tag": "b8022c56e22bd3d9f0fc965a769015d8484520dc3a0915e2c3d5e8b97dc101f5",
+      "sha256_now": "b8022c56e22bd3d9f0fc965a769015d8484520dc3a0915e2c3d5e8b97dc101f5",
+      "bytes": 4671,
+      "identical": true
+    },
+    {
+      "path": "FormalScience/OpenSystems/Dissipator.lean",
+      "sha256_at_markov_tag": "abaec0a4a01fe746599ffbc3117ed7dd6ce1d42c88861fced777684e26577ada",
+      "sha256_now": "abaec0a4a01fe746599ffbc3117ed7dd6ce1d42c88861fced777684e26577ada",
+      "bytes": 9773,
+      "identical": true
+    },
+    {
+      "path": "FormalScience/OpenSystems/TwoStateStationary.lean",
+      "sha256_at_markov_tag": "745efb74d87359f6cacae50625e316e473f7dd27a595a9689fab083baff855e1",
+      "sha256_now": "745efb74d87359f6cacae50625e316e473f7dd27a595a9689fab083baff855e1",
+      "bytes": 12660,
+      "identical": true
+    },
+    {
+      "path": "FormalScience/OpenSystems/TwoStateEvolution.lean",
+      "sha256_at_markov_tag": "541772ee2f865c567bede484e2a5e25562531da1294e5fdcb7abc0c4cd069e37",
+      "sha256_now": "541772ee2f865c567bede484e2a5e25562531da1294e5fdcb7abc0c4cd069e37",
+      "bytes": 21524,
+      "identical": true
+    },
+    {
+      "path": "FormalScience/Quantum/FiniteKraus.lean",
+      "sha256_at_markov_tag": "1fe2ec3bb001f4503a29a91dd1cc1fa907effa74f8128817c53a4c1551b0e5e5",
+      "sha256_now": "1fe2ec3bb001f4503a29a91dd1cc1fa907effa74f8128817c53a4c1551b0e5e5",
+      "bytes": 4213,
+      "identical": true
+    },
+    {
+      "path": "FormalScience/OpenSystems/TwoStateKraus.lean",
+      "sha256_at_markov_tag": "f21f85bb6595cf64407734bd7795b3fe01b962a6cab7bacab1d98b4433a79f87",
+      "sha256_now": "f21f85bb6595cf64407734bd7795b3fe01b962a6cab7bacab1d98b4433a79f87",
+      "bytes": 18954,
+      "identical": true
+    },
+    {
+      "path": "FormalScience/OpenSystems/TwoStateConvergence.lean",
+      "sha256_at_markov_tag": "0d8634368db3fe805b4d15f97584e2ced30f1c79f0f35994929149b41d611e89",
+      "sha256_now": "0d8634368db3fe805b4d15f97584e2ced30f1c79f0f35994929149b41d611e89",
+      "bytes": 19596,
+      "identical": true
+    },
+    {
+      "path": "FormalScience/OpenSystems/FiniteMarkovBridge.lean",
+      "sha256_at_markov_tag": "18842b875a294fdbab6963b5bf201d6b12935d96cf902bc7484747fd5ca768f9",
+      "sha256_now": "18842b875a294fdbab6963b5bf201d6b12935d96cf902bc7484747fd5ca768f9",
+      "bytes": 16943,
+      "identical": true
+    }
+  ],
+  "verification_source_sha256_identical_to_markov_evidence": true,
+  "axiom_map_identical": true
+}

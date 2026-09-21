@@ -1,0 +1,15 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "examples/Usage.lean"
+  ],
+  "cwd": "repository root",
+  "exit_code": 0,
+  "stdout_log": "usage-compile.stdout.log",
+  "stderr_log": "usage-compile.stderr.log",
+  "examples_usage_sha256": "dbb30a99c81368b0861ecf1ade6e47cdcfc5af09c394a5202ad9d00b22827909",
+  "recorded_at": "2026-09-21T17:28:15.657368+00:00",
+  "note": "Anonymous documentation consumers outside FormalScience/ and outside exports.json; not part of the 216-export inventory."
+}

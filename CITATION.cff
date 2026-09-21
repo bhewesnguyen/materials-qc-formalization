@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: >-
+  If you use this work, cite it with the metadata below. This describes a
+  release-readiness candidate of an AI-assisted, independently audited Lean 4
+  formalization; it is not a published release and no human semantic review
+  of the proofs has taken place. See docs/RELEASE_READINESS.md.
+type: software
+title: >-
+  formal-science: a machine-checked two-state Lindblad benchmark and finite
+  Markov generator bridge in Lean 4 and Mathlib
+authors:
+  - family-names: Sturges
+    given-names: Jett
+version: 0.0.1
+license: Apache-2.0
+repository-code: https://github.com/jsturges28/materials-qc-formalization
+abstract: >-
+  Eight Lean 4 release modules over pinned Mathlib: qubit density states and
+  finite Kraus sums, the finite dissipator algebra, the two-state stationary
+  state and its uniqueness, the explicit two-state evolution with semigroup
+  and derivative laws, its four-Kraus certification with all-finite-ancilla
+  complete positivity, quantitative Frobenius convergence to the stationary
+  projection, and a zero-Hamiltonian finite Markov generator bridge. Every
+  export depends only on propext, Classical.choice, and Quot.sound.
+keywords:
+  - Lean 4
+  - Mathlib
+  - open quantum systems
+  - Lindblad equation
+  - Kraus representation
+  - Markov generator

@@ -88,7 +88,15 @@ was produced on the Ubuntu 24.04 workstation recorded in each tree's
 | `scripts/verify.py` | Build, contract, and transitive-axiom gate |
 | `scripts/test_verify.py` | Deliberate failing cases for that gate |
 | `DECISIONS.md` | Representation, dependency, and packaging decisions |
-| `NEXT_FABLE_TASK.md` | The active checkpoint (Stage 5 release-readiness candidate) |
+| `NEXT_FABLE_TASK.md` | The active checkpoint (Stage 5 release-readiness candidate), now prepared and awaiting audit |
+| `LICENSE`, `NOTICE` | Apache License 2.0 for the project's own material, with the copyright line and authorship disclosure (D021) |
+| `CITATION.cff`, `CHANGELOG.md` | Citation metadata for the candidate; the seven accepted increments with tags, commits, and capabilities |
+| `docs/API_GUIDE.md` | Theorem map with full Lean names and assumptions, and the conventions every statement follows |
+| `docs/RELEASE_READINESS.md` | Candidate scope, verified facts, evidence pointers, gate limitations, and outstanding decisions |
+| `docs/PROVENANCE_AND_LICENSES.md` | Origin of every part of the repository and the pinned dependency license inventory |
+| `examples/Usage.lean` | Three compiled anonymous consumers of the public API; documentation, not part of the export inventory |
+| `deliverables/release-readiness/v1/HANDOFF.md` | Completed handoff for the release-readiness candidate |
+| `evidence/release-readiness/v1/` | Reproduction, verification, gate-test, control, usage, provenance, freeze, and archive-consumer evidence for this round |
 | `deliverables/markov/v1/HANDOFF.md` | Historical handoff for the accepted finite Markov generator bridge |
 | `evidence/markov/v1/` | Preserved evidence for the accepted finite Markov generator bridge, including the manual declaration inventory |
 | `deliverables/convergence/v1/HANDOFF.md` | Historical handoff for the accepted quantitative convergence |
@@ -220,15 +228,24 @@ with `q = [[0, b], [a, 0]]` the bridge recovers the accepted `generator a b`.
 This is a generator result: no semigroup, exponential, positivity of
 `Id + t • L_q`, mixing, or Hamiltonian claim is made.
 
+## License and status
+
+The project's own material is licensed under the Apache License, Version
+2.0 (`LICENSE`, `NOTICE`, D021). Dependencies keep their own licenses, listed
+in `docs/PROVENANCE_AND_LICENSES.md`. The implementation and the audits
+were produced by AI agents under the owner's direction; no human semantic
+review of the proofs has taken place, and no public release or upstream
+submission has been made. `docs/RELEASE_READINESS.md` separates the
+accepted mathematics, the verified candidate, and the open decisions.
+
 ## Next step
 
-The active checkpoint is the Stage 5 release-readiness candidate specified
-in `NEXT_FABLE_TASK.md`, issued with the Markov audit: the accepted eight
-modules, 216 exports, 193 theorem contracts, scripts, and pins stay byte
-for byte; the candidate adds a changelog, an API guide, a readiness record,
-a provenance and license inventory, a compiled anonymous usage file, and a
-fresh-extraction reproduction of the delivered archive. It certifies
-neither public publication nor human review nor upstream acceptance.
+The Stage 5 release-readiness candidate is prepared and its handoff is
+`deliverables/release-readiness/v1/HANDOFF.md`. The next turn is an
+independent audit of that candidate, to be stored under
+`audits/release-readiness/v1/`. The mathematical surface is frozen at the
+accepted Markov snapshot; no further milestone is active until the audit
+selects one.
 
 Public theorem scope and proof trust are separate from source provenance,
 upstream acceptance, and novelty. The scripts are ordinary reproducibility and
