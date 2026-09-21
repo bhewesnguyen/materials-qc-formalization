@@ -1,5 +1,11 @@
 # Active assignment: explicit two-state evolution
 
+> Status (20 September 2026): implemented in
+> `FormalScience/OpenSystems/TwoStateEvolution.lean` and handed off in
+> `deliverables/evolution/v1/HANDOFF.md`. The assignment text below is
+> preserved as issued (frozen copy: `audits/stationary/v1/NEXT_FABLE_TASK.md`).
+> Do not start a further milestone until the audit selects one.
+
 Milestone key: `evolution`. First implementation round: `v1`.
 
 This assignment follows the accepted stationary milestone at submitted commit

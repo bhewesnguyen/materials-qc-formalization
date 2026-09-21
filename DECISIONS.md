@@ -313,3 +313,71 @@ For the record: generator Hermiticity preservation assumes a Hermitian
 input, whereas the entry and trace identities hold for arbitrary complex
 matrices.
 
+## D012: explicit two-state evolution (evolution milestone, round v1)
+
+`FormalScience/OpenSystems/TwoStateEvolution.lean` implements the active
+assignment. Contract-to-Lean mapping:
+
+| Contract | Lean declaration |
+| --- | --- |
+| `e(gamma,t)`, `f(gamma,t)`, `k(gamma,t)` | `expFactor γ t := Real.exp (-(γ * t))`, `halfExpFactor γ t := Real.exp (-(γ * t) / 2)`, `integratedExpFactor γ t := if γ = 0 then t else (1 - Real.exp (-(γ * t))) / γ` |
+| scalar identities | `integratedExpFactor_zero`, `mul_integratedExpFactor` (`γ k = 1 - e`), `integratedExpFactor_add`, `halfExpFactor_add`, `hasDerivAt_expFactor`, `hasDerivAt_halfExpFactor`, `hasDerivAt_integratedExpFactor` (`k' = e`), plus the branch lemmas `integratedExpFactor_of_eq_zero`, `integratedExpFactor_of_ne_zero`, `halfExpFactor_of_eq_zero`, `expFactor_of_eq_zero`, `expFactor_zero`, `halfExpFactor_zero` |
+| `evolution (a b t)` | `evolution a b t : QubitMatrix →ₗ[ℂ] QubitMatrix`; one bundled map whose underlying function is the `private` `evolutionFun` |
+| four entry equations | `evolution_apply_zero_zero`, `evolution_apply_one_one`, `evolution_apply_zero_one`, `evolution_apply_one_zero`; structurally `evolution_apply_diag` (`X_ii + k * L(X)_ii`) and `evolution_apply_offDiag` (`f * X_ij`) |
+| `Phi_0 = Id`, semigroup | `evolution_zero`, `evolution_add` (bundled-map equalities, all real rates and times) |
+| trace, Hermiticity | `evolution_trace` (unconditional), `evolution_isHermitian` (Hermitian input) |
+| matrix-valued derivative | `hasDerivAt_evolution : HasDerivAt (fun s => evolution a b s X) (generator a b (evolution a b t X)) t`, via the bridge `hasDerivAt_qubitMatrix` |
+| fixed point, trace-linear formulas | `evolution_rhoStar` (`a + b ≠ 0`), `evolution_apply_zero_zero_of_ne_zero`, `evolution_apply_one_one_of_ne_zero`; the general `evolution_apply_of_generator_eq_zero` (`L X = 0 → Phi_t X = X`, no rate hypothesis) |
+| zero total rate | `evolution_eq_id_add_smul_generator` (`a + b = 0 → Phi_t = Id + t • L`), `evolution_zero_zero`, `evolution_one_neg_one_basisProjector_zero` (`Phi_t E_00 = diagonalState t` at `a = 1, b = -1`) |
+| boundary fixed states | `evolution_zero_left_basisProjector_zero`, `evolution_zero_right_basisProjector_one`, `evolution_same_diagonalState_half`, each from the general fixed-point lemma and a generator identity valid for every real remaining rate (`generator_zero_left_basisProjector_zero`, `generator_zero_right_basisProjector_one`, `generator_same_diagonalState_half`) |
+
+Design choices. The map is defined entrywise through `Matrix.of`: on the
+diagonal `X_ii + k * (generator a b X)_ii`, off the diagonal `f * X_ij`.
+Reusing the generator's diagonal entries makes the public entry theorems
+one rewrite each and makes the fixed-point lemma immediate. The `if` on
+real `γ` uses the classical decidable equality of `ℝ`, so the scalar
+functions and the map are `noncomputable`, like every earlier definition
+involving real division. The semigroup law reduces to the scalar identity
+`k(t+u) = k_t + e_t k_u` and to `γ k_t = 1 - e_t`, and the derivative to
+`k' = e` and `f' = -(γ/2) f`, all proved with explicit `γ = 0` and `γ ≠ 0`
+branches. The `γ = 0` branch of `k` is `t`, so signed cancellation
+(`a = -b ≠ 0`) yields `Phi_t = Id + t L` with `L ≠ 0`, as the assignment
+requires; `evolution_one_neg_one_basisProjector_zero` witnesses it.
+
+Norm on matrices. `HasDerivAt` needs a normed-space structure on
+`QubitMatrix`. Mathlib provides none globally; `Matrix.normedAddCommGroup`
+and `Matrix.normedSpace` (the entrywise supremum norm) are enabled as local
+instances in the `Derivative` section of the module and again in the
+derivative section of `Audit/Contracts.lean`. In finite dimension every
+norm gives the same derivative, but the Lean statement is formally relative
+to this instance; a later convergence milestone must name its own norm
+(the roadmap asks for Frobenius) separately. The bridge
+`hasDerivAt_qubitMatrix` is `hasDerivAt_pi` applied twice, which works
+because the matrix norm is definitionally the Pi norm.
+
+Dependency scope. The module imports `Mathlib.Analysis.SpecialFunctions.ExpDeriv`,
+`Mathlib.Analysis.Complex.RealDeriv`, `Mathlib.Analysis.Calculus.Deriv.Prod`,
+and `Mathlib.Analysis.Matrix.Normed`. These are outside the Stage 0 cache
+closure, so the README cache command now lists them; the fetch added 339
+cached files at the same Mathlib revision (`evidence/evolution/v1/setup/cache-get.log`).
+No dependency pin changed. Mathlib supplied `Real.exp_add`,
+`HasDerivAt.exp`, `HasDerivAt.const_mul`, `HasDerivAt.const_sub`,
+`HasDerivAt.div_const`, `HasDerivAt.mul_const`, `HasDerivAt.const_add`,
+`HasDerivAt.ofReal_comp`, `hasDerivAt_id'`, `hasDerivAt_pi`,
+`Matrix.IsHermitian.ext`, `Matrix.IsHermitian.apply`, `Matrix.of_apply`,
+`star_mul'`, and the earlier trace, cast, and matrix-unit lemmas. No
+downstream source was consulted or copied.
+
+Public surface. The scalar layer (three definitions, thirteen lemmas) is
+exported because the convergence milestone will reuse it. The two generic
+helpers `qubitMatrix_isHermitian_of_entries` and `hasDerivAt_qubitMatrix`
+are exported for the same reason. In `Audit/Contracts.lean` the `k` branch
+is written with an explicit `if`; the local notation carrying it needs
+`set_option quotPrecheck false`, which disables only an eager syntax check
+and does not change what the notation elaborates to.
+
+What is not claimed. Nothing about positivity, complete positivity, density
+preservation by the flow, Kraus representation, norm estimates, convergence,
+ODE uniqueness, or matrix exponentials. Negative times are covered by the
+algebra only; no channel interpretation is attached to them.
+

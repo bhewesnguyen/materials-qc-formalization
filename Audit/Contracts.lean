@@ -252,4 +252,136 @@ example (r : ℝ) (hr : 0 < r) {ρ : QubitMatrix} (hρ : ρ.PosSemidef ∧ Matri
     Lw r r ρ = 0 ↔ ρ = diagonalState (1 / 2) :=
   FormalScience.OpenSystems.isDensity_generator_same_eq_zero_iff r hr hρ
 
+/-!
+## Explicit two-state evolution
+
+The scalar coefficients are spelled out with `Real.exp` and an explicit `if`
+for the zero-total-rate branch (`Ek`, `Ef`, `Ee` below), the four entries of
+the map are restated, and the derivative contract has the exact matrix-valued
+type with the generator expanded to its weighted formula. Rates and times are
+arbitrary reals unless a hypothesis is displayed.
+-/
+
+/- `k(gamma, t)`: `t` at zero total rate, else `(1 - exp(-gamma t)) / gamma`. The
+`quotPrecheck` option only disables an eager syntax check that cannot see through the
+`if`; the notation still elaborates to exactly this term. -/
+set_option quotPrecheck false in
+local notation "Ek" => fun (γ t : ℝ) => (if γ = 0 then t else (1 - Real.exp (-(γ * t))) / γ)
+/-- `f(gamma, t) = exp(-(gamma t)/2)`. -/
+local notation "Ef" => fun (γ t : ℝ) => Real.exp (-(γ * t) / 2)
+/-- `e(gamma, t) = exp(-gamma t)`. -/
+local notation "Ee" => fun (γ t : ℝ) => Real.exp (-(γ * t))
+/-- The evolution map, by its project name; its entries are pinned down below. -/
+local notation "Ev" => FormalScience.OpenSystems.evolution
+
+example (γ : ℝ) : Ee γ 0 = 1 := FormalScience.OpenSystems.expFactor_zero γ
+example (γ : ℝ) : Ef γ 0 = 1 := FormalScience.OpenSystems.halfExpFactor_zero γ
+example (γ : ℝ) : Ek γ 0 = 0 := FormalScience.OpenSystems.integratedExpFactor_zero γ
+example {γ : ℝ} (h : γ = 0) (t : ℝ) : Ek γ t = t :=
+  FormalScience.OpenSystems.integratedExpFactor_of_eq_zero h t
+example {γ : ℝ} (h : γ ≠ 0) (t : ℝ) : Ek γ t = (1 - Ee γ t) / γ :=
+  FormalScience.OpenSystems.integratedExpFactor_of_ne_zero h t
+example {γ : ℝ} (h : γ = 0) (t : ℝ) : Ef γ t = 1 :=
+  FormalScience.OpenSystems.halfExpFactor_of_eq_zero h t
+example {γ : ℝ} (h : γ = 0) (t : ℝ) : Ee γ t = 1 :=
+  FormalScience.OpenSystems.expFactor_of_eq_zero h t
+example (γ t : ℝ) : γ * Ek γ t = 1 - Ee γ t :=
+  FormalScience.OpenSystems.mul_integratedExpFactor γ t
+example (γ t u : ℝ) : Ek γ (t + u) = Ek γ t + Ee γ t * Ek γ u :=
+  FormalScience.OpenSystems.integratedExpFactor_add γ t u
+example (γ t u : ℝ) : Ef γ (t + u) = Ef γ t * Ef γ u :=
+  FormalScience.OpenSystems.halfExpFactor_add γ t u
+example (γ t : ℝ) : HasDerivAt (fun s => Ee γ s) (-γ * Ee γ t) t :=
+  FormalScience.OpenSystems.hasDerivAt_expFactor γ t
+example (γ t : ℝ) : HasDerivAt (fun s => Ef γ s) (-(γ / 2) * Ef γ t) t :=
+  FormalScience.OpenSystems.hasDerivAt_halfExpFactor γ t
+example (γ t : ℝ) : HasDerivAt (fun s => Ek γ s) (Ee γ t) t :=
+  FormalScience.OpenSystems.hasDerivAt_integratedExpFactor γ t
+
+example (a b t : ℝ) (X : QubitMatrix) (i : Fin 2) :
+    Ev a b t X i i = X i i + (Ek (a + b) t : ℂ) * Lw a b X i i :=
+  FormalScience.OpenSystems.evolution_apply_diag a b t X i
+example (a b t : ℝ) (X : QubitMatrix) {i j : Fin 2} (h : i ≠ j) :
+    Ev a b t X i j = (Ef (a + b) t : ℂ) * X i j :=
+  FormalScience.OpenSystems.evolution_apply_offDiag a b t X h
+example (a b t : ℝ) (X : QubitMatrix) :
+    Ev a b t X 0 0 = X 0 0 + (Ek (a + b) t : ℂ) * (-(a : ℂ) * X 0 0 + (b : ℂ) * X 1 1) :=
+  FormalScience.OpenSystems.evolution_apply_zero_zero a b t X
+example (a b t : ℝ) (X : QubitMatrix) :
+    Ev a b t X 1 1 = X 1 1 + (Ek (a + b) t : ℂ) * ((a : ℂ) * X 0 0 - (b : ℂ) * X 1 1) :=
+  FormalScience.OpenSystems.evolution_apply_one_one a b t X
+example (a b t : ℝ) (X : QubitMatrix) : Ev a b t X 0 1 = (Ef (a + b) t : ℂ) * X 0 1 :=
+  FormalScience.OpenSystems.evolution_apply_zero_one a b t X
+example (a b t : ℝ) (X : QubitMatrix) : Ev a b t X 1 0 = (Ef (a + b) t : ℂ) * X 1 0 :=
+  FormalScience.OpenSystems.evolution_apply_one_zero a b t X
+
+example (a b : ℝ) : Ev a b 0 = LinearMap.id := FormalScience.OpenSystems.evolution_zero a b
+example (a b t u : ℝ) : Ev a b (t + u) = (Ev a b t).comp (Ev a b u) :=
+  FormalScience.OpenSystems.evolution_add a b t u
+example (a b t : ℝ) (X : QubitMatrix) : Matrix.trace (Ev a b t X) = Matrix.trace X :=
+  FormalScience.OpenSystems.evolution_trace a b t X
+example {A : QubitMatrix} (h00 : star (A 0 0) = A 0 0) (h11 : star (A 1 1) = A 1 1)
+    (h10 : star (A 1 0) = A 0 1) : Aᴴ = A :=
+  FormalScience.OpenSystems.qubitMatrix_isHermitian_of_entries h00 h11 h10
+example (a b t : ℝ) {X : QubitMatrix} (hX : Xᴴ = X) : (Ev a b t X)ᴴ = Ev a b t X :=
+  FormalScience.OpenSystems.evolution_isHermitian a b t hX
+
+section DerivativeContracts
+
+attribute [local instance] Matrix.normedAddCommGroup Matrix.normedSpace
+
+example {φ : ℝ → QubitMatrix} {φ' : QubitMatrix} {t : ℝ}
+    (h00 : HasDerivAt (fun s => φ s 0 0) (φ' 0 0) t)
+    (h01 : HasDerivAt (fun s => φ s 0 1) (φ' 0 1) t)
+    (h10 : HasDerivAt (fun s => φ s 1 0) (φ' 1 0) t)
+    (h11 : HasDerivAt (fun s => φ s 1 1) (φ' 1 1) t) : HasDerivAt φ φ' t :=
+  FormalScience.OpenSystems.hasDerivAt_qubitMatrix h00 h01 h10 h11
+
+/- The matrix-valued derivative endpoint: the derivative of `s ↦ Phi_s X` at every real
+`t` is the generator, written as its weighted dissipator formula, applied to `Phi_t X`. -/
+example (a b t : ℝ) (X : QubitMatrix) :
+    HasDerivAt (fun s : ℝ => Ev a b s X) (Lw a b (Ev a b t X)) t :=
+  FormalScience.OpenSystems.hasDerivAt_evolution a b t X
+
+end DerivativeContracts
+
+example (a b t : ℝ) {X : QubitMatrix} (h : Lw a b X = 0) : Ev a b t X = X :=
+  FormalScience.OpenSystems.evolution_apply_of_generator_eq_zero a b t h
+example (a b t : ℝ) (h : a + b ≠ 0) : Ev a b t (Rho a b) = Rho a b :=
+  FormalScience.OpenSystems.evolution_rhoStar a b t h
+
+/- Trace-linear population formulas on all matrices at nonzero total rate. -/
+example (a b t : ℝ) (h : a + b ≠ 0) (X : QubitMatrix) :
+    Ev a b t X 0 0 =
+      (Ee (a + b) t : ℂ) * X 0 0 +
+        (((1 - Ee (a + b) t) * (b / (a + b)) : ℝ) : ℂ) * Matrix.trace X :=
+  FormalScience.OpenSystems.evolution_apply_zero_zero_of_ne_zero a b t h X
+example (a b t : ℝ) (h : a + b ≠ 0) (X : QubitMatrix) :
+    Ev a b t X 1 1 =
+      (Ee (a + b) t : ℂ) * X 1 1 +
+        (((1 - Ee (a + b) t) * (a / (a + b)) : ℝ) : ℂ) * Matrix.trace X :=
+  FormalScience.OpenSystems.evolution_apply_one_one_of_ne_zero a b t h X
+
+/- Zero total rate: `Phi_t = Id + t L` as bundled maps, the both-zero identity, and the
+signed witness that rules out an identity shortcut. -/
+example (a b t : ℝ) (h : a + b = 0) :
+    Ev a b t = LinearMap.id + (t : ℂ) • FormalScience.OpenSystems.generator a b :=
+  FormalScience.OpenSystems.evolution_eq_id_add_smul_generator a b t h
+example (t : ℝ) : Ev 0 0 t = LinearMap.id := FormalScience.OpenSystems.evolution_zero_zero t
+example (t : ℝ) : Ev 1 (-1) t (basisProjector 0) = diagonalState t :=
+  FormalScience.OpenSystems.evolution_one_neg_one_basisProjector_zero t
+
+example (b : ℝ) : Lw 0 b (basisProjector 0) = 0 :=
+  FormalScience.OpenSystems.generator_zero_left_basisProjector_zero b
+example (a : ℝ) : Lw a 0 (basisProjector 1) = 0 :=
+  FormalScience.OpenSystems.generator_zero_right_basisProjector_one a
+example (r : ℝ) : Lw r r (diagonalState (1 / 2)) = 0 :=
+  FormalScience.OpenSystems.generator_same_diagonalState_half r
+example (b t : ℝ) : Ev 0 b t (basisProjector 0) = basisProjector 0 :=
+  FormalScience.OpenSystems.evolution_zero_left_basisProjector_zero b t
+example (a t : ℝ) : Ev a 0 t (basisProjector 1) = basisProjector 1 :=
+  FormalScience.OpenSystems.evolution_zero_right_basisProjector_one a t
+example (r t : ℝ) : Ev r r t (diagonalState (1 / 2)) = diagonalState (1 / 2) :=
+  FormalScience.OpenSystems.evolution_same_diagonalState_half r t
+
 end JumpContracts

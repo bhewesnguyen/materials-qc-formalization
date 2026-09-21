@@ -5,10 +5,11 @@ program. Three milestones are accepted: the Stage 0 density-state
 representation probe and finite Kraus trace calculation, the finite
 dissipator algebra (`FormalScience/OpenSystems/Dissipator.lean`), and the
 two-state stationary pilot (`FormalScience/OpenSystems/TwoStateStationary.lean`).
-The active assignment is the explicit two-state evolution in
-`NEXT_FABLE_TASK.md`. `TURNS.md` indexes every implementation and audit
-round, and `audits/stationary/v1/PORTFOLIO_STATUS.md` is the auditor's
-ledger of the 39-area portfolio against the accepted local work.
+The explicit two-state evolution (`FormalScience/OpenSystems/TwoStateEvolution.lean`)
+is implemented and its handoff `deliverables/evolution/v1/HANDOFF.md`
+awaits its independent audit. `TURNS.md` indexes every implementation and
+audit round, and `audits/stationary/v1/PORTFOLIO_STATUS.md` is the
+auditor's ledger of the 39-area portfolio against the accepted local work.
 
 It does not prove complete positivity, a semigroup, time evolution, or
 convergence. No mathematical novelty is claimed.
@@ -30,15 +31,17 @@ Unpack this directory, open it in Cursor, and use its `lean-toolchain` file.
 
 ```bash
 elan toolchain install leanprover/lean4:v4.34.0
-lake exe cache get Mathlib.Analysis.Complex.Basic Mathlib.LinearAlgebra.Matrix.PosDef Mathlib.LinearAlgebra.Matrix.Trace Mathlib.Tactic.FinCases Mathlib.Tactic.NormNum
+lake exe cache get Mathlib.Analysis.Complex.Basic Mathlib.LinearAlgebra.Matrix.PosDef Mathlib.LinearAlgebra.Matrix.Trace Mathlib.Tactic.FinCases Mathlib.Tactic.NormNum Mathlib.Analysis.SpecialFunctions.ExpDeriv Mathlib.Analysis.Complex.RealDeriv Mathlib.Analysis.Calculus.Deriv.Prod Mathlib.Analysis.Matrix.Normed
 python3 scripts/verify.py
 python3 scripts/test_verify.py
 ```
 
 The first Lake command materializes the pinned dependencies and retrieves the
-targeted Mathlib cache. Both open-systems modules import only modules already
-in that cached closure, so the command list is unchanged. Do not run
-`lake update` unless deliberately changing the lockfile. A fresh local
+targeted Mathlib cache. The first five modules are the Stage 0 closure; the
+last four were added for the evolution module (real exponential
+derivatives, real-to-complex derivatives, the finite-product derivative
+bridge, and the matrix norm), at the same Mathlib revision (D012). Do not
+run `lake update` unless deliberately changing the lockfile. A fresh local
 reproduction is required before a milestone extends the source.
 
 The scripts also accept `--lake /absolute/path/to/lake` for an isolated
@@ -56,13 +59,14 @@ was produced on the Ubuntu 24.04 workstation recorded in each tree's
 | `FormalScience/Stage0.lean` | Definitions and ten probe theorems |
 | `FormalScience/OpenSystems/Dissipator.lean` | Dissipator definition, linearity, trace, Hermiticity, basis-jump specializations |
 | `FormalScience/OpenSystems/TwoStateStationary.lean` | Weighted two-jump generator, entry equations, stationary candidate, uniqueness, boundary cases |
-| `FormalScience.lean` | Umbrella import covering all three release modules |
-| `Audit/Contracts.lean` | Independent consumer signatures for all 61 theorem contracts |
+| `FormalScience/OpenSystems/TwoStateEvolution.lean` | Explicit complex-linear flow, semigroup, matrix-valued derivative, fixed points, zero-total-rate identities |
+| `FormalScience.lean` | Umbrella import covering all four release modules |
+| `Audit/Contracts.lean` | Independent consumer signatures for all 100 theorem contracts |
 | `exports.json` | Required modules, public declarations, and version pins |
 | `scripts/verify.py` | Build, contract, and transitive-axiom gate |
 | `scripts/test_verify.py` | Deliberate failing cases for that gate |
 | `DECISIONS.md` | Representation, dependency, and packaging decisions |
-| `NEXT_FABLE_TASK.md` | The active assignment (stationary pilot), now implemented and awaiting audit |
+| `NEXT_FABLE_TASK.md` | The active assignment (explicit evolution), now implemented and awaiting audit |
 | `AUDIT_HANDOFF_TEMPLATE.md` | Template for each review |
 | `TURNS.md` | Index of implementation and audit rounds, with tags and decisions |
 | `deliverables/<milestone>/v<k>/` | What the implementer sends: `HANDOFF.md`, `POINTER.json`, post-packaging `RECEIPT.json`, and the untracked archive |
@@ -72,11 +76,13 @@ was produced on the Ubuntu 24.04 workstation recorded in each tree's
 | `audits/stationary/v1/Formal_Science_Stationary_Audit_v1.md` | Accepted stationary audit, with findings S1 to S3 and the portfolio ledger |
 | `deliverables/dissipator/v1/HANDOFF.md` | Historical handoff for the accepted dissipator milestone |
 | `deliverables/stationary/v1/HANDOFF.md` | Historical handoff for the accepted stationary pilot |
+| `deliverables/evolution/v1/HANDOFF.md` | Completed handoff for the explicit evolution |
 | `docs/PORTFOLIO_ROADMAP.md` | The broader 39-area research plan, context only |
 | `docs/planning/` | The research plan PDF and the original 39-item gap inventory, context only |
 | `evidence/stage0/` | Preserved evidence for the audited baseline |
 | `evidence/dissipator/` | Preserved evidence for the accepted dissipator milestone |
 | `evidence/stationary/v1/` | Preserved evidence for the accepted stationary pilot |
+| `evidence/evolution/v1/` | Fresh setup, reproduction, verification, gate-test, and control evidence for this round |
 | `SOURCE_MANIFEST.json` | SHA-256 of every tracked project file except itself |
 
 ## Mathematical surface
@@ -116,15 +122,29 @@ unique stationary matrix among all complex matrices of trace one. Under
 `0 ≤ a`, `0 ≤ b`, `0 < a + b` it is a density and is the unique stationary
 density. The one-zero-rate cases give the basis projectors, both zero rates
 give a zero generator with no unique stationary density, and equal positive
-rates give the maximally mixed state. No dynamics, convergence, or channel
-claim is made.
+rates give the maximally mixed state. No convergence or channel claim is
+made.
+
+`evolution a b t` is an explicit complex-linear map on all qubit matrices,
+for arbitrary real rates and real time. With `gamma = a + b`,
+`e = exp(-gamma t)`, `f = exp(-(gamma t)/2)`, and `k = t` if `gamma = 0`
+else `(1 - e)/gamma`, its diagonal entries are `X_ii + k * L(X)_ii` and its
+off-diagonal entries `f * X_ij`. It satisfies `Phi_0 = Id` and
+`Phi_(t+u) = Phi_t ∘ Phi_u` as bundled maps, preserves the trace of every
+matrix and the Hermiticity of Hermitian input, and has the matrix-valued
+derivative `L(Phi_t X)` at every real time. Stationary matrices are fixed
+points; at nonzero total rate the populations follow the trace-linear
+formula `e X_ii + (1 - e) (rate / gamma) trace X`; at zero total rate
+`Phi_t = Id + t L`, and the signed pair `a = 1, b = -1` moves `E_00` along
+`diagonalState t`. The flow is not claimed to be positive, completely
+positive, or density preserving, and nothing is proved about convergence.
 
 ## Next step
 
-The active assignment is the explicit two-state evolution specified in
-`NEXT_FABLE_TASK.md`, issued with the stationary audit. Positivity,
-complete positivity, convergence, generic GKSL, and the other branches
-remain out of scope for it.
+The evolution milestone is implemented and its handoff is
+`deliverables/evolution/v1/HANDOFF.md`. The next turn is an independent
+audit of that handoff, to be stored under `audits/evolution/v1/`. No
+further milestone is active until the audit selects one.
 
 Public theorem scope and proof trust are separate from source provenance,
 upstream acceptance, and novelty. The scripts are ordinary reproducibility and

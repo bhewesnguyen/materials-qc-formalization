@@ -4,7 +4,7 @@ These rules govern implementation in the proposed `formal-science` project. Foll
 
 ## Work boundary
 
-- One mathematical milestone is active at a time. Stage 0 (audits/stage0/v1/), the finite dissipator algebra (audits/dissipator/v1/, tag dissipator-milestone-v1), and the two-state stationary pilot (audits/stationary/v1/, tag stationary-milestone-v1) are complete and accepted. The active assignment is the explicit two-state evolution, round v1, in NEXT_FABLE_TASK.md. TURNS.md indexes every round.
+- One mathematical milestone is active at a time. Stage 0 (audits/stage0/v1/), the finite dissipator algebra (audits/dissipator/v1/, tag dissipator-milestone-v1), and the two-state stationary pilot (audits/stationary/v1/, tag stationary-milestone-v1) are complete and accepted. The explicit two-state evolution assignment in NEXT_FABLE_TASK.md is implemented in this snapshot (tag evolution-milestone-v1) and its handoff is deliverables/evolution/v1/HANDOFF.md; it awaits its independent audit. No further milestone is active until that audit selects one. TURNS.md indexes every round.
 - Start with the accepted informal theorem contract. Record definitions, quantifiers, assumptions, source, and intended use before implementing a substantial proof.
 - Search pinned Mathlib and selected downstream source before introducing a definition or proving a named theorem from scratch.
 - Do not silently weaken a conclusion, specialize a universal parameter, change a convention, or add an assumption that packages the desired conclusion. Propose contract changes explicitly in DECISIONS.md.

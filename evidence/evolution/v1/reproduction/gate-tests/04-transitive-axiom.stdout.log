@@ -1,0 +1,1 @@
+{"caption":"","data":"'GateFixture.indirect' depends on axioms: [GateFixture.hidden]","endPos":{"column":6,"line":4},"fileName":"/home/jett/Documents/GitHub/materials-qc-formalization/evidence/evolution/v1/reproduction/gate-tests/fixtures/transitive_axiom.lean","isSilent":false,"keepFullRange":false,"kind":"[anonymous]","pos":{"column":0,"line":4},"severity":"information"}

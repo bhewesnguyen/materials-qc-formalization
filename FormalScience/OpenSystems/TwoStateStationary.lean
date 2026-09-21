@@ -78,14 +78,17 @@ theorem generator_apply_one_one (a b : ℝ) (X : QubitMatrix) :
   simp [basisProjector, Matrix.diagonal_mul, Matrix.mul_diagonal]
   ring
 
-/-- Entry `(0,1)`: the coherence decays at half the total rate. -/
+/-- Entry `(0,1)`: the coherence is multiplied by `-(a + b) / 2`. This is an
+algebraic identity for arbitrary real rates; decay is its physical reading for
+nonnegative rates once time evolution is introduced. -/
 theorem generator_apply_zero_one (a b : ℝ) (X : QubitMatrix) :
     generator a b X 0 1 = -(((a + b : ℝ) : ℂ) / 2) * X 0 1 := by
   rw [generator_apply, dissipator_jumpZeroToOne_eq, dissipator_jumpOneToZero_eq]
   simp [basisProjector, Matrix.diagonal_mul, Matrix.mul_diagonal]
   ring
 
-/-- Entry `(1,0)`: the coherence decays at half the total rate. -/
+/-- Entry `(1,0)`: the coherence is multiplied by `-(a + b) / 2`, for arbitrary
+real rates, as in the `(0,1)` entry. -/
 theorem generator_apply_one_zero (a b : ℝ) (X : QubitMatrix) :
     generator a b X 1 0 = -(((a + b : ℝ) : ℂ) / 2) * X 1 0 := by
   rw [generator_apply, dissipator_jumpZeroToOne_eq, dissipator_jumpOneToZero_eq]
