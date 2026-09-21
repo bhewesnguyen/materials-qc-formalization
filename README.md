@@ -1,18 +1,21 @@
 # Formal Science: finite open systems, one audited milestone at a time
 
 This is the small source base for the finite-dimensional open-systems
-program. Three milestones are accepted: the Stage 0 density-state
+program. Four milestones are accepted: the Stage 0 density-state
 representation probe and finite Kraus trace calculation, the finite
-dissipator algebra (`FormalScience/OpenSystems/Dissipator.lean`), and the
-two-state stationary pilot (`FormalScience/OpenSystems/TwoStateStationary.lean`).
-The explicit two-state evolution (`FormalScience/OpenSystems/TwoStateEvolution.lean`)
-is implemented and its handoff `deliverables/evolution/v1/HANDOFF.md`
-awaits its independent audit. `TURNS.md` indexes every implementation and
-audit round, and `audits/stationary/v1/PORTFOLIO_STATUS.md` is the
-auditor's ledger of the 39-area portfolio against the accepted local work.
+dissipator algebra (`FormalScience/OpenSystems/Dissipator.lean`), the
+two-state stationary pilot (`FormalScience/OpenSystems/TwoStateStationary.lean`),
+and the explicit two-state evolution with its semigroup law and
+matrix-valued derivative (`FormalScience/OpenSystems/TwoStateEvolution.lean`).
+The active assignment is the four-Kraus certification of that evolution in
+`NEXT_FABLE_TASK.md`. `TURNS.md` indexes every implementation and audit
+round, and `audits/evolution/v1/PORTFOLIO_STATUS.md` is the auditor's
+ledger of the 39-area portfolio against the accepted local work.
 
-It does not prove complete positivity, a semigroup, time evolution, or
-convergence. No mathematical novelty is claimed.
+The accepted release does not yet prove density preservation by the flow,
+positivity or complete positivity of the evolution, or convergence. The
+first two are the active assignment; convergence is a later checkpoint. No
+mathematical novelty is claimed.
 
 ## Exact dependency base
 
@@ -66,23 +69,24 @@ was produced on the Ubuntu 24.04 workstation recorded in each tree's
 | `scripts/verify.py` | Build, contract, and transitive-axiom gate |
 | `scripts/test_verify.py` | Deliberate failing cases for that gate |
 | `DECISIONS.md` | Representation, dependency, and packaging decisions |
-| `NEXT_FABLE_TASK.md` | The active assignment (explicit evolution), now implemented and awaiting audit |
+| `NEXT_FABLE_TASK.md` | The active assignment (four-Kraus certification) |
 | `AUDIT_HANDOFF_TEMPLATE.md` | Template for each review |
 | `TURNS.md` | Index of implementation and audit rounds, with tags and decisions |
 | `deliverables/<milestone>/v<k>/` | What the implementer sends: `HANDOFF.md`, `POINTER.json`, post-packaging `RECEIPT.json`, and the untracked archive |
 | `audits/<milestone>/v<k>/` | What the auditor returns, stored as received |
 | `audits/stage0/v1/Formal_Science_Stage0_Audit.md` | Accepted Stage 0 audit and release boundaries |
 | `audits/dissipator/v1/Formal_Science_Dissipator_Audit_v1.md` | Accepted dissipator audit, with findings F1 to F4 |
-| `audits/stationary/v1/Formal_Science_Stationary_Audit_v1.md` | Accepted stationary audit, with findings S1 to S3 and the portfolio ledger |
+| `audits/stationary/v1/Formal_Science_Stationary_Audit_v1.md` | Accepted stationary audit, with findings S1 to S3 |
+| `audits/evolution/v1/Formal_Science_Evolution_Audit_v1.md` | Accepted evolution audit, with findings E1 and E2, the portfolio ledger, and the auditor's Kraus feasibility probe under `reference/` |
 | `deliverables/dissipator/v1/HANDOFF.md` | Historical handoff for the accepted dissipator milestone |
 | `deliverables/stationary/v1/HANDOFF.md` | Historical handoff for the accepted stationary pilot |
-| `deliverables/evolution/v1/HANDOFF.md` | Completed handoff for the explicit evolution |
+| `deliverables/evolution/v1/HANDOFF.md` | Historical handoff for the accepted explicit evolution |
 | `docs/PORTFOLIO_ROADMAP.md` | The broader 39-area research plan, context only |
 | `docs/planning/` | The research plan PDF and the original 39-item gap inventory, context only |
 | `evidence/stage0/` | Preserved evidence for the audited baseline |
 | `evidence/dissipator/` | Preserved evidence for the accepted dissipator milestone |
 | `evidence/stationary/v1/` | Preserved evidence for the accepted stationary pilot |
-| `evidence/evolution/v1/` | Fresh setup, reproduction, verification, gate-test, and control evidence for this round |
+| `evidence/evolution/v1/` | Preserved evidence for the accepted explicit evolution |
 | `SOURCE_MANIFEST.json` | SHA-256 of every tracked project file except itself |
 
 ## Mathematical surface
@@ -141,10 +145,12 @@ positive, or density preserving, and nothing is proved about convergence.
 
 ## Next step
 
-The evolution milestone is implemented and its handoff is
-`deliverables/evolution/v1/HANDOFF.md`. The next turn is an independent
-audit of that handoff, to be stored under `audits/evolution/v1/`. No
-further milestone is active until the audit selects one.
+The active assignment is the four-Kraus certification of the evolution
+specified in `NEXT_FABLE_TASK.md`, issued with the evolution audit:
+completeness, exact representation on all matrices, positivity and density
+preservation, and positivity after every finite ancilla extension, for
+`0 ≤ a`, `0 ≤ b`, `0 ≤ t`. Convergence, Choi or Stinespring equivalence,
+and the other branches remain out of scope for it.
 
 Public theorem scope and proof trust are separate from source provenance,
 upstream acceptance, and novelty. The scripts are ordinary reproducibility and

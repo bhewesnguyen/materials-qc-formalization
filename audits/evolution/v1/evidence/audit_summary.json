@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "release_modules": [
+    "FormalScience.OpenSystems.Dissipator",
+    "FormalScience.OpenSystems.TwoStateEvolution",
+    "FormalScience.OpenSystems.TwoStateStationary",
+    "FormalScience.Stage0"
+  ],
+  "exports": 115,
+  "theorem_contracts": 100,
+  "new_public_declarations": 43,
+  "new_definitions": 4,
+  "new_theorems": 39,
+  "dependencies": 9,
+  "commands": 28,
+  "all_verification_commands_exit_zero": true,
+  "gate_cases": 15,
+  "missing_module_rejected": true,
+  "missing_module_reason": "Release module coverage mismatch: unlisted=['FormalScience.OpenSystems.TwoStateEvolution'], missing=[]",
+  "source_hash_map_matches_submission": true,
+  "axiom_map_matches_submission": true,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "finished_at": "2026-09-21T01:01:30.411660+00:00",
+  "topology_consumer_without_local_matrix_norm_instances_passed": true
+}

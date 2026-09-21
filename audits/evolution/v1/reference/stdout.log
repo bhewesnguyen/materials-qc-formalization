@@ -1,0 +1,4 @@
+'AuditProbe.amplify' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AuditProbe.krausMap_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AuditProbe.amplify_krausMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AuditProbe.krausMap_allAncilla_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]

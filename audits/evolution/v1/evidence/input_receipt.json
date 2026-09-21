@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "milestone": "evolution",
+  "version": "v1",
+  "tag": "evolution-milestone-v1",
+  "commit_under_review": "a60a92b6064b4dde33a98d3c79be195c77595873",
+  "diff_base_commit": "a5347ca77a2b5e6678f514decb0ab4eee7b62943",
+  "housekeeping_commit": "783f1e4be57e18d26101380169152c634d9eaf12",
+  "archive": {
+    "file": "deliverables/evolution/v1/Formal_Science_Evolution_Handoff.zip",
+    "tracked": false,
+    "sha256": "f66b51b84a56c86f193ea33d3bb859f3f4325ffd9ae9b138ec6ec5093a0dd74f",
+    "bytes": 1162373,
+    "created_by": "git archive --format=zip --prefix=formal-science/ evolution-milestone-v1",
+    "verification": "Extracted and compared path by path against the archived SOURCE_MANIFEST.json: 1080 files besides the manifest, all SHA-256 and byte counts matching, no extra or missing paths, no nested archives."
+  },
+  "recorded_at": "2026-09-21T00:55:13.499096+00:00",
+  "note": "Recorded in a commit made after the tag, so the tagged tree never contains its own archive digest or commit hash."
+}

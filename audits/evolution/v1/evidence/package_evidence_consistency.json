@@ -1,0 +1,76 @@
+{
+  "evidence/evolution/v1/reproduction/verification": {
+    "status": "passed",
+    "commands": 27,
+    "exits": {
+      "0": 27
+    },
+    "log_mismatches": [],
+    "exports": 72,
+    "contracts": 61,
+    "raw_axioms_match": true,
+    "all_axioms_exact": true,
+    "dependencies_clean_and_matching": true
+  },
+  "evidence/evolution/v1/reproduction/gate-tests": {
+    "status": "passed",
+    "commands": 9,
+    "exits": {
+      "0": 7,
+      "1": 2
+    },
+    "log_mismatches": [],
+    "tests": 15,
+    "all_pass": true
+  },
+  "evidence/evolution/v1/verification": {
+    "status": "passed",
+    "commands": 28,
+    "exits": {
+      "0": 28
+    },
+    "log_mismatches": [],
+    "exports": 115,
+    "contracts": 100,
+    "raw_axioms_match": true,
+    "all_axioms_exact": true,
+    "dependencies_clean_and_matching": true
+  },
+  "evidence/evolution/v1/gate-tests": {
+    "status": "passed",
+    "commands": 9,
+    "exits": {
+      "0": 7,
+      "1": 2
+    },
+    "log_mismatches": [],
+    "tests": 15,
+    "all_pass": true
+  },
+  "evidence/evolution/v1/gate-controls/missing-module": {
+    "status": "failed",
+    "commands": 20,
+    "exits": {
+      "0": 20
+    },
+    "log_mismatches": [],
+    "error": "Release module coverage mismatch: unlisted=['FormalScience.OpenSystems.TwoStateEvolution'], missing=[]"
+  },
+  "current_hash_checks": {
+    "failures": [],
+    "pointer_matches": true,
+    "manifest_matches": true
+  },
+  "prior_exports_preserved": true,
+  "prior_contract_exports_preserved": true,
+  "public_surface": {
+    "counts": {
+      "def": 4,
+      "theorem": 39
+    },
+    "unlisted": []
+  },
+  "contract_example_count": 100,
+  "prior_contracts_preserved_explanation": "The 39 new examples were inserted immediately before the existing final end for JumpContracts; all 61 earlier examples are byte-identical.",
+  "prior_contract_body_identical": true
+}

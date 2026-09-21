@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/workspace/scratch/0a42b15a2c38/audit_dissipator/runtime/lean-4.34.0-linux/bin/lake",
+    "env",
+    "lean",
+    "/workspace/scratch/0a42b15a2c38/audit_evolution/output/reference/KrausProbe.lean"
+  ],
+  "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+  "exit_code": 0,
+  "stdout": "'AuditProbe.amplify' depends on axioms: [propext, Classical.choice, Quot.sound]\n'AuditProbe.krausMap_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]\n'AuditProbe.amplify_krausMap' depends on axioms: [propext, Classical.choice, Quot.sound]\n'AuditProbe.krausMap_allAncilla_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "stderr": "",
+  "source_sha256": "cb9ebbc1442bb0b61cd9d9696c286adf42451ecf19bab15cf69de5dc22c2721e",
+  "status": "feasibility probe only; not a current release module or evolution Kraus certificate"
+}

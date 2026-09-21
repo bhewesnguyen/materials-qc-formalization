@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/workspace/scratch/0a42b15a2c38/audit_dissipator/runtime/lean-4.34.0-linux/bin/lake",
+    "env",
+    "lean",
+    "/workspace/scratch/0a42b15a2c38/audit_evolution/evidence/topology-consumer/TopologyConsumer.lean"
+  ],
+  "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "",
+  "source_sha256": "be7df0a3c63329f929287aff6116613db2fb447ec9a2cfbd9d1297d081bce78b",
+  "local_matrix_norm_instances_enabled_in_consumer": false
+}

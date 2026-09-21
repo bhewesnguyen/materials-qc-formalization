@@ -1,0 +1,1 @@
+{"caption":"","data":"'GateFixture.indirect' depends on axioms: [GateFixture.hidden]","endPos":{"column":6,"line":4},"fileName":"/workspace/scratch/0a42b15a2c38/audit_evolution/evidence/gate-tests/fixtures/transitive_axiom.lean","isSilent":false,"keepFullRange":false,"kind":"[anonymous]","pos":{"column":0,"line":4},"severity":"information"}

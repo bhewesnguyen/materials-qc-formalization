@@ -344,16 +344,23 @@ branches. The `γ = 0` branch of `k` is `t`, so signed cancellation
 (`a = -b ≠ 0`) yields `Phi_t = Id + t L` with `L ≠ 0`, as the assignment
 requires; `evolution_one_neg_one_basisProjector_zero` witnesses it.
 
-Norm on matrices. `HasDerivAt` needs a normed-space structure on
-`QubitMatrix`. Mathlib provides none globally; `Matrix.normedAddCommGroup`
-and `Matrix.normedSpace` (the entrywise supremum norm) are enabled as local
-instances in the `Derivative` section of the module and again in the
-derivative section of `Audit/Contracts.lean`. In finite dimension every
-norm gives the same derivative, but the Lean statement is formally relative
-to this instance; a later convergence milestone must name its own norm
-(the roadmap asks for Frobenius) separately. The bridge
-`hasDerivAt_qubitMatrix` is `hasDerivAt_pi` applied twice, which works
-because the matrix norm is definitionally the Pi norm.
+Topology on matrices (corrected by audit finding E2, see D013). At this
+pin `HasDerivAt` is defined for a target carrying an additive group, a
+module over the scalar field, and a topology; it has no target-norm
+argument. The exported types of `hasDerivAt_evolution` and
+`hasDerivAt_qubitMatrix` are therefore stated in the canonical matrix
+topology (`instTopologicalSpaceMatrix`, the product topology) with
+`Matrix.addCommGroup` and `Matrix.module`; the only normed structure in
+them is on the scalar field `ℝ`. The local instances
+`Matrix.normedAddCommGroup` and `Matrix.normedSpace` (the entrywise
+supremum norm) enabled in the `Derivative` section of the module, and in the
+derivative section of `Audit/Contracts.lean`, are proof infrastructure that
+lets `hasDerivAt_pi` apply; they do not enter the exported statements. The
+auditor compiled a consumer of both theorems with no local norm instances
+(`audits/evolution/v1/evidence/topology-consumer/`). No norm-independence
+theorem is needed. A later convergence milestone must still name its own
+norm (the roadmap asks for Frobenius) because a quantitative estimate, unlike
+a derivative, depends on it.
 
 Dependency scope. The module imports `Mathlib.Analysis.SpecialFunctions.ExpDeriv`,
 `Mathlib.Analysis.Complex.RealDeriv`, `Mathlib.Analysis.Calculus.Deriv.Prod`,
@@ -380,4 +387,38 @@ What is not claimed. Nothing about positivity, complete positivity, density
 preservation by the flow, Kraus representation, norm estimates, convergence,
 ODE uniqueness, or matrix exponentials. Negative times are covered by the
 algebra only; no channel interpretation is attached to them.
+
+## D013: corrections carried forward from the evolution audit
+
+The evolution audit (`audits/evolution/v1/`) accepted
+`evolution-milestone-v1` at commit `a60a92b` with no proof revision and two
+low-severity documentation findings. The historical handoff
+`deliverables/evolution/v1/HANDOFF.md` and its evidence are preserved
+unchanged; the corrections are recorded here and applied to live documents.
+
+E1, README scope. The introduction still said the project does not prove
+"a semigroup, time evolution". Both are proved and accepted. The
+introduction now records four accepted increments and names the actual
+remaining gaps at the time of the audit: density preservation, positivity
+and complete positivity of the evolution, and convergence.
+
+E2, derivative wording. D012 said `HasDerivAt` "needs a normed-space
+structure" and that the statement "is formally relative to this instance".
+At the pin `HasDerivAt` uses the target's topological vector-space
+structure and carries no target-norm argument; the exported signatures use
+`instTopologicalSpaceMatrix`, `Matrix.addCommGroup`, and `Matrix.module`
+(checked in `evidence/evolution/v1/verification/27-export-signatures.stdout.log`),
+and the auditor's consumer compiled without any local norm instance. The
+D012 paragraph is rewritten accordingly. No theorem, proof, or signature
+changed.
+
+Optional copy edit noted by the auditor: the docstring of
+`qubitMatrix_isHermitian_of_entries` in `TwoStateEvolution.lean` said
+"Two qubit matrices are Hermitian" although the criterion concerns one
+matrix. Corrected to "A qubit matrix is Hermitian" in a comment-only edit
+made after the untouched baseline reproduction of round 4
+(`evidence/kraus/v1/reproduction/`); the source hash changes from
+`8071d0962bae6a3c8e2d74dda1cc69364b5e9a6fe4de0320c7f63c4fb15d3be0` to the
+value recorded in the round 4 verification evidence. The accepted tag is
+untouched.
 

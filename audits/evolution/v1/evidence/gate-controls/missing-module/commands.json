@@ -1,0 +1,367 @@
+[
+  {
+    "label": "lean-version",
+    "argv": [
+      "/workspace/scratch/0a42b15a2c38/audit_dissipator/runtime/lean-4.34.0-linux/bin/lake",
+      "env",
+      "lean",
+      "--version"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:26.129985+00:00",
+    "duration_seconds": 0.816,
+    "exit_code": 0,
+    "stdout_file": "01-lean-version.stdout.log",
+    "stderr_file": "01-lean-version.stderr.log",
+    "stdout": "Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)\n",
+    "stderr": ""
+  },
+  {
+    "label": "lake-version",
+    "argv": [
+      "/workspace/scratch/0a42b15a2c38/audit_dissipator/runtime/lean-4.34.0-linux/bin/lake",
+      "--version"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:26.946238+00:00",
+    "duration_seconds": 0.039,
+    "exit_code": 0,
+    "stdout_file": "02-lake-version.stdout.log",
+    "stderr_file": "02-lake-version.stderr.log",
+    "stdout": "Lake version 5.0.0-src+293d5d0 (Lean version 4.34.0)\n",
+    "stderr": ""
+  },
+  {
+    "label": "mathlib-head",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science/.lake/packages/mathlib",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:26.985730+00:00",
+    "duration_seconds": 0.002,
+    "exit_code": 0,
+    "stdout_file": "03-mathlib-head.stdout.log",
+    "stderr_file": "03-mathlib-head.stderr.log",
+    "stdout": "5ed2965256430c3649e86755f9576b54eca72435\n",
+    "stderr": ""
+  },
+  {
+    "label": "mathlib-tracked-status",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science/.lake/packages/mathlib",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:26.988046+00:00",
+    "duration_seconds": 0.01,
+    "exit_code": 0,
+    "stdout_file": "04-mathlib-tracked-status.stdout.log",
+    "stderr_file": "04-mathlib-tracked-status.stderr.log",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "dependency-02-head",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science/.lake/packages/plausible",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:26.998049+00:00",
+    "duration_seconds": 0.002,
+    "exit_code": 0,
+    "stdout_file": "05-dependency-02-head.stdout.log",
+    "stderr_file": "05-dependency-02-head.stderr.log",
+    "stdout": "118aa17ee84656b8bd727fef7c458ee8c833385c\n",
+    "stderr": ""
+  },
+  {
+    "label": "dependency-02-tracked-status",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science/.lake/packages/plausible",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:26.999944+00:00",
+    "duration_seconds": 0.002,
+    "exit_code": 0,
+    "stdout_file": "06-dependency-02-tracked-status.stdout.log",
+    "stderr_file": "06-dependency-02-tracked-status.stderr.log",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "dependency-03-head",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science/.lake/packages/LeanSearchClient",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:27.002236+00:00",
+    "duration_seconds": 0.002,
+    "exit_code": 0,
+    "stdout_file": "07-dependency-03-head.stdout.log",
+    "stderr_file": "07-dependency-03-head.stderr.log",
+    "stdout": "ddf04cf3949fa556442341e87d47f9f6e6074707\n",
+    "stderr": ""
+  },
+  {
+    "label": "dependency-03-tracked-status",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science/.lake/packages/LeanSearchClient",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:27.003909+00:00",
+    "duration_seconds": 0.002,
+    "exit_code": 0,
+    "stdout_file": "08-dependency-03-tracked-status.stdout.log",
+    "stderr_file": "08-dependency-03-tracked-status.stderr.log",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "dependency-04-head",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science/.lake/packages/importGraph",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:27.006177+00:00",
+    "duration_seconds": 0.001,
+    "exit_code": 0,
+    "stdout_file": "09-dependency-04-head.stdout.log",
+    "stderr_file": "09-dependency-04-head.stderr.log",
+    "stdout": "e928b72544873815af278d38681b31c0293588e3\n",
+    "stderr": ""
+  },
+  {
+    "label": "dependency-04-tracked-status",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science/.lake/packages/importGraph",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:27.007777+00:00",
+    "duration_seconds": 0.002,
+    "exit_code": 0,
+    "stdout_file": "10-dependency-04-tracked-status.stdout.log",
+    "stderr_file": "10-dependency-04-tracked-status.stderr.log",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "dependency-05-head",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science/.lake/packages/proofwidgets",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:27.009925+00:00",
+    "duration_seconds": 0.002,
+    "exit_code": 0,
+    "stdout_file": "11-dependency-05-head.stdout.log",
+    "stderr_file": "11-dependency-05-head.stderr.log",
+    "stdout": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5\n",
+    "stderr": ""
+  },
+  {
+    "label": "dependency-05-tracked-status",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science/.lake/packages/proofwidgets",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:27.011819+00:00",
+    "duration_seconds": 0.002,
+    "exit_code": 0,
+    "stdout_file": "12-dependency-05-tracked-status.stdout.log",
+    "stderr_file": "12-dependency-05-tracked-status.stderr.log",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "dependency-06-head",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science/.lake/packages/aesop",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:27.014157+00:00",
+    "duration_seconds": 0.001,
+    "exit_code": 0,
+    "stdout_file": "13-dependency-06-head.stdout.log",
+    "stderr_file": "13-dependency-06-head.stderr.log",
+    "stdout": "355695d523e41d0554926416cba2a2b3544fbbc9\n",
+    "stderr": ""
+  },
+  {
+    "label": "dependency-06-tracked-status",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science/.lake/packages/aesop",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:27.015724+00:00",
+    "duration_seconds": 0.002,
+    "exit_code": 0,
+    "stdout_file": "14-dependency-06-tracked-status.stdout.log",
+    "stderr_file": "14-dependency-06-tracked-status.stderr.log",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "dependency-07-head",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science/.lake/packages/Qq",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:27.018284+00:00",
+    "duration_seconds": 0.002,
+    "exit_code": 0,
+    "stdout_file": "15-dependency-07-head.stdout.log",
+    "stderr_file": "15-dependency-07-head.stderr.log",
+    "stdout": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259\n",
+    "stderr": ""
+  },
+  {
+    "label": "dependency-07-tracked-status",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science/.lake/packages/Qq",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:27.020001+00:00",
+    "duration_seconds": 0.002,
+    "exit_code": 0,
+    "stdout_file": "16-dependency-07-tracked-status.stdout.log",
+    "stderr_file": "16-dependency-07-tracked-status.stderr.log",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "dependency-08-head",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science/.lake/packages/batteries",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:27.022315+00:00",
+    "duration_seconds": 0.001,
+    "exit_code": 0,
+    "stdout_file": "17-dependency-08-head.stdout.log",
+    "stderr_file": "17-dependency-08-head.stderr.log",
+    "stdout": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2\n",
+    "stderr": ""
+  },
+  {
+    "label": "dependency-08-tracked-status",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science/.lake/packages/batteries",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:27.023960+00:00",
+    "duration_seconds": 0.003,
+    "exit_code": 0,
+    "stdout_file": "18-dependency-08-tracked-status.stdout.log",
+    "stderr_file": "18-dependency-08-tracked-status.stderr.log",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "dependency-09-head",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science/.lake/packages/Cli",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:27.026738+00:00",
+    "duration_seconds": 0.001,
+    "exit_code": 0,
+    "stdout_file": "19-dependency-09-head.stdout.log",
+    "stderr_file": "19-dependency-09-head.stderr.log",
+    "stdout": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204\n",
+    "stderr": ""
+  },
+  {
+    "label": "dependency-09-tracked-status",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science/.lake/packages/Cli",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_evolution/reproduction/formal-science",
+    "started_at": "2026-09-21T01:02:27.028386+00:00",
+    "duration_seconds": 0.002,
+    "exit_code": 0,
+    "stdout_file": "20-dependency-09-tracked-status.stdout.log",
+    "stderr_file": "20-dependency-09-tracked-status.stderr.log",
+    "stdout": "",
+    "stderr": ""
+  }
+]

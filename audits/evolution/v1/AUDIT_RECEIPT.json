@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "milestone": "evolution",
+  "round": "v1",
+  "audit_date": "2026-09-21",
+  "decision": "accepted",
+  "proof_revision_required": false,
+  "reviewed_commit": "a60a92b6064b4dde33a98d3c79be195c77595873",
+  "reviewed_tag": "evolution-milestone-v1",
+  "declared_diff_base": "a5347ca77a2b5e6678f514decb0ab4eee7b62943",
+  "declared_housekeeping_commit": "783f1e4be57e18d26101380169152c634d9eaf12",
+  "declared_receipt_commit_prefix": "90030e1",
+  "remote_history_authenticated": false,
+  "input_archive": {
+    "sha256": "f66b51b84a56c86f193ea33d3bb859f3f4325ffd9ae9b138ec6ec5093a0dd74f",
+    "bytes": 1162373,
+    "zip_comment": "a60a92b6064b4dde33a98d3c79be195c77595873",
+    "manifest_entries": 1080,
+    "actual_files": 1081,
+    "all_manifest_files_match": true,
+    "nested_archives": [],
+    "detached_handoff_and_pointer_match": true,
+    "receipt_is_external_to_tagged_archive": true
+  },
+  "independent_verification": {
+    "status": "passed",
+    "release_modules": [
+      "FormalScience.OpenSystems.Dissipator",
+      "FormalScience.OpenSystems.TwoStateEvolution",
+      "FormalScience.OpenSystems.TwoStateStationary",
+      "FormalScience.Stage0"
+    ],
+    "exports": 115,
+    "theorem_contracts": 100,
+    "new_public_declarations": 43,
+    "new_definitions": 4,
+    "new_theorems": 39,
+    "dependencies": 9,
+    "commands": 28,
+    "all_verification_commands_exit_zero": true,
+    "gate_cases": 15,
+    "missing_module_rejected": true,
+    "missing_module_reason": "Release module coverage mismatch: unlisted=['FormalScience.OpenSystems.TwoStateEvolution'], missing=[]",
+    "source_hash_map_matches_submission": true,
+    "axiom_map_matches_submission": true,
+    "axiom_union": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "finished_at": "2026-09-21T01:01:30.411660+00:00",
+    "topology_consumer_without_local_matrix_norm_instances_passed": true
+  },
+  "prior_findings": {
+    "S1": "closed",
+    "S2": "closed",
+    "S3": "closed"
+  },
+  "findings": [
+    {
+      "id": "E1",
+      "severity": "low",
+      "blocking": false,
+      "remedy": "Correct stale README introduction denying time evolution and a semigroup; update accepted scope and status."
+    },
+    {
+      "id": "E2",
+      "severity": "low",
+      "blocking": false,
+      "remedy": "Describe HasDerivAt in the canonical matrix topology at the pin; local norm structures are compatible proof infrastructure, not a target norm restriction. No norm-independence theorem is needed."
+    }
+  ],
+  "next_milestone": {
+    "key": "kraus",
+    "round": "v1",
+    "suggested_modules": [
+      "FormalScience/Quantum/FiniteKraus.lean",
+      "FormalScience/OpenSystems/TwoStateKraus.lean"
+    ],
+    "issued_task": "audits/evolution/v1/NEXT_FABLE_TASK.md",
+    "scope": "Four-Kraus certificate of the existing evolution for a,b,t>=0, completeness, all-matrix equality, density preservation, and positivity after every finite ancilla extension. Convergence separate."
+  },
+  "reference_probe": {
+    "path": "audits/evolution/v1/reference/KrausProbe.lean",
+    "part_of_current_release": false,
+    "compiles": true,
+    "axiom_reports": 4,
+    "axiom_union": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "certifies_four_operator_evolution_family": false
+  },
+  "portfolio": {
+    "inventory_areas": 39,
+    "identified_mathlib_reuse_targets": 1,
+    "candidate_bearing_rows": 28,
+    "unresolved_or_partial_only_rows": 10,
+    "remaining_assess_reuse_extend_areas": 38,
+    "accepted_local_milestones": 4,
+    "broad_inventory_areas_closed_by_pilot": 0,
+    "new_global_search": false
+  }
+}
