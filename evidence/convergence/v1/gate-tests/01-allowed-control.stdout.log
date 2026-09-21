@@ -1,0 +1,1 @@
+{"caption":"","data":"'GateFixture.allowed' does not depend on any axioms","endPos":{"column":6,"line":2},"fileName":"/home/jett/Documents/GitHub/materials-qc-formalization/evidence/convergence/v1/gate-tests/fixtures/allowed_control.lean","isSilent":false,"keepFullRange":false,"kind":"[anonymous]","pos":{"column":0,"line":2},"severity":"information"}

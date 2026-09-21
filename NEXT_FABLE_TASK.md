@@ -1,5 +1,11 @@
 # Active assignment: quantitative two-state convergence
 
+> Status (21 September 2026): implemented in
+> `FormalScience/OpenSystems/TwoStateConvergence.lean`, handed off in
+> `deliverables/convergence/v1/HANDOFF.md`. The assignment text below is
+> preserved as issued (frozen copy: `audits/kraus/v1/NEXT_FABLE_TASK.md`).
+> Do not start a further milestone until the audit selects one.
+
 Milestone key: `convergence`. First implementation round: `v1`.
 
 This assignment follows the accepted Kraus milestone at source commit

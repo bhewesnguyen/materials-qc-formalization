@@ -389,8 +389,9 @@ example (r t : ℝ) : Ev r r t (diagonalState (1 / 2)) = diagonalState (1 / 2) :
 
 Generic layer: the Kraus sum is written as `∑ j, K j * X * (K j)ᴴ`, the amplifier's
 block formula is exposed through `amplify_apply`, and the lifted operators are
-`1 ⊗ₖ K j`. Two-state layer: `Ep`, `Ed`, and the family `Kf` are spelled out with
-real division, `Real.exp`, `Real.sqrt`, and the matrix units `E₀₁`, `E₁₀`; the
+`1 ⊗ₖ K j`. Two-state layer: `Ep` and `Ed` are spelled out with real division,
+`Real.exp`, and `Real.sqrt`; the family `Kev` is referred to by name and its four
+members are pinned individually with those scalars and the matrix units `E₀₁`, `E₁₀`; the
 physical hypotheses `0 ≤ a`, `0 ≤ b`, `0 ≤ t` appear exactly where the theorems
 require them, and the both-zero and time-zero cases are covered explicitly.
 -/
@@ -554,5 +555,134 @@ example {a t : ℝ} (ha : 0 ≤ a) (ht : 0 ≤ t) {X : QubitMatrix}
   FormalScience.OpenSystems.evolution_isDensity_zero_right ha ht hX
 
 end TwoStateKrausContracts
+
+/-!
+## Quantitative convergence
+
+`Fn X` is the Frobenius norm written as the explicit real square root of the finite
+sum of squared complex entry norms; the bridge to Mathlib's scoped Frobenius instance
+is checked with the scope selected explicitly. The stationary projection of `X` is
+`Matrix.trace X • Rho a b` with the `trace X` factor visible. Exponentials are
+`Real.exp`; the total-rate hypotheses are `a + b ≠ 0` for the exact identities and
+`0 < a + b` for the estimate and the limits; `0 ≤ t` appears only where required.
+Limits are stated as `Filter.Tendsto` along `Filter.atTop` into `nhds`.
+-/
+
+section ConvergenceContracts
+
+/-- The Frobenius norm as an explicit finite sum. -/
+local notation "Fn" => fun (X : QubitMatrix) => Real.sqrt (∑ i, ∑ j, ‖X i j‖ ^ 2)
+
+example (X : QubitMatrix) :
+    FormalScience.OpenSystems.qubitFrobeniusNorm X = Real.sqrt (∑ i, ∑ j, ‖X i j‖ ^ 2) :=
+  FormalScience.OpenSystems.qubitFrobeniusNorm_def X
+
+open scoped Matrix.Norms.Frobenius in
+example (X : QubitMatrix) : Fn X = ‖X‖ := FormalScience.OpenSystems.qubitFrobeniusNorm_eq_norm X
+
+example (X : QubitMatrix) : 0 ≤ Fn X := FormalScience.OpenSystems.qubitFrobeniusNorm_nonneg X
+example (X : QubitMatrix) :
+    Fn X ^ 2 = ‖X 0 0‖ ^ 2 + ‖X 0 1‖ ^ 2 + ‖X 1 0‖ ^ 2 + ‖X 1 1‖ ^ 2 :=
+  FormalScience.OpenSystems.qubitFrobeniusNorm_sq X
+
+example (γ t : ℝ) : 0 < Ee γ t := FormalScience.OpenSystems.expFactor_pos γ t
+example {γ : ℝ} (hγ : 0 < γ) : Filter.Tendsto (fun t => Ee γ t) Filter.atTop (nhds 0) :=
+  FormalScience.OpenSystems.expFactor_tendsto hγ
+example {γ : ℝ} (hγ : 0 < γ) : Filter.Tendsto (fun t => Ef γ t) Filter.atTop (nhds 0) :=
+  FormalScience.OpenSystems.halfExpFactor_tendsto hγ
+
+/- Centered entries: the deviation from the stationary projection in the trace fiber. -/
+example {a b : ℝ} (h : a + b ≠ 0) (t : ℝ) (X : QubitMatrix) :
+    (Ev a b t X - Matrix.trace X • Rho a b) 0 0 =
+      (Real.exp (-((a + b) * t)) : ℂ) * (X - Matrix.trace X • Rho a b) 0 0 :=
+  FormalScience.OpenSystems.evolution_sub_smul_rhoStar_apply_zero_zero h t X
+example {a b : ℝ} (h : a + b ≠ 0) (t : ℝ) (X : QubitMatrix) :
+    (Ev a b t X - Matrix.trace X • Rho a b) 1 1 =
+      (Real.exp (-((a + b) * t)) : ℂ) * (X - Matrix.trace X • Rho a b) 1 1 :=
+  FormalScience.OpenSystems.evolution_sub_smul_rhoStar_apply_one_one h t X
+example (a b t : ℝ) (X : QubitMatrix) :
+    (Ev a b t X - Matrix.trace X • Rho a b) 0 1 =
+      (Real.exp (-((a + b) * t) / 2) : ℂ) * (X - Matrix.trace X • Rho a b) 0 1 :=
+  FormalScience.OpenSystems.evolution_sub_smul_rhoStar_apply_zero_one a b t X
+example (a b t : ℝ) (X : QubitMatrix) :
+    (Ev a b t X - Matrix.trace X • Rho a b) 1 0 =
+      (Real.exp (-((a + b) * t) / 2) : ℂ) * (X - Matrix.trace X • Rho a b) 1 0 :=
+  FormalScience.OpenSystems.evolution_sub_smul_rhoStar_apply_one_zero a b t X
+
+/- Exact squared error split: diagonal energy at rate `2 gamma`, coherence energy at `gamma`. -/
+example {a b : ℝ} (h : a + b ≠ 0) (t : ℝ) (X : QubitMatrix) :
+    Fn (Ev a b t X - Matrix.trace X • Rho a b) ^ 2 =
+      Real.exp (-((a + b) * t)) ^ 2 *
+          (‖(X - Matrix.trace X • Rho a b) 0 0‖ ^ 2 + ‖(X - Matrix.trace X • Rho a b) 1 1‖ ^ 2) +
+        Real.exp (-((a + b) * t) / 2) ^ 2 *
+          (‖(X - Matrix.trace X • Rho a b) 0 1‖ ^ 2 + ‖(X - Matrix.trace X • Rho a b) 1 0‖ ^ 2) :=
+  FormalScience.OpenSystems.qubitFrobeniusNorm_sq_evolution_sub h t X
+
+/- The all-matrix estimate, its trace-one specialization, and the equal-trace pair bound. -/
+example {a b : ℝ} (hγ : 0 < a + b) (t : ℝ) (ht : 0 ≤ t) (X : QubitMatrix) :
+    Fn (Ev a b t X - Matrix.trace X • Rho a b) ≤
+      Real.exp (-((a + b) * t) / 2) * Fn (X - Matrix.trace X • Rho a b) :=
+  FormalScience.OpenSystems.qubitFrobeniusNorm_evolution_sub_le hγ t ht X
+example {a b : ℝ} (hγ : 0 < a + b) (t : ℝ) (ht : 0 ≤ t) {X : QubitMatrix}
+    (hX : Matrix.trace X = 1) :
+    Fn (Ev a b t X - Rho a b) ≤ Real.exp (-((a + b) * t) / 2) * Fn (X - Rho a b) :=
+  FormalScience.OpenSystems.qubitFrobeniusNorm_evolution_sub_rhoStar_le hγ t ht hX
+example {a b : ℝ} (hγ : 0 < a + b) (t : ℝ) (ht : 0 ≤ t) {X Z : QubitMatrix}
+    (hXZ : Matrix.trace X = Matrix.trace Z) :
+    Fn (Ev a b t X - Ev a b t Z) ≤ Real.exp (-((a + b) * t) / 2) * Fn (X - Z) :=
+  FormalScience.OpenSystems.qubitFrobeniusNorm_evolution_sub_evolution_le hγ t ht hXZ
+
+/- Long-time limits: the scalar error and the matrix itself, in the canonical matrix topology. -/
+example {a b : ℝ} (hγ : 0 < a + b) (X : QubitMatrix) :
+    Filter.Tendsto (fun t : ℝ => Fn (Ev a b t X - Matrix.trace X • Rho a b))
+      Filter.atTop (nhds 0) :=
+  FormalScience.OpenSystems.tendsto_qubitFrobeniusNorm_evolution_sub hγ X
+example {φ : ℝ → QubitMatrix} {M : QubitMatrix} {l : Filter ℝ}
+    (h00 : Filter.Tendsto (fun t => φ t 0 0) l (nhds (M 0 0)))
+    (h01 : Filter.Tendsto (fun t => φ t 0 1) l (nhds (M 0 1)))
+    (h10 : Filter.Tendsto (fun t => φ t 1 0) l (nhds (M 1 0)))
+    (h11 : Filter.Tendsto (fun t => φ t 1 1) l (nhds (M 1 1))) : Filter.Tendsto φ l (nhds M) :=
+  FormalScience.OpenSystems.tendsto_qubitMatrix h00 h01 h10 h11
+example {a b : ℝ} (hγ : 0 < a + b) (X : QubitMatrix) :
+    Filter.Tendsto (fun t : ℝ => Ev a b t X) Filter.atTop (nhds (Matrix.trace X • Rho a b)) :=
+  FormalScience.OpenSystems.tendsto_evolution hγ X
+example {a b : ℝ} (hγ : 0 < a + b) {X : QubitMatrix} (hX : Matrix.trace X = 1) :
+    Filter.Tendsto (fun t : ℝ => Ev a b t X) Filter.atTop (nhds (Rho a b)) :=
+  FormalScience.OpenSystems.tendsto_evolution_of_trace_eq_one hγ hX
+
+/- Physical consumers: density preservation with the contraction, and the density limit. -/
+example {a b : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b) (hγ : 0 < a + b) (t : ℝ) (ht : 0 ≤ t)
+    {ρ : QubitMatrix} (hρ : ρ.PosSemidef ∧ Matrix.trace ρ = 1) :
+    ((Ev a b t ρ).PosSemidef ∧ Matrix.trace (Ev a b t ρ) = 1) ∧
+      Fn (Ev a b t ρ - Rho a b) ≤ Real.exp (-((a + b) * t) / 2) * Fn (ρ - Rho a b) :=
+  FormalScience.OpenSystems.evolution_isDensity_and_qubitFrobeniusNorm_le ha hb hγ t ht hρ
+example {a b : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b) (hγ : 0 < a + b) {ρ : QubitMatrix}
+    (hρ : ρ.PosSemidef ∧ Matrix.trace ρ = 1) :
+    ((Rho a b).PosSemidef ∧ Matrix.trace (Rho a b) = 1) ∧
+      Filter.Tendsto (fun t : ℝ => Ev a b t ρ) Filter.atTop (nhds (Rho a b)) :=
+  FormalScience.OpenSystems.tendsto_evolution_of_isDensity ha hb hγ hρ
+
+/- Rate boundaries: the three positive-total-rate limits and the both-zero non-attractor. -/
+example {b : ℝ} (hb : 0 < b) {X : QubitMatrix} (hX : Matrix.trace X = 1) :
+    Filter.Tendsto (fun t : ℝ => Ev 0 b t X) Filter.atTop (nhds (basisProjector 0)) :=
+  FormalScience.OpenSystems.tendsto_evolution_zero_left hb hX
+example {a : ℝ} (ha : 0 < a) {X : QubitMatrix} (hX : Matrix.trace X = 1) :
+    Filter.Tendsto (fun t : ℝ => Ev a 0 t X) Filter.atTop (nhds (basisProjector 1)) :=
+  FormalScience.OpenSystems.tendsto_evolution_zero_right ha hX
+example {r : ℝ} (hr : 0 < r) {X : QubitMatrix} (hX : Matrix.trace X = 1) :
+    Filter.Tendsto (fun t : ℝ => Ev r r t X) Filter.atTop (nhds (diagonalState (1 / 2))) :=
+  FormalScience.OpenSystems.tendsto_evolution_same hr hX
+example : ¬ ∃ σ : QubitMatrix, ∀ ρ : QubitMatrix, (ρ.PosSemidef ∧ Matrix.trace ρ = 1) →
+    Filter.Tendsto (fun t : ℝ => Ev 0 0 t ρ) Filter.atTop (nhds σ) :=
+  FormalScience.OpenSystems.not_exists_common_limit_zero_zero
+
+/- Optional witness: `E_01` is an eigenvector of the flow saturating the coherence exponent. -/
+example (a b t : ℝ) : Ev a b t E₀₁ = (Real.exp (-((a + b) * t) / 2) : ℂ) • E₀₁ :=
+  FormalScience.OpenSystems.evolution_jumpOneToZero a b t
+example : Fn E₀₁ = 1 := FormalScience.OpenSystems.qubitFrobeniusNorm_jumpOneToZero
+example (a b t : ℝ) : Fn (Ev a b t E₀₁) = Real.exp (-((a + b) * t) / 2) :=
+  FormalScience.OpenSystems.qubitFrobeniusNorm_evolution_jumpOneToZero a b t
+
+end ConvergenceContracts
 
 end JumpContracts

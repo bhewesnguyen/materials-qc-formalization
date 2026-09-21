@@ -530,3 +530,73 @@ identities after `simp`. The handoff's proof-design paragraph says this
 correctly for the entry formulas; D014 is clarified here rather than
 rewritten.
 
+## D016: quantitative convergence design
+
+Module. One release module `FormalScience/OpenSystems/TwoStateConvergence.lean`
+in namespace `FormalScience.OpenSystems`, importing the two Mathlib modules
+`Mathlib.Analysis.Matrix.Normed` and `Mathlib.Analysis.SpecialFunctions.Exp`
+(both inside the cached closure) and every accepted local module. One
+definition and 28 theorems; one `private` helper (`norm_ofReal_mul_sq`).
+
+Norm. `qubitFrobeniusNorm X := Real.sqrt (∑ i, ∑ j, ‖X i j‖ ^ 2)` is a
+plain real-valued function, not an instance, so no scoped instance leaks
+into consumers. The bridge `qubitFrobeniusNorm_eq_norm` is proved against
+Mathlib's `Matrix.frobenius_norm_def` under `open scoped
+Matrix.Norms.Frobenius in`, rewriting `x ^ (1/2 : ℝ)` to `Real.sqrt` and
+`‖z‖ ^ (2 : ℝ)` to `‖z‖ ^ 2`. Consumers reason with the four-entry
+expansion `qubitFrobeniusNorm_sq`; the bridge is a check, not a tool.
+
+Trace-fiber formulation. The estimate and the exact identity are stated on
+every complex matrix `X` with the visible factor `Matrix.trace X • rhoStar
+a b`, as the assignment preferred, and the trace-one and equal-trace-pair
+forms are derived consumers (`one_smul`, `map_sub` with `trace (X - Z) =
+0`). This is deliberate: the Frobenius norm is not contracted on every
+matrix, since the stationary direction is fixed, and an unconditional
+`F(Phi_t X) ≤ F(X)` is false and not claimed.
+
+Hypotheses. The centered entries and the exact identity need only `a + b ≠
+0` (the off-diagonal entries need nothing, since `rhoStar` has zero
+coherence) and hold for every real `t`. The estimate needs `0 < a + b` and
+`0 ≤ t`, which enter exactly once, through the accepted
+`halfExpFactor_le_one`, to give `c^4 D + c^2 C ≤ c^2 (D + C)`. The limits
+need `0 < a + b` only. The physical consumers add `0 ≤ a`, `0 ≤ b` for the
+accepted density preservation and `rhoStar_isDensity`. The boundary limit
+consumers take a trace-one premise rather than `IsDensity`, which the
+assignment welcomed as the stronger statement.
+
+Limits. The scalar limit squeezes between `0` and `c F(Y)` eventually for
+`t ≥ 0`, with `c → 0` from `Real.tendsto_exp_atBot` composed with
+`Filter.Tendsto.const_mul_atTop_of_neg`, following the auditor's
+`ConvergenceApiProbe.lean` (`audits/kraus/v1/reference/`). The matrix limit
+is entrywise through the exported bridge `tendsto_qubitMatrix`
+(`tendsto_pi_nhds` twice, then `fin_cases`), in the canonical product
+topology on `Matrix (Fin 2) (Fin 2) ℂ`; no norm-to-topology equivalence is
+used or claimed, and `qubitFrobeniusNorm_eq_norm` plays no role in it.
+The both-zero non-attractor uses `tendsto_nhds_unique` (the matrix space is
+Hausdorff as a product) on the two basis densities, whose trajectories are
+constant by the accepted `evolution_zero_zero`.
+
+Statements. `expFactor` and `halfExpFactor` appear in theorem statements
+for rewriting convenience; every consumer contract restates them as
+`Real.exp (-((a + b) * t))` and `Real.exp (-((a + b) * t) / 2)`, which are
+definitional unfoldings. Both limits are stated in the contracts as
+`Filter.Tendsto ... Filter.atTop (nhds ...)`. The new scalar facts
+`expFactor_pos`, `expFactor_tendsto`, `halfExpFactor_tendsto` are public.
+
+Witness. The optional saturating witness is included: `E_01` is an
+eigenvector of the flow with eigenvalue `c` for every real rate pair and
+time, `F(E_01) = 1`, and `F(Phi_t E_01) = c`. `E_01` is not a density; the
+witness checks the prefactor and exponent of the estimate and makes no
+sharpness claim among densities.
+
+Controls. Two gate controls were retained: the usual coverage control with
+the new module unlisted, and a new kind, a manifest listing a nonexistent
+export as a contract export, which the gate rejects before any build
+because the contract file does not mention it. The scripts are unchanged.
+
+What is not claimed. Nothing about trace-norm or diamond-norm contraction,
+operator norms, norm equivalence, spectral gaps, general Perron-Frobenius
+theory, sharpness of the rate among densities, negative times in the
+estimate, general finite dimension, or any broad portfolio area. With this
+round the planned two-state benchmark is complete pending audit.
+

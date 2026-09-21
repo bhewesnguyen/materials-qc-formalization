@@ -9,8 +9,10 @@ the explicit two-state evolution with its semigroup law and matrix-valued
 derivative (`FormalScience/OpenSystems/TwoStateEvolution.lean`), and the
 four-Kraus certification of that evolution with all-finite-ancilla positivity
 (`FormalScience/Quantum/FiniteKraus.lean`,
-`FormalScience/OpenSystems/TwoStateKraus.lean`). The active assignment is
-quantitative Frobenius convergence in `NEXT_FABLE_TASK.md`. `TURNS.md`
+`FormalScience/OpenSystems/TwoStateKraus.lean`). The quantitative Frobenius
+convergence (`FormalScience/OpenSystems/TwoStateConvergence.lean`) is
+implemented and its handoff `deliverables/convergence/v1/HANDOFF.md` awaits
+its independent audit. `TURNS.md`
 indexes every implementation and audit round, and
 `audits/kraus/v1/PORTFOLIO_STATUS.md` is the auditor's ledger of the
 39-area portfolio against the accepted local work.
@@ -66,13 +68,16 @@ was produced on the Ubuntu 24.04 workstation recorded in each tree's
 | `FormalScience/OpenSystems/TwoStateEvolution.lean` | Explicit complex-linear flow, semigroup, matrix-valued derivative, fixed points, zero-total-rate identities |
 | `FormalScience/Quantum/FiniteKraus.lean` | Generic finite Kraus positivity, blockwise ancilla amplification, lifted-Kraus identity, tensor action |
 | `FormalScience/OpenSystems/TwoStateKraus.lean` | Four Kraus operators, completeness, all-matrix representation, density preservation, complete positivity, boundaries |
-| `FormalScience.lean` | Umbrella import covering all six release modules |
-| `Audit/Contracts.lean` | Independent consumer signatures for all 139 theorem contracts |
+| `FormalScience/OpenSystems/TwoStateConvergence.lean` | Named Frobenius norm with Mathlib bridge, centered error identity, contraction estimate, long-time limits, physical and boundary consumers |
+| `FormalScience.lean` | Umbrella import covering all seven release modules |
+| `Audit/Contracts.lean` | Independent consumer signatures for all 167 theorem contracts |
 | `exports.json` | Required modules, public declarations, and version pins |
 | `scripts/verify.py` | Build, contract, and transitive-axiom gate |
 | `scripts/test_verify.py` | Deliberate failing cases for that gate |
 | `DECISIONS.md` | Representation, dependency, and packaging decisions |
-| `NEXT_FABLE_TASK.md` | The active assignment (quantitative convergence) |
+| `NEXT_FABLE_TASK.md` | The active assignment (quantitative convergence), now implemented and awaiting audit |
+| `deliverables/convergence/v1/HANDOFF.md` | Completed handoff for the quantitative convergence |
+| `evidence/convergence/v1/` | Fresh reproduction, verification, gate-test, and control evidence for this round |
 | `AUDIT_HANDOFF_TEMPLATE.md` | Template for each review |
 | `TURNS.md` | Index of implementation and audit rounds, with tags and decisions |
 | `deliverables/<milestone>/v<k>/` | What the implementer sends: `HANDOFF.md`, `POINTER.json`, post-packaging `RECEIPT.json`, and the untracked archive |
@@ -160,19 +165,34 @@ The generic layer `amplify m Φ` applies a map blockwise on `Fin m × Fin 2`
 `1 ⊗ₖ Kj`, and it maps positive semidefinite matrices to positive
 semidefinite matrices for every `m` and every input, entangled or not, which
 is complete positivity in explicit finite-matrix form. Both-zero rates, time
-zero, and each one-zero-rate direction are covered explicitly. Nothing is
-proved about convergence.
+zero, and each one-zero-rate direction are covered explicitly.
+
+`qubitFrobeniusNorm X = sqrt (∑ i, ∑ j, ‖X i j‖ ^ 2)` is the named
+Frobenius norm, proved equal to Mathlib's scoped Frobenius instance. For
+every complex matrix `X` with `tau = trace X` and `Y = X - tau • rhoStar`,
+and `gamma = a + b ≠ 0`, the centered flow has entries `e Y_00`, `e Y_11`,
+`c Y_01`, `c Y_10`, so `F(Phi_t X - tau • rhoStar)^2 = e^2 (|Y_00|^2 +
+|Y_11|^2) + c^2 (|Y_01|^2 + |Y_10|^2)` exactly. For `gamma > 0` and
+`t ≥ 0`, `F(Phi_t X - tau • rhoStar) ≤ c F(Y)` on every complex matrix,
+with trace-one and equal-trace-pair consumers; the scalar error tends to
+zero and `Phi_t X` tends to `tau • rhoStar` in the canonical matrix
+topology. Densities stay densities while contracting toward `rhoStar`, the
+one-zero-rate cases converge to the basis projectors, equal positive rates
+to the maximally mixed state, and at both rates zero no single matrix
+attracts every density. `E_01` is an eigenvector with eigenvalue `c`,
+saturating the prefactor. The trace factor is essential: the Frobenius
+norm is not contracted on every matrix, and nothing is claimed about trace
+or diamond norms, spectral gaps, or general dimension.
 
 ## Next step
 
-The active assignment is the quantitative convergence specified in
-`NEXT_FABLE_TASK.md`, issued with the Kraus audit: a named Frobenius norm
-bridged to Mathlib's scoped instance, the exact centered error identity,
-the estimate `F(Phi_t X - trace X • rhoStar) ≤ exp(-(a+b) t / 2) F(X - trace X
-• rhoStar)` for positive total rate, the long-time limits, physical density
-consumers, and the rate boundaries. It completes the planned two-state
-benchmark; trace-norm and diamond-norm contraction, spectral gaps, and the
-other branches remain out of scope for it.
+The convergence milestone is implemented and its handoff is
+`deliverables/convergence/v1/HANDOFF.md`. The next turn is an independent
+audit of that handoff, to be stored under `audits/convergence/v1/`. With
+it the planned two-state benchmark (dissipator, stationary state, explicit
+evolution, Kraus certification, quantitative convergence) is complete
+pending audit. No further milestone is active until the audit selects
+one.
 
 Public theorem scope and proof trust are separate from source provenance,
 upstream acceptance, and novelty. The scripts are ordinary reproducibility and

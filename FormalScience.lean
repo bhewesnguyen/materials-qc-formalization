@@ -4,3 +4,4 @@ import FormalScience.OpenSystems.TwoStateStationary
 import FormalScience.OpenSystems.TwoStateEvolution
 import FormalScience.Quantum.FiniteKraus
 import FormalScience.OpenSystems.TwoStateKraus
+import FormalScience.OpenSystems.TwoStateConvergence

@@ -1,0 +1,50 @@
+{
+  "milestone": "convergence",
+  "round": "v1",
+  "recorded_at": "2026-09-21T03:45:41.042111+00:00",
+  "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "python": "3.12.3",
+  "os_release": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+  "lean_version_output": "Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "lake_version_output": "Lake version 5.0.0-src+293d5d0 (Lean version 4.34.0)",
+  "lean_release": "v4.34.0",
+  "lean_commit": "293d5d0c0c3f3dded4688b3ccd6a33939ac5102b",
+  "toolchain_archive_sha256_measured_by_auditor": "caaa98356098c85dc0fcbbd28e1ec66f39eb6551829972b752ff20e1286b646b",
+  "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+  "cache_scope": "Same targeted Mathlib cache as the evolution and Kraus rounds (nine README modules). The convergence module imports Mathlib.Analysis.Matrix.Normed and Mathlib.Analysis.SpecialFunctions.Exp, both already inside that closure; no cache extension this round. Not a full source rebuild.",
+  "user_workstation_tested": true,
+  "git_diff_base_commit": "6431c9cd411a3a804d2a86ae733e23f393fe9361",
+  "git_housekeeping_commit": "25862d078c14e372c2e08dbadfe986a4d00d8f43",
+  "verification_status": "passed",
+  "verification_commands": 31,
+  "all_verification_commands_exit_zero": true,
+  "exports_audited": 187,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "gate_tests_status": "passed",
+  "gate_test_case_count": 15,
+  "gate_controls": {
+    "missing-module": {
+      "status": "failed",
+      "error": "Release module coverage mismatch: unlisted=['FormalScience.OpenSystems.TwoStateConvergence'], missing=[]",
+      "input_fixture": "omitted-module.json"
+    },
+    "unmentioned-contract-export": {
+      "status": "failed",
+      "error": "Contract file does not mention these fully qualified exports: ['FormalScience.OpenSystems.tendsto_evolution_unmentioned']",
+      "input_fixture": "unmentioned-export.json"
+    }
+  },
+  "comment_only_source_change": {
+    "file": "Audit/Contracts.lean",
+    "note": "Kf to Kev section-comment fix (D015), applied after the untouched baseline reproduction and before any convergence contract was added.",
+    "before_sha256": "7bc313231a4271a598c99f28a6bd989652b68a802c0dea28633e2a271a40eab6",
+    "after_comment_fix_sha256": "de3426dbce50bc8bf9cb74373279c8ef3b686759c21899a7a6e64ce7a25bb77d",
+    "after_convergence_contracts_sha256": "f0deb195c61e388a6b735794366d8ed9f1562c24f8854b69a122c9865e8f57a4"
+  },
+  "git_kraus_receipt_commit": "2b39181a95969f5ecc0e1053cab834d94bb05110"
+}
