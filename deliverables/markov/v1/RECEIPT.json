@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "milestone": "markov",
+  "version": "v1",
+  "tag": "markov-milestone-v1",
+  "commit_under_review": "4795b8b6dc6ec7a831b9158affe3ee199f60e01e",
+  "diff_base_commit": "a3cbac0692b4c106a89e80c91d18b0c2de4988cd",
+  "convergence_receipt_commit": "754c08b4bf9f3951aed5b25d489166670db6e754",
+  "housekeeping_commit": "053683c8e419f9b79e5f48a94f9f0cd44cef1472",
+  "archive": {
+    "file": "deliverables/markov/v1/Formal_Science_Markov_Handoff.zip",
+    "tracked": false,
+    "sha256": "ec3f3a115926efb2ba7081d3d98227ee8939004911a92a9cb76c13770317e07c",
+    "bytes": 2906595,
+    "created_by": "git archive --format=zip --prefix=formal-science/ markov-milestone-v1",
+    "verification": "Extracted and compared path by path against the archived SOURCE_MANIFEST.json: 2609 files besides the manifest, all SHA-256 and byte counts matching, no extra or missing paths, no nested archives."
+  },
+  "recorded_at": "2026-09-21T16:48:49.844407+00:00",
+  "note": "Recorded in a commit made after the tag, so the tagged tree never contains its own archive digest or commit hash."
+}
