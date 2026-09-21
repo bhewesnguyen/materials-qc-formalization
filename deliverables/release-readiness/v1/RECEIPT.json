@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "milestone": "release-readiness",
+  "version": "v1",
+  "tag": "release-readiness-milestone-v1",
+  "commit_under_review": "2a258df6654d1b3553d3affebd7e94405bb4e989",
+  "diff_base_commit": "4795b8b6dc6ec7a831b9158affe3ee199f60e01e",
+  "markov_receipt_commit": "c42eccd171a02ff605768803c1acd5a7c3120fb7",
+  "housekeeping_commit": "933024e414e252234ed96defa4640096564cee3d",
+  "source_archive": {
+    "file": "deliverables/release-readiness/v1/Formal_Science_Release_Readiness_Handoff.zip",
+    "tracked": false,
+    "sha256": "e97dfc620b50a2a6a2d9de51b33ec009d6dfd17ea7acd3987ddc9d0096c408e0",
+    "bytes": 3553183,
+    "created_by": "git archive --format=zip --prefix=formal-science/ release-readiness-milestone-v1",
+    "verification": "CRC checked; extracted and compared path by path against the archived SOURCE_MANIFEST.json: 3118 files besides the manifest, all SHA-256 and byte counts matching, no extra or missing paths, no nested archives."
+  },
+  "archive_consumer_reproduction": {
+    "evidence": "evidence/release-readiness/v1/archive-consumer/",
+    "input_archive_sha256": "e97dfc620b50a2a6a2d9de51b33ec009d6dfd17ea7acd3987ddc9d0096c408e0",
+    "extraction_verified_files": 3118,
+    "dependency_mode": "reused pinned Mathlib cache from the local store; dependencies cloned at locked revisions; no project build output copied; fresh local-source re-elaboration, not a full Mathlib rebuild",
+    "verify_exit": 0,
+    "gate_tests_exit": 0,
+    "usage_exit": 0,
+    "surface": {
+      "release_modules": 8,
+      "exports": 216,
+      "contract_exports": 193
+    },
+    "matches_working_tree_candidate_verification": true
+  },
+  "companion_evidence_archive": {
+    "file": "deliverables/release-readiness/v1/Formal_Science_Release_Readiness_Consumer_Evidence.zip",
+    "tracked": false,
+    "digest_recorded": "externally in deliverables/release-readiness/v1/COMPANION_RECEIPT.json (committed afterwards) and in the delivery message; never inside the companion archive"
+  },
+  "recorded_at": "2026-09-21T17:43:27.345559+00:00",
+  "note": "Recorded in a commit made after the tag, so the tagged tree never contains its own archive digest or commit hash."
+}

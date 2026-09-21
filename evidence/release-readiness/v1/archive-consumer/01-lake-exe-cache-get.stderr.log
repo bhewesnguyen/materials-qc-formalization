@@ -1,0 +1,55 @@
+info: mathlib: cloning https://github.com/leanprover-community/mathlib4.git
+info: mathlib: checking out revision '5ed2965256430c3649e86755f9576b54eca72435'
+info: plausible: cloning https://github.com/leanprover-community/plausible
+info: plausible: checking out revision '118aa17ee84656b8bd727fef7c458ee8c833385c'
+info: LeanSearchClient: cloning https://github.com/leanprover-community/LeanSearchClient
+info: LeanSearchClient: checking out revision 'ddf04cf3949fa556442341e87d47f9f6e6074707'
+info: importGraph: cloning https://github.com/leanprover-community/import-graph
+info: importGraph: checking out revision 'e928b72544873815af278d38681b31c0293588e3'
+info: proofwidgets: cloning https://github.com/leanprover-community/ProofWidgets4
+info: proofwidgets: checking out revision '106ff4fafc74ef4ac99d81dbf3ab399118f497a5'
+info: aesop: cloning https://github.com/leanprover-community/aesop
+info: aesop: checking out revision '355695d523e41d0554926416cba2a2b3544fbbc9'
+info: Qq: cloning https://github.com/leanprover-community/quote4
+info: Qq: checking out revision '6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259'
+info: batteries: cloning https://github.com/leanprover-community/batteries
+info: batteries: checking out revision 'f2effa3d803fda822b1f97b806c47cf2adfbcbc2'
+info: Cli: cloning https://github.com/leanprover/lean4-cli
+info: Cli: checking out revision 'e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204'
+✔ [1/5] Built Cache.Cli (186ms)
+✔ [2/5] Built Cache.Lean (226ms)
+✔ [7/42] Built Cache.Cli:c.o (71ms)
+✔ [9/42] Built Cache.Lean:c.o (87ms)
+✔ [10/42] Built Cache.Env (220ms)
+✔ [11/42] Built Cache.Env:c.o (90ms)
+✔ [12/42] Built Cache.Infra (256ms)
+✔ [13/42] Built Cache.Infra:c.o (127ms)
+✔ [14/42] Built Cache.IO (799ms)
+✔ [15/42] Built Cache.Hashing (496ms)
+✔ [16/42] Built Cache.Hashing:c.o (233ms)
+✔ [17/42] Built Cache.IO:c.o (827ms)
+✔ [18/42] Built Cache.Requests (1.0s)
+✔ [19/42] Built Cache.Marker (374ms)
+✔ [20/42] Built Cache.Marker:c.o (66ms)
+✔ [21/42] Built Cache.Upload.Dest (382ms)
+✔ [22/42] Built Cache.Query (433ms)
+✔ [23/42] Built Cache.Upload.Dest:c.o (74ms)
+✔ [24/42] Built Cache.Query:c.o (169ms)
+✔ [25/42] Built Cache.Upload.Curl (345ms)
+✔ [26/42] Built Cache.Upload.Rclone (366ms)
+✔ [27/42] Built Cache.Warning (442ms)
+✔ [28/42] Built Cache.Upload.Curl:c.o (106ms)
+✔ [29/42] Built Cache.Upload.Rclone:c.o (99ms)
+✔ [30/42] Built Cache.Requests:c.o (1.4s)
+✔ [31/42] Built Cache.Warning:c.o (146ms)
+✔ [32/42] Built Cache.Upload.Azure (385ms)
+✔ [33/42] Built Cache.Upload.Azure:c.o (74ms)
+✔ [34/42] Built Cache.Upload.S3 (473ms)
+✔ [35/42] Built Cache.Upload.S3:c.o (174ms)
+✔ [36/42] Built Cache.Upload.Defs (404ms)
+✔ [37/42] Built Cache.Upload.Defs:c.o (86ms)
+✔ [38/42] Built Cache.Upload (368ms)
+✔ [39/42] Built Cache.Upload:c.o (68ms)
+✔ [40/42] Built Cache.Main (673ms)
+✔ [41/42] Built Cache.Main:c.o (490ms)
+✔ [42/42] Built cache:exe (475ms)

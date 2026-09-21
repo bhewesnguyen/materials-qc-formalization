@@ -1,0 +1,1 @@
+{"caption":"","data":"'GateFixture.direct' depends on axioms: [GateFixture.bad]","endPos":{"column":6,"line":3},"fileName":"/home/jett/Documents/GitHub/materials-qc-formalization/evidence/release-readiness/v1/archive-consumer/gate-tests/fixtures/direct_axiom.lean","isSilent":false,"keepFullRange":false,"kind":"[anonymous]","pos":{"column":0,"line":3},"severity":"information"}

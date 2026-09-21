@@ -1,0 +1,79 @@
+{
+  "recorded_at": "2026-09-21T17:42:47.073012+00:00",
+  "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "input_archive_sha256": "e97dfc620b50a2a6a2d9de51b33ec009d6dfd17ea7acd3987ddc9d0096c408e0",
+  "input_archive_bytes": 3553183,
+  "extraction_dir": "/tmp/fs-consumer/formal-science",
+  "files_verified_against_archived_manifest": 3118,
+  "dot_lake_present_before_setup": false,
+  "lean_version_output": "Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "lake_version_output": "Lake version 5.0.0-src+293d5d0 (Lean version 4.34.0)",
+  "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+  "toolchain_source": "elan-managed leanprover/lean4:v4.34.0 selected by the archived lean-toolchain file; the toolchain was already installed on this machine from earlier rounds",
+  "commands": [
+    {
+      "step": 1,
+      "command": "lake exe cache get <nine README modules>",
+      "cwd": "/tmp/fs-consumer/formal-science",
+      "exit_code": 0,
+      "wall_clock": "real\t1m35.230s\nuser\t1m0.862s\nsys\t0m24.370s",
+      "effect": "cloned all nine dependencies at their locked revisions into the extraction's .lake/packages over the network; built Mathlib's cache tool; decompressed 2435 pinned Mathlib build artifacts into the extraction",
+      "dependency_mode": "reused pinned Mathlib cache: the compressed artifacts were served from this machine's local Mathlib cache store (/home/jett/.cache/mathlib) populated in earlier rounds, so the tool reported 'No files to download'; no project build output was copied from the working repository; this is fresh local-source re-elaboration against pinned compiled dependencies, not a full Mathlib source rebuild"
+    },
+    {
+      "step": 2,
+      "command": "python3 scripts/verify.py --output-dir <evidence>/verification",
+      "exit_code": 0,
+      "result": {
+        "status": "passed",
+        "commands": 32,
+        "all_exit_zero": true,
+        "release_modules": 8,
+        "exports": 216,
+        "contract_exports": 193,
+        "axiom_union": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "dependency_pins_exact_and_clean": true
+      }
+    },
+    {
+      "step": 3,
+      "command": "python3 scripts/test_verify.py --output-dir <evidence>/gate-tests",
+      "exit_code": 0,
+      "result": {
+        "status": "passed",
+        "cases": 15
+      }
+    },
+    {
+      "step": 4,
+      "command": "lake env lean examples/Usage.lean",
+      "exit_code": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    }
+  ],
+  "source_sha256_from_extraction": {
+    "lean-toolchain": "8733782dc070a99b312039cda424f601b80f3be6f6f512627da5ba25adc27632",
+    "lakefile.toml": "7ce638070ed8dd0a0d64280ecbdd5a9ac0fcfa26ae2b190e321aac3ff12003fe",
+    "lake-manifest.json": "bf782855f3900257333229a005a4158c054550761a2fcaaba57348b3ab9db3a7",
+    "exports.json": "ecd3faefdc5b4198b4791f070714b3b4b7278ee24bd569391f072ab19f99affa",
+    "FormalScience.lean": "53441ed9d9f12701777a888c5c1e51fd1178dd1a2b18225130a44f41910abf04",
+    "Audit/Contracts.lean": "19fc9cb7652f434ef794e75a5dd9b0f695317f019e7e7405e273d4379fd25f66",
+    "scripts/verify.py": "9a6d01e56f55913084038636cb5fbedaf7dd4a40638304e61488cc7619fad757",
+    "scripts/test_verify.py": "44dddfe2bcd28c016eda7e6d33e6331975de521a01a27387988601954df2d596",
+    "FormalScience/Stage0.lean": "b8022c56e22bd3d9f0fc965a769015d8484520dc3a0915e2c3d5e8b97dc101f5",
+    "FormalScience/OpenSystems/Dissipator.lean": "abaec0a4a01fe746599ffbc3117ed7dd6ce1d42c88861fced777684e26577ada",
+    "FormalScience/OpenSystems/TwoStateStationary.lean": "745efb74d87359f6cacae50625e316e473f7dd27a595a9689fab083baff855e1",
+    "FormalScience/OpenSystems/TwoStateEvolution.lean": "541772ee2f865c567bede484e2a5e25562531da1294e5fdcb7abc0c4cd069e37",
+    "FormalScience/Quantum/FiniteKraus.lean": "1fe2ec3bb001f4503a29a91dd1cc1fa907effa74f8128817c53a4c1551b0e5e5",
+    "FormalScience/OpenSystems/TwoStateKraus.lean": "f21f85bb6595cf64407734bd7795b3fe01b962a6cab7bacab1d98b4433a79f87",
+    "FormalScience/OpenSystems/TwoStateConvergence.lean": "0d8634368db3fe805b4d15f97584e2ced30f1c79f0f35994929149b41d611e89",
+    "FormalScience/OpenSystems/FiniteMarkovBridge.lean": "18842b875a294fdbab6963b5bf201d6b12935d96cf902bc7484747fd5ca768f9"
+  },
+  "matches_working_tree_candidate_verification": true
+}
