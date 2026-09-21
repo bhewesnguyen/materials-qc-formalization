@@ -7,15 +7,16 @@ dissipator algebra (`FormalScience/OpenSystems/Dissipator.lean`), the
 two-state stationary pilot (`FormalScience/OpenSystems/TwoStateStationary.lean`),
 and the explicit two-state evolution with its semigroup law and
 matrix-valued derivative (`FormalScience/OpenSystems/TwoStateEvolution.lean`).
-The active assignment is the four-Kraus certification of that evolution in
-`NEXT_FABLE_TASK.md`. `TURNS.md` indexes every implementation and audit
-round, and `audits/evolution/v1/PORTFOLIO_STATUS.md` is the auditor's
-ledger of the 39-area portfolio against the accepted local work.
+The four-Kraus certification of that evolution
+(`FormalScience/Quantum/FiniteKraus.lean` and
+`FormalScience/OpenSystems/TwoStateKraus.lean`) is implemented and its
+handoff `deliverables/kraus/v1/HANDOFF.md` awaits its independent audit.
+`TURNS.md` indexes every implementation and audit round, and
+`audits/evolution/v1/PORTFOLIO_STATUS.md` is the auditor's ledger of the
+39-area portfolio against the accepted local work.
 
-The accepted release does not yet prove density preservation by the flow,
-positivity or complete positivity of the evolution, or convergence. The
-first two are the active assignment; convergence is a later checkpoint. No
-mathematical novelty is claimed.
+The release does not prove convergence, Choi or Stinespring equivalence, or
+any generic GKSL result. No mathematical novelty is claimed.
 
 ## Exact dependency base
 
@@ -63,13 +64,15 @@ was produced on the Ubuntu 24.04 workstation recorded in each tree's
 | `FormalScience/OpenSystems/Dissipator.lean` | Dissipator definition, linearity, trace, Hermiticity, basis-jump specializations |
 | `FormalScience/OpenSystems/TwoStateStationary.lean` | Weighted two-jump generator, entry equations, stationary candidate, uniqueness, boundary cases |
 | `FormalScience/OpenSystems/TwoStateEvolution.lean` | Explicit complex-linear flow, semigroup, matrix-valued derivative, fixed points, zero-total-rate identities |
-| `FormalScience.lean` | Umbrella import covering all four release modules |
-| `Audit/Contracts.lean` | Independent consumer signatures for all 100 theorem contracts |
+| `FormalScience/Quantum/FiniteKraus.lean` | Generic finite Kraus positivity, blockwise ancilla amplification, lifted-Kraus identity, tensor action |
+| `FormalScience/OpenSystems/TwoStateKraus.lean` | Four Kraus operators, completeness, all-matrix representation, density preservation, complete positivity, boundaries |
+| `FormalScience.lean` | Umbrella import covering all six release modules |
+| `Audit/Contracts.lean` | Independent consumer signatures for all 139 theorem contracts |
 | `exports.json` | Required modules, public declarations, and version pins |
 | `scripts/verify.py` | Build, contract, and transitive-axiom gate |
 | `scripts/test_verify.py` | Deliberate failing cases for that gate |
 | `DECISIONS.md` | Representation, dependency, and packaging decisions |
-| `NEXT_FABLE_TASK.md` | The active assignment (four-Kraus certification) |
+| `NEXT_FABLE_TASK.md` | The active assignment (four-Kraus certification), now implemented and awaiting audit |
 | `AUDIT_HANDOFF_TEMPLATE.md` | Template for each review |
 | `TURNS.md` | Index of implementation and audit rounds, with tags and decisions |
 | `deliverables/<milestone>/v<k>/` | What the implementer sends: `HANDOFF.md`, `POINTER.json`, post-packaging `RECEIPT.json`, and the untracked archive |
@@ -81,12 +84,14 @@ was produced on the Ubuntu 24.04 workstation recorded in each tree's
 | `deliverables/dissipator/v1/HANDOFF.md` | Historical handoff for the accepted dissipator milestone |
 | `deliverables/stationary/v1/HANDOFF.md` | Historical handoff for the accepted stationary pilot |
 | `deliverables/evolution/v1/HANDOFF.md` | Historical handoff for the accepted explicit evolution |
+| `deliverables/kraus/v1/HANDOFF.md` | Completed handoff for the four-Kraus certification |
 | `docs/PORTFOLIO_ROADMAP.md` | The broader 39-area research plan, context only |
 | `docs/planning/` | The research plan PDF and the original 39-item gap inventory, context only |
 | `evidence/stage0/` | Preserved evidence for the audited baseline |
 | `evidence/dissipator/` | Preserved evidence for the accepted dissipator milestone |
 | `evidence/stationary/v1/` | Preserved evidence for the accepted stationary pilot |
 | `evidence/evolution/v1/` | Preserved evidence for the accepted explicit evolution |
+| `evidence/kraus/v1/` | Fresh reproduction, verification, gate-test, and control evidence for this round |
 | `SOURCE_MANIFEST.json` | SHA-256 of every tracked project file except itself |
 
 ## Mathematical surface
@@ -140,17 +145,29 @@ derivative `L(Phi_t X)` at every real time. Stationary matrices are fixed
 points; at nonzero total rate the populations follow the trace-linear
 formula `e X_ii + (1 - e) (rate / gamma) trace X`; at zero total rate
 `Phi_t = Id + t L`, and the signed pair `a = 1, b = -1` moves `E_00` along
-`diagonalState t`. The flow is not claimed to be positive, completely
-positive, or density preserving, and nothing is proved about convergence.
+`diagonalState t`. For arbitrary signed rates and times nothing is claimed
+about positivity; the certification below covers the physical domain.
+
+For `0 ≤ a`, `0 ≤ b`, `0 ≤ t`, `evolutionKraus a b t` is the four-operator
+family `sqrt p • diag(1, c)`, `(sqrt p * d) • E_01`,
+`sqrt (1-p) • diag(c, 1)`, `(sqrt (1-p) * d) • E_10` with `p = b/(a+b)`
+(total division), `c = exp(-(a+b)t/2)`, `d = sqrt(1 - c^2)`. It is complete
+(`∑ Kjᴴ Kj = 1`), and `evolution a b t X = ∑ Kj X Kjᴴ` for every complex
+matrix `X`, so the flow preserves positive semidefiniteness and densities.
+The generic layer `amplify m Φ` applies a map blockwise on `Fin m × Fin 2`
+(ancilla first); for the flow it equals the Kraus sum of the lifted operators
+`1 ⊗ₖ Kj`, and it maps positive semidefinite matrices to positive
+semidefinite matrices for every `m` and every input, entangled or not, which
+is complete positivity in explicit finite-matrix form. Both-zero rates, time
+zero, and each one-zero-rate direction are covered explicitly. Nothing is
+proved about convergence.
 
 ## Next step
 
-The active assignment is the four-Kraus certification of the evolution
-specified in `NEXT_FABLE_TASK.md`, issued with the evolution audit:
-completeness, exact representation on all matrices, positivity and density
-preservation, and positivity after every finite ancilla extension, for
-`0 ≤ a`, `0 ≤ b`, `0 ≤ t`. Convergence, Choi or Stinespring equivalence,
-and the other branches remain out of scope for it.
+The Kraus milestone is implemented and its handoff is
+`deliverables/kraus/v1/HANDOFF.md`. The next turn is an independent audit
+of that handoff, to be stored under `audits/kraus/v1/`. No further milestone
+is active until the audit selects one.
 
 Public theorem scope and proof trust are separate from source provenance,
 upstream acceptance, and novelty. The scripts are ordinary reproducibility and

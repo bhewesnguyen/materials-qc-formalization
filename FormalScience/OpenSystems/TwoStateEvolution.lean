@@ -247,7 +247,7 @@ theorem evolution_trace (a b t : ℝ) (X : QubitMatrix) :
     evolution_apply_one_one]
   ring
 
-/-- Two qubit matrices are Hermitian when the diagonal is self-conjugate and the
+/-- A qubit matrix is Hermitian when its diagonal is self-conjugate and its two
 off-diagonal entries are conjugate to each other. -/
 theorem qubitMatrix_isHermitian_of_entries {A : QubitMatrix} (h00 : star (A 0 0) = A 0 0)
     (h11 : star (A 1 1) = A 1 1) (h10 : star (A 1 0) = A 0 1) : A.IsHermitian := by

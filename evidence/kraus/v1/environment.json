@@ -1,0 +1,47 @@
+{
+  "milestone": "kraus",
+  "round": "v1",
+  "recorded_at": "2026-09-21T02:41:10.097389+00:00",
+  "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "python": "3.12.3",
+  "os_release": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+  "lean_version_output": "Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "lake_version_output": "Lake version 5.0.0-src+293d5d0 (Lean version 4.34.0)",
+  "lean_release": "v4.34.0",
+  "lean_commit": "293d5d0c0c3f3dded4688b3ccd6a33939ac5102b",
+  "toolchain_archive_sha256_measured_by_auditor": "caaa98356098c85dc0fcbbd28e1ec66f39eb6551829972b752ff20e1286b646b",
+  "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+  "cache_scope": "Same targeted Mathlib cache as the evolution round (nine README modules). The Kraus modules import Mathlib.LinearAlgebra.Matrix.Kronecker and Mathlib.Analysis.Real.Sqrt, both already inside that closure; no cache extension this round. Not a full source rebuild.",
+  "user_workstation_tested": true,
+  "git_diff_base_commit": "a60a92b6064b4dde33a98d3c79be195c77595873",
+  "git_housekeeping_commit": "ae7462879b195c65af7544f7be4ca74d594d7a0e",
+  "verification_status": "passed",
+  "verification_commands": 30,
+  "all_verification_commands_exit_zero": true,
+  "exports_audited": 158,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "gate_tests_status": "passed",
+  "gate_test_case_count": 15,
+  "gate_controls": {
+    "missing-module": {
+      "status": "failed",
+      "error": "Release module coverage mismatch: unlisted=['FormalScience.OpenSystems.TwoStateKraus'], missing=[]",
+      "input_fixture": "omitted-module.json"
+    },
+    "missing-generic-module": {
+      "status": "failed",
+      "error": "Release module coverage mismatch: unlisted=['FormalScience.Quantum.FiniteKraus'], missing=[]",
+      "input_fixture": "omitted-module.json"
+    }
+  },
+  "comment_only_source_change": {
+    "file": "FormalScience/OpenSystems/TwoStateEvolution.lean",
+    "before_sha256": "8071d0962bae6a3c8e2d74dda1cc69364b5e9a6fe4de0320c7f63c4fb15d3be0",
+    "after_sha256": "541772ee2f865c567bede484e2a5e25562531da1294e5fdcb7abc0c4cd069e37"
+  }
+}

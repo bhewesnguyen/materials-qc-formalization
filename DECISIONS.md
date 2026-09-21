@@ -422,3 +422,78 @@ made after the untouched baseline reproduction of round 4
 value recorded in the round 4 verification evidence. The accepted tag is
 untouched.
 
+## D014: four-Kraus certification (kraus milestone, round v1)
+
+Two release modules implement the active assignment.
+
+`FormalScience/Quantum/FiniteKraus.lean` (namespace `FormalScience.Quantum`)
+is the generic layer over the Stage 0 `krausMap`: `krausMap_posSemidef`
+(finite Kraus sums preserve PSD, no normalization), the blockwise amplifier
+`amplify m Φ Y` on `Fin m × α` with the ancilla index first and its exact
+formula `amplify_apply`, the lifting identity `amplify_krausMap`
+(`amplify m (krausMap K) Y = krausMap (fun j => 1 ⊗ₖ K j) Y` for every
+`Y`), `amplify_krausMap_posSemidef`, and the tensor-action lemma
+`amplify_kronecker` for complex-linear `Φ`. Provenance: the first four are
+adapted, with our namespace and per-declaration instance binders, from the
+auditor's feasibility probe returned with the evolution audit
+(`audits/evolution/v1/reference/KrausProbe.lean`, compiled there with the
+same three axioms); the tensor-action lemma is new. The probe is in-project
+material from the audit loop, not a downstream library; no other source was
+copied.
+
+`FormalScience/OpenSystems/TwoStateKraus.lean` is the certificate.
+Contract-to-Lean mapping:
+
+| Contract | Lean declaration |
+| --- | --- |
+| `p = b / gamma`, `d = sqrt(1 - c^2)` | `equilibriumZero a b := b / (a + b)` (total division), `jumpAmplitude γ t := Real.sqrt (1 - halfExpFactor γ t ^ 2)`; `c` is the accepted `halfExpFactor` |
+| scalar facts | `halfExpFactor_sq` (`c^2 = e`), `halfExpFactor_pos`, `halfExpFactor_le_one`, `one_sub_halfExpFactor_sq_nonneg`, `jumpAmplitude_sq`, `equilibriumZero_nonneg`, `equilibriumZero_le_one`, `one_sub_equilibriumZero` (`1 - p = a/gamma` at `gamma ≠ 0`), `equilibriumZero_of_add_eq_zero`, `eq_zero_of_add_eq_zero` |
+| `K0 .. K3` | `evolutionKraus a b t : Fin 4 → QubitMatrix`, with `evolutionKraus_apply_zero/one/two/three` as `rfl` formula theorems; `E_01 = jumpOneToZero`, `E_10 = jumpZeroToOne` |
+| completeness | `evolutionKraus_complete` |
+| entry formulas of the Kraus sum | `krausMap_evolutionKraus_apply_zero_zero/one_one/zero_one/one_zero` |
+| all-matrix representation | `evolution_eq_krausMap` |
+| trace consumer | `krausMap_evolutionKraus_trace` via `krausMap_trace_preserving` |
+| positivity, density | `evolution_posSemidef`, `evolution_isDensity` |
+| lifted-Kraus identity, CP endpoint, tensor action | `amplify_evolution_eq_krausMap`, `amplify_evolution_posSemidef`, `amplify_evolution_kronecker` |
+| boundaries | `evolutionKraus_zero_zero`, `krausMap_evolutionKraus_zero_zero`, `evolutionKraus_time_zero`, `krausMap_evolutionKraus_time_zero`, `evolutionKraus_zero_left`, `evolutionKraus_zero_right`, `evolution_isDensity_zero_left`, `evolution_isDensity_zero_right` |
+
+Hypotheses. Every physical theorem carries exactly `0 ≤ a`, `0 ≤ b`,
+`0 ≤ t`; no positive total rate is assumed anywhere. The scalar products in
+the family are elaborated as products of casts, `(↑√p * ↑d) • E_01`, and the
+consumer contracts restate them in that form. The zero-total-rate case is
+handled explicitly: nonnegativity gives `a = b = 0`, total division gives
+`p = 0`, so `K2 = 1` and the other operators vanish, and the representation
+uses the accepted `evolution_zero_zero`. At `gamma ≠ 0` the representation
+compares the Kraus entries with the accepted trace-linear population
+formulas using `c^2 = e`, `p = b/gamma`, `1 - p = a/gamma`. The one-zero-rate
+identities hold for every real remaining rate where the algebra allows
+(`evolutionKraus_zero_right` for all real `a`; `evolutionKraus_zero_left`
+needs `0 < b` because `p = b/b`); the density consumers carry the physical
+hypotheses.
+
+Proof design. Completeness and the four entry formulas are entrywise: `simp`
+expands the four-term sum, the diagonal and matrix-unit products, and the
+conjugation of real casts, after which `linear_combination` closes the
+residual polynomial identity using the three square-root facts
+(`(√p)^2 = p`, `(√(1-p))^2 = 1 - p`, `d^2 = 1 - c^2`), packaged in the private
+`sqrt_facts`. Off-diagonal entries close by `simp` alone. The CP endpoint is
+the generic lifting identity applied to the family, then the generic PSD
+lemma. Three small private helpers (`sqrt_facts`, `diagonal_one_one`,
+`vec_one_one`) are not exported.
+
+Dependencies. The modules import `Mathlib.LinearAlgebra.Matrix.Kronecker`
+and `Mathlib.Analysis.Real.Sqrt`, both already inside the cached closure of
+the README command, so no cache extension was needed this round; the
+dependency pins are unchanged. Mathlib supplied
+`Matrix.PosSemidef.mul_mul_conjTranspose_same`, `Matrix.posSemidef_sum`,
+`Matrix.kroneckerMap_apply`, `Matrix.one_apply`, `Fintype.sum_prod_type`,
+`Real.sq_sqrt`, `Real.mul_self_sqrt`, `Real.exp_le_one_iff`, `pow_le_one₀`,
+`div_le_one`, `Fin.sum_univ_four`, and the earlier matrix-unit and cast
+lemmas. No project-local CP predicate was introduced; the endpoint is the
+explicit universally quantified PSD statement, as the assignment prefers.
+
+What is not claimed. Nothing about signed rates or negative times beyond the
+accepted linear flow; nothing about convergence, Choi or Stinespring
+equivalence, uniqueness of the Kraus representation, generic GKSL, or any
+broad portfolio area.
+

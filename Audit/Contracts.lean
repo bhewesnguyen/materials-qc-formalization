@@ -7,7 +7,7 @@ No proof-search tactic fills gaps in these checks: every example is a direct
 use of the public declaration at the required type.
 -/
 
-open scoped BigOperators ComplexOrder Matrix
+open scoped BigOperators ComplexOrder Matrix Kronecker
 open FormalScience.Stage0
 
 example (i : Fin 2) :
@@ -383,5 +383,176 @@ example (a t : ℝ) : Ev a 0 t (basisProjector 1) = basisProjector 1 :=
   FormalScience.OpenSystems.evolution_zero_right_basisProjector_one a t
 example (r t : ℝ) : Ev r r t (diagonalState (1 / 2)) = diagonalState (1 / 2) :=
   FormalScience.OpenSystems.evolution_same_diagonalState_half r t
+
+/-!
+## Finite Kraus maps and the four-Kraus certificate
+
+Generic layer: the Kraus sum is written as `∑ j, K j * X * (K j)ᴴ`, the amplifier's
+block formula is exposed through `amplify_apply`, and the lifted operators are
+`1 ⊗ₖ K j`. Two-state layer: `Ep`, `Ed`, and the family `Kf` are spelled out with
+real division, `Real.exp`, `Real.sqrt`, and the matrix units `E₀₁`, `E₁₀`; the
+physical hypotheses `0 ≤ a`, `0 ≤ b`, `0 ≤ t` appear exactly where the theorems
+require them, and the both-zero and time-zero cases are covered explicitly.
+-/
+
+section GenericKrausContracts
+
+variable {α β κ : Type*}
+
+example [Fintype α] [Fintype β] [Fintype κ] (K : κ → Matrix β α ℂ) {X : Matrix α α ℂ}
+    (hX : X.PosSemidef) : (∑ j, K j * X * (K j)ᴴ).PosSemidef :=
+  FormalScience.Quantum.krausMap_posSemidef K hX
+
+example (m : ℕ) (Φ : Matrix α α ℂ → Matrix β β ℂ) (Y : Matrix (Fin m × α) (Fin m × α) ℂ)
+    (r s : Fin m) (i j : β) :
+    FormalScience.Quantum.amplify m Φ Y (r, i) (s, j) =
+      Φ (Matrix.of fun u v => Y (r, u) (s, v)) i j :=
+  FormalScience.Quantum.amplify_apply m Φ Y r s i j
+
+example [Fintype α] [Fintype κ] (m : ℕ) (K : κ → Matrix β α ℂ)
+    (Y : Matrix (Fin m × α) (Fin m × α) ℂ) :
+    FormalScience.Quantum.amplify m (fun X => ∑ j, K j * X * (K j)ᴴ) Y =
+      ∑ j, ((1 : Matrix (Fin m) (Fin m) ℂ) ⊗ₖ K j) * Y * ((1 : Matrix (Fin m) (Fin m) ℂ) ⊗ₖ K j)ᴴ :=
+  FormalScience.Quantum.amplify_krausMap m K Y
+
+example [Fintype α] [Fintype β] [Fintype κ] (m : ℕ) (K : κ → Matrix β α ℂ)
+    {Y : Matrix (Fin m × α) (Fin m × α) ℂ} (hY : Y.PosSemidef) :
+    (FormalScience.Quantum.amplify m (fun X => ∑ j, K j * X * (K j)ᴴ) Y).PosSemidef :=
+  FormalScience.Quantum.amplify_krausMap_posSemidef m K hY
+
+example (m : ℕ) (Φ : Matrix α α ℂ →ₗ[ℂ] Matrix β β ℂ) (A : Matrix (Fin m) (Fin m) ℂ)
+    (X : Matrix α α ℂ) :
+    FormalScience.Quantum.amplify m Φ (A ⊗ₖ X) = A ⊗ₖ Φ X :=
+  FormalScience.Quantum.amplify_kronecker m Φ A X
+
+end GenericKrausContracts
+
+section TwoStateKrausContracts
+
+/-- `p = b / (a + b)`, with total division. -/
+local notation "Ep" => fun (a b : ℝ) => b / (a + b)
+/-- `d = sqrt(1 - c^2)` with `c = exp(-(gamma t)/2)`. -/
+local notation "Ed" => fun (γ t : ℝ) => Real.sqrt (1 - Real.exp (-(γ * t) / 2) ^ 2)
+/-- The Kraus family by its project name; its four members are pinned down below with real
+square roots and matrix units, and every later contract refers to this same family. -/
+local notation "Kev" => FormalScience.OpenSystems.evolutionKraus
+/-- The amplifier of the generic layer, by name; its block formula is checked above. -/
+local notation "Amp" => FormalScience.Quantum.amplify
+
+example (γ t : ℝ) : Ef γ t ^ 2 = Ee γ t := FormalScience.OpenSystems.halfExpFactor_sq γ t
+example (γ t : ℝ) : 0 < Ef γ t := FormalScience.OpenSystems.halfExpFactor_pos γ t
+example {γ t : ℝ} (hγ : 0 ≤ γ) (ht : 0 ≤ t) : Ef γ t ≤ 1 :=
+  FormalScience.OpenSystems.halfExpFactor_le_one hγ ht
+example {γ t : ℝ} (hγ : 0 ≤ γ) (ht : 0 ≤ t) : 0 ≤ 1 - Ef γ t ^ 2 :=
+  FormalScience.OpenSystems.one_sub_halfExpFactor_sq_nonneg hγ ht
+example {γ t : ℝ} (hγ : 0 ≤ γ) (ht : 0 ≤ t) : Ed γ t ^ 2 = 1 - Ef γ t ^ 2 :=
+  FormalScience.OpenSystems.jumpAmplitude_sq hγ ht
+example {a b : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b) : 0 ≤ Ep a b :=
+  FormalScience.OpenSystems.equilibriumZero_nonneg ha hb
+example {a b : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b) : Ep a b ≤ 1 :=
+  FormalScience.OpenSystems.equilibriumZero_le_one ha hb
+example {a b : ℝ} (h : a + b ≠ 0) : 1 - Ep a b = a / (a + b) :=
+  FormalScience.OpenSystems.one_sub_equilibriumZero h
+example {a b : ℝ} (h : a + b = 0) : Ep a b = 0 :=
+  FormalScience.OpenSystems.equilibriumZero_of_add_eq_zero h
+example {a b : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b) (h : a + b = 0) : a = 0 ∧ b = 0 :=
+  FormalScience.OpenSystems.eq_zero_of_add_eq_zero ha hb h
+
+/- The four operators with real square roots and the matrix units: `K0 = sqrt p • diag(1, c)`,
+`K1 = (sqrt p * d) • E_01`, `K2 = sqrt (1-p) • diag(c, 1)`, `K3 = (sqrt (1-p) * d) • E_10`. -/
+example (a b t : ℝ) :
+    Kev a b t 0 = ((Real.sqrt (Ep a b) : ℝ) : ℂ) • Matrix.diagonal ![1, (Ef (a + b) t : ℂ)] :=
+  FormalScience.OpenSystems.evolutionKraus_apply_zero a b t
+example (a b t : ℝ) :
+    Kev a b t 1 = (((Real.sqrt (Ep a b) : ℝ) : ℂ) * (Ed (a + b) t : ℂ)) • E₀₁ :=
+  FormalScience.OpenSystems.evolutionKraus_apply_one a b t
+example (a b t : ℝ) :
+    Kev a b t 2 =
+      ((Real.sqrt (1 - Ep a b) : ℝ) : ℂ) • Matrix.diagonal ![(Ef (a + b) t : ℂ), 1] :=
+  FormalScience.OpenSystems.evolutionKraus_apply_two a b t
+example (a b t : ℝ) :
+    Kev a b t 3 = (((Real.sqrt (1 - Ep a b) : ℝ) : ℂ) * (Ed (a + b) t : ℂ)) • E₁₀ :=
+  FormalScience.OpenSystems.evolutionKraus_apply_three a b t
+
+/- Completeness, entries, and the all-matrix representation under the physical hypotheses. -/
+example {a b t : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b) (ht : 0 ≤ t) :
+    ∑ j, (Kev a b t j)ᴴ * Kev a b t j = 1 :=
+  FormalScience.OpenSystems.evolutionKraus_complete ha hb ht
+example {a b t : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b) (ht : 0 ≤ t) (X : QubitMatrix) :
+    (∑ j, Kev a b t j * X * (Kev a b t j)ᴴ) 0 0 =
+      ((Ep a b + (1 - Ep a b) * Ef (a + b) t ^ 2 : ℝ) : ℂ) * X 0 0 +
+        ((Ep a b * (1 - Ef (a + b) t ^ 2) : ℝ) : ℂ) * X 1 1 :=
+  FormalScience.OpenSystems.krausMap_evolutionKraus_apply_zero_zero ha hb ht X
+example {a b t : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b) (ht : 0 ≤ t) (X : QubitMatrix) :
+    (∑ j, Kev a b t j * X * (Kev a b t j)ᴴ) 1 1 =
+      (((1 - Ep a b) * (1 - Ef (a + b) t ^ 2) : ℝ) : ℂ) * X 0 0 +
+        (((1 - Ep a b) + Ep a b * Ef (a + b) t ^ 2 : ℝ) : ℂ) * X 1 1 :=
+  FormalScience.OpenSystems.krausMap_evolutionKraus_apply_one_one ha hb ht X
+example {a b t : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b) (ht : 0 ≤ t) (X : QubitMatrix) :
+    (∑ j, Kev a b t j * X * (Kev a b t j)ᴴ) 0 1 = (Ef (a + b) t : ℂ) * X 0 1 :=
+  FormalScience.OpenSystems.krausMap_evolutionKraus_apply_zero_one ha hb ht X
+example {a b t : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b) (ht : 0 ≤ t) (X : QubitMatrix) :
+    (∑ j, Kev a b t j * X * (Kev a b t j)ᴴ) 1 0 = (Ef (a + b) t : ℂ) * X 1 0 :=
+  FormalScience.OpenSystems.krausMap_evolutionKraus_apply_one_zero ha hb ht X
+example {a b t : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b) (ht : 0 ≤ t) (X : QubitMatrix) :
+    Ev a b t X = ∑ j, Kev a b t j * X * (Kev a b t j)ᴴ :=
+  FormalScience.OpenSystems.evolution_eq_krausMap ha hb ht X
+example {a b t : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b) (ht : 0 ≤ t) (X : QubitMatrix) :
+    Matrix.trace (∑ j, Kev a b t j * X * (Kev a b t j)ᴴ) = Matrix.trace X :=
+  FormalScience.OpenSystems.krausMap_evolutionKraus_trace ha hb ht X
+
+/- Positivity and density preservation of the physical flow. -/
+example {a b t : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b) (ht : 0 ≤ t) {X : QubitMatrix}
+    (hX : X.PosSemidef) : (Ev a b t X).PosSemidef :=
+  FormalScience.OpenSystems.evolution_posSemidef ha hb ht hX
+example {a b t : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b) (ht : 0 ≤ t) {X : QubitMatrix}
+    (hX : X.PosSemidef ∧ Matrix.trace X = 1) :
+    (Ev a b t X).PosSemidef ∧ Matrix.trace (Ev a b t X) = 1 :=
+  FormalScience.OpenSystems.evolution_isDensity ha hb ht hX
+
+/- Complete positivity: the lifted-Kraus identity on every input, the all-`m` PSD conclusion,
+and the tensor-action convention (ancilla first). -/
+example {a b t : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b) (ht : 0 ≤ t) (m : ℕ)
+    (Y : Matrix (Fin m × Fin 2) (Fin m × Fin 2) ℂ) :
+    Amp m (Ev a b t) Y =
+      ∑ j, ((1 : Matrix (Fin m) (Fin m) ℂ) ⊗ₖ Kev a b t j) * Y *
+        ((1 : Matrix (Fin m) (Fin m) ℂ) ⊗ₖ Kev a b t j)ᴴ :=
+  FormalScience.OpenSystems.amplify_evolution_eq_krausMap ha hb ht m Y
+example {a b t : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b) (ht : 0 ≤ t) (m : ℕ)
+    {Y : Matrix (Fin m × Fin 2) (Fin m × Fin 2) ℂ} (hY : Y.PosSemidef) :
+    (Amp m (Ev a b t) Y).PosSemidef :=
+  FormalScience.OpenSystems.amplify_evolution_posSemidef ha hb ht m hY
+example (a b t : ℝ) (m : ℕ) (A : Matrix (Fin m) (Fin m) ℂ) (X : QubitMatrix) :
+    Amp m (Ev a b t) (A ⊗ₖ X) = A ⊗ₖ Ev a b t X :=
+  FormalScience.OpenSystems.amplify_evolution_kronecker a b t m A X
+
+/- Boundaries: both rates zero, time zero, and each one-zero-rate direction. -/
+example (t : ℝ) : Kev 0 0 t = ![0, 0, 1, 0] := FormalScience.OpenSystems.evolutionKraus_zero_zero t
+example {t : ℝ} (ht : 0 ≤ t) (X : QubitMatrix) :
+    ∑ j, Kev 0 0 t j * X * (Kev 0 0 t j)ᴴ = X :=
+  FormalScience.OpenSystems.krausMap_evolutionKraus_zero_zero ht X
+example (a b : ℝ) :
+    Kev a b 0 =
+      ![((Real.sqrt (Ep a b) : ℝ) : ℂ) • 1, 0, ((Real.sqrt (1 - Ep a b) : ℝ) : ℂ) • 1, 0] :=
+  FormalScience.OpenSystems.evolutionKraus_time_zero a b
+example {a b : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b) (X : QubitMatrix) :
+    ∑ j, Kev a b 0 j * X * (Kev a b 0 j)ᴴ = X :=
+  FormalScience.OpenSystems.krausMap_evolutionKraus_time_zero ha hb X
+example {b : ℝ} (hb : 0 < b) (t : ℝ) :
+    Kev 0 b t = ![Matrix.diagonal ![1, (Ef (0 + b) t : ℂ)], (Ed (0 + b) t : ℂ) • E₀₁, 0, 0] :=
+  FormalScience.OpenSystems.evolutionKraus_zero_left hb t
+example (a t : ℝ) :
+    Kev a 0 t = ![0, 0, Matrix.diagonal ![(Ef (a + 0) t : ℂ), 1], (Ed (a + 0) t : ℂ) • E₁₀] :=
+  FormalScience.OpenSystems.evolutionKraus_zero_right a t
+example {b t : ℝ} (hb : 0 ≤ b) (ht : 0 ≤ t) {X : QubitMatrix}
+    (hX : X.PosSemidef ∧ Matrix.trace X = 1) :
+    (Ev 0 b t X).PosSemidef ∧ Matrix.trace (Ev 0 b t X) = 1 :=
+  FormalScience.OpenSystems.evolution_isDensity_zero_left hb ht hX
+example {a t : ℝ} (ha : 0 ≤ a) (ht : 0 ≤ t) {X : QubitMatrix}
+    (hX : X.PosSemidef ∧ Matrix.trace X = 1) :
+    (Ev a 0 t X).PosSemidef ∧ Matrix.trace (Ev a 0 t X) = 1 :=
+  FormalScience.OpenSystems.evolution_isDensity_zero_right ha ht hX
+
+end TwoStateKrausContracts
 
 end JumpContracts

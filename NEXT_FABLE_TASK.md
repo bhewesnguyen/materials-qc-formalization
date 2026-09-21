@@ -1,5 +1,12 @@
 # Active assignment: four-Kraus certification of two-state evolution
 
+> Status (21 September 2026): implemented in
+> `FormalScience/Quantum/FiniteKraus.lean` and
+> `FormalScience/OpenSystems/TwoStateKraus.lean`, handed off in
+> `deliverables/kraus/v1/HANDOFF.md`. The assignment text below is preserved
+> as issued (frozen copy: `audits/evolution/v1/NEXT_FABLE_TASK.md`). Do not
+> start a further milestone until the audit selects one.
+
 Milestone key: `kraus`. First implementation round: `v1`.
 
 This assignment follows the accepted evolution milestone at source commit
