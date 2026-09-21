@@ -497,3 +497,36 @@ accepted linear flow; nothing about convergence, Choi or Stinespring
 equivalence, uniqueness of the Kraus representation, generic GKSL, or any
 broad portfolio area.
 
+## D015: acceptance of the Kraus milestone and three prose clarifications
+
+The Kraus audit (`audits/kraus/v1/`) accepted `kraus-milestone-v1` at
+commit `6431c9c` with no proof revision and no findings. The historical
+handoff `deliverables/kraus/v1/HANDOFF.md` and D014 are preserved as
+written; the auditor's three optional prose cleanups are recorded here.
+
+Contract commentary. The section comment introducing the two-state Kraus
+contracts in `Audit/Contracts.lean` said the family is spelled out as `Kf`;
+that was the name of an earlier draft notation that was replaced by `Kev`
+(the family by its project name, with the four operators pinned
+individually) after the fully spelled-out family made the unifier time out
+inside sums. The comment is corrected to `Kev` in a comment-only edit made
+after the untouched baseline reproduction of round 5
+(`evidence/convergence/v1/reproduction/`); the file hash changes from
+`7bc313231a4271a598c99f28a6bd989652b68a802c0dea28633e2a271a40eab6` to the
+value recorded in the round 5 verification evidence. No contract statement
+changes.
+
+Zero-left boundary. D014 says `evolutionKraus_zero_left` "needs `0 < b`
+because `p = b/b`". The accepted theorem carries `0 < b` because that is the
+physical boundary the assignment requested, and it suffices; algebraically
+`b ≠ 0` would already give `p = b/b = 1`. Positivity is not mathematically
+necessary for that family identity. The theorem is not changed.
+
+Proof-method prose. D014's sentence "Off-diagonal entries close by `simp`
+alone" describes the completeness proof. The off-diagonal entry formulas of
+the Kraus sum (`krausMap_evolutionKraus_apply_zero_one` and
+`..._one_zero`) also use `linear_combination` with the square-root
+identities after `simp`. The handoff's proof-design paragraph says this
+correctly for the entry formulas; D014 is clarified here rather than
+rewritten.
+

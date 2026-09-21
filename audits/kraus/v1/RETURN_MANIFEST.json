@@ -1,0 +1,815 @@
+{
+  "schema_version": 1,
+  "scope": "All files in this audit-return ZIP except this manifest. Paths are relative to the ZIP/repository root. All payloads are immutable audit artifacts; the mutable root active task is created by copying the issued task after integration.",
+  "hash_algorithm": "sha256",
+  "files": {
+    "audits/kraus/v1/AUDIT_RECEIPT.json": {
+      "bytes": 3850,
+      "sha256": "24ec6383a8e96e0a96a2cc3473ce1cb6b82b5096aa07201d08723e22cc947ee2"
+    },
+    "audits/kraus/v1/FABLE_KICKOFF.md": {
+      "bytes": 2308,
+      "sha256": "8774e888ad63e011c41d71e3e0d3ffdf59e00157f5805d1611cd635490e7387b"
+    },
+    "audits/kraus/v1/Formal_Science_Kraus_Audit_v1.md": {
+      "bytes": 14193,
+      "sha256": "1309fec2347157482a11a3b508df82c94efbdecdc69c25a119ae78b82aa5f40d"
+    },
+    "audits/kraus/v1/Formal_Science_Kraus_Audit_v1.pdf": {
+      "bytes": 79516,
+      "sha256": "3ea870cc1d532cba87433a7a1057ba51b8bb3e0b65af45f0daf1c950267e10a9"
+    },
+    "audits/kraus/v1/NEXT_FABLE_TASK.md": {
+      "bytes": 17118,
+      "sha256": "938a6f02f04875ef22467263ed7336859c23493a363976128790e251772ea27a"
+    },
+    "audits/kraus/v1/PORTFOLIO_STATUS.md": {
+      "bytes": 12105,
+      "sha256": "0a10f0c997e6e44d74e418187d3e521283f0cbc3a6bbe429ba2f00ff656e5183"
+    },
+    "audits/kraus/v1/RETURN_README.md": {
+      "bytes": 3956,
+      "sha256": "874d4214715e33ab79ff5dacc5d16f196b6c69c0c6021bb2d2816cc7e03f7f2c"
+    },
+    "audits/kraus/v1/evidence/archive_integrity.json": {
+      "bytes": 372,
+      "sha256": "60c350c155dab1108746fa491a0dfc9459b8ac721bf42787bde79ceda9fb9d85"
+    },
+    "audits/kraus/v1/evidence/audit_summary.json": {
+      "bytes": 2622,
+      "sha256": "125c21eb24cdbfef43cd136a79866a4fcf0da126e799ae54ac8e0cb6e8825a25"
+    },
+    "audits/kraus/v1/evidence/convergence-api-probe/execution.json": {
+      "bytes": 730,
+      "sha256": "4691cf06783f621825ceda0cdb8493c057a9c30b5e485fbdaf58d5842656c3f8"
+    },
+    "audits/kraus/v1/evidence/convergence-api-probe/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/convergence-api-probe/stdout.log": {
+      "bytes": 396,
+      "sha256": "8bb0ce034b1d130b1a801c3ccbfc5c4ef54469b2a4a84feef70884d4012b7d5b"
+    },
+    "audits/kraus/v1/evidence/environment.json": {
+      "bytes": 731,
+      "sha256": "0b015da979fad219da44ed105e07c6324931b8821bbd06d5dfaf5bf536283b9f"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/01-lean-version.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/01-lean-version.stdout.log": {
+      "bytes": 106,
+      "sha256": "cf6e65bfc214882b1c13717aae89d383a03f6bcf5c96dfbae13368cd3e07ff9d"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/02-lake-version.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/02-lake-version.stdout.log": {
+      "bytes": 53,
+      "sha256": "242bb637d740597febf655395478ffc9020e35e53e3040d8a7055bf3de6f0541"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/03-mathlib-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/03-mathlib-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "32cdc265134a1c8d482764d3fe02900f0f1f7f7899895ef0691000865651df5f"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/04-mathlib-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/04-mathlib-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/05-dependency-02-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/05-dependency-02-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "8e19735519205e6e1b0a59824699f406af5b5ce84a32d2a6c583717ce045b900"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/06-dependency-02-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/06-dependency-02-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/07-dependency-03-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/07-dependency-03-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "969f2fabfb7ffe3973dce9836aa523b36b30aba71950f358c0148f7daf1909cd"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/08-dependency-03-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/08-dependency-03-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/09-dependency-04-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/09-dependency-04-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "b7befbf415605485d009aa7b002b346adb7ee3ce028e97b697fe5f259d320274"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/10-dependency-04-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/10-dependency-04-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/11-dependency-05-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/11-dependency-05-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "5c6fde3e5ec3bc7c00fcedc25e51a7d1d68b2dd0ba1057f4cd3a742f780cfc1d"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/12-dependency-05-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/12-dependency-05-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/13-dependency-06-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/13-dependency-06-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "e2f238dae0ad15ad802261fd5664fbb7264ca23028ec463653ee359dedad69b1"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/14-dependency-06-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/14-dependency-06-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/15-dependency-07-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/15-dependency-07-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "6ea0e5d827cd28719f0f8303c77c64ffd115d117fb873c61dcc064c789b49021"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/16-dependency-07-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/16-dependency-07-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/17-dependency-08-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/17-dependency-08-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "a10c5cc1562c7e05002879cbb387405d1e84dfb2b052e4a9da3d7b0915278e17"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/18-dependency-08-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/18-dependency-08-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/19-dependency-09-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/19-dependency-09-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "2e20e2a649dd57be51b7d287730d045342813e1fa6e2e7de3e2a6c249e2c51c1"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/20-dependency-09-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/20-dependency-09-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/commands.json": {
+      "bytes": 12234,
+      "sha256": "40ad01092c32d3c86fd2e0bef61ae52775822cece3dd64ba2f46c9be3bb98a6d"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/control-stderr.log": {
+      "bytes": 93,
+      "sha256": "a50bf0d3a525a76fa7f80476e47e481077316c3156b933d8fda28127c4a2fcf3"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/control-stdout.log": {
+      "bytes": 137,
+      "sha256": "c6b4a873a5390e3918d842896f6146a82e0e0abe5c2f6ac844a149a5459f4b6e"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/invocation.json": {
+      "bytes": 518,
+      "sha256": "7b85a1709c0fa347ec8d80721522307ceaf95a40118b58e9c47cf7d079244bf4"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/omitted-module.json": {
+      "bytes": 17716,
+      "sha256": "f4f1f870c4a4b700058984bc9a4e3bbf31cb0dc323bb0681403e51b1db5cca78"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-generic-module/verification.json": {
+      "bytes": 13241,
+      "sha256": "ad0ebd3db1b3314c7f234a9a1a33edc34c70532489671dabfcbecf42172002f1"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/01-lean-version.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/01-lean-version.stdout.log": {
+      "bytes": 106,
+      "sha256": "cf6e65bfc214882b1c13717aae89d383a03f6bcf5c96dfbae13368cd3e07ff9d"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/02-lake-version.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/02-lake-version.stdout.log": {
+      "bytes": 53,
+      "sha256": "242bb637d740597febf655395478ffc9020e35e53e3040d8a7055bf3de6f0541"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/03-mathlib-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/03-mathlib-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "32cdc265134a1c8d482764d3fe02900f0f1f7f7899895ef0691000865651df5f"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/04-mathlib-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/04-mathlib-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/05-dependency-02-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/05-dependency-02-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "8e19735519205e6e1b0a59824699f406af5b5ce84a32d2a6c583717ce045b900"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/06-dependency-02-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/06-dependency-02-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/07-dependency-03-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/07-dependency-03-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "969f2fabfb7ffe3973dce9836aa523b36b30aba71950f358c0148f7daf1909cd"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/08-dependency-03-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/08-dependency-03-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/09-dependency-04-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/09-dependency-04-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "b7befbf415605485d009aa7b002b346adb7ee3ce028e97b697fe5f259d320274"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/10-dependency-04-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/10-dependency-04-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/11-dependency-05-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/11-dependency-05-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "5c6fde3e5ec3bc7c00fcedc25e51a7d1d68b2dd0ba1057f4cd3a742f780cfc1d"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/12-dependency-05-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/12-dependency-05-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/13-dependency-06-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/13-dependency-06-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "e2f238dae0ad15ad802261fd5664fbb7264ca23028ec463653ee359dedad69b1"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/14-dependency-06-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/14-dependency-06-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/15-dependency-07-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/15-dependency-07-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "6ea0e5d827cd28719f0f8303c77c64ffd115d117fb873c61dcc064c789b49021"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/16-dependency-07-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/16-dependency-07-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/17-dependency-08-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/17-dependency-08-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "a10c5cc1562c7e05002879cbb387405d1e84dfb2b052e4a9da3d7b0915278e17"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/18-dependency-08-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/18-dependency-08-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/19-dependency-09-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/19-dependency-09-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "2e20e2a649dd57be51b7d287730d045342813e1fa6e2e7de3e2a6c249e2c51c1"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/20-dependency-09-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/20-dependency-09-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/commands.json": {
+      "bytes": 12234,
+      "sha256": "5b7990db8286ded6a9c07c90b69646bc3214e114d3873331c76057fdbe0e97fb"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/control-stderr.log": {
+      "bytes": 99,
+      "sha256": "20942ca268029136fa6a264a6085309fc9b4cbdced74771a4d718b8972fb9650"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/control-stdout.log": {
+      "bytes": 129,
+      "sha256": "1cddc643df6aa111c9350aa272b922abed1fc28e01a51e09920b65dffa03b5c8"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/invocation.json": {
+      "bytes": 502,
+      "sha256": "1695ffc684dd34f1181a302f77f28af4edfbcb047a757d90e342cd298ec61602"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/omitted-module.json": {
+      "bytes": 17710,
+      "sha256": "74c324509852cc279905a9db64ab8bc2e632c4c3d78acc6823ad49775ee87ea6"
+    },
+    "audits/kraus/v1/evidence/gate-controls/missing-module/verification.json": {
+      "bytes": 13247,
+      "sha256": "f7155472414c410e08cb33d8ba57a56d6a50fbeb67590c6bf03aee67a27e614a"
+    },
+    "audits/kraus/v1/evidence/gate-tests/01-allowed-control.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-tests/01-allowed-control.stdout.log": {
+      "bytes": 327,
+      "sha256": "b4612ba9283ca45e6137c7e539b2298ab2a8d0faebcd64f11c062421e8dafb32"
+    },
+    "audits/kraus/v1/evidence/gate-tests/02-allowed-propext.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-tests/02-allowed-propext.stdout.log": {
+      "bytes": 322,
+      "sha256": "6acc929b1d41bbc170f0afc3b0133227cecc475d99f0a0fd259b049a14266849"
+    },
+    "audits/kraus/v1/evidence/gate-tests/03-direct-axiom.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-tests/03-direct-axiom.stdout.log": {
+      "bytes": 330,
+      "sha256": "a0dfed545dbdd291414bb8aa48c382559b52c338d98b61b051ac7c7e2d52fddd"
+    },
+    "audits/kraus/v1/evidence/gate-tests/04-transitive-axiom.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-tests/04-transitive-axiom.stdout.log": {
+      "bytes": 339,
+      "sha256": "71b2eadfb8d5fe6760d342e2358e8aaad5eef294dca36ec3dcb9451ef7b0d294"
+    },
+    "audits/kraus/v1/evidence/gate-tests/05-sorry-proof.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-tests/05-sorry-proof.stdout.log": {
+      "bytes": 615,
+      "sha256": "17df4186dab531e1edb3460f3a124beb728443444be63c4103b0504b50669fee"
+    },
+    "audits/kraus/v1/evidence/gate-tests/06-missing-export.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-tests/06-missing-export.stdout.log": {
+      "bytes": 331,
+      "sha256": "adad6f01b2c7bfdcd0021ae84ed7404ea44527904bf6b6f0400680f94a879fd7"
+    },
+    "audits/kraus/v1/evidence/gate-tests/07-false-premise-axiom-control.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-tests/07-false-premise-axiom-control.stdout.log": {
+      "bytes": 339,
+      "sha256": "48ff5955f7265efa27aa741ddb08b0fb69dd39f3367a741d180ff5bedee60245"
+    },
+    "audits/kraus/v1/evidence/gate-tests/08-signature-control.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-tests/08-signature-control.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-tests/09-signature-false-premise.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/gate-tests/09-signature-false-premise.stdout.log": {
+      "bytes": 380,
+      "sha256": "c1c7b1fe51ee4349141c89b29efb0bccdd1ccf4065219e8b1fdb51b9b19743f9"
+    },
+    "audits/kraus/v1/evidence/gate-tests/commands.json": {
+      "bytes": 9039,
+      "sha256": "206efac99ddc70abc6f01b68728bddd48ba5dafd0463ab24152e3af24663c45e"
+    },
+    "audits/kraus/v1/evidence/gate-tests/fixtures/allowed_control.lean": {
+      "bytes": 83,
+      "sha256": "3432a2f206bf19b62faf7c14a57355b62f5eb53df953e54ede523111022c5a35"
+    },
+    "audits/kraus/v1/evidence/gate-tests/fixtures/allowed_propext.lean": {
+      "bytes": 102,
+      "sha256": "4dcdaa084b6261531a63896ee4f80e808e64a4498f15a7066edbd4806156ca41"
+    },
+    "audits/kraus/v1/evidence/gate-tests/fixtures/contract_baseline.lean": {
+      "bytes": 85,
+      "sha256": "40d2883197d9b35a63875859269c35c92ca0fbe7baec8e6d3e94a9ca7a75e244"
+    },
+    "audits/kraus/v1/evidence/gate-tests/fixtures/contract_false_premise.lean": {
+      "bytes": 99,
+      "sha256": "c7411b2ae2c962c9d9f2e519fae8289efa8174570660581e6fa9fdcf080f92a1"
+    },
+    "audits/kraus/v1/evidence/gate-tests/fixtures/direct_axiom.lean": {
+      "bytes": 117,
+      "sha256": "70b3949dca78bcfeb18ec9b00a860d672b2169315b23f44bcb7568b4834f177f"
+    },
+    "audits/kraus/v1/evidence/gate-tests/fixtures/false_premise_axiom_control.lean": {
+      "bytes": 97,
+      "sha256": "0f1d90b2c99054ec9cfa60002e4522d75652d12f6fa8e22373f43091fd5439ce"
+    },
+    "audits/kraus/v1/evidence/gate-tests/fixtures/missing_export.lean": {
+      "bytes": 82,
+      "sha256": "b8dd133c7389c413a058be3056ebe73da2cc0c590421521a9febd41ed3efd217"
+    },
+    "audits/kraus/v1/evidence/gate-tests/fixtures/sorry_proof.lean": {
+      "bytes": 88,
+      "sha256": "3272601b0971fb3a7270262727b02c03461e1c2e5231951e495a8eef45e5ff12"
+    },
+    "audits/kraus/v1/evidence/gate-tests/fixtures/transitive_axiom.lean": {
+      "bytes": 184,
+      "sha256": "545cb43f9c63b43d60341f4f184be681e249b4d0c0f175c8a8c024f7f40645a5"
+    },
+    "audits/kraus/v1/evidence/gate-tests/gate_tests.json": {
+      "bytes": 12221,
+      "sha256": "5d31b7cdce1ecd0b1fb99bfc194fe646189a78c11a68f384932181781043febb"
+    },
+    "audits/kraus/v1/evidence/input_receipt.json": {
+      "bytes": 1009,
+      "sha256": "57e8609544b02fd48dcefe303b6f095e9ed4922c0f3a284086d582ddb33b45a2"
+    },
+    "audits/kraus/v1/evidence/package_preservation.json": {
+      "bytes": 4644,
+      "sha256": "1a8ad859fd381e904524a487a37a52d1cd4496eec14893ea08cf942095696943"
+    },
+    "audits/kraus/v1/evidence/verification/01-lean-version.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/01-lean-version.stdout.log": {
+      "bytes": 106,
+      "sha256": "cf6e65bfc214882b1c13717aae89d383a03f6bcf5c96dfbae13368cd3e07ff9d"
+    },
+    "audits/kraus/v1/evidence/verification/02-lake-version.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/02-lake-version.stdout.log": {
+      "bytes": 53,
+      "sha256": "242bb637d740597febf655395478ffc9020e35e53e3040d8a7055bf3de6f0541"
+    },
+    "audits/kraus/v1/evidence/verification/03-mathlib-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/03-mathlib-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "32cdc265134a1c8d482764d3fe02900f0f1f7f7899895ef0691000865651df5f"
+    },
+    "audits/kraus/v1/evidence/verification/04-mathlib-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/04-mathlib-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/05-dependency-02-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/05-dependency-02-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "8e19735519205e6e1b0a59824699f406af5b5ce84a32d2a6c583717ce045b900"
+    },
+    "audits/kraus/v1/evidence/verification/06-dependency-02-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/06-dependency-02-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/07-dependency-03-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/07-dependency-03-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "969f2fabfb7ffe3973dce9836aa523b36b30aba71950f358c0148f7daf1909cd"
+    },
+    "audits/kraus/v1/evidence/verification/08-dependency-03-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/08-dependency-03-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/09-dependency-04-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/09-dependency-04-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "b7befbf415605485d009aa7b002b346adb7ee3ce028e97b697fe5f259d320274"
+    },
+    "audits/kraus/v1/evidence/verification/10-dependency-04-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/10-dependency-04-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/11-dependency-05-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/11-dependency-05-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "5c6fde3e5ec3bc7c00fcedc25e51a7d1d68b2dd0ba1057f4cd3a742f780cfc1d"
+    },
+    "audits/kraus/v1/evidence/verification/12-dependency-05-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/12-dependency-05-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/13-dependency-06-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/13-dependency-06-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "e2f238dae0ad15ad802261fd5664fbb7264ca23028ec463653ee359dedad69b1"
+    },
+    "audits/kraus/v1/evidence/verification/14-dependency-06-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/14-dependency-06-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/15-dependency-07-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/15-dependency-07-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "6ea0e5d827cd28719f0f8303c77c64ffd115d117fb873c61dcc064c789b49021"
+    },
+    "audits/kraus/v1/evidence/verification/16-dependency-07-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/16-dependency-07-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/17-dependency-08-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/17-dependency-08-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "a10c5cc1562c7e05002879cbb387405d1e84dfb2b052e4a9da3d7b0915278e17"
+    },
+    "audits/kraus/v1/evidence/verification/18-dependency-08-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/18-dependency-08-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/19-dependency-09-head.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/19-dependency-09-head.stdout.log": {
+      "bytes": 41,
+      "sha256": "2e20e2a649dd57be51b7d287730d045342813e1fa6e2e7de3e2a6c249e2c51c1"
+    },
+    "audits/kraus/v1/evidence/verification/20-dependency-09-tracked-status.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/20-dependency-09-tracked-status.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/21-build-release.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/21-build-release.stdout.log": {
+      "bytes": 480,
+      "sha256": "8b3acdcc19db02b60370285e3e9829b8eb16d2d5a0345726f85d284ad8e6c6a0"
+    },
+    "audits/kraus/v1/evidence/verification/22-release-source-01.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/22-release-source-01.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/23-release-source-02.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/23-release-source-02.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/24-release-source-03.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/24-release-source-03.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/25-release-source-04.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/25-release-source-04.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/26-release-source-05.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/26-release-source-05.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/27-release-source-06.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/27-release-source-06.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/28-independent-contracts.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/28-independent-contracts.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/29-export-signatures.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/29-export-signatures.stdout.log": {
+      "bytes": 439622,
+      "sha256": "0527128910f8ba8d50ca1a74d85b3ec3f82e892bf762270672e53d043caa9971"
+    },
+    "audits/kraus/v1/evidence/verification/30-axiom-audit.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audits/kraus/v1/evidence/verification/30-axiom-audit.stdout.log": {
+      "bytes": 59985,
+      "sha256": "54959a174393430399fa34783e06b9603d08fbdd55952bdea314993aa31a5201"
+    },
+    "audits/kraus/v1/evidence/verification/AxiomQueries.lean": {
+      "bytes": 10179,
+      "sha256": "8573579420f9e016759450de484049ddcf28aab47672fee0f9b650fb07e0b419"
+    },
+    "audits/kraus/v1/evidence/verification/Signatures.lean": {
+      "bytes": 9289,
+      "sha256": "0ed4e5baa6c0186628209c4a9f5fbb925ca550854d2f13d5b02fa64b74210000"
+    },
+    "audits/kraus/v1/evidence/verification/commands.json": {
+      "bytes": 538208,
+      "sha256": "8dcbd76492383356ba6c2cb567a56c1fa6b3af89a328cdbcbce119209836c9c1"
+    },
+    "audits/kraus/v1/evidence/verification/verification.json": {
+      "bytes": 583065,
+      "sha256": "24ead12ea3742bd9ba37c49bbfb0fe5339d4b99b8887fec2c6f62094f8407330"
+    },
+    "audits/kraus/v1/reference/ConvergenceApiProbe.lean": {
+      "bytes": 1432,
+      "sha256": "46b92179fa34e877f0dc99bf11ee6f3357bd9f6df29117a604ee8b59c9a0a178"
+    },
+    "audits/kraus/v1/reference/README.md": {
+      "bytes": 797,
+      "sha256": "4a4b5a6f28a946d8b7dc99ca3fd1767368745eb8f477045e8259784243e9dddd"
+    }
+  }
+}

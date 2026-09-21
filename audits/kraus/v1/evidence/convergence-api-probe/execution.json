@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/workspace/scratch/0a42b15a2c38/audit_dissipator/runtime/lean-4.34.0-linux/bin/lake",
+    "env",
+    "lean",
+    "/workspace/scratch/0a42b15a2c38/audit_kraus/work/ConvergenceApiProbe.lean"
+  ],
+  "cwd": "/workspace/scratch/0a42b15a2c38/audit_kraus/reproduction/formal-science",
+  "exit_code": 0,
+  "source": "/workspace/scratch/0a42b15a2c38/audit_kraus/work/ConvergenceApiProbe.lean",
+  "source_sha256": "46b92179fa34e877f0dc99bf11ee6f3357bd9f6df29117a604ee8b59c9a0a178",
+  "finished_at": "2026-09-21T02:57:20.890915+00:00",
+  "scope": "Optional API feasibility: named Frobenius bridge and scalar exponential limits only; main evolution convergence remains unimplemented. No extra cache or import change."
+}

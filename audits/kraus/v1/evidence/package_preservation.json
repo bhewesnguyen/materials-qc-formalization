@@ -1,0 +1,169 @@
+{
+  "evidence/stage0": {
+    "prior_files": 109,
+    "changed_or_missing": []
+  },
+  "evidence/dissipator": {
+    "prior_files": 213,
+    "changed_or_missing": []
+  },
+  "evidence/stationary": {
+    "prior_files": 217,
+    "changed_or_missing": []
+  },
+  "evidence/evolution": {
+    "prior_files": 222,
+    "changed_or_missing": []
+  },
+  "audits/stage0": {
+    "prior_files": 2,
+    "changed_or_missing": []
+  },
+  "audits/dissipator": {
+    "prior_files": 144,
+    "changed_or_missing": []
+  },
+  "audits/stationary": {
+    "prior_files": 144,
+    "changed_or_missing": []
+  },
+  "deliverables/dissipator": {
+    "prior_files": 2,
+    "changed_or_missing": []
+  },
+  "deliverables/stationary": {
+    "prior_files": 3,
+    "changed_or_missing": []
+  },
+  "deliverables/evolution": {
+    "prior_files": 2,
+    "changed_or_missing": []
+  },
+  "evolution_return_exact": {
+    "files": 158,
+    "changed_or_missing": []
+  },
+  "dissipator_return_manifest": {
+    "entries": 143,
+    "issues": []
+  },
+  "stationary_return_manifest": {
+    "entries": 144,
+    "issues": []
+  },
+  "evolution_return_manifest": {
+    "entries": 157,
+    "issues": []
+  },
+  "frozen_source": {
+    "lean-toolchain": true,
+    "lake-manifest.json": true,
+    "lakefile.toml": true,
+    "scripts/verify.py": true,
+    "scripts/test_verify.py": true,
+    "FormalScience/Stage0.lean": true,
+    "FormalScience/OpenSystems/Dissipator.lean": true,
+    "FormalScience/OpenSystems/TwoStateStationary.lean": true
+  },
+  "evolution_source": {
+    "before": "8071d0962bae6a3c8e2d74dda1cc69364b5e9a6fe4de0320c7f63c4fb15d3be0",
+    "after": "541772ee2f865c567bede484e2a5e25562531da1294e5fdcb7abc0c4cd069e37",
+    "exactly_expected_docstring_change": true
+  },
+  "exports_preserved": {
+    "release_modules": true,
+    "exports": true,
+    "contract_exports": true
+  },
+  "export_counts": {
+    "release_modules": 6,
+    "exports": 158,
+    "contract_exports": 139
+  },
+  "baseline": {
+    "status": "passed",
+    "exports": 115,
+    "contracts": 100,
+    "commands": 28,
+    "embedded_commands_match": true,
+    "all_exit_zero": true,
+    "raw_log_mismatches": [],
+    "axiom_keys_match_exports": true,
+    "axiom_sets": [
+      [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    ],
+    "dependencies": 9,
+    "source_map_equals_accepted": true,
+    "axiom_map_equals_accepted": true,
+    "export_manifest_equals_accepted": true
+  },
+  "final": {
+    "status": "passed",
+    "exports": 158,
+    "contracts": 139,
+    "commands": 30,
+    "embedded_commands_match": true,
+    "all_exit_zero": true,
+    "raw_log_mismatches": [],
+    "axiom_keys_match_exports": true,
+    "axiom_sets": [
+      [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    ],
+    "dependencies": 9,
+    "source_mismatches": [],
+    "old_axioms_preserved": true,
+    "manifest_equals_current": true
+  },
+  "baseline_gate": {
+    "status": "passed",
+    "cases": 15,
+    "all_cases_passed": true,
+    "embedded_commands_match": true,
+    "raw_log_mismatches": []
+  },
+  "final_gate": {
+    "status": "passed",
+    "cases": 15,
+    "all_cases_passed": true,
+    "embedded_commands_match": true,
+    "raw_log_mismatches": []
+  },
+  "missing-module": {
+    "status": "failed",
+    "error": "Release module coverage mismatch: unlisted=['FormalScience.OpenSystems.TwoStateKraus'], missing=[]",
+    "fixture_only_module_removed": true,
+    "raw_log_mismatches": []
+  },
+  "missing-generic-module": {
+    "status": "failed",
+    "error": "Release module coverage mismatch: unlisted=['FormalScience.Quantum.FiniteKraus'], missing=[]",
+    "fixture_only_module_removed": true,
+    "raw_log_mismatches": []
+  },
+  "loose_attachments_match": {
+    "HANDOFF.md": true,
+    "POINTER.json": true
+  },
+  "receipt_absent_from_tag_expected": true,
+  "pointer_source_map_matches": true,
+  "review_scope": "File-byte and submitted-evidence consistency audit only. Fresh compilation is performed independently by the root auditor. No remote Git or local tag topology verification.",
+  "prior_contract_source_preserved_except_added_kronecker_scope": true,
+  "contract_example_counts": {
+    "old": 100,
+    "new": 139
+  },
+  "active_assignment_equals_issued_except_implementation_status_note": true,
+  "prior_findings_closed": {
+    "E1": "README introduction now records four accepted increments and implemented Kraus work awaiting audit; no longer denies evolution or semigroup.",
+    "E2": "D012 topology paragraph explicitly states HasDerivAt has no target norm parameter; D013 records correction and references accepted consumer evidence."
+  },
+  "new_findings": []
+}

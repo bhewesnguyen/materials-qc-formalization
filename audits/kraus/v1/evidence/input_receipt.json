@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "milestone": "kraus",
+  "version": "v1",
+  "tag": "kraus-milestone-v1",
+  "commit_under_review": "6431c9cd411a3a804d2a86ae733e23f393fe9361",
+  "diff_base_commit": "a60a92b6064b4dde33a98d3c79be195c77595873",
+  "housekeeping_commit": "ae7462879b195c65af7544f7be4ca74d594d7a0e",
+  "archive": {
+    "file": "deliverables/kraus/v1/Formal_Science_Kraus_Handoff.zip",
+    "tracked": false,
+    "sha256": "ef84addb5fbba564d69c12d8b9875e0f4a0227332a20b42dbcfe28f2e7d851f8",
+    "bytes": 1623234,
+    "created_by": "git archive --format=zip --prefix=formal-science/ kraus-milestone-v1",
+    "verification": "Extracted and compared path by path against the archived SOURCE_MANIFEST.json: 1514 files besides the manifest, all SHA-256 and byte counts matching, no extra or missing paths, no nested archives."
+  },
+  "recorded_at": "2026-09-21T02:45:28.387378+00:00",
+  "note": "Recorded in a commit made after the tag, so the tagged tree never contains its own archive digest or commit hash."
+}

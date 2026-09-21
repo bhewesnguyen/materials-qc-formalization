@@ -1,0 +1,4 @@
+'ConvergenceApiProbe.probeFrobenius' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConvergenceApiProbe.frobenius_bridge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConvergenceApiProbe.expFactor_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConvergenceApiProbe.halfExpFactor_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]

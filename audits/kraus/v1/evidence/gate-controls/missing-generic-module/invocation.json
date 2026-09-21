@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "python3",
+    "scripts/verify.py",
+    "--lake",
+    "/workspace/scratch/0a42b15a2c38/audit_dissipator/runtime/lean-4.34.0-linux/bin/lake",
+    "--manifest",
+    "/workspace/scratch/0a42b15a2c38/audit_kraus/evidence/gate-controls/missing-generic-module/omitted-module.json",
+    "--output-dir",
+    "/workspace/scratch/0a42b15a2c38/audit_kraus/evidence/gate-controls/missing-generic-module"
+  ],
+  "cwd": "/workspace/scratch/0a42b15a2c38/audit_kraus/reproduction/formal-science",
+  "exit_code": 1
+}

@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "milestone": "kraus",
+  "round": "v1",
+  "audit_date": "2026-09-21",
+  "decision": "accepted",
+  "proof_revision_required": false,
+  "reviewed_commit": "6431c9cd411a3a804d2a86ae733e23f393fe9361",
+  "reviewed_tag": "kraus-milestone-v1",
+  "declared_diff_base": "a60a92b6064b4dde33a98d3c79be195c77595873",
+  "declared_housekeeping_commit": "ae7462879b195c65af7544f7be4ca74d594d7a0e",
+  "declared_receipt_commit_prefix": "2b39181",
+  "remote_history_authenticated": false,
+  "input_archive": {
+    "sha256": "ef84addb5fbba564d69c12d8b9875e0f4a0227332a20b42dbcfe28f2e7d851f8",
+    "bytes": 1623234,
+    "zip_comment": "6431c9cd411a3a804d2a86ae733e23f393fe9361",
+    "manifest_entries": 1514,
+    "actual_files": 1515,
+    "all_manifest_files_match": true,
+    "nested_archives": [],
+    "detached_handoff_and_pointer_match": true,
+    "receipt_is_external_to_tagged_archive": true
+  },
+  "independent_verification": {
+    "status": "passed",
+    "release_modules": [
+      "FormalScience.OpenSystems.Dissipator",
+      "FormalScience.OpenSystems.TwoStateEvolution",
+      "FormalScience.OpenSystems.TwoStateKraus",
+      "FormalScience.OpenSystems.TwoStateStationary",
+      "FormalScience.Quantum.FiniteKraus",
+      "FormalScience.Stage0"
+    ],
+    "exports": 158,
+    "theorem_contracts": 139,
+    "new_public_declarations": 43,
+    "new_definitions": 4,
+    "new_theorems": 39,
+    "dependencies": 9,
+    "commands": 30,
+    "all_verification_commands_exit_zero": true,
+    "gate_cases": 15,
+    "both_missing_module_controls_rejected": true,
+    "control_reasons": {
+      "missing-module": "Release module coverage mismatch: unlisted=['FormalScience.OpenSystems.TwoStateKraus'], missing=[]",
+      "missing-generic-module": "Release module coverage mismatch: unlisted=['FormalScience.Quantum.FiniteKraus'], missing=[]"
+    },
+    "source_hash_map_matches_submission": true,
+    "axiom_map_matches_submission": true,
+    "each_export_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "finished_at": "2026-09-21T02:51:08.732421+00:00"
+  },
+  "prior_findings": {
+    "E1": "closed",
+    "E2": "closed"
+  },
+  "findings": [],
+  "optional_prose_clarifications": [
+    {
+      "location": "Audit/Contracts.lean comment",
+      "clarification": "Kf should read Kev."
+    },
+    {
+      "location": "D014 zero-left wording",
+      "clarification": "b>0 is the requested sufficient physical premise; b!=0 suffices for the algebraic family identity."
+    },
+    {
+      "location": "D014 proof-method wording",
+      "clarification": "simp-only off-diagonal closure describes completeness; Kraus-map off-diagonal proofs also use linear_combination."
+    }
+  ],
+  "next_milestone": {
+    "key": "convergence",
+    "round": "v1",
+    "suggested_module": "FormalScience/OpenSystems/TwoStateConvergence.lean",
+    "issued_task": "audits/kraus/v1/NEXT_FABLE_TASK.md",
+    "scope": "Named Frobenius norm, exact centered energy, quantitative bound and limits toward trace(X) \u2022 rhoStar under positive total rate, trace-one/equal-trace/physical-density consumers and rate boundaries."
+  },
+  "reference_probe": {
+    "path": "audits/kraus/v1/reference/ConvergenceApiProbe.lean",
+    "part_of_current_release": false,
+    "compiles": true,
+    "axiom_reports": 4,
+    "axiom_union": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "scope": "Norm identification and scalar exponential limits only; no main evolution convergence theorem."
+  },
+  "portfolio": {
+    "inventory_areas": 39,
+    "identified_mathlib_reuse_targets": 1,
+    "candidate_bearing_rows": 28,
+    "unresolved_or_partial_only_rows": 10,
+    "remaining_assess_reuse_extend_areas": 38,
+    "accepted_local_milestones": 5,
+    "broad_inventory_areas_closed_by_pilot": 0,
+    "new_global_search": false
+  }
+}

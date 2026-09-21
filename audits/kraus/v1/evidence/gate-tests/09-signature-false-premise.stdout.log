@@ -1,0 +1,1 @@
+{"caption":"","data":"Type mismatch\n  GateFixture.target\nhas type\n  False → True\nbut is expected to have type\n  True","endPos":{"column":36,"line":2},"fileName":"/workspace/scratch/0a42b15a2c38/audit_kraus/evidence/gate-tests/fixtures/contract_false_premise.lean","isSilent":false,"keepFullRange":false,"kind":"[anonymous]","pos":{"column":18,"line":2},"severity":"error"}
