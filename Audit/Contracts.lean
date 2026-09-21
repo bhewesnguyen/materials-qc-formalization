@@ -685,4 +685,129 @@ example (a b t : ℝ) : Fn (Ev a b t E₀₁) = Real.exp (-((a + b) * t) / 2) :=
 
 end ConvergenceContracts
 
+/-!
+## Finite Markov generator bridge
+
+Conventions are exposed rather than named: `Xr q j` is the exit rate written as the
+finite sum of the destination-first rates `q i j` (jump from `j` to `i`) over `i ≠ j`,
+with the diagonal entry excluded by `if i = j then 0 else _`; `Qm q` is the rate matrix
+written entrywise with that sum on the diagonal; `Eu i j` is the matrix unit. The
+generator `Lq` is referred to by name and its defining dissipator sum is spelled out
+through `markovGenerator_apply`. All algebraic contracts take arbitrary signed real
+rates; the physical premise `∀ i j, i ≠ j → 0 ≤ q i j` appears only on the two
+nonnegativity certificates, and probability premises only on the density consumers.
+-/
+
+section MarkovContracts
+
+variable {n : Type*} [Fintype n] [DecidableEq n]
+
+set_option quotPrecheck false in
+/- Exit rate out of `j`, self-jump excluded. -/
+local notation "Xr" => fun (q : Matrix n n ℝ) (j : n) => (∑ i, if i = j then 0 else q i j : ℝ)
+
+set_option quotPrecheck false in
+/- The classical rate matrix spelled out entrywise. -/
+local notation "Qm" => fun (q : Matrix n n ℝ) =>
+  (Matrix.of fun i j => if i = j then -(∑ i', if i' = j then 0 else q i' j : ℝ) else q i j :
+    Matrix n n ℝ)
+
+set_option quotPrecheck false in
+/- The complex matrix unit `E_ij`. -/
+local notation "Eu" => fun (i j : n) => (Matrix.single i j (1 : ℂ) : Matrix n n ℂ)
+
+local notation "Lq" => FormalScience.OpenSystems.markovGenerator
+
+/- Contract A: the classical rate matrix. -/
+example (q : Matrix n n ℝ) (j : n) :
+    FormalScience.OpenSystems.exitRate q j = ∑ i, if i = j then 0 else q i j :=
+  FormalScience.OpenSystems.exitRate_def q j
+example (q : Matrix n n ℝ) {i j : n} (h : i ≠ j) : Qm q i j = q i j :=
+  FormalScience.OpenSystems.rateMatrix_apply_of_ne q h
+example (q : Matrix n n ℝ) (j : n) : Qm q j j = -(Xr q j) :=
+  FormalScience.OpenSystems.rateMatrix_apply_diag q j
+example (q : Matrix n n ℝ) (j : n) : ∑ i, Qm q i j = 0 :=
+  FormalScience.OpenSystems.rateMatrix_sum_col q j
+example (q : Matrix n n ℝ) (p : n → ℝ) (i : n) :
+    (Qm q).mulVec p i = (∑ j, if i = j then 0 else q i j * p j) - Xr q i * p i :=
+  FormalScience.OpenSystems.rateMatrix_mulVec_apply q p i
+example (q : Matrix n n ℝ) (p : n → ℝ) : ∑ i, (Qm q).mulVec p i = 0 :=
+  FormalScience.OpenSystems.sum_rateMatrix_mulVec q p
+example {q : Matrix n n ℝ} (hq : ∀ i j, i ≠ j → 0 ≤ q i j) (j : n) : 0 ≤ Xr q j :=
+  FormalScience.OpenSystems.exitRate_nonneg hq j
+example {q : Matrix n n ℝ} (hq : ∀ i j, i ≠ j → 0 ≤ q i j) {i j : n} (h : i ≠ j) :
+    0 ≤ Qm q i j :=
+  FormalScience.OpenSystems.rateMatrix_nonneg_of_ne hq h
+
+/- Contract B: the quantum generator. -/
+example (i j : n) (X : Matrix n n ℂ) :
+    Eu i j * X * (Eu i j)ᴴ - (1 / 2 : ℂ) • ((Eu i j)ᴴ * Eu i j * X + X * (Eu i j)ᴴ * Eu i j) =
+      Matrix.single i i (X j j) - (1 / 2 : ℂ) • (Eu j j * X + X * Eu j j) :=
+  FormalScience.OpenSystems.dissipator_single i j X
+example (q : Matrix n n ℝ) (X : Matrix n n ℂ) :
+    Lq q X = ∑ j, ∑ i, ((if i = j then 0 else q i j : ℝ) : ℂ) •
+      (Eu i j * X * (Eu i j)ᴴ - (1 / 2 : ℂ) • ((Eu i j)ᴴ * Eu i j * X + X * (Eu i j)ᴴ * Eu i j)) :=
+  FormalScience.OpenSystems.markovGenerator_apply q X
+example (q : Matrix n n ℝ) (X : Matrix n n ℂ) (i : n) :
+    Lq q X i i = (∑ j, if i = j then 0 else (q i j : ℂ) * X j j) - ((Xr q i : ℝ) : ℂ) * X i i :=
+  FormalScience.OpenSystems.markovGenerator_apply_diag q X i
+example (q : Matrix n n ℝ) (X : Matrix n n ℂ) {i j : n} (hij : i ≠ j) :
+    Lq q X i j = -(((Xr q i + Xr q j) / 2 : ℝ) : ℂ) * X i j :=
+  FormalScience.OpenSystems.markovGenerator_apply_of_ne q X hij
+example (q : Matrix n n ℝ) (X : Matrix n n ℂ) : Matrix.trace (Lq q X) = 0 :=
+  FormalScience.OpenSystems.markovGenerator_trace q X
+example (q : Matrix n n ℝ) {X : Matrix n n ℂ} (hX : X.IsHermitian) : (Lq q X).IsHermitian :=
+  FormalScience.OpenSystems.markovGenerator_isHermitian q hX
+
+/- Contract C: the diagonal bridge, with the real-to-complex coercion explicit. -/
+example (q : Matrix n n ℝ) (p : n → ℝ) :
+    Lq q (Matrix.diagonal fun i => (p i : ℂ)) =
+      Matrix.diagonal fun i => (((Qm q).mulVec p i : ℝ) : ℂ) :=
+  FormalScience.OpenSystems.markovGenerator_diagonal q p
+example (q : Matrix n n ℝ) (p : n → ℝ) :
+    Lq q (Matrix.diagonal fun i => (p i : ℂ)) = 0 ↔ (Qm q).mulVec p = 0 :=
+  FormalScience.OpenSystems.markovGenerator_diagonal_eq_zero_iff q p
+
+/- Contract D: probability vectors and stationary densities, in Mathlib's PSD and trace. -/
+example (p : n → ℝ) (hp : ∀ i, 0 ≤ p i) (hs : ∑ i, p i = 1) :
+    (Matrix.diagonal fun i => (p i : ℂ)).PosSemidef ∧
+      Matrix.trace (Matrix.diagonal fun i => (p i : ℂ)) = 1 :=
+  FormalScience.OpenSystems.diagonal_ofReal_posSemidef_trace_one p hp hs
+example (q : Matrix n n ℝ) (p : n → ℝ) (hp : ∀ i, 0 ≤ p i) (hs : ∑ i, p i = 1)
+    (hQ : (Qm q).mulVec p = 0) :
+    (Matrix.diagonal fun i => (p i : ℂ)).PosSemidef ∧
+      Matrix.trace (Matrix.diagonal fun i => (p i : ℂ)) = 1 ∧
+        Lq q (Matrix.diagonal fun i => (p i : ℂ)) = 0 :=
+  FormalScience.OpenSystems.stationary_diagonal_density q p hp hs hQ
+
+/- Contract E: zero rates and ignored diagonal rates. -/
+example (j : n) : Xr (0 : Matrix n n ℝ) j = 0 := FormalScience.OpenSystems.exitRate_zero j
+example : Qm (0 : Matrix n n ℝ) = 0 := FormalScience.OpenSystems.rateMatrix_zero
+example : Lq (0 : Matrix n n ℝ) = 0 := FormalScience.OpenSystems.markovGenerator_zero
+example (d : n → ℝ) (j : n) : Xr (Matrix.diagonal d) j = 0 :=
+  FormalScience.OpenSystems.exitRate_diagonal d j
+example (d : n → ℝ) : Qm (Matrix.diagonal d) = 0 :=
+  FormalScience.OpenSystems.rateMatrix_diagonal d
+example (d : n → ℝ) : Lq (Matrix.diagonal d) = 0 :=
+  FormalScience.OpenSystems.markovGenerator_diagonal_rates d
+
+/- Pilot recovery on `Fin 2`, spelled out: `a` is the `0 → 1` rate `q 1 0`, `b` the `1 → 0` rate
+`q 0 1`. -/
+example (a b : ℝ) :
+    (Matrix.of fun i j => if i = j then
+        -(∑ i', if i' = j then 0 else (Matrix.of ![![0, b], ![a, 0]] : Matrix (Fin 2) (Fin 2) ℝ) i' j : ℝ)
+      else (Matrix.of ![![0, b], ![a, 0]] : Matrix (Fin 2) (Fin 2) ℝ) i j : Matrix (Fin 2) (Fin 2) ℝ) =
+      Matrix.of ![![-a, b], ![a, -b]] :=
+  FormalScience.OpenSystems.rateMatrix_two a b
+example (a b : ℝ) :
+    Lq (Matrix.of ![![0, b], ![a, 0]] : Matrix (Fin 2) (Fin 2) ℝ) =
+      FormalScience.OpenSystems.generator a b :=
+  FormalScience.OpenSystems.markovGenerator_two a b
+example (a b : ℝ) (X : QubitMatrix) :
+    Lq (Matrix.of ![![0, b], ![a, 0]] : Matrix (Fin 2) (Fin 2) ℝ) X = Lw a b X :=
+  congrArg (fun L : QubitMatrix →ₗ[ℂ] QubitMatrix => L X)
+    (FormalScience.OpenSystems.markovGenerator_two a b)
+
+end MarkovContracts
+
 end JumpContracts

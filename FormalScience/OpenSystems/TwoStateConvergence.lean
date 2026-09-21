@@ -24,16 +24,17 @@ centered flow has entries `e Y_00`, `e Y_11`, `c Y_01`, `c Y_10` with
   `F(Phi_t X - tau • rhoStar)^2 = e^2 (|Y_00|^2 + |Y_11|^2) + c^2 (|Y_01|^2 + |Y_10|^2)`,
 
 and for `gamma > 0`, `t ≥ 0` the estimate `F(Phi_t X - tau • rhoStar) ≤ c F(Y)`
-holds for every complex `X`. Both the scalar error and the matrix itself tend
-to `tau • rhoStar` as `t → ∞`. Physical consumers combine this with the accepted
-density preservation, and the rate boundaries reuse the accepted stationary
-identities. At both rates zero the flow is the identity and no single matrix
-attracts every density.
+holds for every complex `X`. As `t → ∞` the scalar error `F(Phi_t X - tau • rhoStar)`
+tends to `0`, and the matrix `Phi_t X` tends to `tau • rhoStar` in the canonical
+matrix topology. Physical consumers combine this with the accepted density
+preservation, and the rate boundaries reuse the accepted stationary identities.
+At both rates zero the flow is the identity and no single matrix attracts every
+density.
 
-The `tau` factor is essential: the estimate concerns trace fibers and is not a
-contraction of the Frobenius norm of every matrix, since the stationary
-direction is fixed. Nothing here concerns trace or diamond norms, spectral gaps,
-or generic Perron-Frobenius theory.
+The `tau` factor is essential: the estimate is centered in a trace fiber and
+asserts no unconditional uncentered Frobenius contraction `F(Phi_t X) ≤ F(X)`,
+which is false in general. Nothing here concerns trace or diamond norms,
+spectral gaps, or generic Perron-Frobenius theory.
 -/
 
 open scoped Matrix Topology

@@ -1,0 +1,1583 @@
+{
+  "summary": {
+    "public_declarations": 216,
+    "public_theorems": 193,
+    "definitions_or_abbreviations": 23,
+    "private_helpers": 7,
+    "private_helper_names": [
+      "FormalScience.OpenSystems.one_sub_div_add",
+      "FormalScience.OpenSystems.evolutionFun",
+      "FormalScience.OpenSystems.sqrt_facts",
+      "FormalScience.OpenSystems.diagonal_one_one",
+      "FormalScience.OpenSystems.vec_one_one",
+      "FormalScience.OpenSystems.norm_ofReal_mul_sq",
+      "FormalScience.OpenSystems.dissipator_single_apply"
+    ],
+    "exports_listed": 216,
+    "contract_exports_listed": 193,
+    "unlisted_public_declarations": [],
+    "missing_theorem_consumers": [],
+    "exports_not_found_in_source": [],
+    "per_module_public": {
+      "FormalScience.Stage0": 15,
+      "FormalScience.OpenSystems.Dissipator": 27,
+      "FormalScience.OpenSystems.TwoStateStationary": 30,
+      "FormalScience.OpenSystems.TwoStateEvolution": 43,
+      "FormalScience.Quantum.FiniteKraus": 6,
+      "FormalScience.OpenSystems.TwoStateKraus": 37,
+      "FormalScience.OpenSystems.TwoStateConvergence": 29,
+      "FormalScience.OpenSystems.FiniteMarkovBridge": 29
+    },
+    "method": "Regex scan of every release module for top-level theorem/def/abbrev/lemma declarations with their private/noncomputable modifiers, namespace-qualified, compared with exports.json and with fully qualified mentions in Audit/Contracts.lean. This is the human-review obligation the verifier deliberately does not automate; the scan is an aid to that review, not a gate. No instance, structure, class, or opaque declarations exist in the release modules (checked by grep).",
+    "contracts_sha256": "19fc9cb7652f434ef794e75a5dd9b0f695317f019e7e7405e273d4379fd25f66"
+  },
+  "declarations": [
+    {
+      "module": "FormalScience.Stage0",
+      "kind": "abbrev",
+      "name": "FormalScience.Stage0.QubitMatrix",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.Stage0",
+      "kind": "def",
+      "name": "FormalScience.Stage0.IsDensity",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.Stage0",
+      "kind": "def",
+      "name": "FormalScience.Stage0.basisProjector",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.Stage0",
+      "kind": "theorem",
+      "name": "FormalScience.Stage0.basisProjector_eq_single",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.Stage0",
+      "kind": "theorem",
+      "name": "FormalScience.Stage0.basisProjector_isDensity",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.Stage0",
+      "kind": "def",
+      "name": "FormalScience.Stage0.diagonalState",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.Stage0",
+      "kind": "theorem",
+      "name": "FormalScience.Stage0.diagonalState_isDensity",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.Stage0",
+      "kind": "theorem",
+      "name": "FormalScience.Stage0.diagonalState_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.Stage0",
+      "kind": "theorem",
+      "name": "FormalScience.Stage0.diagonalState_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.Stage0",
+      "kind": "theorem",
+      "name": "FormalScience.Stage0.basisProjector_zero_ne_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.Stage0",
+      "kind": "def",
+      "name": "FormalScience.Stage0.krausMap",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.Stage0",
+      "kind": "theorem",
+      "name": "FormalScience.Stage0.krausMap_trace",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.Stage0",
+      "kind": "theorem",
+      "name": "FormalScience.Stage0.krausMap_trace_preserving",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.Stage0",
+      "kind": "theorem",
+      "name": "FormalScience.Stage0.identityKraus_complete",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.Stage0",
+      "kind": "theorem",
+      "name": "FormalScience.Stage0.identityKraus_apply",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "def",
+      "name": "FormalScience.OpenSystems.dissipator",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.dissipator_add",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.dissipator_smul",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "def",
+      "name": "FormalScience.OpenSystems.dissipatorLinearMap",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.dissipatorLinearMap_apply",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.dissipator_trace",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.isHermitian_anticommutator",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.isSelfAdjoint_half",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.dissipator_isHermitian",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "def",
+      "name": "FormalScience.OpenSystems.jumpZeroToOne",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "def",
+      "name": "FormalScience.OpenSystems.jumpOneToZero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.jumpZeroToOne_conjTranspose",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.jumpOneToZero_conjTranspose",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.jumpZeroToOne_conjTranspose_mul_self",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.jumpOneToZero_conjTranspose_mul_self",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.jumpZeroToOne_mul_mul_conjTranspose",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.jumpOneToZero_mul_mul_conjTranspose",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.dissipator_jumpZeroToOne_eq",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.dissipator_jumpOneToZero_eq",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.dissipator_jumpZeroToOne_trace",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.dissipator_jumpOneToZero_trace",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.dissipator_jumpZeroToOne_isHermitian",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.dissipator_jumpOneToZero_isHermitian",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.jumpZeroToOne_not_isHermitian",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.jumpOneToZero_not_isHermitian",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.dissipator_jumpZeroToOne_basisProjector_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.Dissipator",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.dissipator_jumpOneToZero_basisProjector_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.isSelfAdjoint_ofReal",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.qubitMatrix_ext",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "def",
+      "name": "FormalScience.OpenSystems.generator",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.generator_apply",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.generator_apply_zero_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.generator_apply_one_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.generator_apply_zero_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.generator_apply_one_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.generator_trace",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.generator_isHermitian",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "def",
+      "name": "FormalScience.OpenSystems.rhoStar",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "private theorem",
+      "name": "FormalScience.OpenSystems.one_sub_div_add"
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.rhoStar_eq_diagonal",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.rhoStar_apply_zero_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.rhoStar_apply_one_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.rhoStar_apply_zero_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.rhoStar_apply_one_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.generator_rhoStar",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.generator_eq_zero_iff_of_trace_eq_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.rhoStar_isDensity",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.isDensity_generator_eq_zero_iff",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.existsUnique_stationary_density",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.rhoStar_zero_left",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.isDensity_generator_zero_left_eq_zero_iff",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.rhoStar_zero_right",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.isDensity_generator_zero_right_eq_zero_iff",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.generator_zero_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.generator_zero_zero_of_isDensity",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.not_existsUnique_stationary_density_zero_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.rhoStar_same",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateStationary",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.isDensity_generator_same_eq_zero_iff",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "def",
+      "name": "FormalScience.OpenSystems.expFactor",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "def",
+      "name": "FormalScience.OpenSystems.halfExpFactor",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "def",
+      "name": "FormalScience.OpenSystems.integratedExpFactor",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.expFactor_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.halfExpFactor_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.integratedExpFactor_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.integratedExpFactor_of_eq_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.integratedExpFactor_of_ne_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.halfExpFactor_of_eq_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.expFactor_of_eq_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.mul_integratedExpFactor",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.integratedExpFactor_add",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.halfExpFactor_add",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.hasDerivAt_expFactor",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.hasDerivAt_halfExpFactor",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.hasDerivAt_integratedExpFactor",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "private def",
+      "name": "FormalScience.OpenSystems.evolutionFun"
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "def",
+      "name": "FormalScience.OpenSystems.evolution",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_apply_diag",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_apply_offDiag",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_apply_zero_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_apply_one_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_apply_zero_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_apply_one_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_add",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_trace",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.qubitMatrix_isHermitian_of_entries",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_isHermitian",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.hasDerivAt_qubitMatrix",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.hasDerivAt_evolution",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_apply_of_generator_eq_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_rhoStar",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_apply_zero_zero_of_ne_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_apply_one_one_of_ne_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_eq_id_add_smul_generator",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_zero_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_one_neg_one_basisProjector_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.generator_zero_left_basisProjector_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.generator_zero_right_basisProjector_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.generator_same_diagonalState_half",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_zero_left_basisProjector_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_zero_right_basisProjector_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateEvolution",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_same_diagonalState_half",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.Quantum.FiniteKraus",
+      "kind": "theorem",
+      "name": "FormalScience.Quantum.krausMap_posSemidef",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.Quantum.FiniteKraus",
+      "kind": "def",
+      "name": "FormalScience.Quantum.amplify",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.Quantum.FiniteKraus",
+      "kind": "theorem",
+      "name": "FormalScience.Quantum.amplify_apply",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.Quantum.FiniteKraus",
+      "kind": "theorem",
+      "name": "FormalScience.Quantum.amplify_krausMap",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.Quantum.FiniteKraus",
+      "kind": "theorem",
+      "name": "FormalScience.Quantum.amplify_krausMap_posSemidef",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.Quantum.FiniteKraus",
+      "kind": "theorem",
+      "name": "FormalScience.Quantum.amplify_kronecker",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "def",
+      "name": "FormalScience.OpenSystems.equilibriumZero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "def",
+      "name": "FormalScience.OpenSystems.jumpAmplitude",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.halfExpFactor_sq",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.halfExpFactor_pos",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.halfExpFactor_le_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.one_sub_halfExpFactor_sq_nonneg",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.jumpAmplitude_sq",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.equilibriumZero_nonneg",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.equilibriumZero_le_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.one_sub_equilibriumZero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.equilibriumZero_of_add_eq_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.eq_zero_of_add_eq_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "def",
+      "name": "FormalScience.OpenSystems.evolutionKraus",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolutionKraus_apply_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolutionKraus_apply_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolutionKraus_apply_two",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolutionKraus_apply_three",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "private theorem",
+      "name": "FormalScience.OpenSystems.sqrt_facts"
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolutionKraus_complete",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.krausMap_evolutionKraus_apply_zero_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.krausMap_evolutionKraus_apply_one_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.krausMap_evolutionKraus_apply_zero_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.krausMap_evolutionKraus_apply_one_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_eq_krausMap",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.krausMap_evolutionKraus_trace",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_posSemidef",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_isDensity",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.amplify_evolution_eq_krausMap",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.amplify_evolution_posSemidef",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.amplify_evolution_kronecker",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "private theorem",
+      "name": "FormalScience.OpenSystems.diagonal_one_one"
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "private theorem",
+      "name": "FormalScience.OpenSystems.vec_one_one"
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolutionKraus_zero_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.krausMap_evolutionKraus_zero_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolutionKraus_time_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.krausMap_evolutionKraus_time_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolutionKraus_zero_left",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolutionKraus_zero_right",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_isDensity_zero_left",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateKraus",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_isDensity_zero_right",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "def",
+      "name": "FormalScience.OpenSystems.qubitFrobeniusNorm",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.qubitFrobeniusNorm_def",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.qubitFrobeniusNorm_eq_norm",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.qubitFrobeniusNorm_nonneg",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.qubitFrobeniusNorm_sq",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "private theorem",
+      "name": "FormalScience.OpenSystems.norm_ofReal_mul_sq"
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.expFactor_pos",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.expFactor_tendsto",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.halfExpFactor_tendsto",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_sub_smul_rhoStar_apply_zero_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_sub_smul_rhoStar_apply_one_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_sub_smul_rhoStar_apply_zero_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_sub_smul_rhoStar_apply_one_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.qubitFrobeniusNorm_sq_evolution_sub",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.qubitFrobeniusNorm_evolution_sub_le",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.qubitFrobeniusNorm_evolution_sub_rhoStar_le",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.qubitFrobeniusNorm_evolution_sub_evolution_le",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.tendsto_qubitFrobeniusNorm_evolution_sub",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.tendsto_qubitMatrix",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.tendsto_evolution",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.tendsto_evolution_of_trace_eq_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_isDensity_and_qubitFrobeniusNorm_le",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.tendsto_evolution_of_isDensity",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.tendsto_evolution_zero_left",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.tendsto_evolution_zero_right",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.tendsto_evolution_same",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.not_exists_common_limit_zero_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.evolution_jumpOneToZero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.qubitFrobeniusNorm_jumpOneToZero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.TwoStateConvergence",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.qubitFrobeniusNorm_evolution_jumpOneToZero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "def",
+      "name": "FormalScience.OpenSystems.exitRate",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.exitRate_def",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "def",
+      "name": "FormalScience.OpenSystems.rateMatrix",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.rateMatrix_apply_of_ne",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.rateMatrix_apply_diag",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.rateMatrix_sum_col",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.rateMatrix_mulVec_apply",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.sum_rateMatrix_mulVec",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.exitRate_nonneg",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.rateMatrix_nonneg_of_ne",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.dissipator_single",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "private theorem",
+      "name": "FormalScience.OpenSystems.dissipator_single_apply"
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "def",
+      "name": "FormalScience.OpenSystems.markovGenerator",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": null
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.markovGenerator_apply",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.markovGenerator_apply_diag",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.markovGenerator_apply_of_ne",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.markovGenerator_trace",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.markovGenerator_isHermitian",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.markovGenerator_diagonal",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.markovGenerator_diagonal_eq_zero_iff",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.diagonal_ofReal_posSemidef_trace_one",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.stationary_diagonal_density",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.exitRate_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.rateMatrix_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.markovGenerator_zero",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.exitRate_diagonal",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.rateMatrix_diagonal",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.markovGenerator_diagonal_rates",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.rateMatrix_two",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    },
+    {
+      "module": "FormalScience.OpenSystems.FiniteMarkovBridge",
+      "kind": "theorem",
+      "name": "FormalScience.OpenSystems.markovGenerator_two",
+      "listed_export": true,
+      "theorem_consumer_in_contracts": true
+    }
+  ]
+}

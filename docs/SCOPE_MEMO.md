@@ -24,8 +24,8 @@ The two-state pilot (the Lindblad benchmark the plan chose as the first
 integration target) is complete: six bounded increments are accepted
 (Stage 0, dissipator, stationary, evolution, kraus, convergence). What
 follows is not part of that pilot. The selected Stage 4 extension, the
-finite Markov generator bridge, is in implementation, and Stage 5 release
-work is separate again. Earlier versions of this memo counted "seven
+finite Markov generator bridge, is implemented and under audit (29 exports
+submitted), and Stage 5 release work is separate again. Earlier versions of this memo counted "seven
 checkpoints" by adding one extension to the pilot; that was a program
 counter of my own choosing, not a completion fraction defined by the
 roadmap, and it is dropped here.
@@ -40,7 +40,7 @@ formalization tasks. A single percentage would be misleading; Section 5
 gives three usable definitions of "complete" instead.
 
 One line you can quote: two-state pilot, six increments accepted; Stage 4
-extension (markov) selected and in implementation; Stage 5 release later.
+extension (markov) implemented and under audit; Stage 5 release later.
 Portfolio: 1 Mathlib reuse endpoint identified, 4 rows advanced locally,
 34 without local implementation, 0 newly completed.
 
@@ -52,7 +52,7 @@ Portfolio: 1 Mathlib reuse endpoint identified, 4 rows advanced locally,
 | 1. Finite core | State, adjoint, trace, positivity, and Kraus lemmas the pilot needs | Folded into `stage0` and `dissipator` | Accepted | 27 |
 | 2. Stationary pilot | Component equations, valid `rho_*`, stationarity, uniqueness, degenerate rates | `stationary` | Accepted | 30 |
 | 3. Dynamics pilot | Explicit Kraus channel, semigroup and derivative identities, quantitative convergence | Split by the audits into `evolution`, `kraus`, `convergence` | All three accepted | 43 + 43 + 29 |
-| 4. One extension | Markov bridge, or finite CAR/Hubbard, or a verified downstream repair | `markov` (H = 0 finite Markov generator bridge) | Selected; in implementation | |
+| 4. One extension | Markov bridge, or finite CAR/Hubbard, or a verified downstream repair | `markov` (H = 0 finite Markov generator bridge) | Implemented; under audit | 29 (submitted) |
 | 5. Release / upstream | Stable downstream release, selected foundational contributions | | Not started; separate from Stage 4 | |
 
 Accepted public surface after the convergence audit: 7 release modules, 187
@@ -87,8 +87,9 @@ the plan set out under portfolio row 10, and nothing more than that.
 | 3 | evolution | 2026-09-20 to 21 | 43 | Accepted; E1, E2, both low, documentation |
 | 4 | kraus | 2026-09-21 | 43 | Accepted; no findings, three optional prose cleanups |
 | 5 | convergence | 2026-09-21 | 29 | Accepted; C1, C2, both low, documentation |
+| 6 | markov | 2026-09-21 | 29 | Under audit |
 
-Five implementation rounds and six accepted audits in roughly one working
+Six implementation rounds and six accepted audits in roughly one working
 day, with no proof revision ever requested. Three cautions before
 extrapolating. First, the export counts and the short calendar interval
 measure only the coding turns; every milestone arrived with a contract
@@ -192,8 +193,8 @@ Definition 2: program version 1 is complete. Exit gate: pilot plus one
 Stage 4 extension plus a Stage 5 downstream release (clean reproduction,
 changelog, citations, human review; upstreaming is a separate gate that
 depends on Mathlib reviewers). The Stage 4 extension is the H = 0 finite
-Markov bridge, now in implementation; the auditor notes it may take more
-than one accepted increment. Planning scenario, not a forecast: 1 to 3
+Markov bridge, implemented and under audit; the auditor notes it may take
+more than one accepted increment. Planning scenario, not a forecast: 1 to 3
 rounds for the extension, 1 to 2 for release packaging.
 
 Definition 3: the portfolio is complete. This is not a well-defined target
@@ -216,7 +217,8 @@ into explicit finite endpoints.
 These are the rows where the next unit of work can reuse audited API rather
 than start from Mathlib.
 
-- The Markov bridge (roadmap Stage 4, first option; selected). With zero
+- The Markov bridge (roadmap Stage 4, first option; implemented, under
+  audit). With zero
   Hamiltonian, the general-index `dissipator` and the two-state
   entry-equation style transfer directly to
   `L_q(X) = sum_{i != j} q_ij D[E_ij](X)` on a finite state set, with the
@@ -242,8 +244,8 @@ than start from Mathlib.
   has been proposed upstream. The value so far is a checked representation,
   explicit contracts, and an audit process that has held up across six
   accepted increments.
-- The markov round is pending implementation and audit. If its audit
-  requests a proof revision it would be the first.
+- The markov round is under audit. If its audit requests a proof revision
+  it would be the first.
 - The convergence estimate is in the Frobenius norm, centered in a trace
   fiber. It is not a trace-norm or diamond-norm contraction, it is not an
   uncentered Frobenius contraction (for `a = 1`, `b = 0`, and `X = I`, the

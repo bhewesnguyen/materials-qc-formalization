@@ -676,3 +676,98 @@ entry records that decision so the auditor understands the change. The
 old untracked path `SCOPE_MEMO_2026-09-20.md` and its `.git/info/exclude`
 entry are removed.
 
+## D019: finite Markov generator bridge design
+
+Module. One release module `FormalScience/OpenSystems/FiniteMarkovBridge.lean`
+in namespace `FormalScience.OpenSystems`, over an arbitrary index type `n`
+with `[Fintype n] [DecidableEq n]` bound per declaration (no section-level
+instances, so no exported statement carries an unused instance). Three
+definitions and 26 theorems; one `private` helper
+(`dissipator_single_apply`). No cardinality bound anywhere; the empty type
+satisfies every algebraic law and cannot satisfy `∑ i, p i = 1`, which is
+the intended boundary.
+
+Conventions. Destination first: `q i j` is the rate from `j` to `i`. The
+self-jump exclusion is written literally as `if i = j then 0 else _` in
+`exitRate`, in `markovGenerator`, and in the entry formulas, so the
+supplied diagonal entries of `q` are ignored by definition rather than by
+a `q j j = 0` premise. `exitRate q j = ∑ i, if i = j then 0 else q i j`;
+`rateMatrix q = Matrix.of fun i j => if i = j then -exitRate q j else q i j`;
+`markovGenerator q = ∑ j, ∑ i, ((if i = j then 0 else q i j : ℝ) : ℂ) •
+dissipatorLinearMap (Matrix.single i j 1)`, a bundled complex-linear map
+built from the accepted generic `dissipatorLinearMap`. The mask is a real
+scalar under one cast, chosen over a sum of `ite`-valued linear maps so
+that `LinearMap.sum_apply` and `LinearMap.smul_apply` expose the formula
+`markovGenerator_apply` by `simp only`.
+
+Hypotheses. Every algebraic statement (entry formulas, column sums, mass
+conservation, trace, Hermiticity, diagonal bridge, stationary equivalence,
+zero and diagonal rates, `Fin 2` recovery) holds for arbitrary signed real
+`q`. The physical premise `∀ i j, i ≠ j → 0 ≤ q i j` appears only on
+`exitRate_nonneg` and `rateMatrix_nonneg_of_ne`. Probability premises
+`∀ i, 0 ≤ p i` and `∑ i, p i = 1` appear only on the two density consumers,
+and the stationary density consumer adds `Q.mulVec p = 0` and needs no rate
+nonnegativity. Density is stated as `PosSemidef ∧ trace = 1` for generic
+`n`; the qubit `IsDensity` is unchanged.
+
+Proof design. `dissipator_single` gives `D[E_ij] X = E_ii (X j j) -
+(1/2)(E_jj X + X E_jj)` from `Matrix.conjTranspose_single`,
+`Matrix.single_mul_mul_single`, and `Matrix.single_mul_single_same`; its
+private entry form uses `Matrix.single_mul_apply_same` and `_of_ne` and
+their `mul_single` twins. The two entry formulas of the generator collapse
+the double `ite` sum with `Finset.sum_ite_eq'`, `Finset.sum_ite_irrel`,
+`Finset.sum_sub_distrib`, and `Finset.sum_add_distrib`, then cast
+`exitRate` through `Complex.ofReal_sum`. Trace annihilation and Hermiticity
+are the accepted `dissipator_trace` and `dissipator_isHermitian` through
+`Matrix.trace_sum`, `Matrix.trace_smul`, `Matrix.conjTranspose_sum`,
+`Matrix.conjTranspose_smul`, and `Complex.conj_ofReal`. The diagonal bridge
+is entrywise from the two entry formulas with `Matrix.diagonal_apply_eq`
+and `_ne`; the stationary equivalence uses `Matrix.diagonal_eq_zero` and
+`Complex.ofReal_eq_zero`. The density consumer uses
+`Matrix.PosSemidef.diagonal` under `open scoped ComplexOrder` with
+`Complex.zero_le_real`, and `Matrix.trace_diagonal`. The `Fin 2` recovery
+is `LinearMap.ext` plus the accepted `qubitMatrix_ext` and
+`generator_apply_*` entry theorems, with the two exit rates computed by
+`Fin.sum_univ_two`.
+
+Source-overlap search. Pinned Mathlib at `5ed29652` was searched for
+`dissipator`, `Lindblad`, `GKSL`, `Markov generator`, `rateMatrix`, and
+`rate matrix` in `.lean` sources: no named endpoint; the only hit was the
+substring `rate matrix` inside `non-degenerate matrix` in
+`Mathlib/Algebra/Lie/Basis/Basic.lean`, and `Markov` occurs only in
+irreducible-matrix documentation, Markov kernels in measure theory, and
+information theory. The accepted local `Dissipator.lean` is already
+generic over finite indices and is consumed directly. This is a bounded
+search of one pinned library and this repository; it is not a claim of
+absence from downstream Lean projects or of novelty. The auditor's API
+route list in `audits/convergence/v1/evidence/next_scope_and_api_notes.md`
+was confirmed name by name and no external proof text was adopted.
+
+Dependency budget. Six Mathlib imports, all inside the cached closure
+(`Data.Matrix.Basis`, `LinearAlgebra.Matrix.PosDef`,
+`LinearAlgebra.Matrix.Trace`, `Analysis.Complex.Order`,
+`Basic.Complex.BigOperators`, `Tactic.FinCases`); the accepted `Stage0`,
+`Dissipator`, and `TwoStateStationary` (the last only for the `Fin 2`
+consumer). No new downstream dependency, framework, or norm hierarchy;
+`Mathlib.Data.Matrix.Notation` is not in the cached closure, so the `Fin 2`
+matrices are written as `Matrix.of ![![0, b], ![a, 0]]` rather than with
+`!![` notation.
+
+Contracts. The independent contracts spell the exit rate as its finite
+sum, the rate matrix entrywise, the generator as the explicit dissipator
+sum over matrix units through `markovGenerator_apply`, both entry cases,
+the diagonal identity with the coercion visible, the stationary `iff`, the
+PSD and trace-one conclusions in Mathlib's predicates, the zero and
+diagonal rate families, and the `Fin 2` identification both as bundled-map
+equality and pointwise against the spelled-out `Lw`. The notations `Xr`,
+`Qm`, `Eu` use the section index type and `set_option quotPrecheck false`
+because their bodies contain `if`, as with `Ek` in round 3.
+
+What is not claimed. No matrix exponential, classical or quantum
+semigroup, probability preservation over time, positivity or complete
+positivity of `Id + t • L_q`, irreducibility, Perron-Frobenius, mixing,
+detailed balance, stationary uniqueness, or classification of non-diagonal
+stationary matrices; the Hamiltonian is zero and no commutator term is
+present. The generic Kraus layer of round 4 is not used and does not by
+itself construct a finite-state CPTP semigroup.
+

@@ -5,3 +5,4 @@ import FormalScience.OpenSystems.TwoStateEvolution
 import FormalScience.Quantum.FiniteKraus
 import FormalScience.OpenSystems.TwoStateKraus
 import FormalScience.OpenSystems.TwoStateConvergence
+import FormalScience.OpenSystems.FiniteMarkovBridge

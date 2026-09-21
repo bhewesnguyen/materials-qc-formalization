@@ -12,9 +12,10 @@ certification of that evolution with all-finite-ancilla positivity
 (`FormalScience/Quantum/FiniteKraus.lean`,
 `FormalScience/OpenSystems/TwoStateKraus.lean`), and the quantitative
 Frobenius convergence to the stationary projection
-(`FormalScience/OpenSystems/TwoStateConvergence.lean`). The active
-assignment is the Stage 4 finite Markov generator bridge in
-`NEXT_FABLE_TASK.md`. `TURNS.md` indexes every implementation and audit
+(`FormalScience/OpenSystems/TwoStateConvergence.lean`). The Stage 4 finite
+Markov generator bridge (`FormalScience/OpenSystems/FiniteMarkovBridge.lean`)
+is implemented and its handoff `deliverables/markov/v1/HANDOFF.md` awaits
+its independent audit. `TURNS.md` indexes every implementation and audit
 round, and `audits/convergence/v1/PORTFOLIO_STATUS.md` is the auditor's
 ledger of the 39-area portfolio against the accepted local work.
 
@@ -74,13 +75,16 @@ was produced on the Ubuntu 24.04 workstation recorded in each tree's
 | `FormalScience/Quantum/FiniteKraus.lean` | Generic finite Kraus positivity, blockwise ancilla amplification, lifted-Kraus identity, tensor action |
 | `FormalScience/OpenSystems/TwoStateKraus.lean` | Four Kraus operators, completeness, all-matrix representation, density preservation, complete positivity, boundaries |
 | `FormalScience/OpenSystems/TwoStateConvergence.lean` | Named Frobenius norm with Mathlib bridge, centered error identity, contraction estimate, long-time limits, physical and boundary consumers |
-| `FormalScience.lean` | Umbrella import covering all seven release modules |
-| `Audit/Contracts.lean` | Independent consumer signatures for all 167 theorem contracts |
+| `FormalScience/OpenSystems/FiniteMarkovBridge.lean` | Finite classical rate matrix, zero-Hamiltonian matrix-unit dissipator generator, entry formulas, diagonal bridge, stationary densities, two-state recovery |
+| `FormalScience.lean` | Umbrella import covering all eight release modules |
+| `Audit/Contracts.lean` | Independent consumer signatures for all 193 theorem contracts |
 | `exports.json` | Required modules, public declarations, and version pins |
 | `scripts/verify.py` | Build, contract, and transitive-axiom gate |
 | `scripts/test_verify.py` | Deliberate failing cases for that gate |
 | `DECISIONS.md` | Representation, dependency, and packaging decisions |
-| `NEXT_FABLE_TASK.md` | The active assignment (finite Markov generator bridge) |
+| `NEXT_FABLE_TASK.md` | The active assignment (finite Markov generator bridge), now implemented and awaiting audit |
+| `deliverables/markov/v1/HANDOFF.md` | Completed handoff for the finite Markov generator bridge |
+| `evidence/markov/v1/` | Fresh reproduction, verification, gate-test, control, inventory, and environment evidence for this round |
 | `deliverables/convergence/v1/HANDOFF.md` | Historical handoff for the accepted quantitative convergence |
 | `evidence/convergence/v1/` | Preserved evidence for the accepted quantitative convergence |
 | `AUDIT_HANDOFF_TEMPLATE.md` | Template for each review |
@@ -191,19 +195,31 @@ saturating the prefactor. The trace factor is essential: the Frobenius
 norm is not contracted on every matrix, and nothing is claimed about trace
 or diamond norms, spectral gaps, or general dimension.
 
+On an arbitrary finite index type with real rates `q`, destination first
+(`q i j` is the rate from `j` to `i`, diagonal entries ignored by
+definition), `exitRate q j = ∑_{i ≠ j} q i j` and `rateMatrix q` has `q i j`
+off the diagonal and `-exitRate q j` on it. Every column sums to zero and
+`(Q p)` has zero total mass; physical off-diagonal rates give nonnegative
+exit rates and entries. `markovGenerator q = ∑_j ∑_{i ≠ j} q i j • D[E_ij]`
+is the zero-Hamiltonian generator built from the accepted dissipator; on
+every complex matrix its populations obey `∑_{j ≠ i} q i j X_jj - r_i X_ii`
+and its coherences are scaled by `-(r_i + r_j)/2`, it annihilates the trace
+and preserves Hermiticity, all for signed rates. The diagonal bridge
+`L_q(diag p) = diag(Q p)` holds with the real-to-complex coercion explicit,
+so diagonal stationarity is exactly `Q p = 0`; probability vectors give PSD
+trace-one diagonal matrices and stationary ones give stationary densities.
+Zero and diagonal-only rates give zero `Q` and zero `L_q`, and on `Fin 2`
+with `q = [[0, b], [a, 0]]` the bridge recovers the accepted `generator a b`.
+This is a generator result: no semigroup, exponential, positivity of
+`Id + t • L_q`, mixing, or Hamiltonian claim is made.
+
 ## Next step
 
-The active assignment is the Stage 4 finite Markov generator bridge
-specified in `NEXT_FABLE_TASK.md`, issued with the convergence audit: on an
-arbitrary finite index type, destination-first real rates `q i j` (jump
-from `j` to `i`, diagonal entries ignored), the classical rate matrix `Q`
-with zero column sums, the zero-Hamiltonian generator `L_q = ∑_{i ≠ j} q_ij
-D[E_ij]` built from the accepted dissipator, its population and coherence
-entry formulas, trace and Hermiticity laws, the diagonal bridge
-`L_q(diag p) = diag(Q p)` with the stationary equivalence, probability-vector
-density consumers, and recovery of the accepted two-state `generator a b`
-from `q = [[0, b], [a, 0]]`. It is a generator result; no semigroup,
-exponential, CPTP, mixing, or Hamiltonian claim belongs to it.
+The Markov milestone is implemented and its handoff is
+`deliverables/markov/v1/HANDOFF.md`. The next turn is an independent audit
+of that handoff, to be stored under `audits/markov/v1/`. No further
+milestone is active until the audit selects one; Stage 5 release work
+remains a separate checkpoint.
 
 Public theorem scope and proof trust are separate from source provenance,
 upstream acceptance, and novelty. The scripts are ordinary reproducibility and

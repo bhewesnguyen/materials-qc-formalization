@@ -1,5 +1,11 @@
 # Active assignment: finite Markov generator bridge
 
+> Status (21 September 2026): implemented in
+> `FormalScience/OpenSystems/FiniteMarkovBridge.lean`, handed off in
+> `deliverables/markov/v1/HANDOFF.md`. The assignment text below is
+> preserved as issued (frozen copy: `audits/convergence/v1/NEXT_FABLE_TASK.md`).
+> Do not start a further milestone until the audit selects one.
+
 Milestone key: `markov`. First implementation round: `v1`.
 
 This assignment follows acceptance of convergence at source commit
