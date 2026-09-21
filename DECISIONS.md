@@ -771,3 +771,71 @@ stationary matrices; the Hamiltonian is zero and no commutator term is
 present. The generic Kraus layer of round 4 is not used and does not by
 itself construct a finite-state CPTP semigroup.
 
+## D020: acceptance of the Markov milestone and findings M1 and M2
+
+The Markov audit (`audits/markov/v1/`) accepted `markov-milestone-v1` at
+commit `4795b8b` with no proof revision and two low-severity documentation
+findings. Seven mathematical increments are accepted: the six-increment
+two-state benchmark and the bounded Stage 4 generator bridge. The
+historical handoff `deliverables/markov/v1/HANDOFF.md` and D019 are
+preserved as written; the corrections are applied to the live documents.
+
+M1, README. The scope sentence written for C2 excluded "anything about
+general finite dimension beyond the generic Kraus and dissipator layers"
+in the same snapshot that added a general finite-dimensional Markov
+bridge. It is replaced by the auditor's wording: beyond the generic finite
+Kraus and dissipator laws and the finite Markov generator bridge, the
+dynamical and convergence results concern the explicit two-state model,
+and general finite-state CPTP dynamics and convergence are not established.
+Because a fixed exclusion sentence has gone stale three times (E1, C2,
+M1), the README now names the per-module "Mathematical surface" paragraphs
+as the authoritative statement of what is proved, and the release
+documents of round 7 phrase exclusions relative to the module list.
+
+M2, scope memo. Seven wording corrections from
+`audits/markov/v1/SCOPE_MEMO_REVIEW.md` are applied to `docs/SCOPE_MEMO.md`:
+row 13 of the ledger table qualifies density convergence by nonnegative
+rates with positive total rate and notes the both-zero exception; the
+"never 100 percent" sentence becomes the absence of a defined completion
+percentage; the research-versus-formalization split becomes
+"research-scale formalization programs with insufficiently specified
+contracts"; the "one audit round each" forecast for Tier B is removed;
+the Hall and CAR/Hubbard shortcuts carry statement, import, and dependency
+caveats; and the memo is described as a shipped planning document outside
+the Lean export inventory and proof gate. The memo's counts advance to the
+accepted 216 and 193.
+
+The auditor confirmed that D018 supersedes the earlier assignment sentence
+about the memo and that no further permission is to be sought.
+
+## D021: project license, Apache License 2.0 (owner decision)
+
+The accepted snapshots had no top-level project license; the Markov audit
+recorded this as an outstanding owner choice, not a mathematical blocker.
+On 21 September 2026 the owner, Jett Sturges, selected the Apache License,
+Version 2.0, for the project's own material. Round 7 adds the canonical
+license text as `LICENSE` and a `NOTICE` file with the copyright line and
+the authorship disclosure.
+
+Scope of the grant. The license covers the project's own source and
+documents: the release modules under `FormalScience/`, the umbrella,
+`Audit/Contracts.lean`, `examples/`, the scripts, `exports.json`, the
+decisions, handoffs, evidence, and planning documents authored in this
+repository. It does not relicense anything else. The nine pinned
+dependencies keep their own licenses (eight Apache-2.0, `Cli` MIT) as
+recorded in `docs/PROVENANCE_AND_LICENSES.md`, and they are not vendored.
+The two auditor probes adapted into release modules (D014, D016) are
+recorded with their provenance; the auditor's reports and reference
+material stored under `audits/` were produced by the independent auditor
+for this project and are stored as received.
+
+Authorship disclosure. The implementation and the audits were produced by
+AI agents operating under the owner's direction and review of process, not
+of mathematics; no human semantic review of the proofs has taken place.
+This is stated in `NOTICE`, in `docs/RELEASE_READINESS.md`, and in the
+`AGENTS.md` obligation that the owner understand and own any prospective
+upstream contribution and comply with the applicable AI-disclosure
+policies. Choosing a license is not a publication decision: no public
+release, upstream submission, or maintainer contact is made by this
+round.
+

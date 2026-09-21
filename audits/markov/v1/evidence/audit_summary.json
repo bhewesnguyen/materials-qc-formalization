@@ -1,0 +1,65 @@
+{
+  "verification_status": "passed",
+  "verification_commands": 32,
+  "all_verification_commands_exit_zero": true,
+  "release_modules": 8,
+  "exports": 216,
+  "contract_exports": 193,
+  "definitions_or_abbreviations": 23,
+  "new_definitions": 3,
+  "new_public_theorems": 26,
+  "new_private_helpers": 1,
+  "all_release_sources_zero_diagnostics": true,
+  "independent_contracts_zero_diagnostics": true,
+  "all_export_axioms_exactly": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "gate_cases": 15,
+  "gate_status": "passed",
+  "fresh_source_hashes_match_submitted": true,
+  "fresh_axiom_map_matches_submitted": true,
+  "fresh_export_manifest_matches_submitted": true,
+  "controls": {
+    "missing-module": {
+      "argv": [
+        "python3",
+        "scripts/verify.py",
+        "--lake",
+        "/workspace/scratch/0a42b15a2c38/audit_convergence/runtime/lean-4.34.0-linux/bin/lake",
+        "--manifest",
+        "/workspace/scratch/0a42b15a2c38/audit_markov/evidence/gate-controls/missing-module/omitted-module.json",
+        "--output-dir",
+        "/workspace/scratch/0a42b15a2c38/audit_markov/evidence/gate-controls/missing-module/run"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_markov/reproduction/formal-science",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "status": "passed",
+      "rejected_before_build": true,
+      "reason": "Release module coverage mismatch: unlisted=['FormalScience.OpenSystems.FiniteMarkovBridge'], missing=[]"
+    },
+    "unmentioned-contract-export": {
+      "argv": [
+        "python3",
+        "scripts/verify.py",
+        "--lake",
+        "/workspace/scratch/0a42b15a2c38/audit_convergence/runtime/lean-4.34.0-linux/bin/lake",
+        "--manifest",
+        "/workspace/scratch/0a42b15a2c38/audit_markov/evidence/gate-controls/unmentioned-contract-export/unmentioned-export.json",
+        "--output-dir",
+        "/workspace/scratch/0a42b15a2c38/audit_markov/evidence/gate-controls/unmentioned-contract-export/run"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_markov/reproduction/formal-science",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "status": "passed",
+      "rejected_before_build": true,
+      "reason": "Contract file does not mention these fully qualified exports: ['FormalScience.OpenSystems.markovGenerator_unmentioned']"
+    }
+  },
+  "reproduction_mode": "Fresh project build and source re-elaboration in isolated extracted workspace; reused previously validated official Lean runtime and exact pinned dependency cache. Not a full Mathlib rebuild.",
+  "remote_git_history_authenticated": false,
+  "submitted_source_modified": false
+}

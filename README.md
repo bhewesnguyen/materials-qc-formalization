@@ -12,19 +12,25 @@ certification of that evolution with all-finite-ancilla positivity
 (`FormalScience/Quantum/FiniteKraus.lean`,
 `FormalScience/OpenSystems/TwoStateKraus.lean`), and the quantitative
 Frobenius convergence to the stationary projection
-(`FormalScience/OpenSystems/TwoStateConvergence.lean`). The Stage 4 finite
-Markov generator bridge (`FormalScience/OpenSystems/FiniteMarkovBridge.lean`)
-is implemented and its handoff `deliverables/markov/v1/HANDOFF.md` awaits
-its independent audit. `TURNS.md` indexes every implementation and audit
-round, and `audits/convergence/v1/PORTFOLIO_STATUS.md` is the auditor's
-ledger of the 39-area portfolio against the accepted local work.
+(`FormalScience/OpenSystems/TwoStateConvergence.lean`). A seventh accepted
+increment, the Stage 4 zero-Hamiltonian finite Markov generator bridge
+(`FormalScience/OpenSystems/FiniteMarkovBridge.lean`), extends the
+generator algebra to an arbitrary finite state set. The active checkpoint
+is the Stage 5 release-readiness candidate in `NEXT_FABLE_TASK.md`, which
+freezes this mathematical surface and adds documentation, provenance, and
+consumer reproduction without new API. `TURNS.md` indexes every
+implementation and audit round, and `audits/markov/v1/PORTFOLIO_STATUS.md`
+is the auditor's ledger of the 39-area portfolio against the accepted
+local work.
 
-The release proves results about one explicit two-state model and the
-finite algebra around it. It does not prove Choi or Stinespring
-equivalence, any generic GKSL or Perron-Frobenius result, trace-norm or
-diamond-norm contraction, or anything about general finite dimension
-beyond the generic Kraus and dissipator layers. No mathematical novelty is
-claimed.
+Beyond the generic finite Kraus and dissipator laws and the finite Markov
+generator bridge, the dynamical and convergence results concern the
+explicit two-state model. General finite-state CPTP dynamics and
+convergence are not established here, and neither are Choi or Stinespring
+equivalence, generic GKSL or Perron-Frobenius results, or trace-norm or
+diamond-norm contraction. No mathematical novelty is claimed. The
+per-module paragraphs under "Mathematical surface" are the authoritative
+statement of what is and is not proved.
 
 ## Exact dependency base
 
@@ -82,9 +88,9 @@ was produced on the Ubuntu 24.04 workstation recorded in each tree's
 | `scripts/verify.py` | Build, contract, and transitive-axiom gate |
 | `scripts/test_verify.py` | Deliberate failing cases for that gate |
 | `DECISIONS.md` | Representation, dependency, and packaging decisions |
-| `NEXT_FABLE_TASK.md` | The active assignment (finite Markov generator bridge), now implemented and awaiting audit |
-| `deliverables/markov/v1/HANDOFF.md` | Completed handoff for the finite Markov generator bridge |
-| `evidence/markov/v1/` | Fresh reproduction, verification, gate-test, control, inventory, and environment evidence for this round |
+| `NEXT_FABLE_TASK.md` | The active checkpoint (Stage 5 release-readiness candidate) |
+| `deliverables/markov/v1/HANDOFF.md` | Historical handoff for the accepted finite Markov generator bridge |
+| `evidence/markov/v1/` | Preserved evidence for the accepted finite Markov generator bridge, including the manual declaration inventory |
 | `deliverables/convergence/v1/HANDOFF.md` | Historical handoff for the accepted quantitative convergence |
 | `evidence/convergence/v1/` | Preserved evidence for the accepted quantitative convergence |
 | `AUDIT_HANDOFF_TEMPLATE.md` | Template for each review |
@@ -96,8 +102,9 @@ was produced on the Ubuntu 24.04 workstation recorded in each tree's
 | `audits/stationary/v1/Formal_Science_Stationary_Audit_v1.md` | Accepted stationary audit, with findings S1 to S3 |
 | `audits/evolution/v1/Formal_Science_Evolution_Audit_v1.md` | Accepted evolution audit, with findings E1 and E2 and the auditor's Kraus feasibility probe under `reference/` |
 | `audits/kraus/v1/Formal_Science_Kraus_Audit_v1.md` | Accepted Kraus audit, no findings, with a convergence API probe under `reference/` |
-| `audits/convergence/v1/Formal_Science_Convergence_Audit_v1.md` | Accepted convergence audit, with findings C1 and C2, the portfolio ledger, and the scope memo review |
-| `docs/SCOPE_MEMO.md` | Personal planning memo on program scope, tracked from round 6; not a release artifact and not covered by the gate |
+| `audits/convergence/v1/Formal_Science_Convergence_Audit_v1.md` | Accepted convergence audit, with findings C1 and C2 and the first scope memo review |
+| `audits/markov/v1/Formal_Science_Markov_Audit_v1.md` | Accepted Markov audit, with findings M1 and M2, the portfolio ledger, and the second scope memo review |
+| `docs/SCOPE_MEMO.md` | The owner's planning memo on program scope, a shipped planning document outside the Lean export inventory and proof gate |
 | `deliverables/dissipator/v1/HANDOFF.md` | Historical handoff for the accepted dissipator milestone |
 | `deliverables/stationary/v1/HANDOFF.md` | Historical handoff for the accepted stationary pilot |
 | `deliverables/evolution/v1/HANDOFF.md` | Historical handoff for the accepted explicit evolution |
@@ -215,11 +222,13 @@ This is a generator result: no semigroup, exponential, positivity of
 
 ## Next step
 
-The Markov milestone is implemented and its handoff is
-`deliverables/markov/v1/HANDOFF.md`. The next turn is an independent audit
-of that handoff, to be stored under `audits/markov/v1/`. No further
-milestone is active until the audit selects one; Stage 5 release work
-remains a separate checkpoint.
+The active checkpoint is the Stage 5 release-readiness candidate specified
+in `NEXT_FABLE_TASK.md`, issued with the Markov audit: the accepted eight
+modules, 216 exports, 193 theorem contracts, scripts, and pins stay byte
+for byte; the candidate adds a changelog, an API guide, a readiness record,
+a provenance and license inventory, a compiled anonymous usage file, and a
+fresh-extraction reproduction of the delivered archive. It certifies
+neither public publication nor human review nor upstream acceptance.
 
 Public theorem scope and proof trust are separate from source provenance,
 upstream acceptance, and novelty. The scripts are ordinary reproducibility and

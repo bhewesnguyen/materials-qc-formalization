@@ -2,17 +2,19 @@
 
 Personal planning note for Jett Sturges. Written 20 September 2026 after
 the kraus handoff, refreshed after the kraus acceptance and again on
-21 September 2026 after the convergence acceptance, incorporating the
-auditor's review `audits/convergence/v1/SCOPE_MEMO_REVIEW.md`. Tracked in
-the repository from round 6 onward as `docs/SCOPE_MEMO.md` so that it
-travels with the deliverables. It is not a release artifact: it claims no
-theorem, it is not covered by the verification gate, and nothing in it is
-audited fact unless it cites an audit or a verification record. Where it
-goes beyond the records (tiering, effort scenarios, projected contribution
-columns) it says so.
+21 September 2026 after the convergence acceptance and again after the
+Markov acceptance, incorporating the auditor's reviews
+`audits/convergence/v1/SCOPE_MEMO_REVIEW.md` and
+`audits/markov/v1/SCOPE_MEMO_REVIEW.md`. Tracked in the repository from
+round 6 onward as `docs/SCOPE_MEMO.md` so that it travels with the
+deliverables. It is a shipped planning document outside the Lean export
+inventory and proof gate: it claims no theorem, it is not covered by the
+verification gate, and nothing in it is audited fact unless it cites an
+audit or a verification record. Where it goes beyond the records (tiering,
+effort scenarios, projected contribution columns) it says so.
 
-Sources: `TURNS.md`, `exports.json`, the six accepted audits under
-`audits/`, the auditor's ledger `audits/convergence/v1/PORTFOLIO_STATUS.md`,
+Sources: `TURNS.md`, `exports.json`, the seven accepted audits under
+`audits/`, the auditor's ledger `audits/markov/v1/PORTFOLIO_STATUS.md`,
 and the stage gates in `docs/PORTFOLIO_ROADMAP.md`.
 
 ## 1. The short answer
@@ -24,23 +26,29 @@ The two-state pilot (the Lindblad benchmark the plan chose as the first
 integration target) is complete: six bounded increments are accepted
 (Stage 0, dissipator, stationary, evolution, kraus, convergence). What
 follows is not part of that pilot. The selected Stage 4 extension, the
-finite Markov generator bridge, is implemented and under audit (29 exports
-submitted), and Stage 5 release work is separate again. Earlier versions of this memo counted "seven
+zero-Hamiltonian finite Markov generator bridge, is accepted as the seventh
+mathematical increment (29 exports), and Stage 5 release readiness is the
+active checkpoint. Earlier versions of this memo counted "seven
 checkpoints" by adding one extension to the pilot; that was a program
 counter of my own choosing, not a completion fraction defined by the
 roadmap, and it is dropped here.
 
-The 39-area portfolio is not something that will ever read "100 percent".
-It is a heterogeneous backlog. The defensible tally, in the auditor's
-convention: one existing Mathlib endpoint identified for reuse (Hall), four
-broad rows advanced locally (10, 11, 13, 15), 34 rows without local
-implementation, and no broad row newly completed by this project. About six
-of the untouched rows are research projects in their own right, not
-formalization tasks. A single percentage would be misleading; Section 5
-gives three usable definitions of "complete" instead.
+The current 39-area inventory does not yet define a meaningful single
+completion percentage; each area needs explicit, bounded endpoints before
+a completion target can be assessed. It is a heterogeneous backlog. The
+defensible tally, in the auditor's convention: one existing Mathlib
+endpoint identified for reuse (Hall), four broad rows advanced locally (10,
+11, 13, 15), 34 rows without local implementation, and no broad row newly
+completed by this project. About six of the untouched rows are
+research-scale formalization programs whose contracts and dependencies are
+not yet specified; that tiering is a planning judgment, not evidence that
+their mathematics is unproved or that they cannot be formalized. A single
+percentage would be misleading; Section 5 gives three usable definitions
+of "complete" instead.
 
 One line you can quote: two-state pilot, six increments accepted; Stage 4
-extension (markov) implemented and under audit; Stage 5 release later.
+extension (markov) accepted as the seventh increment; Stage 5 release
+readiness in progress.
 Portfolio: 1 Mathlib reuse endpoint identified, 4 rows advanced locally,
 34 without local implementation, 0 newly completed.
 
@@ -52,13 +60,13 @@ Portfolio: 1 Mathlib reuse endpoint identified, 4 rows advanced locally,
 | 1. Finite core | State, adjoint, trace, positivity, and Kraus lemmas the pilot needs | Folded into `stage0` and `dissipator` | Accepted | 27 |
 | 2. Stationary pilot | Component equations, valid `rho_*`, stationarity, uniqueness, degenerate rates | `stationary` | Accepted | 30 |
 | 3. Dynamics pilot | Explicit Kraus channel, semigroup and derivative identities, quantitative convergence | Split by the audits into `evolution`, `kraus`, `convergence` | All three accepted | 43 + 43 + 29 |
-| 4. One extension | Markov bridge, or finite CAR/Hubbard, or a verified downstream repair | `markov` (H = 0 finite Markov generator bridge) | Implemented; under audit | 29 (submitted) |
-| 5. Release / upstream | Stable downstream release, selected foundational contributions | | Not started; separate from Stage 4 | |
+| 4. One extension | Markov bridge, or finite CAR/Hubbard, or a verified downstream repair | `markov` (H = 0 finite Markov generator bridge) | Accepted | 29 |
+| 5. Release / upstream | Stable downstream release, selected foundational contributions | `release-readiness` candidate | In progress; a candidate, not a publication | 0 (documentation only) |
 
-Accepted public surface after the convergence audit: 7 release modules, 187
-exports (167 theorem contracts, 20 definitions or abbreviations), all on
+Accepted public surface after the Markov audit: 8 release modules, 216
+exports (193 theorem contracts, 23 definitions or abbreviations), all on
 the axiom set `{propext, Classical.choice, Quot.sound}`. These became
-accepted coverage counts with the sixth audit; before it they were
+accepted coverage counts with the seventh audit; before it they were
 submission counts. They measure how much audited API exists, not how much
 mathematics of the portfolio is done.
 
@@ -87,9 +95,9 @@ the plan set out under portfolio row 10, and nothing more than that.
 | 3 | evolution | 2026-09-20 to 21 | 43 | Accepted; E1, E2, both low, documentation |
 | 4 | kraus | 2026-09-21 | 43 | Accepted; no findings, three optional prose cleanups |
 | 5 | convergence | 2026-09-21 | 29 | Accepted; C1, C2, both low, documentation |
-| 6 | markov | 2026-09-21 | 29 | Under audit |
+| 6 | markov | 2026-09-21 | 29 | Accepted; M1, M2, both low, documentation |
 
-Six implementation rounds and six accepted audits in roughly one working
+Six implementation rounds and seven accepted audits in roughly one working
 day, with no proof revision ever requested. Three cautions before
 extrapolating. First, the export counts and the short calendar interval
 measure only the coding turns; every milestone arrived with a contract
@@ -126,7 +134,7 @@ classification, defined below the table.
 | 10 | GKSL characterization | C | Complete explicit two-state benchmark: dissipator, generator, CPTP semigroup for nonnegative rates and time, four-Kraus formula on all matrices, ODE identity, quantitative Frobenius relaxation; no generic GKSL | A for the generic theorem; the benchmark is done |
 | 11 | Quantum Perron-Frobenius | C | Two-state stationary uniqueness, exponential Frobenius attraction at positive total rate, and the both-zero no-common-attractor proof; no generic PF, spectral gap, or irreducibility theory | A |
 | 12 | Lieb-Robinson bounds | U/P | None | C |
-| 13 | State layer, partial trace, purification | C | Qubit density predicate, basis and diagonal densities, density preservation by the physical flow, convergence of every density to the stationary density; no partial trace or purification | A |
+| 13 | State layer, partial trace, purification | C | Qubit density predicate, basis and diagonal densities, density preservation by the physical flow, and convergence of every density to the stationary density for nonnegative rates with positive total rate (the both-zero case has no common attractor); no partial trace or purification | A |
 | 14 | POVMs / Born rule | C | None | A |
 | 15 | Kraus / Choi / Stinespring | C | Finite Kraus trace and positivity laws, blockwise ancilla amplification, lifted-Kraus identity, and CP for one channel family; no representation equivalences | A |
 | 16 | Entropy inequalities | C | None | A |
@@ -174,7 +182,8 @@ both tiers.
 - Tier B, new finite formalization in this project's style (the 4 B-only
   rows, plus the finite or exact variants of the 2 A/B rows). These look
   like the pilot: finite index types, explicit contracts, entrywise or
-  algebraic proofs, one audit round each. A `U/P` disposition does not
+  algebraic proofs, one bounded contract at a time; audit rounds and
+  dependency effort remain to be determined. A `U/P` disposition does not
   certify novelty; partial work may exist elsewhere.
 - Tier C, research-level (6 rows: 6, 12, 21, 25, 31, 38). Each needs a
   domain-expert review of the informal theorem contract before any Lean is
@@ -192,10 +201,10 @@ jump representation) remain available but are not needed for the gate.
 Definition 2: program version 1 is complete. Exit gate: pilot plus one
 Stage 4 extension plus a Stage 5 downstream release (clean reproduction,
 changelog, citations, human review; upstreaming is a separate gate that
-depends on Mathlib reviewers). The Stage 4 extension is the H = 0 finite
-Markov bridge, implemented and under audit; the auditor notes it may take
-more than one accepted increment. Planning scenario, not a forecast: 1 to 3
-rounds for the extension, 1 to 2 for release packaging.
+depends on Mathlib reviewers). The Stage 4 extension, the H = 0 finite
+Markov bridge, is accepted. The Stage 5 release-readiness candidate is in
+progress; the roadmap's human review, any publication, and any upstream
+contribution are separate decisions that no round of this loop makes.
 
 Definition 3: the portfolio is complete. This is not a well-defined target
 and I recommend not treating it as one. The defensible reframing is to
@@ -217,8 +226,7 @@ into explicit finite endpoints.
 These are the rows where the next unit of work can reuse audited API rather
 than start from Mathlib.
 
-- The Markov bridge (roadmap Stage 4, first option; implemented, under
-  audit). With zero
+- The Markov bridge (roadmap Stage 4, first option; accepted). With zero
   Hamiltonian, the general-index `dissipator` and the two-state
   entry-equation style transfer directly to
   `L_q(X) = sum_{i != j} q_ij D[E_ij](X)` on a finite state set, with the
@@ -231,9 +239,12 @@ than start from Mathlib.
   not by itself construct a CPTP semigroup for this generator. This
   advances rows 10 and 11 toward their generic versions.
 - Finite CAR (row 8), then finite Hubbard (row 9). Independent of the
-  quantum core; the plan's materials ladder A. Tier B, no dependency
-  decision required.
-- Hall (row 28). Nothing to do beyond citing the Mathlib declaration.
+  quantum core; the plan's materials ladder A. Tier B; a finite target may
+  reuse the current pin, subject to source comparison and a bounded
+  representation and dependency decision.
+- Hall (row 28). An existing Mathlib endpoint is identified; a concrete
+  application still needs a statement and assumption match and an import
+  and consumer check at the pin.
 - QIT state and channel layers (rows 13, 15) via QICLean. Real reuse value,
   but it forces the first pin decision (QICLean is at 4.35-rc1). Do not
   combine downstream libraries; the plan is explicit about that.
@@ -242,10 +253,12 @@ than start from Mathlib.
 
 - Nothing in the release is claimed to be mathematically novel, and nothing
   has been proposed upstream. The value so far is a checked representation,
-  explicit contracts, and an audit process that has held up across six
+  explicit contracts, and an audit process that has held up across seven
   accepted increments.
-- The markov round is under audit. If its audit requests a proof revision
-  it would be the first.
+- The release-readiness candidate is in progress. It freezes the accepted
+  surface and adds documentation, provenance, and a fresh-extraction
+  reproduction; it does not publish anything. The owner has selected the
+  Apache License 2.0 for the project's own material (D021).
 - The convergence estimate is in the Frobenius norm, centered in a trace
   fiber. It is not a trace-norm or diamond-norm contraction, it is not an
   uncentered Frobenius contraction (for `a = 1`, `b = 0`, and `X = I`, the

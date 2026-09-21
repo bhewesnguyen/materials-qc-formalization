@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "python3",
+    "scripts/verify.py",
+    "--lake",
+    "/workspace/scratch/0a42b15a2c38/audit_convergence/runtime/lean-4.34.0-linux/bin/lake",
+    "--manifest",
+    "/workspace/scratch/0a42b15a2c38/audit_markov/evidence/gate-controls/missing-module/omitted-module.json",
+    "--output-dir",
+    "/workspace/scratch/0a42b15a2c38/audit_markov/evidence/gate-controls/missing-module/run"
+  ],
+  "cwd": "/workspace/scratch/0a42b15a2c38/audit_markov/reproduction/formal-science",
+  "exit_code": 1,
+  "expected_exit_code": 1,
+  "status": "passed",
+  "rejected_before_build": true,
+  "reason": "Release module coverage mismatch: unlisted=['FormalScience.OpenSystems.FiniteMarkovBridge'], missing=[]"
+}

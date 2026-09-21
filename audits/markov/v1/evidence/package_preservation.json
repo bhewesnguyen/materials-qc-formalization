@@ -1,0 +1,243 @@
+{
+  "scope": "Independent package, historical payload and recorded-evidence inspection. Root auditor runs fresh Lean.",
+  "comparison": {
+    "prior_payload": 1998,
+    "current_payload": 2609,
+    "changed": [
+      "AGENTS.md",
+      "Audit/Contracts.lean",
+      "DECISIONS.md",
+      "FormalScience.lean",
+      "FormalScience/OpenSystems/TwoStateConvergence.lean",
+      "NEXT_FABLE_TASK.md",
+      "README.md",
+      "TURNS.md",
+      "exports.json"
+    ],
+    "removed": [],
+    "added_count": 611,
+    "evidence/": {
+      "previous_paths": 1309,
+      "mismatches": []
+    },
+    "audits/": {
+      "previous_paths": 651,
+      "mismatches": []
+    },
+    "deliverables/": {
+      "previous_paths": 13,
+      "mismatches": []
+    }
+  },
+  "historical_return_manifests": [
+    {
+      "manifest": "audits/convergence/v1/RETURN_MANIFEST.json",
+      "payloads": 323,
+      "mismatches": [],
+      "documented_legacy_relocations": []
+    },
+    {
+      "manifest": "audits/dissipator/v1/RETURN_MANIFEST.json",
+      "payloads": 143,
+      "mismatches": [],
+      "documented_legacy_relocations": [
+        {
+          "original_key": "FABLE_KICKOFF.md",
+          "preserved_path": "audits/dissipator/v1/FABLE_KICKOFF.md"
+        },
+        {
+          "original_key": "NEXT_FABLE_TASK.md",
+          "preserved_path": "audits/dissipator/v1/NEXT_FABLE_TASK.md"
+        },
+        {
+          "original_key": "RETURN_README.md",
+          "preserved_path": "audits/dissipator/v1/RETURN_README.md"
+        }
+      ]
+    },
+    {
+      "manifest": "audits/evolution/v1/RETURN_MANIFEST.json",
+      "payloads": 157,
+      "mismatches": [],
+      "documented_legacy_relocations": []
+    },
+    {
+      "manifest": "audits/kraus/v1/RETURN_MANIFEST.json",
+      "payloads": 202,
+      "mismatches": [],
+      "documented_legacy_relocations": []
+    },
+    {
+      "manifest": "audits/stationary/v1/RETURN_MANIFEST.json",
+      "payloads": 144,
+      "mismatches": [],
+      "documented_legacy_relocations": []
+    }
+  ],
+  "convergence_return_exact_local_match": {
+    "files_including_manifest": 324,
+    "mismatches": []
+  },
+  "prior_return_zip_sha256": "371acbf0b438f801c404cbd4de6a66e4bd1bc707cfca688c3c9e8c51cf94016f",
+  "accepted_source_comment_only": {
+    "FormalScience/OpenSystems/TwoStateConvergence.lean": true
+  },
+  "scripts_pins_unchanged": {
+    "scripts/verify.py": true,
+    "scripts/test_verify.py": true,
+    "lean-toolchain": true,
+    "lakefile.toml": true,
+    "lake-manifest.json": true
+  },
+  "six_accepted_modules_unchanged": {
+    "FormalScience/OpenSystems/Dissipator.lean": true,
+    "FormalScience/OpenSystems/TwoStateEvolution.lean": true,
+    "FormalScience/OpenSystems/TwoStateKraus.lean": true,
+    "FormalScience/OpenSystems/TwoStateStationary.lean": true,
+    "FormalScience/Quantum/FiniteKraus.lean": true,
+    "FormalScience/Stage0.lean": true
+  },
+  "export_growth": {
+    "release_modules": {
+      "before": 7,
+      "after": 8,
+      "previous_prefix_preserved": true
+    },
+    "exports": {
+      "before": 187,
+      "after": 216,
+      "previous_prefix_preserved": true
+    },
+    "contract_exports": {
+      "before": 167,
+      "after": 193,
+      "previous_prefix_preserved": true
+    }
+  },
+  "independent_source_inventory": {
+    "method": "Top-level declarations in comment-stripped source, checked single namespace per module; exact qualified consumer tokens in comment-stripped contracts. Direct application examples manually read. This is a source audit, not proof of arbitrary adversarial syntax coverage.",
+    "public": 216,
+    "theorems": 193,
+    "definitions_abbrevs": 23,
+    "private": 7,
+    "missing_exports": [],
+    "unknown_exports": [],
+    "missing_contract_tokens": [],
+    "inventory_names_match": true,
+    "contract_hash_matches_inventory": true
+  },
+  "baseline_matches_accepted": {
+    "source_hashes_equal": true,
+    "axioms_equal": true,
+    "manifest_equal": true
+  },
+  "earlier_elaborated_signature_differences": [],
+  "submitted_evidence": {
+    "baseline": {
+      "status": "passed",
+      "commands": 31,
+      "nonzero_commands": [],
+      "commands_json_equal": true,
+      "raw_log_mismatches": [],
+      "exports": 187,
+      "contracts": 167,
+      "axioms_parsed_equal": true,
+      "axiom_sets": [
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      ],
+      "source_hash_mismatches": [],
+      "signature_report_count": 187,
+      "signature_severities": [
+        "information"
+      ]
+    },
+    "final": {
+      "status": "passed",
+      "commands": 32,
+      "nonzero_commands": [],
+      "commands_json_equal": true,
+      "raw_log_mismatches": [],
+      "exports": 216,
+      "contracts": 193,
+      "axioms_parsed_equal": true,
+      "axiom_sets": [
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      ],
+      "source_hash_mismatches": [],
+      "signature_report_count": 216,
+      "signature_severities": [
+        "information"
+      ]
+    },
+    "baseline_gate_tests": {
+      "status": "passed",
+      "cases": 15,
+      "failed_cases": [],
+      "raw_log_mismatches": []
+    },
+    "final_gate_tests": {
+      "status": "passed",
+      "cases": 15,
+      "failed_cases": [],
+      "raw_log_mismatches": []
+    }
+  },
+  "controls": {
+    "missing-module": {
+      "status": "failed",
+      "error": "Release module coverage mismatch: unlisted=['FormalScience.OpenSystems.FiniteMarkovBridge'], missing=[]",
+      "commands_before_rejection": 20,
+      "fixture_changes": {
+        "release_modules": {
+          "removed": [
+            "FormalScience.OpenSystems.FiniteMarkovBridge"
+          ],
+          "added": []
+        }
+      },
+      "failure_record_contains_manifest": false,
+      "no_build": true
+    },
+    "unmentioned-contract-export": {
+      "status": "failed",
+      "error": "Contract file does not mention these fully qualified exports: ['FormalScience.OpenSystems.markovGenerator_unmentioned']",
+      "commands_before_rejection": 20,
+      "fixture_changes": {
+        "exports": {
+          "removed": [],
+          "added": [
+            "FormalScience.OpenSystems.markovGenerator_unmentioned"
+          ]
+        },
+        "contract_exports": {
+          "removed": [],
+          "added": [
+            "FormalScience.OpenSystems.markovGenerator_unmentioned"
+          ]
+        }
+      },
+      "failure_record_contains_manifest": false,
+      "no_build": true
+    }
+  },
+  "historical_contracts_preserved": true,
+  "issued_task_active_body_preserved": true,
+  "loose_memo_matches": true,
+  "release_metadata_files": [],
+  "findings": [
+    {
+      "id": "M1-proposed",
+      "severity": "low",
+      "file": "README.md",
+      "detail": "The general-dimensional exclusion still says beyond the generic Kraus and dissipator layers, omitting the new arbitrary-finite-index Markov generator bridge. Update scope wording on acceptance."
+    }
+  ]
+}
