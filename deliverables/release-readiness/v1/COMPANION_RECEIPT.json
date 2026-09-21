@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "milestone": "release-readiness",
+  "version": "v1",
+  "companion_archive": {
+    "file": "deliverables/release-readiness/v1/Formal_Science_Release_Readiness_Consumer_Evidence.zip",
+    "tracked": false,
+    "sha256": "7c6bca2065fb4c0068ef2d1265b97197d09dbedd0173e33f34983f2442d35553",
+    "bytes": 142213,
+    "files_besides_manifest": 115,
+    "manifest": "deliverables/release-readiness/v1/CONSUMER_EVIDENCE_MANIFEST.json"
+  },
+  "source_archive_sha256": "e97dfc620b50a2a6a2d9de51b33ec009d6dfd17ea7acd3987ddc9d0096c408e0",
+  "recorded_at": "2026-09-21T17:43:27.440132+00:00",
+  "note": "Recorded outside the companion archive so that it never contains its own digest."
+}
