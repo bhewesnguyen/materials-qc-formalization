@@ -1,0 +1,57 @@
+{
+  "package": "importGraph",
+  "expected_rev": "e928b72544873815af278d38681b31c0293588e3",
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "init"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/importGraph",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/leanprover-community/import-graph"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/importGraph",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "e928b72544873815af278d38681b31c0293588e3"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/importGraph",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "checkout",
+        "--detach",
+        "FETCH_HEAD"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/importGraph",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/importGraph",
+      "returncode": 0
+    }
+  ],
+  "passed": true
+}

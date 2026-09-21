@@ -1,0 +1,19 @@
+{
+  "source": "https://github.com/leanprover/lean4/releases/download/v4.34.0/lean-4.34.0-linux.tar.zst",
+  "sha256": "caaa98356098c85dc0fcbbd28e1ec66f39eb6551829972b752ff20e1286b646b",
+  "bytes": 580367391,
+  "extract_exit_code": 2,
+  "extract_stdout": "",
+  "extract_stderr_file": "extract-first.stderr",
+  "final_extract_exit_code": 0,
+  "final_extract_argv": [
+    "tar",
+    "--no-same-owner",
+    "--zstd",
+    "-xf",
+    "/workspace/scratch/0a42b15a2c38/audit_convergence/runtime/lean-4.34.0-linux.tar.zst",
+    "-C",
+    "/workspace/scratch/0a42b15a2c38/audit_convergence/runtime"
+  ],
+  "note": "Initial extraction could not reproduce archive uid/gid 1001 in this container; repeated with standard --no-same-owner. File payload unchanged."
+}

@@ -1,24 +1,29 @@
 # Formal Science: finite open systems, one audited milestone at a time
 
 This is the small source base for the finite-dimensional open-systems
-program. Five milestones are accepted: the Stage 0 density-state
-representation probe and finite Kraus trace calculation, the finite
-dissipator algebra (`FormalScience/OpenSystems/Dissipator.lean`), the
-two-state stationary pilot (`FormalScience/OpenSystems/TwoStateStationary.lean`),
-the explicit two-state evolution with its semigroup law and matrix-valued
-derivative (`FormalScience/OpenSystems/TwoStateEvolution.lean`), and the
-four-Kraus certification of that evolution with all-finite-ancilla positivity
+program. Six increments are accepted, completing the planned two-state
+mathematical benchmark: the Stage 0 density-state representation probe and
+finite Kraus trace calculation, the finite dissipator algebra
+(`FormalScience/OpenSystems/Dissipator.lean`), the two-state stationary
+pilot (`FormalScience/OpenSystems/TwoStateStationary.lean`), the explicit
+two-state evolution with its semigroup law and matrix-valued derivative
+(`FormalScience/OpenSystems/TwoStateEvolution.lean`), the four-Kraus
+certification of that evolution with all-finite-ancilla positivity
 (`FormalScience/Quantum/FiniteKraus.lean`,
-`FormalScience/OpenSystems/TwoStateKraus.lean`). The quantitative Frobenius
-convergence (`FormalScience/OpenSystems/TwoStateConvergence.lean`) is
-implemented and its handoff `deliverables/convergence/v1/HANDOFF.md` awaits
-its independent audit. `TURNS.md`
-indexes every implementation and audit round, and
-`audits/kraus/v1/PORTFOLIO_STATUS.md` is the auditor's ledger of the
-39-area portfolio against the accepted local work.
+`FormalScience/OpenSystems/TwoStateKraus.lean`), and the quantitative
+Frobenius convergence to the stationary projection
+(`FormalScience/OpenSystems/TwoStateConvergence.lean`). The active
+assignment is the Stage 4 finite Markov generator bridge in
+`NEXT_FABLE_TASK.md`. `TURNS.md` indexes every implementation and audit
+round, and `audits/convergence/v1/PORTFOLIO_STATUS.md` is the auditor's
+ledger of the 39-area portfolio against the accepted local work.
 
-The release does not prove convergence, Choi or Stinespring equivalence, or
-any generic GKSL result. No mathematical novelty is claimed.
+The release proves results about one explicit two-state model and the
+finite algebra around it. It does not prove Choi or Stinespring
+equivalence, any generic GKSL or Perron-Frobenius result, trace-norm or
+diamond-norm contraction, or anything about general finite dimension
+beyond the generic Kraus and dissipator layers. No mathematical novelty is
+claimed.
 
 ## Exact dependency base
 
@@ -75,9 +80,9 @@ was produced on the Ubuntu 24.04 workstation recorded in each tree's
 | `scripts/verify.py` | Build, contract, and transitive-axiom gate |
 | `scripts/test_verify.py` | Deliberate failing cases for that gate |
 | `DECISIONS.md` | Representation, dependency, and packaging decisions |
-| `NEXT_FABLE_TASK.md` | The active assignment (quantitative convergence), now implemented and awaiting audit |
-| `deliverables/convergence/v1/HANDOFF.md` | Completed handoff for the quantitative convergence |
-| `evidence/convergence/v1/` | Fresh reproduction, verification, gate-test, and control evidence for this round |
+| `NEXT_FABLE_TASK.md` | The active assignment (finite Markov generator bridge) |
+| `deliverables/convergence/v1/HANDOFF.md` | Historical handoff for the accepted quantitative convergence |
+| `evidence/convergence/v1/` | Preserved evidence for the accepted quantitative convergence |
 | `AUDIT_HANDOFF_TEMPLATE.md` | Template for each review |
 | `TURNS.md` | Index of implementation and audit rounds, with tags and decisions |
 | `deliverables/<milestone>/v<k>/` | What the implementer sends: `HANDOFF.md`, `POINTER.json`, post-packaging `RECEIPT.json`, and the untracked archive |
@@ -86,7 +91,9 @@ was produced on the Ubuntu 24.04 workstation recorded in each tree's
 | `audits/dissipator/v1/Formal_Science_Dissipator_Audit_v1.md` | Accepted dissipator audit, with findings F1 to F4 |
 | `audits/stationary/v1/Formal_Science_Stationary_Audit_v1.md` | Accepted stationary audit, with findings S1 to S3 |
 | `audits/evolution/v1/Formal_Science_Evolution_Audit_v1.md` | Accepted evolution audit, with findings E1 and E2 and the auditor's Kraus feasibility probe under `reference/` |
-| `audits/kraus/v1/Formal_Science_Kraus_Audit_v1.md` | Accepted Kraus audit, no findings, with the portfolio ledger and a convergence API probe under `reference/` |
+| `audits/kraus/v1/Formal_Science_Kraus_Audit_v1.md` | Accepted Kraus audit, no findings, with a convergence API probe under `reference/` |
+| `audits/convergence/v1/Formal_Science_Convergence_Audit_v1.md` | Accepted convergence audit, with findings C1 and C2, the portfolio ledger, and the scope memo review |
+| `docs/SCOPE_MEMO.md` | Personal planning memo on program scope, tracked from round 6; not a release artifact and not covered by the gate |
 | `deliverables/dissipator/v1/HANDOFF.md` | Historical handoff for the accepted dissipator milestone |
 | `deliverables/stationary/v1/HANDOFF.md` | Historical handoff for the accepted stationary pilot |
 | `deliverables/evolution/v1/HANDOFF.md` | Historical handoff for the accepted explicit evolution |
@@ -137,8 +144,8 @@ unique stationary matrix among all complex matrices of trace one. Under
 `0 ≤ a`, `0 ≤ b`, `0 < a + b` it is a density and is the unique stationary
 density. The one-zero-rate cases give the basis projectors, both zero rates
 give a zero generator with no unique stationary density, and equal positive
-rates give the maximally mixed state. No convergence or channel claim is
-made.
+rates give the maximally mixed state. The stationary module itself makes no
+convergence or channel claim; those are the later modules below.
 
 `evolution a b t` is an explicit complex-linear map on all qubit matrices,
 for arbitrary real rates and real time. With `gamma = a + b`,
@@ -186,13 +193,17 @@ or diamond norms, spectral gaps, or general dimension.
 
 ## Next step
 
-The convergence milestone is implemented and its handoff is
-`deliverables/convergence/v1/HANDOFF.md`. The next turn is an independent
-audit of that handoff, to be stored under `audits/convergence/v1/`. With
-it the planned two-state benchmark (dissipator, stationary state, explicit
-evolution, Kraus certification, quantitative convergence) is complete
-pending audit. No further milestone is active until the audit selects
-one.
+The active assignment is the Stage 4 finite Markov generator bridge
+specified in `NEXT_FABLE_TASK.md`, issued with the convergence audit: on an
+arbitrary finite index type, destination-first real rates `q i j` (jump
+from `j` to `i`, diagonal entries ignored), the classical rate matrix `Q`
+with zero column sums, the zero-Hamiltonian generator `L_q = ∑_{i ≠ j} q_ij
+D[E_ij]` built from the accepted dissipator, its population and coherence
+entry formulas, trace and Hermiticity laws, the diagonal bridge
+`L_q(diag p) = diag(Q p)` with the stationary equivalence, probability-vector
+density consumers, and recovery of the accepted two-state `generator a b`
+from `q = [[0, b], [a, 0]]`. It is a generator result; no semigroup,
+exponential, CPTP, mixing, or Hamiltonian claim belongs to it.
 
 Public theorem scope and proof trust are separate from source provenance,
 upstream acceptance, and novelty. The scripts are ordinary reproducibility and

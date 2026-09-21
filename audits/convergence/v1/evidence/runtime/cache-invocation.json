@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "/workspace/scratch/0a42b15a2c38/audit_convergence/runtime/lean-4.34.0-linux/bin/lake",
+    "exe",
+    "cache",
+    "get",
+    "Mathlib.Analysis.Complex.Basic",
+    "Mathlib.LinearAlgebra.Matrix.PosDef",
+    "Mathlib.LinearAlgebra.Matrix.Trace",
+    "Mathlib.Tactic.FinCases",
+    "Mathlib.Tactic.NormNum",
+    "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+    "Mathlib.Analysis.Complex.RealDeriv",
+    "Mathlib.Analysis.Calculus.Deriv.Prod",
+    "Mathlib.Analysis.Matrix.Normed"
+  ],
+  "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science",
+  "exit_code": 1,
+  "duration_seconds": 53.658,
+  "stdout_file": "cache.stdout",
+  "stderr_file": "cache.stderr"
+}

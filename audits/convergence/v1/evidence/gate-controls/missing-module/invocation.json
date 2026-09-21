@@ -1,0 +1,19 @@
+{
+  "label": "missing-module",
+  "argv": [
+    "python3",
+    "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/scripts/verify.py",
+    "--lake",
+    "/workspace/scratch/0a42b15a2c38/audit_convergence/runtime/lean-4.34.0-linux/bin/lake",
+    "--manifest",
+    "/workspace/scratch/0a42b15a2c38/audit_convergence/evidence/gate-controls/missing-module/omitted-module.json",
+    "--output-dir",
+    "/workspace/scratch/0a42b15a2c38/audit_convergence/evidence/gate-controls/missing-module"
+  ],
+  "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science",
+  "exit_code": 1,
+  "expected_exit_code": 1,
+  "duration_seconds": 0.844,
+  "stdout_file": "invocation.stdout.log",
+  "stderr_file": "invocation.stderr.log"
+}

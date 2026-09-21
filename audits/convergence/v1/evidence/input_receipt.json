@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "milestone": "convergence",
+  "version": "v1",
+  "tag": "convergence-milestone-v1",
+  "commit_under_review": "a3cbac0692b4c106a89e80c91d18b0c2de4988cd",
+  "diff_base_commit": "6431c9cd411a3a804d2a86ae733e23f393fe9361",
+  "kraus_receipt_commit": "2b39181a95969f5ecc0e1053cab834d94bb05110",
+  "housekeeping_commit": "25862d078c14e372c2e08dbadfe986a4d00d8f43",
+  "archive": {
+    "file": "deliverables/convergence/v1/Formal_Science_Convergence_Handoff.zip",
+    "tracked": false,
+    "sha256": "322a46cb9c45db8663dcdee73ddb3899dc9c7cda0e9d3dfb1fbe1bd3f32b6d1d",
+    "bytes": 2159927,
+    "created_by": "git archive --format=zip --prefix=formal-science/ convergence-milestone-v1",
+    "verification": "Extracted and compared path by path against the archived SOURCE_MANIFEST.json: 1998 files besides the manifest, all SHA-256 and byte counts matching, no extra or missing paths, no nested archives."
+  },
+  "recorded_at": "2026-09-21T03:53:37.622585+00:00",
+  "note": "Recorded in a commit made after the tag, so the tagged tree never contains its own archive digest or commit hash."
+}

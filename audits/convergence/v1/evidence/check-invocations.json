@@ -1,0 +1,74 @@
+[
+  {
+    "label": "verification",
+    "argv": [
+      "python3",
+      "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/scripts/verify.py",
+      "--lake",
+      "/workspace/scratch/0a42b15a2c38/audit_convergence/runtime/lean-4.34.0-linux/bin/lake",
+      "--output-dir",
+      "/workspace/scratch/0a42b15a2c38/audit_convergence/evidence/verification"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "duration_seconds": 62.399,
+    "stdout_file": "invocation.stdout.log",
+    "stderr_file": "invocation.stderr.log"
+  },
+  {
+    "label": "gate-tests",
+    "argv": [
+      "python3",
+      "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/scripts/test_verify.py",
+      "--lake",
+      "/workspace/scratch/0a42b15a2c38/audit_convergence/runtime/lean-4.34.0-linux/bin/lake",
+      "--output-dir",
+      "/workspace/scratch/0a42b15a2c38/audit_convergence/evidence/gate-tests"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "duration_seconds": 8.508,
+    "stdout_file": "invocation.stdout.log",
+    "stderr_file": "invocation.stderr.log"
+  },
+  {
+    "label": "missing-module",
+    "argv": [
+      "python3",
+      "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/scripts/verify.py",
+      "--lake",
+      "/workspace/scratch/0a42b15a2c38/audit_convergence/runtime/lean-4.34.0-linux/bin/lake",
+      "--manifest",
+      "/workspace/scratch/0a42b15a2c38/audit_convergence/evidence/gate-controls/missing-module/omitted-module.json",
+      "--output-dir",
+      "/workspace/scratch/0a42b15a2c38/audit_convergence/evidence/gate-controls/missing-module"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science",
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "duration_seconds": 0.844,
+    "stdout_file": "invocation.stdout.log",
+    "stderr_file": "invocation.stderr.log"
+  },
+  {
+    "label": "unmentioned-contract-export",
+    "argv": [
+      "python3",
+      "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/scripts/verify.py",
+      "--lake",
+      "/workspace/scratch/0a42b15a2c38/audit_convergence/runtime/lean-4.34.0-linux/bin/lake",
+      "--manifest",
+      "/workspace/scratch/0a42b15a2c38/audit_convergence/evidence/gate-controls/unmentioned-contract-export/unmentioned-export.json",
+      "--output-dir",
+      "/workspace/scratch/0a42b15a2c38/audit_convergence/evidence/gate-controls/unmentioned-contract-export"
+    ],
+    "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science",
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "duration_seconds": 0.776,
+    "stdout_file": "invocation.stdout.log",
+    "stderr_file": "invocation.stderr.log"
+  }
+]

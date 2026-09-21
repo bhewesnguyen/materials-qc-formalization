@@ -1,0 +1,50 @@
+{
+  "recorded_utc": "2026-09-21T14:43:20.869400+00:00",
+  "verification_status": "passed",
+  "verification_commands": 31,
+  "all_verification_commands_exit_zero": true,
+  "release_modules": 7,
+  "exports": 187,
+  "contract_exports": 167,
+  "axiom_declarations": 187,
+  "all_axiom_sets_exactly_allowed": true,
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "source_sha256_map_matches_submitted_evidence": true,
+  "axiom_map_matches_submitted_evidence": true,
+  "source_files_recorded": 15,
+  "dependency_count": 9,
+  "all_dependency_pins_exact_and_tracked_clean": true,
+  "gate_test_status": "passed",
+  "gate_test_count": 15,
+  "all_gate_tests_passed": true,
+  "gate_commands": 9,
+  "controls": [
+    {
+      "case": "missing-module",
+      "exit_code": 1,
+      "error": "Release module coverage mismatch: unlisted=['FormalScience.OpenSystems.TwoStateConvergence'], missing=[]",
+      "commands": 20,
+      "build_attempted": false
+    },
+    {
+      "case": "unmentioned-contract-export",
+      "exit_code": 1,
+      "error": "Contract file does not mention these fully qualified exports: ['FormalScience.OpenSystems.tendsto_evolution_unmentioned']",
+      "commands": 20,
+      "build_attempted": false
+    }
+  ],
+  "runtime_archive_sha256": "caaa98356098c85dc0fcbbd28e1ec66f39eb6551829972b752ff20e1286b646b",
+  "runtime_regular_payload_files_sha256_checked": 17738,
+  "runtime_payload_mismatches": 0,
+  "targeted_cache_files": 2509,
+  "fresh_project_elaboration": true,
+  "full_mathlib_source_rebuild": false,
+  "submitted_source_files_match_fresh_hash_map": true,
+  "reproduction_source_files_match_fresh_hash_map": true,
+  "all_seven_release_source_checks_zero_diagnostics": true
+}

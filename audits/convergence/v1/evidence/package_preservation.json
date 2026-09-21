@@ -1,0 +1,1149 @@
+{
+  "frozen_return_manifests": {
+    "audits/dissipator/v1/RETURN_MANIFEST.json": {
+      "payload_count": 143,
+      "payloads_plus_manifest": 144,
+      "physical_files_within_manifest_folder": 144,
+      "payload_errors": [],
+      "extra_files_within_manifest_folder": [],
+      "payloads_outside_manifest_folder": [],
+      "missing_resolved_paths": [],
+      "manifest_sha256": "ee6b17a7d2d53df156dd3859be77e0e6fae2ecb43075a2810b9a6f2b017a3206"
+    },
+    "audits/evolution/v1/RETURN_MANIFEST.json": {
+      "payload_count": 157,
+      "payloads_plus_manifest": 158,
+      "physical_files_within_manifest_folder": 158,
+      "payload_errors": [],
+      "extra_files_within_manifest_folder": [],
+      "payloads_outside_manifest_folder": [],
+      "missing_resolved_paths": [],
+      "manifest_sha256": "67321c913a57db9474215b5672461c032f199479f7f62f6cd169089cbb285ebd"
+    },
+    "audits/kraus/v1/RETURN_MANIFEST.json": {
+      "payload_count": 202,
+      "payloads_plus_manifest": 203,
+      "physical_files_within_manifest_folder": 203,
+      "payload_errors": [],
+      "extra_files_within_manifest_folder": [],
+      "payloads_outside_manifest_folder": [],
+      "missing_resolved_paths": [],
+      "manifest_sha256": "5b4dfe58268ec77be54fd0af4086c36129721355454e37086795de14cf8935a1"
+    },
+    "audits/stationary/v1/RETURN_MANIFEST.json": {
+      "payload_count": 144,
+      "payloads_plus_manifest": 145,
+      "physical_files_within_manifest_folder": 144,
+      "payload_errors": [],
+      "extra_files_within_manifest_folder": [],
+      "payloads_outside_manifest_folder": [
+        "audits/dissipator/v1/NEXT_FABLE_TASK.md"
+      ],
+      "missing_resolved_paths": [],
+      "manifest_sha256": "569b9541dc097d7d53da216f5489a74f58d35a89c09797634856e3256312ff77"
+    }
+  },
+  "baseline_hashes_equal_accepted_kraus_audit": true,
+  "baseline_manifest_equal_accepted_kraus_audit": true,
+  "baseline_axioms_equal_accepted_kraus_audit": true,
+  "final_manifest_equal_exports_json": true,
+  "final_source_hash_mismatches": [],
+  "accepted_six_module_hashes_unchanged": {
+    "FormalScience/Stage0.lean": true,
+    "FormalScience/OpenSystems/Dissipator.lean": true,
+    "FormalScience/OpenSystems/TwoStateStationary.lean": true,
+    "FormalScience/OpenSystems/TwoStateEvolution.lean": true,
+    "FormalScience/Quantum/FiniteKraus.lean": true,
+    "FormalScience/OpenSystems/TwoStateKraus.lean": true
+  },
+  "scripts_and_pins_unchanged": {
+    "lean-toolchain": true,
+    "lakefile.toml": true,
+    "lake-manifest.json": true,
+    "scripts/verify.py": true,
+    "scripts/test_verify.py": true
+  },
+  "dependency_evidence_unchanged": true,
+  "pointer_source_hashes_equal_final": true,
+  "submitted_logs": {
+    "evidence/convergence/v1/reproduction/verification": {
+      "commands": 30,
+      "exit_codes": [
+        0
+      ],
+      "raw_log_mismatches": [],
+      "labels": [
+        "lean-version",
+        "lake-version",
+        "mathlib-head",
+        "mathlib-tracked-status",
+        "dependency-02-head",
+        "dependency-02-tracked-status",
+        "dependency-03-head",
+        "dependency-03-tracked-status",
+        "dependency-04-head",
+        "dependency-04-tracked-status",
+        "dependency-05-head",
+        "dependency-05-tracked-status",
+        "dependency-06-head",
+        "dependency-06-tracked-status",
+        "dependency-07-head",
+        "dependency-07-tracked-status",
+        "dependency-08-head",
+        "dependency-08-tracked-status",
+        "dependency-09-head",
+        "dependency-09-tracked-status",
+        "build-release",
+        "release-source-01",
+        "release-source-02",
+        "release-source-03",
+        "release-source-04",
+        "release-source-05",
+        "release-source-06",
+        "independent-contracts",
+        "export-signatures",
+        "axiom-audit"
+      ],
+      "commands_embedded_equal": true,
+      "status": "passed",
+      "exports": 158,
+      "contracts": 139,
+      "axiom_entries": 158,
+      "axiom_sets": [
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      ]
+    },
+    "evidence/convergence/v1/reproduction/gate-tests": {
+      "commands": 9,
+      "exit_codes": [
+        0,
+        1
+      ],
+      "raw_log_mismatches": [],
+      "labels": [
+        "allowed-control",
+        "allowed-propext",
+        "direct-axiom",
+        "transitive-axiom",
+        "sorry-proof",
+        "missing-export",
+        "false-premise-axiom-control",
+        "signature-control",
+        "signature-false-premise"
+      ],
+      "commands_embedded_equal": true,
+      "status": "passed",
+      "gate_case_count": 15,
+      "case_statuses": [
+        "passed"
+      ]
+    },
+    "evidence/convergence/v1/verification": {
+      "commands": 31,
+      "exit_codes": [
+        0
+      ],
+      "raw_log_mismatches": [],
+      "labels": [
+        "lean-version",
+        "lake-version",
+        "mathlib-head",
+        "mathlib-tracked-status",
+        "dependency-02-head",
+        "dependency-02-tracked-status",
+        "dependency-03-head",
+        "dependency-03-tracked-status",
+        "dependency-04-head",
+        "dependency-04-tracked-status",
+        "dependency-05-head",
+        "dependency-05-tracked-status",
+        "dependency-06-head",
+        "dependency-06-tracked-status",
+        "dependency-07-head",
+        "dependency-07-tracked-status",
+        "dependency-08-head",
+        "dependency-08-tracked-status",
+        "dependency-09-head",
+        "dependency-09-tracked-status",
+        "build-release",
+        "release-source-01",
+        "release-source-02",
+        "release-source-03",
+        "release-source-04",
+        "release-source-05",
+        "release-source-06",
+        "release-source-07",
+        "independent-contracts",
+        "export-signatures",
+        "axiom-audit"
+      ],
+      "commands_embedded_equal": true,
+      "status": "passed",
+      "exports": 187,
+      "contracts": 167,
+      "axiom_entries": 187,
+      "axiom_sets": [
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      ]
+    },
+    "evidence/convergence/v1/gate-tests": {
+      "commands": 9,
+      "exit_codes": [
+        0,
+        1
+      ],
+      "raw_log_mismatches": [],
+      "labels": [
+        "allowed-control",
+        "allowed-propext",
+        "direct-axiom",
+        "transitive-axiom",
+        "sorry-proof",
+        "missing-export",
+        "false-premise-axiom-control",
+        "signature-control",
+        "signature-false-premise"
+      ],
+      "commands_embedded_equal": true,
+      "status": "passed",
+      "gate_case_count": 15,
+      "case_statuses": [
+        "passed"
+      ]
+    },
+    "evidence/convergence/v1/gate-controls/missing-module": {
+      "commands": 20,
+      "exit_codes": [
+        0
+      ],
+      "raw_log_mismatches": [],
+      "labels": [
+        "lean-version",
+        "lake-version",
+        "mathlib-head",
+        "mathlib-tracked-status",
+        "dependency-02-head",
+        "dependency-02-tracked-status",
+        "dependency-03-head",
+        "dependency-03-tracked-status",
+        "dependency-04-head",
+        "dependency-04-tracked-status",
+        "dependency-05-head",
+        "dependency-05-tracked-status",
+        "dependency-06-head",
+        "dependency-06-tracked-status",
+        "dependency-07-head",
+        "dependency-07-tracked-status",
+        "dependency-08-head",
+        "dependency-08-tracked-status",
+        "dependency-09-head",
+        "dependency-09-tracked-status"
+      ],
+      "commands_embedded_equal": true,
+      "status": "failed",
+      "error": "Release module coverage mismatch: unlisted=['FormalScience.OpenSystems.TwoStateConvergence'], missing=[]"
+    },
+    "evidence/convergence/v1/gate-controls/unmentioned-contract-export": {
+      "commands": 20,
+      "exit_codes": [
+        0
+      ],
+      "raw_log_mismatches": [],
+      "labels": [
+        "lean-version",
+        "lake-version",
+        "mathlib-head",
+        "mathlib-tracked-status",
+        "dependency-02-head",
+        "dependency-02-tracked-status",
+        "dependency-03-head",
+        "dependency-03-tracked-status",
+        "dependency-04-head",
+        "dependency-04-tracked-status",
+        "dependency-05-head",
+        "dependency-05-tracked-status",
+        "dependency-06-head",
+        "dependency-06-tracked-status",
+        "dependency-07-head",
+        "dependency-07-tracked-status",
+        "dependency-08-head",
+        "dependency-08-tracked-status",
+        "dependency-09-head",
+        "dependency-09-tracked-status"
+      ],
+      "commands_embedded_equal": true,
+      "status": "failed",
+      "error": "Contract file does not mention these fully qualified exports: ['FormalScience.OpenSystems.tendsto_evolution_unmentioned']"
+    }
+  },
+  "human_assisted_declaration_coverage": {
+    "scanner_scope": "Nested comments stripped; manually checked seven files each have one dotted namespace, section names do not affect declarations, and no declaration-generating macro or extension. This is review support, not a general Lean parser.",
+    "public_count": 187,
+    "private_count": 6,
+    "public_theorems": 167,
+    "public_definitions_or_abbrevs": 20,
+    "unlisted_public": [],
+    "unresolved_listed": [],
+    "uncontracted_theorems": [],
+    "contracted_nontheorems": [],
+    "by_module": {
+      "FormalScience/OpenSystems/Dissipator.lean": {
+        "public": 27,
+        "private": 0,
+        "public_theorems": 23,
+        "public_definitions_or_abbrevs": 4
+      },
+      "FormalScience/OpenSystems/TwoStateConvergence.lean": {
+        "public": 29,
+        "private": 1,
+        "public_theorems": 28,
+        "public_definitions_or_abbrevs": 1
+      },
+      "FormalScience/OpenSystems/TwoStateEvolution.lean": {
+        "public": 43,
+        "private": 1,
+        "public_theorems": 39,
+        "public_definitions_or_abbrevs": 4
+      },
+      "FormalScience/OpenSystems/TwoStateKraus.lean": {
+        "public": 37,
+        "private": 3,
+        "public_theorems": 34,
+        "public_definitions_or_abbrevs": 3
+      },
+      "FormalScience/OpenSystems/TwoStateStationary.lean": {
+        "public": 30,
+        "private": 1,
+        "public_theorems": 28,
+        "public_definitions_or_abbrevs": 2
+      },
+      "FormalScience/Quantum/FiniteKraus.lean": {
+        "public": 6,
+        "private": 0,
+        "public_theorems": 5,
+        "public_definitions_or_abbrevs": 1
+      },
+      "FormalScience/Stage0.lean": {
+        "public": 15,
+        "private": 0,
+        "public_theorems": 10,
+        "public_definitions_or_abbrevs": 5
+      }
+    },
+    "declarations": {
+      "FormalScience.OpenSystems.dissipator": {
+        "kind": "def",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.dissipator_add": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.dissipator_smul": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.dissipatorLinearMap": {
+        "kind": "def",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.dissipatorLinearMap_apply": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.dissipator_trace": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.isHermitian_anticommutator": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.isSelfAdjoint_half": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.dissipator_isHermitian": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.jumpZeroToOne": {
+        "kind": "def",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.jumpOneToZero": {
+        "kind": "def",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.jumpZeroToOne_conjTranspose": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.jumpOneToZero_conjTranspose": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.jumpZeroToOne_conjTranspose_mul_self": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.jumpOneToZero_conjTranspose_mul_self": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.jumpZeroToOne_mul_mul_conjTranspose": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.jumpOneToZero_mul_mul_conjTranspose": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.dissipator_jumpZeroToOne_eq": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.dissipator_jumpOneToZero_eq": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.dissipator_jumpZeroToOne_trace": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.dissipator_jumpOneToZero_trace": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.dissipator_jumpZeroToOne_isHermitian": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.dissipator_jumpOneToZero_isHermitian": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.jumpZeroToOne_not_isHermitian": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.jumpOneToZero_not_isHermitian": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.dissipator_jumpZeroToOne_basisProjector_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.dissipator_jumpOneToZero_basisProjector_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/Dissipator.lean"
+      },
+      "FormalScience.OpenSystems.qubitFrobeniusNorm": {
+        "kind": "def",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.qubitFrobeniusNorm_def": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.qubitFrobeniusNorm_eq_norm": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.qubitFrobeniusNorm_nonneg": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.qubitFrobeniusNorm_sq": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.expFactor_pos": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.expFactor_tendsto": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.halfExpFactor_tendsto": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.evolution_sub_smul_rhoStar_apply_zero_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.evolution_sub_smul_rhoStar_apply_one_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.evolution_sub_smul_rhoStar_apply_zero_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.evolution_sub_smul_rhoStar_apply_one_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.qubitFrobeniusNorm_sq_evolution_sub": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.qubitFrobeniusNorm_evolution_sub_le": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.qubitFrobeniusNorm_evolution_sub_rhoStar_le": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.qubitFrobeniusNorm_evolution_sub_evolution_le": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.tendsto_qubitFrobeniusNorm_evolution_sub": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.tendsto_qubitMatrix": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.tendsto_evolution": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.tendsto_evolution_of_trace_eq_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.evolution_isDensity_and_qubitFrobeniusNorm_le": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.tendsto_evolution_of_isDensity": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.tendsto_evolution_zero_left": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.tendsto_evolution_zero_right": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.tendsto_evolution_same": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.not_exists_common_limit_zero_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.evolution_jumpOneToZero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.qubitFrobeniusNorm_jumpOneToZero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.qubitFrobeniusNorm_evolution_jumpOneToZero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.expFactor": {
+        "kind": "def",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.halfExpFactor": {
+        "kind": "def",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.integratedExpFactor": {
+        "kind": "def",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.expFactor_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.halfExpFactor_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.integratedExpFactor_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.integratedExpFactor_of_eq_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.integratedExpFactor_of_ne_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.halfExpFactor_of_eq_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.expFactor_of_eq_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.mul_integratedExpFactor": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.integratedExpFactor_add": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.halfExpFactor_add": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.hasDerivAt_expFactor": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.hasDerivAt_halfExpFactor": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.hasDerivAt_integratedExpFactor": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution": {
+        "kind": "def",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_apply_diag": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_apply_offDiag": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_apply_zero_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_apply_one_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_apply_zero_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_apply_one_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_add": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_trace": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.qubitMatrix_isHermitian_of_entries": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_isHermitian": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.hasDerivAt_qubitMatrix": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.hasDerivAt_evolution": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_apply_of_generator_eq_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_rhoStar": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_apply_zero_zero_of_ne_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_apply_one_one_of_ne_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_eq_id_add_smul_generator": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_zero_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_one_neg_one_basisProjector_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.generator_zero_left_basisProjector_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.generator_zero_right_basisProjector_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.generator_same_diagonalState_half": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_zero_left_basisProjector_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_zero_right_basisProjector_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.evolution_same_diagonalState_half": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.equilibriumZero": {
+        "kind": "def",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.jumpAmplitude": {
+        "kind": "def",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.halfExpFactor_sq": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.halfExpFactor_pos": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.halfExpFactor_le_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.one_sub_halfExpFactor_sq_nonneg": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.jumpAmplitude_sq": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.equilibriumZero_nonneg": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.equilibriumZero_le_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.one_sub_equilibriumZero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.equilibriumZero_of_add_eq_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.eq_zero_of_add_eq_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.evolutionKraus": {
+        "kind": "def",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.evolutionKraus_apply_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.evolutionKraus_apply_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.evolutionKraus_apply_two": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.evolutionKraus_apply_three": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.evolutionKraus_complete": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.krausMap_evolutionKraus_apply_zero_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.krausMap_evolutionKraus_apply_one_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.krausMap_evolutionKraus_apply_zero_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.krausMap_evolutionKraus_apply_one_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.evolution_eq_krausMap": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.krausMap_evolutionKraus_trace": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.evolution_posSemidef": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.evolution_isDensity": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.amplify_evolution_eq_krausMap": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.amplify_evolution_posSemidef": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.amplify_evolution_kronecker": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.evolutionKraus_zero_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.krausMap_evolutionKraus_zero_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.evolutionKraus_time_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.krausMap_evolutionKraus_time_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.evolutionKraus_zero_left": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.evolutionKraus_zero_right": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.evolution_isDensity_zero_left": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.evolution_isDensity_zero_right": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.isSelfAdjoint_ofReal": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.qubitMatrix_ext": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.generator": {
+        "kind": "def",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.generator_apply": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.generator_apply_zero_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.generator_apply_one_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.generator_apply_zero_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.generator_apply_one_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.generator_trace": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.generator_isHermitian": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.rhoStar": {
+        "kind": "def",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.rhoStar_eq_diagonal": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.rhoStar_apply_zero_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.rhoStar_apply_one_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.rhoStar_apply_zero_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.rhoStar_apply_one_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.generator_rhoStar": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.generator_eq_zero_iff_of_trace_eq_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.rhoStar_isDensity": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.isDensity_generator_eq_zero_iff": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.existsUnique_stationary_density": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.rhoStar_zero_left": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.isDensity_generator_zero_left_eq_zero_iff": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.rhoStar_zero_right": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.isDensity_generator_zero_right_eq_zero_iff": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.generator_zero_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.generator_zero_zero_of_isDensity": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.not_existsUnique_stationary_density_zero_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.rhoStar_same": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.OpenSystems.isDensity_generator_same_eq_zero_iff": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      },
+      "FormalScience.Quantum.krausMap_posSemidef": {
+        "kind": "theorem",
+        "path": "FormalScience/Quantum/FiniteKraus.lean"
+      },
+      "FormalScience.Quantum.amplify": {
+        "kind": "def",
+        "path": "FormalScience/Quantum/FiniteKraus.lean"
+      },
+      "FormalScience.Quantum.amplify_apply": {
+        "kind": "theorem",
+        "path": "FormalScience/Quantum/FiniteKraus.lean"
+      },
+      "FormalScience.Quantum.amplify_krausMap": {
+        "kind": "theorem",
+        "path": "FormalScience/Quantum/FiniteKraus.lean"
+      },
+      "FormalScience.Quantum.amplify_krausMap_posSemidef": {
+        "kind": "theorem",
+        "path": "FormalScience/Quantum/FiniteKraus.lean"
+      },
+      "FormalScience.Quantum.amplify_kronecker": {
+        "kind": "theorem",
+        "path": "FormalScience/Quantum/FiniteKraus.lean"
+      },
+      "FormalScience.Stage0.QubitMatrix": {
+        "kind": "abbrev",
+        "path": "FormalScience/Stage0.lean"
+      },
+      "FormalScience.Stage0.IsDensity": {
+        "kind": "def",
+        "path": "FormalScience/Stage0.lean"
+      },
+      "FormalScience.Stage0.basisProjector": {
+        "kind": "def",
+        "path": "FormalScience/Stage0.lean"
+      },
+      "FormalScience.Stage0.basisProjector_eq_single": {
+        "kind": "theorem",
+        "path": "FormalScience/Stage0.lean"
+      },
+      "FormalScience.Stage0.basisProjector_isDensity": {
+        "kind": "theorem",
+        "path": "FormalScience/Stage0.lean"
+      },
+      "FormalScience.Stage0.diagonalState": {
+        "kind": "def",
+        "path": "FormalScience/Stage0.lean"
+      },
+      "FormalScience.Stage0.diagonalState_isDensity": {
+        "kind": "theorem",
+        "path": "FormalScience/Stage0.lean"
+      },
+      "FormalScience.Stage0.diagonalState_zero": {
+        "kind": "theorem",
+        "path": "FormalScience/Stage0.lean"
+      },
+      "FormalScience.Stage0.diagonalState_one": {
+        "kind": "theorem",
+        "path": "FormalScience/Stage0.lean"
+      },
+      "FormalScience.Stage0.basisProjector_zero_ne_one": {
+        "kind": "theorem",
+        "path": "FormalScience/Stage0.lean"
+      },
+      "FormalScience.Stage0.krausMap": {
+        "kind": "def",
+        "path": "FormalScience/Stage0.lean"
+      },
+      "FormalScience.Stage0.krausMap_trace": {
+        "kind": "theorem",
+        "path": "FormalScience/Stage0.lean"
+      },
+      "FormalScience.Stage0.krausMap_trace_preserving": {
+        "kind": "theorem",
+        "path": "FormalScience/Stage0.lean"
+      },
+      "FormalScience.Stage0.identityKraus_complete": {
+        "kind": "theorem",
+        "path": "FormalScience/Stage0.lean"
+      },
+      "FormalScience.Stage0.identityKraus_apply": {
+        "kind": "theorem",
+        "path": "FormalScience/Stage0.lean"
+      }
+    },
+    "private_declarations": {
+      "FormalScience.OpenSystems.norm_ofReal_mul_sq": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean"
+      },
+      "FormalScience.OpenSystems.evolutionFun": {
+        "kind": "def",
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean"
+      },
+      "FormalScience.OpenSystems.sqrt_facts": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.diagonal_one_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.vec_one_one": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean"
+      },
+      "FormalScience.OpenSystems.one_sub_div_add": {
+        "kind": "theorem",
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean"
+      }
+    }
+  },
+  "contract_delta_reconstruction": {
+    "earlier_raw_contract_available": true,
+    "original_archive_contract_sha256": "7bc313231a4271a598c99f28a6bd989652b68a802c0dea28633e2a271a40eab6",
+    "original_matches_previous_audit_hash": true,
+    "reconstructed_after_comment_sha256": "de3426dbce50bc8bf9cb74373279c8ef3b686759c21899a7a6e64ce7a25bb77d",
+    "matches_recorded_comment_fix_hash": true,
+    "earlier_noncomment_contract_content_unchanged": true,
+    "delta_note": "Only the family-name/explanation paragraph changed inside its block comment; old139 contract statements unchanged. Direct diff retained."
+  },
+  "direct_prior_archive_comparison": {
+    "archive_sha256": "ef84addb5fbba564d69c12d8b9875e0f4a0227332a20b42dbcfe28f2e7d851f8",
+    "prior_payload_count": 1514,
+    "unchanged_count": 1506,
+    "changed_paths": [
+      "AGENTS.md",
+      "Audit/Contracts.lean",
+      "DECISIONS.md",
+      "FormalScience.lean",
+      "NEXT_FABLE_TASK.md",
+      "README.md",
+      "TURNS.md",
+      "exports.json"
+    ],
+    "missing_paths": [],
+    "historical_evidence_unchanged": true
+  },
+  "direct_original_auditor_return_comparison": {
+    "archive_sha256": "a9424f108d66502ee3373155e8cfa9fe5517b6202e0e29256e35bc4361eaaea9",
+    "physical_files_including_manifest": 203,
+    "mismatches": []
+  }
+}

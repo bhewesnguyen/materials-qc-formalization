@@ -600,3 +600,79 @@ theory, sharpness of the rate among densities, negative times in the
 estimate, general finite dimension, or any broad portfolio area. With this
 round the planned two-state benchmark is complete pending audit.
 
+## D017: acceptance of the convergence milestone, findings C1 and C2, and a D016 erratum
+
+The convergence audit (`audits/convergence/v1/`) accepted
+`convergence-milestone-v1` at commit `a3cbac0` with no proof revision and
+two low-severity documentation findings. This completes the planned
+two-state mathematical benchmark after six accepted increments. The
+historical handoff `deliverables/convergence/v1/HANDOFF.md` and D016 are
+preserved as written; the corrections are recorded here and applied to
+the live documents.
+
+C1, module header. The opening comment of
+`FormalScience/OpenSystems/TwoStateConvergence.lean` said that both the
+scalar error and the matrix tend to `tau • rhoStar`. The scalar error
+`F(Phi_t X - tau • rhoStar)` tends to zero; the matrix `Phi_t X` tends to
+`tau • rhoStar`. The theorems (`tendsto_qubitFrobeniusNorm_evolution_sub`,
+`tendsto_evolution`) state the correct limits; only the prose was wrong.
+The comment is corrected in a comment-only edit made after the untouched
+baseline reproduction of round 6
+(`evidence/markov/v1/reproduction/`); the module hash changes from
+`2f2406e3a9c9f7e3ccfa6f751ad0255964bd81524f8bf0b044e889c387f741c6` to the
+value recorded in the round 6 verification evidence. No statement changes.
+
+C2, README. The introductory exclusion paragraph still said the release
+does not prove convergence, the same stale-exclusion pattern as E1. The
+overview and the exclusions are updated together: six accepted increments,
+convergence included, with the real exclusions retained (Choi or
+Stinespring equivalence, generic GKSL and Perron-Frobenius, trace-norm and
+diamond-norm contraction, general finite dimension). The stationary
+paragraph's "no convergence or channel claim" is scoped to that module.
+
+Erratum to D016. D016 says the Frobenius norm "is not contracted on every
+matrix, since the stationary direction is fixed". The reason given is
+imprecise. A fixed stationary direction rules out a uniform full-space
+contraction factor strictly below one; by itself it does not refute
+nonexpansiveness `F(Phi_t X) ≤ F(X)`. That unconditional inequality is
+false for a separate reason: with `a = 1`, `b = 0`, and `X = 1`, the flow
+gives `Phi_t 1 = diag(e, 2 - e)` with `e = exp(-t)`, whose squared
+Frobenius norm `e^2 + (2 - e)^2 = 2 + 2(1 - e)^2` exceeds `F(1)^2 = 2` for
+every `t > 0`. This calculation is explanatory and is not a release
+theorem. The accepted estimate is centered in a trace fiber, and no
+uncentered Frobenius contraction is asserted anywhere in the release. D016
+is not rewritten.
+
+Also recorded from the audit: the abandoned gate control of round 5
+(removing a declaration from both export lists passes the gate) exposed
+the verifier's documented limitation, not a proof failure; the manual
+source-to-export and theorem-to-contract inventory remains a release
+obligation each round and the verifier is not to be expanded to hide it.
+
+## D018: the scope memo is tracked as a planning document
+
+The user's personal scope memo, previously kept untracked at the root and
+reviewed by the auditor at the user's request
+(`audits/convergence/v1/SCOPE_MEMO_REVIEW.md`), is tracked from round 6 as
+`docs/SCOPE_MEMO.md`, with the review's seven corrections applied: the
+pilot is counted as six accepted increments with the Stage 4 extension and
+Stage 5 release outside it; the Markov bridge sketch carries `H = 0` with
+the `sigma_x` counterexample for an arbitrary Hamiltonian; the tier tally
+is made disjoint (26 A-only, 2 A/B, 4 B-only, 6 C, 1 reuse) and the
+session-count lower bound is withdrawn; candidate status is not read as a
+reported full result; the 187 and 167 counts are stated as accepted
+coverage counts; the row tally uses the auditor's closure convention; and
+the velocity paragraph credits specification and generic-layer work.
+
+Status of the file. It is a planning note owned by the user, shipped with
+the deliverables so that the auditor sees the same text the user works
+from. It is not a release artifact: it is not listed in `exports.json`, it
+is not covered by `scripts/verify.py`, it claims no theorem, and nothing
+in it is audited fact unless it cites an audit or verification record. The
+README source map and `AGENTS.md` say so. The issued markov assignment
+asked that the memo not be modified or committed as part of the
+milestone; the user decided otherwise for their own bookkeeping, and this
+entry records that decision so the auditor understands the change. The
+old untracked path `SCOPE_MEMO_2026-09-20.md` and its `.git/info/exclude`
+entry are removed.
+

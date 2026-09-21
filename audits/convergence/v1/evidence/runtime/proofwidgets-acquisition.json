@@ -1,0 +1,57 @@
+{
+  "package": "proofwidgets",
+  "expected_rev": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "init"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/proofwidgets",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/leanprover-community/ProofWidgets4"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/proofwidgets",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "106ff4fafc74ef4ac99d81dbf3ab399118f497a5"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/proofwidgets",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "checkout",
+        "--detach",
+        "FETCH_HEAD"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/proofwidgets",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/proofwidgets",
+      "returncode": 0
+    }
+  ],
+  "passed": true
+}

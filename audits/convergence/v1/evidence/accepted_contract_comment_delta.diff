@@ -1,0 +1,17 @@
+--- accepted_kraus/Audit/Contracts.lean
+
++++ current_contract_before_appended_convergence
+
+@@ -389,8 +389,9 @@
+
+ 
+ Generic layer: the Kraus sum is written as `∑ j, K j * X * (K j)ᴴ`, the amplifier's
+ block formula is exposed through `amplify_apply`, and the lifted operators are
+-`1 ⊗ₖ K j`. Two-state layer: `Ep`, `Ed`, and the family `Kf` are spelled out with
+-real division, `Real.exp`, `Real.sqrt`, and the matrix units `E₀₁`, `E₁₀`; the
++`1 ⊗ₖ K j`. Two-state layer: `Ep` and `Ed` are spelled out with real division,
++`Real.exp`, and `Real.sqrt`; the family `Kev` is referred to by name and its four
++members are pinned individually with those scalars and the matrix units `E₀₁`, `E₁₀`; the
+ physical hypotheses `0 ≤ a`, `0 ≤ b`, `0 ≤ t` appear exactly where the theorems
+ require them, and the both-zero and time-zero cases are covered explicitly.
+ -/

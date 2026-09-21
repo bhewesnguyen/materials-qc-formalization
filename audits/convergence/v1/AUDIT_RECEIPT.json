@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "milestone": "convergence",
+  "round": "v1",
+  "audit_date": "2026-09-21",
+  "decision": "accepted",
+  "proof_revision_required": false,
+  "reviewed_commit": "a3cbac0692b4c106a89e80c91d18b0c2de4988cd",
+  "reviewed_tag": "convergence-milestone-v1",
+  "declared_diff_base": "6431c9cd411a3a804d2a86ae733e23f393fe9361",
+  "declared_housekeeping_commit": "25862d078c14e372c2e08dbadfe986a4d00d8f43",
+  "declared_receipt_commit_prefix": "754c08b",
+  "remote_history_authenticated": false,
+  "input_archive": {
+    "sha256": "322a46cb9c45db8663dcdee73ddb3899dc9c7cda0e9d3dfb1fbe1bd3f32b6d1d",
+    "bytes": 2159927,
+    "zip_comment": "a3cbac0692b4c106a89e80c91d18b0c2de4988cd",
+    "manifest_entries": 1998,
+    "actual_files": 1999,
+    "all_manifest_files_match": true,
+    "nested_archives": [],
+    "detached_handoff_and_pointer_match": true,
+    "receipt_is_external_to_tagged_archive": true
+  },
+  "independent_verification": {
+    "recorded_utc": "2026-09-21T14:43:20.869400+00:00",
+    "verification_status": "passed",
+    "verification_commands": 31,
+    "all_verification_commands_exit_zero": true,
+    "release_modules": 7,
+    "exports": 187,
+    "contract_exports": 167,
+    "axiom_declarations": 187,
+    "all_axiom_sets_exactly_allowed": true,
+    "allowed_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "source_sha256_map_matches_submitted_evidence": true,
+    "axiom_map_matches_submitted_evidence": true,
+    "source_files_recorded": 15,
+    "dependency_count": 9,
+    "all_dependency_pins_exact_and_tracked_clean": true,
+    "gate_test_status": "passed",
+    "gate_test_count": 15,
+    "all_gate_tests_passed": true,
+    "gate_commands": 9,
+    "controls": [
+      {
+        "case": "missing-module",
+        "exit_code": 1,
+        "error": "Release module coverage mismatch: unlisted=['FormalScience.OpenSystems.TwoStateConvergence'], missing=[]",
+        "commands": 20,
+        "build_attempted": false
+      },
+      {
+        "case": "unmentioned-contract-export",
+        "exit_code": 1,
+        "error": "Contract file does not mention these fully qualified exports: ['FormalScience.OpenSystems.tendsto_evolution_unmentioned']",
+        "commands": 20,
+        "build_attempted": false
+      }
+    ],
+    "runtime_archive_sha256": "caaa98356098c85dc0fcbbd28e1ec66f39eb6551829972b752ff20e1286b646b",
+    "runtime_regular_payload_files_sha256_checked": 17738,
+    "runtime_payload_mismatches": 0,
+    "targeted_cache_files": 2509,
+    "fresh_project_elaboration": true,
+    "full_mathlib_source_rebuild": false,
+    "submitted_source_files_match_fresh_hash_map": true,
+    "reproduction_source_files_match_fresh_hash_map": true,
+    "all_seven_release_source_checks_zero_diagnostics": true
+  },
+  "findings": [
+    {
+      "id": "C1",
+      "severity": "low",
+      "blocking": false,
+      "location": "FormalScience/OpenSystems/TwoStateConvergence.lean module header",
+      "remedy": "Distinguish scalar error limit zero from matrix limit trace(X) \u2022 rhoStar. Correct comment after baseline reproduction; no theorem change."
+    },
+    {
+      "id": "C2",
+      "severity": "low",
+      "blocking": false,
+      "location": "README.md introductory exclusions",
+      "remedy": "Remove stale denial of convergence and record six accepted core increments; retain actual exclusions."
+    }
+  ],
+  "related_prose_clarification": "A fixed stationary direction excludes a strict full-space factor below one, not nonexpansiveness by itself. Record the D016 erratum in D017 without changing historical handoff text.",
+  "prior_prose_clarifications": "All three Kraus prose clarifications closed in D015 and current contract commentary.",
+  "manual_declaration_coverage": {
+    "public_declarations": 187,
+    "public_theorems": 167,
+    "definitions_or_abbreviations": 20,
+    "private_helpers": 6,
+    "unlisted_public_declarations": [],
+    "missing_theorem_consumers": [],
+    "automatic_discovery_of_omissions_from_both_lists": false
+  },
+  "historical_return": {
+    "kraus_return_sha256": "a9424f108d66502ee3373155e8cfa9fe5517b6202e0e29256e35bc4361eaaea9",
+    "all_203_original_files_byte_identical": true,
+    "prior_source_archive_sha256": "ef84addb5fbba564d69c12d8b9875e0f4a0227332a20b42dbcfe28f2e7d851f8",
+    "all_six_accepted_modules_unchanged": true,
+    "original_139_contract_statements_unchanged": true
+  },
+  "scope_memo": {
+    "input_sha256": "dac04b7da37ad70b6c3ed41240adc29370bcbf8288a182d5ffc94d28913ffc9f",
+    "part_of_release": false,
+    "input_modified": false,
+    "review": "audits/convergence/v1/SCOPE_MEMO_REVIEW.md"
+  },
+  "next_milestone": {
+    "key": "markov",
+    "round": "v1",
+    "module": "FormalScience/OpenSystems/FiniteMarkovBridge.lean",
+    "issued_task": "audits/convergence/v1/NEXT_FABLE_TASK.md",
+    "scope": "H=0 finite Markov generator identities, diagonal intertwining, stationarity and probability-density consumers, and recovery of the two-state generator. No generic dynamics.",
+    "compiled_next_milestone_probe": false
+  },
+  "portfolio": {
+    "accepted_local_increments": 6,
+    "two_state_mathematical_core_complete": true,
+    "stage4_extension": "selected; not implemented",
+    "stage5_release_work": "separate; not completed",
+    "inventory_areas": 39,
+    "identified_mathlib_reuse_items": 1,
+    "candidate_bearing_rows": 28,
+    "unresolved_or_partial_rows": 10,
+    "locally_advanced_broad_rows": 4,
+    "rows_without_local_implementation": 34,
+    "broad_rows_newly_completed_by_pilot": 0,
+    "new_global_reconnaissance": false
+  }
+}

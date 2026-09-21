@@ -1,0 +1,57 @@
+{
+  "package": "Qq",
+  "expected_rev": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "init"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/Qq",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/leanprover-community/quote4"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/Qq",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/Qq",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "checkout",
+        "--detach",
+        "FETCH_HEAD"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/Qq",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/Qq",
+      "returncode": 0
+    }
+  ],
+  "passed": true
+}

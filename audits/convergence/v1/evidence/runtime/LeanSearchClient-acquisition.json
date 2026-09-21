@@ -1,0 +1,57 @@
+{
+  "package": "LeanSearchClient",
+  "expected_rev": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "init"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/LeanSearchClient",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/leanprover-community/LeanSearchClient"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/LeanSearchClient",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "ddf04cf3949fa556442341e87d47f9f6e6074707"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/LeanSearchClient",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "checkout",
+        "--detach",
+        "FETCH_HEAD"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/LeanSearchClient",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/scratch/0a42b15a2c38/audit_convergence/reproduction/formal-science/.lake/packages/LeanSearchClient",
+      "returncode": 0
+    }
+  ],
+  "passed": true
+}
