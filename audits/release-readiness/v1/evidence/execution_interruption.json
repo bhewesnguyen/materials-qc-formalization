@@ -1,0 +1,6 @@
+{
+  "status": "interrupted before final summary",
+  "cause_observed": "Unified exec transport disconnected; executor key changed during session recovery",
+  "action": "Retained partial logs and restarted identical verification. No source, gate, or pin change.",
+  "utc": "2026-09-21T17:54:20.865119+00:00"
+}

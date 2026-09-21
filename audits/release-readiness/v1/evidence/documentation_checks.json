@@ -1,0 +1,50 @@
+{
+  "reviewed_paths": [
+    "README.md",
+    "docs/API_GUIDE.md",
+    "docs/RELEASE_READINESS.md",
+    "docs/SCOPE_MEMO.md",
+    "CHANGELOG.md",
+    "TURNS.md",
+    "examples/Usage.lean",
+    "deliverables/release-readiness/v1/HANDOFF.md",
+    "AGENTS.md"
+  ],
+  "em_dash_occurrences": {},
+  "usage_imports": [
+    "FormalScience"
+  ],
+  "usage_anonymous_examples": 3,
+  "usage_named_declarations": [],
+  "source_namespace_map": {
+    "FormalScience/Stage0.lean": [
+      "FormalScience.Stage0"
+    ],
+    "FormalScience/OpenSystems/TwoStateKraus.lean": [
+      "FormalScience.OpenSystems"
+    ],
+    "FormalScience/OpenSystems/TwoStateEvolution.lean": [
+      "FormalScience.OpenSystems"
+    ],
+    "FormalScience/OpenSystems/TwoStateConvergence.lean": [
+      "FormalScience.OpenSystems"
+    ],
+    "FormalScience/OpenSystems/Dissipator.lean": [
+      "FormalScience.OpenSystems"
+    ],
+    "FormalScience/OpenSystems/TwoStateStationary.lean": [
+      "FormalScience.OpenSystems"
+    ],
+    "FormalScience/OpenSystems/FiniteMarkovBridge.lean": [
+      "FormalScience.OpenSystems"
+    ],
+    "FormalScience/Quantum/FiniteKraus.lean": [
+      "FormalScience.Quantum"
+    ]
+  },
+  "probe": {
+    "source": "DocsConsumerProbe.lean",
+    "exit_code": 0,
+    "purpose": "Expected-error guard verifies missing Quantum namespace under guide setup; fully qualified checks and unconditional rhoStar_zero_left consumers pass."
+  }
+}

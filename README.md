@@ -15,13 +15,14 @@ Frobenius convergence to the stationary projection
 (`FormalScience/OpenSystems/TwoStateConvergence.lean`). A seventh accepted
 increment, the Stage 4 zero-Hamiltonian finite Markov generator bridge
 (`FormalScience/OpenSystems/FiniteMarkovBridge.lean`), extends the
-generator algebra to an arbitrary finite state set. The active checkpoint
-is the Stage 5 release-readiness candidate in `NEXT_FABLE_TASK.md`, which
-freezes this mathematical surface and adds documentation, provenance, and
-consumer reproduction without new API. `TURNS.md` indexes every
-implementation and audit round, and `audits/markov/v1/PORTFOLIO_STATUS.md`
-is the auditor's ledger of the 39-area portfolio against the accepted
-local work.
+generator algebra to an arbitrary finite state set. A bounded Stage 5
+release-readiness candidate (tag `release-readiness-milestone-v1`) that
+froze this surface and added documentation, provenance, and a
+fresh-extraction consumer reproduction is accepted as well. No
+implementation task is active; `NEXT_FABLE_TASK.md` is an inactive
+checkpoint note. `TURNS.md` indexes every implementation and audit round,
+and `audits/release-readiness/v1/PORTFOLIO_STATUS.md` is the auditor's
+ledger of the 39-area portfolio against the accepted local work.
 
 Beyond the generic finite Kraus and dissipator laws and the finite Markov
 generator bridge, the dynamical and convergence results concern the
@@ -88,15 +89,16 @@ was produced on the Ubuntu 24.04 workstation recorded in each tree's
 | `scripts/verify.py` | Build, contract, and transitive-axiom gate |
 | `scripts/test_verify.py` | Deliberate failing cases for that gate |
 | `DECISIONS.md` | Representation, dependency, and packaging decisions |
-| `NEXT_FABLE_TASK.md` | The active checkpoint (Stage 5 release-readiness candidate), now prepared and awaiting audit |
+| `NEXT_FABLE_TASK.md` | Inactive checkpoint note: release-readiness v1 accepted and integrated; no implementation task active |
 | `LICENSE`, `NOTICE` | Apache License 2.0 for the project's own material, with the copyright line and authorship disclosure (D021) |
 | `CITATION.cff`, `CHANGELOG.md` | Citation metadata for the candidate; the seven accepted increments with tags, commits, and capabilities |
 | `docs/API_GUIDE.md` | Theorem map with full Lean names and assumptions, and the conventions every statement follows |
 | `docs/RELEASE_READINESS.md` | Candidate scope, verified facts, evidence pointers, gate limitations, and outstanding decisions |
 | `docs/PROVENANCE_AND_LICENSES.md` | Origin of every part of the repository and the pinned dependency license inventory |
 | `examples/Usage.lean` | Three compiled anonymous consumers of the public API; documentation, not part of the export inventory |
-| `deliverables/release-readiness/v1/HANDOFF.md` | Completed handoff for the release-readiness candidate |
-| `evidence/release-readiness/v1/` | Reproduction, verification, gate-test, control, usage, provenance, freeze, and archive-consumer evidence for this round |
+| `deliverables/release-readiness/v1/HANDOFF.md` | Historical handoff for the accepted release-readiness candidate |
+| `evidence/release-readiness/v1/` | Preserved reproduction, verification, gate-test, control, usage, provenance, freeze, and archive-consumer evidence for the accepted candidate |
+| `audits/release-readiness/v1/Formal_Science_Release_Readiness_Audit_v1.md` | Accepted release-readiness audit, with findings R1 to R3, the portfolio ledger, and the closure assignment |
 | `deliverables/markov/v1/HANDOFF.md` | Historical handoff for the accepted finite Markov generator bridge |
 | `evidence/markov/v1/` | Preserved evidence for the accepted finite Markov generator bridge, including the manual declaration inventory |
 | `deliverables/convergence/v1/HANDOFF.md` | Historical handoff for the accepted quantitative convergence |
@@ -240,12 +242,14 @@ accepted mathematics, the verified candidate, and the open decisions.
 
 ## Next step
 
-The Stage 5 release-readiness candidate is prepared and its handoff is
-`deliverables/release-readiness/v1/HANDOFF.md`. The next turn is an
-independent audit of that candidate, to be stored under
-`audits/release-readiness/v1/`. The mathematical surface is frozen at the
-accepted Markov snapshot; no further milestone is active until the audit
-selects one.
+None is active. The release-readiness candidate is accepted and integrated
+(`audits/release-readiness/v1/`, D022), the mathematical surface is frozen
+at the accepted Markov snapshot, and the implementation phase is paused.
+Two decisions belong to the owner and are not made by this repository's
+loop: whether and where to publish (the roadmap's broader Stage 5 gate,
+with human review, is not declared complete), and which theorem contract,
+if any, opens the next phase. A later phase begins with one issued
+contract in `NEXT_FABLE_TASK.md`.
 
 Public theorem scope and proof trust are separate from source provenance,
 upstream acceptance, and novelty. The scripts are ordinary reproducibility and

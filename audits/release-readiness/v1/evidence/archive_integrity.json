@@ -1,0 +1,31 @@
+{
+  "source": {
+    "file": "Formal_Science_Release_Readiness_Handoff.zip",
+    "sha256": "e97dfc620b50a2a6a2d9de51b33ec009d6dfd17ea7acd3987ddc9d0096c408e0",
+    "bytes": 3553183,
+    "manifest_payloads": 3118,
+    "actual_files": 3119,
+    "zip_comment": "2a258df6654d1b3553d3affebd7e94405bb4e989",
+    "crc_pass": true,
+    "all_paths_safe_unique": true,
+    "exact_manifest_path_set": true,
+    "all_hashes_and_sizes_match": true,
+    "nested_archives": false
+  },
+  "companion": {
+    "file": "Formal_Science_Release_Readiness_Consumer_Evidence.zip",
+    "sha256": "7c6bca2065fb4c0068ef2d1265b97197d09dbedd0173e33f34983f2442d35553",
+    "bytes": 142213,
+    "manifest_payloads": 115,
+    "actual_files": 116,
+    "zip_comment": "",
+    "crc_pass": true,
+    "all_paths_safe_unique": true,
+    "exact_manifest_path_set": true,
+    "all_hashes_and_sizes_match": true,
+    "nested_archives": false
+  },
+  "detached_files_match": true,
+  "source_receipt_external_to_source_archive": true,
+  "companion_receipt_external_to_companion_archive": true
+}

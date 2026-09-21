@@ -1,0 +1,365 @@
+{
+  "source_archive": {
+    "payload_files": 3118,
+    "actual_files": 3119,
+    "mismatches": [],
+    "missing": [],
+    "extra": [],
+    "sha256": "e97dfc620b50a2a6a2d9de51b33ec009d6dfd17ea7acd3987ddc9d0096c408e0",
+    "bytes": 3553183,
+    "zip_comment": "2a258df6654d1b3553d3affebd7e94405bb4e989",
+    "crc_bad_file": null,
+    "unsafe_paths": [],
+    "duplicates": false,
+    "symlinks": [],
+    "nested_archives": []
+  },
+  "companion_archive": {
+    "payload_files": 115,
+    "actual_files": 116,
+    "mismatches": [],
+    "missing": [],
+    "extra": [],
+    "sha256": "7c6bca2065fb4c0068ef2d1265b97197d09dbedd0173e33f34983f2442d35553",
+    "bytes": 142213,
+    "zip_comment": "",
+    "crc_bad_file": null,
+    "unsafe_paths": [],
+    "duplicates": false,
+    "symlinks": [],
+    "nested_archives": []
+  },
+  "since_markov": {
+    "old_payload_count": 2609,
+    "new_payload_count": 3118,
+    "missing": [],
+    "changed": [
+      "AGENTS.md",
+      "DECISIONS.md",
+      "NEXT_FABLE_TASK.md",
+      "README.md",
+      "TURNS.md",
+      "docs/SCOPE_MEMO.md"
+    ],
+    "added_count": 509
+  },
+  "earlier_evidence": {
+    "compared": 1591,
+    "changed": []
+  },
+  "earlier_audits": {
+    "compared": 975,
+    "changed": []
+  },
+  "earlier_handoffs": {
+    "compared": 16,
+    "changed": []
+  },
+  "exact_markov_return": {
+    "payload_files": 207,
+    "including_manifest": 208,
+    "mismatches": []
+  },
+  "freeze": {
+    "compared_files": 16,
+    "files": [
+      {
+        "path": "lean-toolchain",
+        "sha256": "8733782dc070a99b312039cda424f601b80f3be6f6f512627da5ba25adc27632",
+        "identical": true
+      },
+      {
+        "path": "lakefile.toml",
+        "sha256": "7ce638070ed8dd0a0d64280ecbdd5a9ac0fcfa26ae2b190e321aac3ff12003fe",
+        "identical": true
+      },
+      {
+        "path": "lake-manifest.json",
+        "sha256": "bf782855f3900257333229a005a4158c054550761a2fcaaba57348b3ab9db3a7",
+        "identical": true
+      },
+      {
+        "path": "exports.json",
+        "sha256": "ecd3faefdc5b4198b4791f070714b3b4b7278ee24bd569391f072ab19f99affa",
+        "identical": true
+      },
+      {
+        "path": "FormalScience.lean",
+        "sha256": "53441ed9d9f12701777a888c5c1e51fd1178dd1a2b18225130a44f41910abf04",
+        "identical": true
+      },
+      {
+        "path": "Audit/Contracts.lean",
+        "sha256": "19fc9cb7652f434ef794e75a5dd9b0f695317f019e7e7405e273d4379fd25f66",
+        "identical": true
+      },
+      {
+        "path": "scripts/verify.py",
+        "sha256": "9a6d01e56f55913084038636cb5fbedaf7dd4a40638304e61488cc7619fad757",
+        "identical": true
+      },
+      {
+        "path": "scripts/test_verify.py",
+        "sha256": "44dddfe2bcd28c016eda7e6d33e6331975de521a01a27387988601954df2d596",
+        "identical": true
+      },
+      {
+        "path": "FormalScience/Stage0.lean",
+        "sha256": "b8022c56e22bd3d9f0fc965a769015d8484520dc3a0915e2c3d5e8b97dc101f5",
+        "identical": true
+      },
+      {
+        "path": "FormalScience/OpenSystems/Dissipator.lean",
+        "sha256": "abaec0a4a01fe746599ffbc3117ed7dd6ce1d42c88861fced777684e26577ada",
+        "identical": true
+      },
+      {
+        "path": "FormalScience/OpenSystems/TwoStateStationary.lean",
+        "sha256": "745efb74d87359f6cacae50625e316e473f7dd27a595a9689fab083baff855e1",
+        "identical": true
+      },
+      {
+        "path": "FormalScience/OpenSystems/TwoStateEvolution.lean",
+        "sha256": "541772ee2f865c567bede484e2a5e25562531da1294e5fdcb7abc0c4cd069e37",
+        "identical": true
+      },
+      {
+        "path": "FormalScience/Quantum/FiniteKraus.lean",
+        "sha256": "1fe2ec3bb001f4503a29a91dd1cc1fa907effa74f8128817c53a4c1551b0e5e5",
+        "identical": true
+      },
+      {
+        "path": "FormalScience/OpenSystems/TwoStateKraus.lean",
+        "sha256": "f21f85bb6595cf64407734bd7795b3fe01b962a6cab7bacab1d98b4433a79f87",
+        "identical": true
+      },
+      {
+        "path": "FormalScience/OpenSystems/TwoStateConvergence.lean",
+        "sha256": "0d8634368db3fe805b4d15f97584e2ced30f1c79f0f35994929149b41d611e89",
+        "identical": true
+      },
+      {
+        "path": "FormalScience/OpenSystems/FiniteMarkovBridge.lean",
+        "sha256": "18842b875a294fdbab6963b5bf201d6b12935d96cf902bc7484747fd5ca768f9",
+        "identical": true
+      }
+    ],
+    "all_identical": true
+  },
+  "verification_evidence": {
+    "baseline": {
+      "status": "passed",
+      "commands": 32,
+      "all_exit_zero": true,
+      "raw_log_mismatches": [],
+      "exports": 216,
+      "contract_exports": 193,
+      "modules": 8,
+      "raw_axiom_reports": 216,
+      "axiom_map_identical_to_accepted": true,
+      "source_hash_map_identical_to_accepted": true,
+      "source_and_contract_diagnostics_empty": true,
+      "exact_clean_dependencies": 9,
+      "started_at": "2026-09-21T17:25:55.770150+00:00",
+      "finished_at": "2026-09-21T17:26:22.320988+00:00",
+      "source_paths": [
+        "lean-toolchain",
+        "lakefile.toml",
+        "lake-manifest.json",
+        "exports.json",
+        "FormalScience.lean",
+        "Audit/Contracts.lean",
+        "scripts/verify.py",
+        "scripts/test_verify.py",
+        "FormalScience/Stage0.lean",
+        "FormalScience/OpenSystems/Dissipator.lean",
+        "FormalScience/OpenSystems/TwoStateStationary.lean",
+        "FormalScience/OpenSystems/TwoStateEvolution.lean",
+        "FormalScience/Quantum/FiniteKraus.lean",
+        "FormalScience/OpenSystems/TwoStateKraus.lean",
+        "FormalScience/OpenSystems/TwoStateConvergence.lean",
+        "FormalScience/OpenSystems/FiniteMarkovBridge.lean"
+      ]
+    },
+    "final": {
+      "status": "passed",
+      "commands": 32,
+      "all_exit_zero": true,
+      "raw_log_mismatches": [],
+      "exports": 216,
+      "contract_exports": 193,
+      "modules": 8,
+      "raw_axiom_reports": 216,
+      "axiom_map_identical_to_accepted": true,
+      "source_hash_map_identical_to_accepted": true,
+      "source_and_contract_diagnostics_empty": true,
+      "exact_clean_dependencies": 9,
+      "started_at": "2026-09-21T17:33:15.613611+00:00",
+      "finished_at": "2026-09-21T17:33:41.949295+00:00",
+      "source_paths": [
+        "lean-toolchain",
+        "lakefile.toml",
+        "lake-manifest.json",
+        "exports.json",
+        "FormalScience.lean",
+        "Audit/Contracts.lean",
+        "scripts/verify.py",
+        "scripts/test_verify.py",
+        "FormalScience/Stage0.lean",
+        "FormalScience/OpenSystems/Dissipator.lean",
+        "FormalScience/OpenSystems/TwoStateStationary.lean",
+        "FormalScience/OpenSystems/TwoStateEvolution.lean",
+        "FormalScience/Quantum/FiniteKraus.lean",
+        "FormalScience/OpenSystems/TwoStateKraus.lean",
+        "FormalScience/OpenSystems/TwoStateConvergence.lean",
+        "FormalScience/OpenSystems/FiniteMarkovBridge.lean"
+      ]
+    },
+    "consumer": {
+      "status": "passed",
+      "commands": 32,
+      "all_exit_zero": true,
+      "raw_log_mismatches": [],
+      "exports": 216,
+      "contract_exports": 193,
+      "modules": 8,
+      "raw_axiom_reports": 216,
+      "axiom_map_identical_to_accepted": true,
+      "source_hash_map_identical_to_accepted": true,
+      "source_and_contract_diagnostics_empty": true,
+      "exact_clean_dependencies": 9,
+      "started_at": "2026-09-21T17:41:25.515374+00:00",
+      "finished_at": "2026-09-21T17:42:01.115335+00:00",
+      "source_paths": [
+        "lean-toolchain",
+        "lakefile.toml",
+        "lake-manifest.json",
+        "exports.json",
+        "FormalScience.lean",
+        "Audit/Contracts.lean",
+        "scripts/verify.py",
+        "scripts/test_verify.py",
+        "FormalScience/Stage0.lean",
+        "FormalScience/OpenSystems/Dissipator.lean",
+        "FormalScience/OpenSystems/TwoStateStationary.lean",
+        "FormalScience/OpenSystems/TwoStateEvolution.lean",
+        "FormalScience/Quantum/FiniteKraus.lean",
+        "FormalScience/OpenSystems/TwoStateKraus.lean",
+        "FormalScience/OpenSystems/TwoStateConvergence.lean",
+        "FormalScience/OpenSystems/FiniteMarkovBridge.lean"
+      ]
+    }
+  },
+  "gate_evidence": {
+    "baseline": {
+      "status": "passed",
+      "tests": 15,
+      "commands": 9,
+      "raw_log_mismatches": [],
+      "all_test_cases_passed": true
+    },
+    "final": {
+      "status": "passed",
+      "tests": 15,
+      "commands": 9,
+      "raw_log_mismatches": [],
+      "all_test_cases_passed": true
+    },
+    "consumer": {
+      "status": "passed",
+      "tests": 15,
+      "commands": 9,
+      "raw_log_mismatches": [],
+      "all_test_cases_passed": true
+    }
+  },
+  "controls": {
+    "missing-module": {
+      "status": "failed",
+      "error": "Release module coverage mismatch: unlisted=['FormalScience.OpenSystems.FiniteMarkovBridge'], missing=[]",
+      "commands": 20,
+      "no_build_invocation": true,
+      "same_fixture_as_markov": true,
+      "raw_log_mismatches": []
+    },
+    "unmentioned-contract-export": {
+      "status": "failed",
+      "error": "Contract file does not mention these fully qualified exports: ['FormalScience.OpenSystems.markovGenerator_unmentioned']",
+      "commands": 20,
+      "no_build_invocation": true,
+      "same_fixture_as_markov": true,
+      "raw_log_mismatches": []
+    }
+  },
+  "inventory_linkage": {
+    "sha256": "8d406488ff1922ec1c848dd7145373d184a4fe632f3bea1e447e4f568ef60b08",
+    "valid": true,
+    "summary": {
+      "public_declarations": 216,
+      "public_theorems": 193,
+      "definitions_or_abbreviations": 23,
+      "private_helpers": 7,
+      "private_helper_names": [
+        "FormalScience.OpenSystems.one_sub_div_add",
+        "FormalScience.OpenSystems.evolutionFun",
+        "FormalScience.OpenSystems.sqrt_facts",
+        "FormalScience.OpenSystems.diagonal_one_one",
+        "FormalScience.OpenSystems.vec_one_one",
+        "FormalScience.OpenSystems.norm_ofReal_mul_sq",
+        "FormalScience.OpenSystems.dissipator_single_apply"
+      ],
+      "exports_listed": 216,
+      "contract_exports_listed": 193,
+      "unlisted_public_declarations": [],
+      "missing_theorem_consumers": [],
+      "exports_not_found_in_source": [],
+      "per_module_public": {
+        "FormalScience.Stage0": 15,
+        "FormalScience.OpenSystems.Dissipator": 27,
+        "FormalScience.OpenSystems.TwoStateStationary": 30,
+        "FormalScience.OpenSystems.TwoStateEvolution": 43,
+        "FormalScience.Quantum.FiniteKraus": 6,
+        "FormalScience.OpenSystems.TwoStateKraus": 37,
+        "FormalScience.OpenSystems.TwoStateConvergence": 29,
+        "FormalScience.OpenSystems.FiniteMarkovBridge": 29
+      },
+      "method": "Regex scan of every release module for top-level theorem/def/abbrev/lemma declarations with their private/noncomputable modifiers, namespace-qualified, compared with exports.json and with fully qualified mentions in Audit/Contracts.lean. This is the human-review obligation the verifier deliberately does not automate; the scan is an aid to that review, not a gate. No instance, structure, class, or opaque declarations exist in the release modules (checked by grep).",
+      "contracts_sha256": "19fc9cb7652f434ef794e75a5dd9b0f695317f019e7e7405e273d4379fd25f66"
+    }
+  },
+  "usage_evidence": {
+    "exit_code": 0,
+    "source_hash_matches": true,
+    "empty_diagnostics": true
+  },
+  "loose_attachments": {
+    "HANDOFF(6).md": true,
+    "POINTER(6).json": true,
+    "RECEIPT(5).json": true,
+    "CONSUMER_EVIDENCE_MANIFEST.json": true
+  },
+  "receipt_separation": {
+    "source_receipt_excluded_from_source": true,
+    "companion_receipt_excluded_from_companion": true,
+    "source_digest_matches": true,
+    "companion_digest_matches": true,
+    "source_commit_matches_zip_comment": true
+  },
+  "consumer_outer_logs": {
+    "all_four_exit_zero": true,
+    "input_sha256_matches": true,
+    "cache_log_cloned_count": 9,
+    "cache_log_reports_no_files_to_download": true,
+    "decompressed_artifacts": 2435,
+    "already_decompressed": 74,
+    "dependency_mode": "Reused pinned compiled dependency artifacts, fresh project elaboration; not full Mathlib source rebuild"
+  },
+  "scope_limitations": [
+    "Archive ZIP comment and receipts identify submitted source commit; no Git history or remote tags in this artifact audit.",
+    "Recorded git chronology, commands, and exit codes are independently cross-checked within the supplied evidence; root auditor performs fresh execution separately.",
+    "No new mathematical theorem requires semantic re-audit because frozen sources are identical to the previously accepted actual snapshot."
+  ],
+  "errors": [],
+  "status": "passed",
+  "recorded_at": "2026-09-21T17:55:23.894496+00:00"
+}

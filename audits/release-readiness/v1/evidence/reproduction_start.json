@@ -1,0 +1,8 @@
+{
+  "source": "verified supplied archive",
+  "source_sha256": "e97dfc620b50a2a6a2d9de51b33ec009d6dfd17ea7acd3987ddc9d0096c408e0",
+  "fresh_project_build_directory": true,
+  "dependency_mode": "reuse exact pinned dependency working trees and compiled Mathlib cache from prior independently verified runtime; dependency revisions and tracked status rechecked by verify.py",
+  "project_outputs_copied": false,
+  "mode": "fresh project source elaboration; not full Mathlib source rebuild"
+}

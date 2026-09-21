@@ -1,0 +1,14 @@
+{
+  "project_license_decision": "D021 recorded owner selection; accepted as submitted decision",
+  "canonical_apache_license_byte_identical": true,
+  "all_nine_dependency_license_hashes_match_recorded_inventory": true,
+  "adapted_reference_probe_hashes": {
+    "audits/evolution/v1/reference/KrausProbe.lean": "cb9ebbc1442bb0b61cd9d9696c286adf42451ecf19bab15cf69de5dc22c2721e",
+    "audits/kraus/v1/reference/ConvergenceApiProbe.lean": "46b92179fa34e877f0dc99bf11ee6f3357bd9f6df29117a604ee8b59c9a0a178"
+  },
+  "citation_yaml_parses": true,
+  "citation_version_and_license_match": true,
+  "citation_invents_no_release_date": true,
+  "citation_schema_validator_run": false,
+  "remote_repository_url_authenticated": false
+}

@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "/workspace/scratch/0a42b15a2c38/audit_convergence/runtime/lean-4.34.0-linux/bin/lake",
+    "env",
+    "lean",
+    "examples/Usage.lean"
+  ],
+  "cwd": "/workspace/scratch/0a42b15a2c38/audit_release_readiness/reproduction/formal-science",
+  "started_at": "2026-09-21T17:55:43.819270+00:00",
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "",
+  "source_sha256": "dbb30a99c81368b0861ecf1ade6e47cdcfc5af09c394a5202ad9d00b22827909",
+  "anonymous_examples": 3,
+  "assertion": "Density preservation; positive-total-rate density limit; Fin 3 diagonal Markov bridge."
+}

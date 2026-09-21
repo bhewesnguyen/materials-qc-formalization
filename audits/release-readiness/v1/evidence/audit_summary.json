@@ -1,0 +1,28 @@
+{
+  "verification_status": "passed",
+  "verification_commands": 32,
+  "all_verification_commands_exit_zero": true,
+  "release_modules": 8,
+  "exports": 216,
+  "contract_exports": 193,
+  "definitions_or_abbreviations": 23,
+  "all_release_sources_and_contracts_zero_diagnostics": true,
+  "all_export_axioms_exactly": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "gate_cases": 15,
+  "gate_status": "passed",
+  "usage_examples": 3,
+  "usage_status": "passed",
+  "usage_zero_diagnostics": true,
+  "fresh_source_hashes_manifest_and_axioms_match_submitted_final_and_consumer": true,
+  "no_new_public_mathematics": true,
+  "mathematical_surface_frozen_to": "4795b8b6dc6ec7a831b9158affe3ee199f60e01e",
+  "dependency_mode": "Previously validated pinned dependency working trees and Mathlib compiled cache reused; fresh project build/source re-elaboration; no Mathlib full rebuild.",
+  "initial_execution_interruption": "Transport recovery changed executor; partial logs retained and unchanged commands restarted successfully.",
+  "additional_negative_controls": "Submitted controls inspected with retained fixtures; current scripts/contracts/exports match Markov, whose controls were independently executed in prior audit. No redundant fresh control execution in this audit.",
+  "remote_git_history_authenticated": false,
+  "submitted_source_modified": false
+}

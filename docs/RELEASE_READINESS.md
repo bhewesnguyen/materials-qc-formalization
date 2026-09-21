@@ -2,13 +2,19 @@
 
 Candidate: `release-readiness-milestone-v1`, prepared 21 September 2026 from
 the accepted Markov snapshot `4795b8b6dc6ec7a831b9158affe3ee199f60e01e`
-(tag `markov-milestone-v1`). This document separates three things that are
-easy to conflate: what the independent audits have accepted
-mathematically, what this candidate itself has verified about the package
-a recipient receives, and what remains an owner or publication decision.
-The pointers below are to files in this repository; the post-tag
-archive-consumer evidence is committed after the tag and is also delivered
-in a companion archive, as required by the assignment.
+(tag `markov-milestone-v1`), and accepted by the independent
+release-readiness audit on the same day
+(`audits/release-readiness/v1/Formal_Science_Release_Readiness_Audit_v1.md`,
+commit under review `2a258df6654d1b3553d3affebd7e94405bb4e989`) with three
+low-severity documentation findings closed in the integration commit
+(D022). This document separates three things that are easy to conflate:
+what the independent audits have accepted mathematically, what this
+candidate verified about the package a recipient receives, and what
+remains an owner or publication decision. Acceptance of the candidate is
+not a human-review result and does not complete the roadmap's broader
+Stage 5 gate. The pointers below are to files in this repository; the
+post-tag archive-consumer evidence is committed after the tag and was also
+delivered in a companion archive, as the assignment required.
 
 ## 1. Exact candidate scope
 
@@ -85,9 +91,10 @@ Recorded under `evidence/release-readiness/v1/`:
   re-elaboration of every release source and of the contract file, explicit
   signatures, and transitive axioms. It does not discover a public
   declaration omitted from both export lists; that check is the manual
-  inventory above, reviewed each round. A textual mention is not by itself
-  a correctly stated consumer; the contract statements are human-written
-  and were read by the implementer and the auditor.
+  inventory above, reviewed each round. The contract statements are
+  written explicitly and were semantically reviewed by the implementation
+  and independent audit agents. The textual check alone does not validate
+  their meaning. No human semantic review is recorded.
 - Verification reuses Mathlib's compiled cache at the pin; no round has
   rebuilt Mathlib from source.
 - Successful compilation and an accepted axiom report do not establish

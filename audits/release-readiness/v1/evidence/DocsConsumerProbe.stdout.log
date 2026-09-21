@@ -1,0 +1,8 @@
+FormalScience.Quantum.krausMap_posSemidef.{u_1, u_2, u_3} {α : Type u_1} {β : Type u_2} {κ : Type u_3} [Fintype α]
+  [Fintype β] [Fintype κ] (K : κ → Matrix β α ℂ) {X : Matrix α α ℂ} (hX : X.PosSemidef) : (krausMap K X).PosSemidef
+FormalScience.Quantum.amplify.{u_1, u_2} {α : Type u_1} {β : Type u_2} (m : ℕ) (Φ : Matrix α α ℂ → Matrix β β ℂ)
+  (Y : Matrix (Fin m × α) (Fin m × α) ℂ) : Matrix (Fin m × β) (Fin m × β) ℂ
+FormalScience.Quantum.amplify_krausMap.{u_1, u_2, u_3} {α : Type u_1} {β : Type u_2} {κ : Type u_3} [Fintype α]
+  [Fintype κ] (m : ℕ) (K : κ → Matrix β α ℂ) (Y : Matrix (Fin m × α) (Fin m × α) ℂ) :
+  FormalScience.Quantum.amplify m (krausMap K) Y =
+    krausMap (fun j => Matrix.kroneckerMap (fun x1 x2 => x1 * x2) 1 (K j)) Y

@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "milestone": "release-readiness",
+  "round": "v1",
+  "audit_date": "2026-09-21",
+  "decision": "accepted",
+  "qualification": "Three low-severity nonblocking documentation findings to close in ordinary integration. No proof or packaging revision round.",
+  "proof_revision_required": false,
+  "new_candidate_round_required": false,
+  "reviewed_commit": "2a258df6654d1b3553d3affebd7e94405bb4e989",
+  "reviewed_tag": "release-readiness-milestone-v1",
+  "declared_diff_base": "4795b8b6dc6ec7a831b9158affe3ee199f60e01e",
+  "declared_housekeeping_commit": "933024e414e252234ed96defa4640096564cee3d",
+  "declared_source_receipt_commit_prefix": "fdf65b2",
+  "declared_companion_receipt_commit_prefix": "d696a50",
+  "remote_history_authenticated": false,
+  "input_archives": {
+    "source": {
+      "file": "Formal_Science_Release_Readiness_Handoff.zip",
+      "sha256": "e97dfc620b50a2a6a2d9de51b33ec009d6dfd17ea7acd3987ddc9d0096c408e0",
+      "bytes": 3553183,
+      "manifest_payloads": 3118,
+      "actual_files": 3119,
+      "zip_comment": "2a258df6654d1b3553d3affebd7e94405bb4e989",
+      "crc_pass": true,
+      "all_paths_safe_unique": true,
+      "exact_manifest_path_set": true,
+      "all_hashes_and_sizes_match": true,
+      "nested_archives": false
+    },
+    "companion": {
+      "file": "Formal_Science_Release_Readiness_Consumer_Evidence.zip",
+      "sha256": "7c6bca2065fb4c0068ef2d1265b97197d09dbedd0173e33f34983f2442d35553",
+      "bytes": 142213,
+      "manifest_payloads": 115,
+      "actual_files": 116,
+      "zip_comment": "",
+      "crc_pass": true,
+      "all_paths_safe_unique": true,
+      "exact_manifest_path_set": true,
+      "all_hashes_and_sizes_match": true,
+      "nested_archives": false
+    },
+    "detached_files_match": true,
+    "source_receipt_external_to_source_archive": true,
+    "companion_receipt_external_to_companion_archive": true
+  },
+  "independent_verification": {
+    "verification_status": "passed",
+    "verification_commands": 32,
+    "all_verification_commands_exit_zero": true,
+    "release_modules": 8,
+    "exports": 216,
+    "contract_exports": 193,
+    "definitions_or_abbreviations": 23,
+    "all_release_sources_and_contracts_zero_diagnostics": true,
+    "all_export_axioms_exactly": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "gate_cases": 15,
+    "gate_status": "passed",
+    "usage_examples": 3,
+    "usage_status": "passed",
+    "usage_zero_diagnostics": true,
+    "fresh_source_hashes_manifest_and_axioms_match_submitted_final_and_consumer": true,
+    "no_new_public_mathematics": true,
+    "mathematical_surface_frozen_to": "4795b8b6dc6ec7a831b9158affe3ee199f60e01e",
+    "dependency_mode": "Previously validated pinned dependency working trees and Mathlib compiled cache reused; fresh project build/source re-elaboration; no Mathlib full rebuild.",
+    "initial_execution_interruption": "Transport recovery changed executor; partial logs retained and unchanged commands restarted successfully.",
+    "additional_negative_controls": "Submitted controls inspected with retained fixtures; current scripts/contracts/exports match Markov, whose controls were independently executed in prior audit. No redundant fresh control execution in this audit.",
+    "remote_git_history_authenticated": false,
+    "submitted_source_modified": false
+  },
+  "source_sha256": {
+    "lean-toolchain": "8733782dc070a99b312039cda424f601b80f3be6f6f512627da5ba25adc27632",
+    "lakefile.toml": "7ce638070ed8dd0a0d64280ecbdd5a9ac0fcfa26ae2b190e321aac3ff12003fe",
+    "lake-manifest.json": "bf782855f3900257333229a005a4158c054550761a2fcaaba57348b3ab9db3a7",
+    "exports.json": "ecd3faefdc5b4198b4791f070714b3b4b7278ee24bd569391f072ab19f99affa",
+    "FormalScience.lean": "53441ed9d9f12701777a888c5c1e51fd1178dd1a2b18225130a44f41910abf04",
+    "Audit/Contracts.lean": "19fc9cb7652f434ef794e75a5dd9b0f695317f019e7e7405e273d4379fd25f66",
+    "scripts/verify.py": "9a6d01e56f55913084038636cb5fbedaf7dd4a40638304e61488cc7619fad757",
+    "scripts/test_verify.py": "44dddfe2bcd28c016eda7e6d33e6331975de521a01a27387988601954df2d596",
+    "FormalScience/Stage0.lean": "b8022c56e22bd3d9f0fc965a769015d8484520dc3a0915e2c3d5e8b97dc101f5",
+    "FormalScience/OpenSystems/Dissipator.lean": "abaec0a4a01fe746599ffbc3117ed7dd6ce1d42c88861fced777684e26577ada",
+    "FormalScience/OpenSystems/TwoStateStationary.lean": "745efb74d87359f6cacae50625e316e473f7dd27a595a9689fab083baff855e1",
+    "FormalScience/OpenSystems/TwoStateEvolution.lean": "541772ee2f865c567bede484e2a5e25562531da1294e5fdcb7abc0c4cd069e37",
+    "FormalScience/Quantum/FiniteKraus.lean": "1fe2ec3bb001f4503a29a91dd1cc1fa907effa74f8128817c53a4c1551b0e5e5",
+    "FormalScience/OpenSystems/TwoStateKraus.lean": "f21f85bb6595cf64407734bd7795b3fe01b962a6cab7bacab1d98b4433a79f87",
+    "FormalScience/OpenSystems/TwoStateConvergence.lean": "0d8634368db3fe805b4d15f97584e2ced30f1c79f0f35994929149b41d611e89",
+    "FormalScience/OpenSystems/FiniteMarkovBridge.lean": "18842b875a294fdbab6963b5bf201d6b12935d96cf902bc7484747fd5ca768f9"
+  },
+  "usage_sha256": "dbb30a99c81368b0861ecf1ade6e47cdcfc5af09c394a5202ad9d00b22827909",
+  "frozen_file_count": 16,
+  "findings": [
+    {
+      "id": "R1",
+      "severity": "low",
+      "blocking": false,
+      "location": "docs/API_GUIDE.md",
+      "remedy": "Correct rhoStar_zero_left to no hypothesis; provide full declaration and import names, including Quantum; expand suffix shorthands; list i != j for off-diagonal results; distinguish theorem consumers from definitions."
+    },
+    {
+      "id": "R2",
+      "severity": "low",
+      "blocking": false,
+      "location": "docs/RELEASE_READINESS.md Section 4; docs/PROVENANCE_AND_LICENSES.md origin wording",
+      "remedy": "Replace human-written contracts claim with explicit AI-authored/agent-reviewed description and retain no recorded human semantic review. Restrict every-later-document wording to implementation-authored files, preserving auditor and planning origins."
+    },
+    {
+      "id": "R3",
+      "severity": "low",
+      "blocking": false,
+      "location": "docs/SCOPE_MEMO.md Section 4; CHANGELOG.md Kraus entry",
+      "remedy": "Advance contribution table and link from convergence to accepted Markov, adding known contributions to rows 10,11,13 without changing partial-row counts. Identify evolution docstring change as optional D013 copy edit, not E1."
+    }
+  ],
+  "prior_findings": {
+    "M1": "closed",
+    "M2": "all seven requested wording corrections closed"
+  },
+  "recorded_license_decision": {
+    "decision": "D021",
+    "license": "Apache-2.0",
+    "scope": "project material only; dependencies retain their own licenses",
+    "canonical_text_independently_fetched_and_byte_matched": true,
+    "nine_dependency_license_hashes_match": true,
+    "candidate_owner_license_choice_pending": false,
+    "per_file_headers_changed": false,
+    "copyright_ownership_or_legal_opinion_claimed": false
+  },
+  "historical_preservation": {
+    "old_evidence_files": 1591,
+    "old_audit_files": 975,
+    "old_handoff_receipt_files": 16,
+    "all_unchanged": true,
+    "exact_markov_return_files_including_manifest": 208,
+    "accepted_source_payloads_removed": 0,
+    "old_payloads_changed": [
+      "AGENTS.md",
+      "DECISIONS.md",
+      "NEXT_FABLE_TASK.md",
+      "README.md",
+      "TURNS.md",
+      "docs/SCOPE_MEMO.md"
+    ],
+    "new_payloads": 509
+  },
+  "gate_scope": {
+    "additional_negative_controls": "Submitted raw evidence and unchanged fixtures inspected; independent equivalent Markov controls retained in prior audit. Not rerun redundantly here.",
+    "manual_inventory_reuse": "Valid because linked source, contract, scripts and export list hashes are frozen.",
+    "human_semantic_review_credited": false
+  },
+  "next_action": {
+    "kind": "ordinary audit integration and documentation closure",
+    "issued_task": "audits/release-readiness/v1/NEXT_FABLE_TASK.md",
+    "new_tag": false,
+    "new_archive": false,
+    "another_audit_packet_required": false,
+    "new_mathematical_implementation_active": false,
+    "publication_authorized": false,
+    "user_pushes": true
+  },
+  "portfolio": {
+    "accepted_mathematical_increments": 7,
+    "accepted_release_readiness_checkpoints": 1,
+    "two_state_core_complete": true,
+    "selected_finite_markov_generator_extension_complete": true,
+    "bounded_candidate_preparation_accepted": true,
+    "original_broader_stage5_human_review_and_release_complete": false,
+    "modules": 8,
+    "exports": 216,
+    "theorem_contracts": 193,
+    "definitions_or_abbreviations": 23,
+    "areas": 39,
+    "identified_mathlib_reuse_rows": 1,
+    "candidate_bearing_rows": 28,
+    "unresolved_or_partial_rows": 10,
+    "locally_advanced_rows": 4,
+    "other_rows_without_local_implementation": 34,
+    "broad_rows_closed_by_project": 0,
+    "new_global_reconnaissance": false
+  }
+}

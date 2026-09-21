@@ -27,8 +27,9 @@ integration target) is complete: six bounded increments are accepted
 (Stage 0, dissipator, stationary, evolution, kraus, convergence). What
 follows is not part of that pilot. The selected Stage 4 extension, the
 zero-Hamiltonian finite Markov generator bridge, is accepted as the seventh
-mathematical increment (29 exports), and Stage 5 release readiness is the
-active checkpoint. Earlier versions of this memo counted "seven
+mathematical increment (29 exports), and the bounded Stage 5
+release-readiness candidate is accepted and integrated; no implementation
+task is active. Earlier versions of this memo counted "seven
 checkpoints" by adding one extension to the pilot; that was a program
 counter of my own choosing, not a completion fraction defined by the
 roadmap, and it is dropped here.
@@ -47,8 +48,9 @@ percentage would be misleading; Section 5 gives three usable definitions
 of "complete" instead.
 
 One line you can quote: two-state pilot, six increments accepted; Stage 4
-extension (markov) accepted as the seventh increment; Stage 5 release
-readiness in progress.
+extension (markov) accepted as the seventh increment; bounded Stage 5
+release-readiness candidate accepted; the roadmap's broader release and
+human-review gate not declared complete; no implementation active.
 Portfolio: 1 Mathlib reuse endpoint identified, 4 rows advanced locally,
 34 without local implementation, 0 newly completed.
 
@@ -61,7 +63,7 @@ Portfolio: 1 Mathlib reuse endpoint identified, 4 rows advanced locally,
 | 2. Stationary pilot | Component equations, valid `rho_*`, stationarity, uniqueness, degenerate rates | `stationary` | Accepted | 30 |
 | 3. Dynamics pilot | Explicit Kraus channel, semigroup and derivative identities, quantitative convergence | Split by the audits into `evolution`, `kraus`, `convergence` | All three accepted | 43 + 43 + 29 |
 | 4. One extension | Markov bridge, or finite CAR/Hubbard, or a verified downstream repair | `markov` (H = 0 finite Markov generator bridge) | Accepted | 29 |
-| 5. Release / upstream | Stable downstream release, selected foundational contributions | `release-readiness` candidate | In progress; a candidate, not a publication | 0 (documentation only) |
+| 5. Release / upstream | Stable downstream release, selected foundational contributions | `release-readiness` candidate | Accepted as a bounded candidate; not a publication, and the broader release and human-review gate is not declared complete | 0 (documentation only) |
 
 Accepted public surface after the Markov audit: 8 release modules, 216
 exports (193 theorem contracts, 23 definitions or abbreviations), all on
@@ -117,10 +119,11 @@ Dispositions are the auditor's (`M` Mathlib endpoint identified; `C`
 relevant source or reported candidate, possibly narrower than the row and
 still needing an exact reuse audit; `U/P` unresolved or partial only). The
 contribution column follows the accepted ledger
-`audits/convergence/v1/PORTFOLIO_STATUS.md`. The tier column is my planning
+`audits/release-readiness/v1/PORTFOLIO_STATUS.md` (unchanged in its rows
+from `audits/markov/v1/PORTFOLIO_STATUS.md`). The tier column is my planning
 classification, defined below the table.
 
-| ID | Area | Disp. | Local contribution after convergence | Tier |
+| ID | Area | Disp. | Local contribution after the Markov acceptance | Tier |
 | ---: | --- | --- | --- | --- |
 | 1 | Register and circuits | C | None | A |
 | 2 | QFT unitarity | C | None | A |
@@ -131,10 +134,10 @@ classification, defined below the table.
 | 7 | Bloch theorem | C (finite seed only) | None; a finite periodic-lattice surrogate would be new work | A/B |
 | 8 | Fermionic Fock / CAR | U/P | None | B |
 | 9 | Tight-binding / Hubbard | U/P | None | B |
-| 10 | GKSL characterization | C | Complete explicit two-state benchmark: dissipator, generator, CPTP semigroup for nonnegative rates and time, four-Kraus formula on all matrices, ODE identity, quantitative Frobenius relaxation; no generic GKSL | A for the generic theorem; the benchmark is done |
-| 11 | Quantum Perron-Frobenius | C | Two-state stationary uniqueness, exponential Frobenius attraction at positive total rate, and the both-zero no-common-attractor proof; no generic PF, spectral gap, or irreducibility theory | A |
+| 10 | GKSL characterization | C | Complete explicit two-state benchmark: dissipator, generator, CPTP semigroup for nonnegative rates and time, four-Kraus formula on all matrices, ODE identity, quantitative Frobenius relaxation; plus the arbitrary finite zero-Hamiltonian matrix-unit generator with its population and coherence equations and the diagonal classical bridge; no generic GKSL characterization | A for the generic theorem; the benchmark is done |
+| 11 | Quantum Perron-Frobenius | C | Two-state stationary uniqueness, exponential Frobenius attraction at positive total rate, and the both-zero no-common-attractor proof; plus, on any finite state set, diagonal stationarity iff `Qp = 0` and stationary probability vectors giving stationary densities; no generic uniqueness, irreducibility, mixing, or spectral gap | A |
 | 12 | Lieb-Robinson bounds | U/P | None | C |
-| 13 | State layer, partial trace, purification | C | Qubit density predicate, basis and diagonal densities, density preservation by the physical flow, and convergence of every density to the stationary density for nonnegative rates with positive total rate (the both-zero case has no common attractor); no partial trace or purification | A |
+| 13 | State layer, partial trace, purification | C | Qubit density predicate, basis and diagonal densities, density preservation by the physical flow, and convergence of every density to the stationary density for nonnegative rates with positive total rate (the both-zero case has no common attractor); plus arbitrary finite probability vectors giving complex PSD trace-one diagonal matrices; no partial trace, purification, or generic dynamics | A |
 | 14 | POVMs / Born rule | C | None | A |
 | 15 | Kraus / Choi / Stinespring | C | Finite Kraus trace and positivity laws, blockwise ancilla amplification, lifted-Kraus identity, and CP for one channel family; no representation equivalences | A |
 | 16 | Entropy inequalities | C | None | A |
@@ -202,9 +205,10 @@ Definition 2: program version 1 is complete. Exit gate: pilot plus one
 Stage 4 extension plus a Stage 5 downstream release (clean reproduction,
 changelog, citations, human review; upstreaming is a separate gate that
 depends on Mathlib reviewers). The Stage 4 extension, the H = 0 finite
-Markov bridge, is accepted. The Stage 5 release-readiness candidate is in
-progress; the roadmap's human review, any publication, and any upstream
-contribution are separate decisions that no round of this loop makes.
+Markov bridge, is accepted. The bounded Stage 5 release-readiness candidate
+is accepted; the roadmap's human review, any publication, and any upstream
+contribution are separate decisions that no round of this loop makes, so
+the roadmap's broader Stage 5 gate is not declared complete.
 
 Definition 3: the portfolio is complete. This is not a well-defined target
 and I recommend not treating it as one. The defensible reframing is to
@@ -255,10 +259,13 @@ than start from Mathlib.
   has been proposed upstream. The value so far is a checked representation,
   explicit contracts, and an audit process that has held up across seven
   accepted increments.
-- The release-readiness candidate is in progress. It freezes the accepted
-  surface and adds documentation, provenance, and a fresh-extraction
-  reproduction; it does not publish anything. The owner has selected the
-  Apache License 2.0 for the project's own material (D021).
+- The release-readiness candidate is accepted (`audits/release-readiness/v1/`).
+  It froze the accepted surface and added documentation, provenance, and a
+  fresh-extraction reproduction; it published nothing, and its acceptance
+  is not a human-review result. The owner has selected the Apache License
+  2.0 for the project's own material (D021). The implementation phase is
+  paused; the next theorem contract or a publication plan is the owner's
+  decision.
 - The convergence estimate is in the Frobenius norm, centered in a trace
   fiber. It is not a trace-norm or diamond-norm contraction, it is not an
   uncentered Frobenius contraction (for `a = 1`, `b = 0`, and `X = I`, the

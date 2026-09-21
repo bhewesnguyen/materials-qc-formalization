@@ -62,7 +62,8 @@ identity, tensor action) and `FormalScience/OpenSystems/TwoStateKraus.lean`
 flow on every complex matrix for nonnegative rates and time, positivity and
 density preservation, all-finite-ancilla complete positivity, boundary
 families). 158 exports, 139 contracts. One docstring-only change to the
-evolution module (E1).
+evolution module, the optional copy edit recorded in D013 (finding E1
+concerned README scope).
 
 ## evolution v1 (tag `evolution-milestone-v1`, commit `a60a92b6064b4dde33a98d3c79be195c77595873`)
 

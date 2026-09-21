@@ -839,3 +839,52 @@ policies. Choosing a license is not a publication decision: no public
 release, upstream submission, or maintainer contact is made by this
 round.
 
+## D022: acceptance of the release-readiness candidate, findings R1 to R3, and closure
+
+The release-readiness audit (`audits/release-readiness/v1/`) accepted
+`release-readiness-milestone-v1` at commit `2a258df` with three
+low-severity documentation findings and no proof, packaging, pin, or
+verifier revision. It is one accepted release-readiness checkpoint, not an
+eighth mathematical increment: seven mathematical increments, eight
+modules, 216 exports, 193 theorem contracts, 23 definitions or
+abbreviations. Both archives and the receipt separation were verified
+independently, the frozen files were compared byte for byte against the
+Markov bytes, and the auditor fetched the Apache text and confirmed byte
+equality with `LICENSE`.
+
+R1, API guide. `docs/API_GUIDE.md` now uses fully qualified declaration
+names and full import paths, opens `FormalScience.Quantum` in its setup,
+expands every suffix shorthand, shows the `i ≠ j` premise on
+`markovGenerator_apply_of_ne` and `rateMatrix_nonneg_of_ne`, states that
+`rhoStar_zero_left` is unconditional (its two neighbours keep `a ≠ 0` and
+`r ≠ 0`), and distinguishes theorem consumers from definitions anchored by
+formula consumers. Every qualified name was checked against
+`exports.json`.
+
+R2, wording. The readiness record's Section 4 no longer calls the
+consumer contracts human-written; it states that they were written
+explicitly and semantically reviewed by the implementation and
+independent audit agents, that the textual check alone does not validate
+their meaning, and that no human semantic review is recorded. The
+provenance document's origin item is narrowed to implementation-authored
+files, preserving the separately described auditor and planning origins.
+
+R3, currency. The scope memo's Section 4 heading and ledger link advance
+to the accepted ledger and rows 10, 11, and 13 gain the Markov
+contributions (row 15 unchanged; still four partly advanced rows, none
+closed). The Kraus changelog entry attributes the evolution docstring edit
+to the optional D013 copy edit rather than to E1. M1 and M2 remain closed.
+
+Closure. Per the issued closure assignment
+(`audits/release-readiness/v1/NEXT_FABLE_TASK.md`), this is an ordinary
+integration commit: no new tag, archive, handoff, or audit packet; the
+accepted Lean source, contracts, exports, scripts, pins, package version,
+and `examples/Usage.lean` are byte-identical to the accepted tag; the
+gates were not rerun because their inputs are unchanged. Root
+`NEXT_FABLE_TASK.md` is an inactive checkpoint note. The implementation
+phase is paused. What this acceptance is not: the roadmap's broader Stage
+5 gate (stable downstream release with human review) is not declared
+complete, no publication or upstream submission has occurred, and no new
+research branch is chosen. The next theorem contract or a publication plan
+is the owner's decision.
+

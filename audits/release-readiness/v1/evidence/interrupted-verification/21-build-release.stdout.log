@@ -1,0 +1,10 @@
+✔ [2525/2534] Built FormalScience.Stage0 (2.6s)
+✔ [2526/2534] Built FormalScience.OpenSystems.Dissipator (2.1s)
+✔ [2527/2534] Built FormalScience.Quantum.FiniteKraus (2.3s)
+✔ [2528/2534] Built FormalScience.OpenSystems.TwoStateStationary (2.2s)
+✔ [2529/2534] Built FormalScience.OpenSystems.FiniteMarkovBridge (2.9s)
+✔ [2530/2534] Built FormalScience.OpenSystems.TwoStateEvolution (3.5s)
+✔ [2531/2534] Built FormalScience.OpenSystems.TwoStateKraus (3.0s)
+✔ [2532/2534] Built FormalScience.OpenSystems.TwoStateConvergence (2.8s)
+✔ [2533/2534] Built FormalScience (1.8s)
+Build completed successfully (2534 jobs).

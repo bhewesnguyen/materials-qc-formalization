@@ -27,9 +27,14 @@ Origin and authorship:
   `AGENTS.md`, `AUDIT_HANDOFF_TEMPLATE.md`, and the initial `README.md` and
   `DECISIONS.md` were produced by the independent audit agent as the Stage 0
   baseline and imported as commit `cd7e6c6` (`audits/stage0/v1/`).
-- Every later release module, contract, document, and evidence tree was
-  produced by the implementation agent in rounds 1 to 7, under the owner's
-  direction (`TURNS.md`, `DECISIONS.md`).
+- The implementation-authored files of rounds 1 to 7 were produced by the
+  implementation agent under the owner's direction (`TURNS.md`,
+  `DECISIONS.md`): the seven later release modules, the appended
+  contracts, the umbrella and export additions, the handoffs and pointers,
+  the round evidence trees under `evidence/`, `CHANGELOG.md`, the
+  documents under `docs/` other than the pre-repository planning files,
+  and `examples/Usage.lean`. The auditor-authored files and the planning
+  documents have the separate origins described in the next two items.
 - Two release modules adapt short in-project reference probes written by
   the audit agent for this project, with the adaptations recorded at the
   time: `FormalScience/Quantum/FiniteKraus.lean` follows
